@@ -1,0 +1,6 @@
+[submodule "mockups/ui/lib.monoSnippets"]
+	path = mockups/ui/lib.monoSnippets
+	url = git@github.com:monoceroi/monoSnippets.git
+[submodule "mockups/ui/lib.jquery"]
+	path = mockups/ui/lib.jquery
+	url = http://github.com/jquery/jquery.git
