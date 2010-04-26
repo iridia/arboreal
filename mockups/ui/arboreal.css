@@ -52,6 +52,10 @@ body {
   margin: 0 auto;
 }
 header { height: 128px; }
+header h1 {
+  height: 128px;
+  background: url(arboreal.logotype.main.png) no-repeat left bottom;
+}
 header h1 span { display: none; }
 .gallery { height: 384px; }
 aside .calendar {
