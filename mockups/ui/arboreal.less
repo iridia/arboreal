@@ -138,14 +138,39 @@
 	
 	
 	
-	.calendar {
+	aside .calendar {
 	
-		.rigidWidth(@arborealSidebarWidth);
+		.rigidWidth(@arborealSidebarWidth - (2 * @nib));
+		padding: 0 @nib;
+	
+		@calendarItemWidth: 4 * @nib;
+		
 	
 		time {
 		
 			.inlineBlock;
-			width: 4 * @nib;
+			width: 1 * @calendarItemWidth;
+			text-align: center;
+				
+		}
+		
+		.sunday {	margin-left: 0 * @calendarItemWidth;	}
+		.monday {	margin-left: 1 * @calendarItemWidth;	}
+		.tuesday {	margin-left: 2 * @calendarItemWidth;	}
+		.wednesday {	margin-left: 3 * @calendarItemWidth;	}
+		.thursday {	margin-left: 4 * @calendarItemWidth;	}
+		.friday {	margin-left: 5 * @calendarItemWidth;	}
+		.saturday {	margin-left: 6 * @calendarItemWidth;	}
+		
+		.details {
+		
+			time {
+			
+				display: inherit;
+				width: auto;
+				text-align: left;
+			
+			}
 		
 		}
 	

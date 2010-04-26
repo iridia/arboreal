@@ -54,15 +54,29 @@ body {
 header { height: 128px; }
 header h1 span { display: none; }
 .gallery { height: 384px; }
-.calendar {
-  width: 256px;
-  min-width: 256px;
-  max-width: 256px;
+aside .calendar {
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+  padding: 0 8px;
 }
-.calendar time {
+aside .calendar time {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
   *display: inline;
   width: 32px;
+  text-align: center;
+}
+aside .calendar .sunday { margin-left: 0px; }
+aside .calendar .monday { margin-left: 32px; }
+aside .calendar .tuesday { margin-left: 64px; }
+aside .calendar .wednesday { margin-left: 96px; }
+aside .calendar .thursday { margin-left: 128px; }
+aside .calendar .friday { margin-left: 160px; }
+aside .calendar .saturday { margin-left: 192px; }
+aside .calendar .details time {
+  display: inherit;
+  width: auto;
+  text-align: left;
 }
