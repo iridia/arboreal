@@ -8,27 +8,21 @@
 
 
 
+//	Positioning
+
+	@stub: 64px;
+	@nib: 8px;
+
+	@arborealWidth: 13 * @stub;
+	@arborealSidebarWidth: 4 * @stub;
 
 
 
 
 
-html {
-
-}
-
-
-
-
-
-
-
-
-
-
-body {
-
-}
+//	!Swatches
+	
+	@arborealBackdrop: rgb(204, 217, 196);
 
 
 
@@ -39,13 +33,21 @@ body {
 
 
 
-header {
+//	!Debug Mode
 
-	nav {
+	.d * {
+	
+		background-color: rgba(255, 255, 255, .05);
+		outline: 1px solid rgba(255, 255, 255, .2);
+		
+		:hover {
+		
+			background-color: rgba(255, 255, 255, .25);
+		
+		}
 	
 	}
 
-}
 
 
 
@@ -55,32 +57,134 @@ header {
 
 
 
+//	!Context
 
-article {
 
+
+
+
+	html {
+	
+		background-color: @arborealBackdrop;
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	body {
+	
+		width: @arborealWidth;
+		margin: 0 auto;
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	header {
 	
+		height: 2 * @stub;
+		
+		h1 {
+		
+			span {
+			
+				display: none;
+			
+			}
+		
+		}
+	
+		nav {
+		
+		}
+	
 	}
 	
-	p {
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	.gallery {
+	
+		height: 6 * @stub;
 	
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	.calendar {
+	
+		.rigidWidth(@arborealSidebarWidth);
+	
+		time {
+		
+			.inlineBlock;
+			width: 4 * @nib;
+		
+		}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	article {
+	
+		header {
+		
+		}
+		
+		p {
+		
+		}
+		
+		footer {
+		
+		}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	footer {
 	
 	}
-
-}
-
-
-
-
-
-
-
-
-
-
-footer {
-
-}

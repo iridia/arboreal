@@ -41,3 +41,28 @@ abbr, article, aside, audio, canvas, details, figcaption, figure, footer, header
   content: "";
   font-family: "Wingdings";
 }
+.d * {
+  background-color: rgba(255, 255, 255, 0.05);
+  outline: 1px solid rgba(255, 255, 255, 0.2);
+}
+.d *:hover { background-color: rgba(255, 255, 255, 0.25); }
+html { background-color: #ccd9c4; }
+body {
+  width: 832px;
+  margin: 0 auto;
+}
+header { height: 128px; }
+header h1 span { display: none; }
+.gallery { height: 384px; }
+.calendar {
+  width: 256px;
+  min-width: 256px;
+  max-width: 256px;
+}
+.calendar time {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  width: 32px;
+}
