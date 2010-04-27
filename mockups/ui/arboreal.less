@@ -64,14 +64,14 @@
 	
 	}
 	
-	.full {
+	.full(@inset:0px) {
 
 		display: block;
 		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
+		left: @inset;
+		right: @inset;
+		top: @inset;
+		bottom: @inset;
 	
 	}
 
@@ -388,7 +388,68 @@
 	
 	.gallery {
 	
-		height: 6 * @pack;
+		height: 5 * @pack;
+
+		margin: 0px -36px 0px -36px;
+		padding: 36px;
+	
+		position: relative;
+		
+		:before {
+		
+			content: "";
+			display: block;
+			.full;
+			z-index: 1024;
+			.borderImage(url(arboreal.gallery.cover.png), 72, 72, 72, 108, round);
+		
+		}
+		
+		> li {
+		
+			.full;
+			background: black;
+					
+		}
+		
+		li.spotties {
+		
+			background: transparent;
+		
+			top: auto;
+			right: 18px;
+			bottom: 1.5 * @slice;
+			left: auto;
+			
+			z-index: 2048;
+			
+			display: table;
+			border-spacing: @slice 0px;
+			
+			li {
+			
+				display: table-cell;
+				.size(@slice);
+				.rigidWidth(@slice);
+				
+				.borderRadius;
+				
+				background: rgb(88, 88, 88);
+				
+				opacity: .55;
+				
+				.transitioning(.125s);
+				.link;
+			
+			}
+			
+			li.active, li:hover {
+			
+				opacity: 1;
+			
+			}
+		
+		}
 	
 	}
 	
@@ -403,6 +464,8 @@
 	
 	.context {
 	
+		margin-top: .5 * @pack;
+	
 		margin-left: -1 * @arborealSidebarSpacing;
 		margin-right: -1 * @arborealSidebarSpacing;
 		border-spacing: @arborealSidebarSpacing 0;
@@ -412,6 +475,7 @@
 		> * {
 		
 			display: table-cell;
+			vertical-align: top;
 		
 		}
 	
@@ -425,6 +489,10 @@
 	
 		.rigidWidth(@arborealSidebarWidth - (2 * @slice));
 		padding: 0 @slice;
+		
+		background: rgb(245, 245, 245);
+		border: 1px solid white;
+		margin: -1px;
 	
 		@calendarItemWidth: 4 * @slice;
 		
@@ -496,7 +564,7 @@
 		
 		.borderImage(url(arboreal.article.twitterStream.backdrop.png), 36, 36, 36, 108, round);
 		
-		margin: 0 -18px;
+		margin: -18px -18px 0 -18px;
 		
 		
 		

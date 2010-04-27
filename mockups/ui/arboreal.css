@@ -47,14 +47,6 @@ abbr, article, aside, audio, canvas, details, figcaption, figure, footer, header
 }
 .d *:hover { background-color: rgba(255, 255, 255, 0.25); }
 .link { cursor: pointer; }
-.full {
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
 .razorSplitHorizontal {
   content: "";
   display: block;
@@ -171,10 +163,10 @@ header nav ul li + li:before {
 header nav ul li a {
   display: block;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
 }
 header nav ul li.information a { background: url(arboreal.navigationBar.information.png) center no-repeat; }
 header nav ul li.information:hover a { background: url(arboreal.navigationBar.information.hover.png) center no-repeat; }
@@ -268,19 +260,97 @@ header nav ul li.active:after {
   background: url(arboreal.navigationBar.active.indicator.png) center no-repeat;
 }
 header + * { clear: both; }
-.gallery { height: 432px; }
+.gallery {
+  height: 360px;
+  margin: 0px -36px 0px -36px;
+  padding: 36px;
+  position: relative;
+}
+.gallery:before {
+  content: "";
+  display: block;
+  display: block;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 1024;
+  -o-border-image: url(arboreal.gallery.cover.png) 72 72 72 108 round round;
+  -icab-border-image: url(arboreal.gallery.cover.png) 72 72 72 108 round round;
+  -khtml-border-image: url(arboreal.gallery.cover.png) 72 72 72 108 round round;
+  -moz-border-image: url(arboreal.gallery.cover.png) 72 72 72 108 round round;
+  -webkit-border-image: url(arboreal.gallery.cover.png) 72 72 72 108 round round;
+  border-image: url(arboreal.gallery.cover.png) 72 72 72 108 round round;
+  border-top-width: 72px;
+  border-right-width: 72px;
+  border-bottom-width: 72px;
+  border-left-width: 108px;
+}
+.gallery > li {
+  display: block;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  background: black;
+}
+.gallery li.spotties {
+  background: transparent;
+  top: auto;
+  right: 18px;
+  bottom: 13.5px;
+  left: auto;
+  z-index: 2048;
+  display: table;
+  border-spacing: 9px 0px;
+}
+.gallery li.spotties li {
+  display: table-cell;
+  width: 9px;
+  height: 9px;
+  width: 9px;
+  min-width: 9px;
+  max-width: 9px;
+  -webkit-border-top-left-radius: 4.5px;
+  -webkit-border-top-right-radius: 4.5px;
+  -webkit-border-bottom-right-radius: 4.5px;
+  -webkit-border-bottom-left-radius: 4.5px;
+  -moz-border-radius: 4.5px 4.5px 4.5px 4.5px;
+  -o-border-radius: 4.5px 4.5px 4.5px 4.5px;
+  border-radius: 4.5px 4.5px 4.5px 4.5px;
+  -uu-border-radius: 4.5px 4.5px 4.5px 4.5px;
+  behavior: url(lib.monoSnippets.hack.borderRadius.htc);
+  background: #585858;
+  opacity: 0.55;
+  -webkit-transition: all 0.125s linear;
+  -moz-transition: all 0.125s linear;
+  -o-transition: all 0.125s linear;
+  transition: all 0.125s linear;
+  cursor: pointer;
+}
+.gallery li.spotties li.active { opacity: 1; }
+.gallery li.spotties li:hover { opacity: 1; }
 .context {
+  margin-top: 36px;
   margin-left: -36px;
   margin-right: -36px;
   border-spacing: 36px 0;
   display: table;
 }
-.context > * { display: table-cell; }
+.context > * {
+  display: table-cell;
+  vertical-align: top;
+}
 aside .calendar {
   width: 270px;
   min-width: 270px;
   max-width: 270px;
   padding: 0 9px;
+  background: #f5f5f5;
+  border: 1px solid white;
+  margin: -1px;
 }
 aside .calendar time {
   display: block;
@@ -313,7 +383,7 @@ aside .calendar .details time {
   border-right-width: 36px;
   border-bottom-width: 36px;
   border-left-width: 108px;
-  margin: 0 -18px;
+  margin: -18px -18px 0 -18px;
 }
 .twitterStream div { margin-left: -72px; }
 .twitterStream span {
