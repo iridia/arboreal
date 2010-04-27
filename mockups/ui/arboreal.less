@@ -63,6 +63,17 @@
 		cursor: pointer;
 	
 	}
+	
+	.full {
+
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	
+	}
 
 	.razorSplit (@height:36px) {
 	
@@ -83,14 +94,25 @@
 		display: block;
 		width: 0px;
 
-		margin-left: -2px;
+		margin-left: -1px;
 		border-left: 1px solid rgba(0, 0, 0, .2);
 		border-right: 1px solid rgba(255, 255, 255, .45);
-		
-		position: relative;
-		left: 1px;
+		margin-right: -1px;
 			
 	}
+	
+		.razorSplitHorizontalReversed {
+		
+			content: "";
+			display: block;
+			width: 0px;
+	
+			margin-left: -1px;
+			border-left: 1px solid rgba(255, 255, 255, .45);
+			border-right: 1px solid rgba(0, 0, 0, .2);
+			margin-right: -1px;
+				
+		}
 	
 	.upwardsShadow {
 	
@@ -199,27 +221,29 @@
 				
 					position: relative;
 				
-					.inlineBlock;
+					display: block;
+					float: left;
+					
+					.text(18px, @arborealNavigationBarHeight, rgb(32, 76, 0));
+					
 					width: 1.5 * @pack;
 					height: @arborealNavigationBarHeight;
 					margin-top: -1 * @arborealNavigationBarBorderWidth;
 					text-align: center;
 					vertical-align: middle;
-				
-					.text(18px, @arborealNavigationBarHeight, rgb(16, 38, 0));
-					text-shadow: 	rgba(255, 255, 255, .4) 0px 1px 0px,
-							rgba(0, 0, 0, .15) 0px -1px 0px;
 					
 					:first-child {
 					
-						margin-left: -1 * @arborealNavigationBarBorderWidth;
-					
+						margin-left: -4px;
+						.borderRadius(4.5px, 0, 0, 4.5px);
+						
 					}
 					
 					:last-child {
 					
-						margin-right: -1 * @arborealNavigationBarBorderWidth;
-					
+						margin-right: -4px;
+						.borderRadius(0, 4.5px, 4.5px, 0);
+						
 					}
 					
 					+ li {
@@ -228,31 +252,118 @@
 	
 							.razorSplitHorizontal;
 							position: absolute;
-						/*
-(2 * @slice);
-							width: 0;		
-*/			
+							left: -1;
 							height: @arborealNavigationBarHeight;
-							
-//							margin-left: -2 * @slice;
-						
+
 						}
 					
 					}
-				
-				}
-				
-				li.information {
-
-					background: url(arboreal.navigationBar.information.png) center no-repeat;
-				
-					span {
 					
-						display: none;
+					a {
+					
+						.full;
 					
 					}
 				
 				}
+				
+				li.information a {
+					
+					background: url(arboreal.navigationBar.information.png) center no-repeat;
+				
+				}
+				
+					
+				li.information:hover a {
+					
+					background: url(arboreal.navigationBar.information.hover.png) center no-repeat;
+					
+				}
+				
+				li.information.active a {
+				
+					background: url(arboreal.navigationBar.information.active.png) center no-repeat;
+				
+				}
+				
+				li.information a span {
+					
+					display: none;
+				
+				}
+				
+				
+				
+				
+				
+				li:hover,
+				li.hover {
+
+					background: rgba(0, 0, 0, 0.25);
+					color: white;
+					text-shadow: none;	
+				
+				}
+				
+				li + li:hover,
+				li + li.hover {
+				
+					:before {
+	
+						.razorSplitHorizontalReversed;
+						position: absolute;
+						left: -1;
+						height: @arborealNavigationBarHeight;
+
+					}
+					
+				}
+				
+				
+				
+				
+				
+				li, li.active, li.active:hover {
+				
+					text-shadow: 	rgba(255, 255, 255, .4) 0px 1px 0px,
+							rgba(0, 0, 0, .15) 0px -1px 0px;
+							
+					background: none;
+					
+					:before {
+					
+						.razorSplitHorizontal;
+					
+					}
+				
+				}
+				
+				li.active, li.active:hover {
+				
+					color: rgb(16, 38, 0);
+					
+				}
+				
+				li.active {
+								
+					:after {
+						
+						content: "";
+						display: block;
+						width: 2 * @slice;
+						height: 4 * @slice;
+						position: absolute;
+						left: 50%;
+						margin-left: -1 * @slice;
+						top: 100%;
+						margin-top: -2 * @slice;
+						background: url(arboreal.navigationBar.active.indicator.png) center no-repeat;
+					
+					}
+				
+				}
+				
+				
 			
 			}
 		
