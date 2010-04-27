@@ -12,6 +12,11 @@
 
 	@arborealWidth: 13 * @pack;
 	@arborealSidebarWidth: 4 * @pack;
+	
+	@arborealSidebarSpacing: 4 * @slice;
+	
+	@arborealNavigationBarBorderWidth: 4px;
+	@arborealNavigationBarHeight: 6 * @slice;
 
 
 
@@ -43,6 +48,31 @@
 		
 		}
 	
+	}
+
+
+
+
+
+//	Snippets
+
+	.link {
+	
+		cursor: pointer;
+	
+	}
+
+	.razorSplit (@height:36px) {
+	
+		content: "";
+		display: block;
+		height: 0px;
+
+		margin-top: .5 * @height - 1;
+		border-top: 1px solid rgba(0, 0, 0, .2);
+		border-bottom: 1px solid rgba(255, 255, 255, .45);
+		margin-bottom: .5 * @height - 1;
+			
 	}
 
 
@@ -115,12 +145,54 @@
 		nav {
 		
 			float: right;
+			margin-top: 9 * @slice;
+			
+			
 			
 			ul {
 			
+				height: @arborealNavigationBarHeight - (2 * @arborealNavigationBarBorderWidth);
+				border: @arborealNavigationBarBorderWidth solid rgb(156, 185, 146);
+				background: rgb(165, 195, 154);
+				.borderRadius(4.5px);
+				overflow: visible;
+			
 				li {
 				
-					display: inline;
+					position: relative;
+				
+					.inlineBlock;
+					width: 1.5 * @pack;
+					height: @arborealNavigationBarHeight;
+					margin-top: -1 * @arborealNavigationBarBorderWidth;
+					text-align: center;
+					vertical-align: middle;
+				
+					.text(18px, @arborealNavigationBarHeight);
+					
+					:first-child {
+					
+						margin-left: -1 * @arborealNavigationBarBorderWidth;
+					
+					}
+					
+					:last-child {
+					
+						margin-right: -1 * @arborealNavigationBarBorderWidth;
+					
+					}
+				
+				}
+				
+				li.information {
+
+					background: url(arboreal.navigationBar.information.png) center no-repeat;
+				
+					span {
+					
+						display: none;
+					
+					}
 				
 				}
 			
@@ -155,6 +227,26 @@
 	
 	
 	
+	
+	
+	
+	
+	
+	.context {
+	
+		margin-left: -1 * @arborealSidebarSpacing;
+		margin-right: -1 * @arborealSidebarSpacing;
+		border-spacing: @arborealSidebarSpacing 0;
+	
+		display: table;
+		
+		> * {
+		
+			display: table-cell;
+		
+		}
+	
+	}
 	
 	
 	
@@ -231,11 +323,142 @@
 	
 	
 	
+	.twitterStream {
+		
+		.borderImage(url(arboreal.article.twitterStream.backdrop.png), 36, 36, 36, 108, round);
+		
+		margin: 0 -36px 0 -36px;
+		
+		.text(24px, 36px);
+		
+		div {
+		
+			margin-left: -72px;
+		
+		}
+		
+		a {
+		
+			.inlineBlock;
+			.size(36px, 36px);
+			vertical-align: bottom;
+		
+			background: url(arboreal.article.twitterStream.information.png) center no-repeat;
+		
+			span {
+		
+				display: none;
+			
+			}
+		
+		}
+		
+		time {
+		
+			.inlineBlock;
+			float: right;
+			margin-top: 2 * @slice;
+			.text(12px, 18px);
+		
+		}
+	
+	}
+	
+	
+	
+	
+	
+	.blogPosts {
+	
+		.borderImage(url(arboreal.article.blogPosts.backdrop.png), 36, 36, 54, 36, round);
+		
+		margin: 0 -36px;
+		padding-bottom: 18px;
+	
+		h2 {
+		
+			.text(20px, 36px);
+		
+			time {
+			
+				float: left;
+				width: 16 * @slice;
+				margin-left: -16 * @slice;
+			
+			}
+		
+			margin-left: 16 * @slice;
+		
+		}
+		
+		p {
+		
+			.text(13px, 18px);
+			
+			margin-left: 16 * @slice;
+		
+		}
+		
+		li {
+		
+			+ li {
+			
+				:before {
+				
+					.razorSplit(36px, .45, .2);
+					
+					margin-left: -18px;
+					margin-right: -18px;
+				
+				}
+			
+			}
+		
+		}
+		
+		.more {
+		
+			.link;
+		
+			height: 4 * @slice;
+			margin-bottom: -4 * @slice;
+			
+			background: url(arboreal.article.blogPosts.more.png) center right no-repeat;
+			
+			span {
+			
+				display: none;
+			
+			}
+		
+		}
+	
+	}
+	
+	
+	
+	
+	
 	
 	
 	
 	
 	
 	footer {
+	
+		height: @pack;
+	
+		* {
+		
+			display: inline;
+		
+		}
+		
+		.credit {
+		
+			.inlineBlock;
+			float: right;
+		
+		}
 	
 	}
