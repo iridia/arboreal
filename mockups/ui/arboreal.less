@@ -485,12 +485,12 @@
 	
 	
 	
-	aside .calendar {
+	.calendar {
 	
 		.rigidWidth(@arborealSidebarWidth - (4 * @slice));
 		padding: 0 (2 * @slice);
 		
-		background: rgb(245, 245, 245);
+		background-color: rgb(245, 245, 245);
 		border: 1px solid white;
 		margin: -1px;
 		
@@ -515,7 +515,8 @@
 				top: 2 * @slice;
 				left: 0;
 				
-				background: black;
+				background: url(arboreal.calendar.sunday.png) center no-repeat;
+				background-color: .calendar['background-color'];
 			
 			}
 			
