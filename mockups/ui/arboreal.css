@@ -46,7 +46,6 @@ abbr, article, aside, audio, canvas, details, figcaption, figure, footer, header
   outline: 1px solid rgba(255, 255, 255, 0.2);
 }
 .d *:hover { background-color: rgba(255, 255, 255, 0.25); }
-.link { cursor: pointer; }
 .razorSplitHorizontal {
   content: "";
   display: block;
