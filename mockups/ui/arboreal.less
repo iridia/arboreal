@@ -487,21 +487,54 @@
 	
 	aside .calendar {
 	
-		.rigidWidth(@arborealSidebarWidth - (2 * @slice));
-		padding: 0 @slice;
+		.rigidWidth(@arborealSidebarWidth - (4 * @slice));
+		padding: 0 (2 * @slice);
 		
 		background: rgb(245, 245, 245);
 		border: 1px solid white;
 		margin: -1px;
+		
+		.borderRadius(9px);
+		.shadowed(rgba(0, 0, 0, .45), 0px, 1px, 1px);
 	
 		@calendarItemWidth: 4 * @slice;
 		
+		h2 {
+		
+			.text(16px, (.5 * @pack));
+			text-align: center;
+
+			position: relative;
+			
+			:before {
+			
+				content: "";
+				display: block;
+				position: absolute;
+				.size(4 * @slice);
+				top: 2 * @slice;
+				left: 0;
+				
+				background: black;
+			
+			}
+			
+			:after {
+			
+				.razorSplit(36px, .45, .2);
+				margin: 0 -18px 0 -18px;
+			
+			}
+			
+			margin-bottom: 2 * @slice;
+		
+		}
 	
 		time {
 		
 			display: block;
 			float: left;
-			width: 1 * @calendarItemWidth;
+			.size(1 * @calendarItemWidth, 1 * @calendarItemWidth);
 			text-align: center;
 				
 		}
@@ -521,8 +554,8 @@
 			time {
 			
 				display: block;
+				.size(auto);
 				float: none;
-				width: auto;
 				text-align: left;
 			
 			}
