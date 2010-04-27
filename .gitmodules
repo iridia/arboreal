@@ -4,3 +4,6 @@
 [submodule "mockups/ui/lib.jquery"]
 	path = mockups/ui/lib.jquery
 	url = http://github.com/jquery/jquery.git
+[submodule "mockups/ui/lib.less.js"]
+	path = mockups/ui/lib.less.js
+	url = git@github.com:monoceroi/less.js.git
