@@ -10,11 +10,8 @@
 
 //	Positioning
 
-	@stub: 64px;
-	@nib: 8px;
-
-	@arborealWidth: 13 * @stub;
-	@arborealSidebarWidth: 4 * @stub;
+	@arborealWidth: 13 * @pack;
+	@arborealSidebarWidth: 4 * @pack;
 
 
 
@@ -96,11 +93,14 @@
 	
 	header {
 	
-		height: 2 * @stub;
+		height: 2 * @pack;
 		
 		h1 {
 		
-			height: 2 * @stub;
+			float: left;
+		
+			height: 2 * @pack;
+			width: 4 * @pack;
 			
 			background: url(arboreal.logotype.main.png) no-repeat left bottom;
 		
@@ -113,6 +113,24 @@
 		}
 	
 		nav {
+		
+			float: right;
+			
+			ul {
+			
+				li {
+				
+					display: inline;
+				
+				}
+			
+			}
+		
+		}
+		
+		+ * {
+		
+			clear: both;
 		
 		}
 	
@@ -129,7 +147,7 @@
 	
 	.gallery {
 	
-		height: 6 * @stub;
+		height: 6 * @pack;
 	
 	}
 	
@@ -144,33 +162,37 @@
 	
 	aside .calendar {
 	
-		.rigidWidth(@arborealSidebarWidth - (2 * @nib));
-		padding: 0 @nib;
+		.rigidWidth(@arborealSidebarWidth - (2 * @slice));
+		padding: 0 @slice;
 	
-		@calendarItemWidth: 4 * @nib;
+		@calendarItemWidth: 4 * @slice;
 		
 	
 		time {
 		
-			.inlineBlock;
+			display: block;
+			float: left;
 			width: 1 * @calendarItemWidth;
 			text-align: center;
 				
 		}
 		
-		.sunday {	margin-left: 0 * @calendarItemWidth;	}
-		.monday {	margin-left: 1 * @calendarItemWidth;	}
-		.tuesday {	margin-left: 2 * @calendarItemWidth;	}
-		.wednesday {	margin-left: 3 * @calendarItemWidth;	}
-		.thursday {	margin-left: 4 * @calendarItemWidth;	}
-		.friday {	margin-left: 5 * @calendarItemWidth;	}
-		.saturday {	margin-left: 6 * @calendarItemWidth;	}
+		.leadingSunday {	margin-left: 0 * @calendarItemWidth;	}
+		.leadingMonday {	margin-left: 1 * @calendarItemWidth;	}
+		.leadingTuesday {	margin-left: 2 * @calendarItemWidth;	}
+		.leadingWednesday {	margin-left: 3 * @calendarItemWidth;	}
+		.leadingThursday {	margin-left: 4 * @calendarItemWidth;	}
+		.leadingFriday {	margin-left: 5 * @calendarItemWidth;	}
+		.leadingSaturday {	margin-left: 6 * @calendarItemWidth;	}
 		
 		.details {
 		
+			clear: left;
+		
 			time {
 			
-				display: inherit;
+				display: block;
+				float: none;
 				width: auto;
 				text-align: left;
 			

@@ -48,39 +48,44 @@ abbr, article, aside, audio, canvas, details, figcaption, figure, footer, header
 .d *:hover { background-color: rgba(255, 255, 255, 0.25); }
 html { background-color: #ccd9c4; }
 body {
-  width: 832px;
+  width: 936px;
   margin: 0 auto;
 }
-header { height: 128px; }
+header { height: 144px; }
 header h1 {
-  height: 128px;
+  float: left;
+  height: 144px;
+  width: 288px;
   background: url(arboreal.logotype.main.png) no-repeat left bottom;
 }
 header h1 span { display: none; }
-.gallery { height: 384px; }
+header nav { float: right; }
+header nav ul li { display: inline; }
+header + * { clear: both; }
+.gallery { height: 432px; }
 aside .calendar {
-  width: 240px;
-  min-width: 240px;
-  max-width: 240px;
-  padding: 0 8px;
+  width: 270px;
+  min-width: 270px;
+  max-width: 270px;
+  padding: 0 9px;
 }
 aside .calendar time {
-  display: -moz-inline-stack;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  width: 32px;
+  display: block;
+  float: left;
+  width: 36px;
   text-align: center;
 }
-aside .calendar .sunday { margin-left: 0px; }
-aside .calendar .monday { margin-left: 32px; }
-aside .calendar .tuesday { margin-left: 64px; }
-aside .calendar .wednesday { margin-left: 96px; }
-aside .calendar .thursday { margin-left: 128px; }
-aside .calendar .friday { margin-left: 160px; }
-aside .calendar .saturday { margin-left: 192px; }
+aside .calendar .leadingSunday { margin-left: 0px; }
+aside .calendar .leadingMonday { margin-left: 36px; }
+aside .calendar .leadingTuesday { margin-left: 72px; }
+aside .calendar .leadingWednesday { margin-left: 108px; }
+aside .calendar .leadingThursday { margin-left: 144px; }
+aside .calendar .leadingFriday { margin-left: 180px; }
+aside .calendar .leadingSaturday { margin-left: 216px; }
+aside .calendar .details { clear: left; }
 aside .calendar .details time {
-  display: inherit;
+  display: block;
+  float: none;
   width: auto;
   text-align: left;
 }
