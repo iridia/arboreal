@@ -99,7 +99,34 @@
 	
 	.upwardsShadow {
 	
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0, 0)), color-stop(1, rgba(0,0,0, 1)));
+		background: -moz-linear-gradient(center top, rgba(0,0,0, 0) 0%, rgba(0,0,0, 1) 100%);
+	
 	}
+	
+		.upwardsShadowBlock {
+		
+			content: "";
+			display: block;
+
+			position: relative;
+			top: 4px;
+			margin-top: -4px;
+			
+			height: 4px;
+
+			.upwardsShadow;
+			
+			margin-left: 0px;
+			margin-right: 0px;
+			
+			opacity: .35;
+
+		}
+	
+	
+	
+	
 	
 	.downwardsShadow {
 	
@@ -107,8 +134,26 @@
 		background: -moz-linear-gradient(center top, rgba(0,0,0, 1) 0%, rgba(0,0,0, 0) 100%);
 	
 	}
+	
+		.downwardsShadowBlock {
+		
+			content: "";
+			display: block;
 
+			position: relative;
+			top: 4px;
+			margin-top: -4px;
+			
+			height: 4px;
 
+			.downwardsShadow;
+			
+			margin-left: 0px;
+			margin-right: 0px;
+			
+			opacity: .35;
+
+		}
 
 
 
@@ -536,6 +581,39 @@
 		.details {
 		
 			clear: left;
+			background: rgb(64, 74, 54);
+			
+			margin: @slice -19px @slice -19px;
+			padding: @slice 19px @slice 19px;
+			
+			:before {
+			
+				.downwardsShadowBlock;
+				top: -4px;
+			
+			}
+			
+			:after {
+			
+				.upwardsShadowBlock;
+				top: 8px;
+			
+			}
+			
+			:before, :after {
+			
+				margin-left: -19px;
+				margin-right: -19px;
+			
+			}
+			
+			li {
+			
+				height: 6 * @slice;
+				padding: @slice 0;
+				color: white;
+			
+			}
 		
 			time {
 			
@@ -543,6 +621,30 @@
 				.size(auto);
 				float: none;
 				text-align: left;
+				
+				.text(16px, 18px);
+			
+			}
+			
+			span {
+			
+				.text(24px, 36px);
+				.thinStroke;
+			
+			}
+			
+			a {
+			
+				.inlineBlock;
+				float: right;
+				.size(36px);
+				background: url(arboreal.calendar.information.png) center no-repeat;
+			
+				span {
+			
+					display: none;
+					
+				}
 			
 			}
 		

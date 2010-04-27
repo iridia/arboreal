@@ -47,6 +47,7 @@ abbr, article, aside, audio, canvas, details, figcaption, figure, footer, header
   user-select: none;
 }
 .link { cursor: pointer; }
+.thinStroke { -webkit-text-stroke: 1px transparent; }
 .d * {
   background-color: rgba(255, 255, 255, 0.05);
   outline: 1px solid rgba(255, 255, 255, 0.2);
@@ -70,9 +71,39 @@ abbr, article, aside, audio, canvas, details, figcaption, figure, footer, header
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   margin-right: -1px;
 }
+.upwardsShadow {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0)), color-stop(1, #000000));
+  background: -moz-linear-gradient(center top, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+.upwardsShadowBlock {
+  content: "";
+  display: block;
+  position: relative;
+  top: 4px;
+  margin-top: -4px;
+  height: 4px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0)), color-stop(1, #000000));
+  background: -moz-linear-gradient(center top, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  margin-left: 0px;
+  margin-right: 0px;
+  opacity: 0.35;
+}
 .downwardsShadow {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #000000), color-stop(1, rgba(0, 0, 0, 0)));
   background: -moz-linear-gradient(center top, #000000 0%, rgba(0, 0, 0, 0) 100%);
+}
+.downwardsShadowBlock {
+  content: "";
+  display: block;
+  position: relative;
+  top: 4px;
+  margin-top: -4px;
+  height: 4px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #000000), color-stop(1, rgba(0, 0, 0, 0)));
+  background: -moz-linear-gradient(center top, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  margin-left: 0px;
+  margin-right: 0px;
+  opacity: 0.35;
 }
 h1, h2, h3, h4, h5, h6, h7 { font-weight: normal; }
 html { background-color: #ccd9c4; }
@@ -419,14 +450,80 @@ header + * { clear: both; }
 .calendar .leadingThursday { margin-left: 144px; }
 .calendar .leadingFriday { margin-left: 180px; }
 .calendar .leadingSaturday { margin-left: 216px; }
-.calendar .details { clear: left; }
+.calendar .details {
+  clear: left;
+  background: #404a36;
+  margin: 9px -19px 9px -19px;
+  padding: 9px 19px 9px 19px;
+}
+.calendar .details:before {
+  content: "";
+  display: block;
+  position: relative;
+  top: 4px;
+  margin-top: -4px;
+  height: 4px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #000000), color-stop(1, rgba(0, 0, 0, 0)));
+  background: -moz-linear-gradient(center top, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  margin-left: 0px;
+  margin-right: 0px;
+  opacity: 0.35;
+  top: -4px;
+}
+.calendar .details:after {
+  content: "";
+  display: block;
+  position: relative;
+  top: 4px;
+  margin-top: -4px;
+  height: 4px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0)), color-stop(1, #000000));
+  background: -moz-linear-gradient(center top, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  margin-left: 0px;
+  margin-right: 0px;
+  opacity: 0.35;
+  top: 8px;
+}
+.calendar .details:before {
+  margin-left: -19px;
+  margin-right: -19px;
+}
+.calendar .details:after {
+  margin-left: -19px;
+  margin-right: -19px;
+}
+.calendar .details li {
+  height: 54px;
+  padding: 9px 0;
+  color: white;
+}
 .calendar .details time {
   display: block;
   width: auto;
   height: auto;
   float: none;
   text-align: left;
+  font-size: 16px;
+  line-height: 18px;
+  color: inherit;
 }
+.calendar .details span {
+  font-size: 24px;
+  line-height: 36px;
+  color: inherit;
+  -webkit-text-stroke: 1px transparent;
+}
+.calendar .details a {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  float: right;
+  width: 36px;
+  height: 36px;
+  background: url(arboreal.calendar.information.png) center no-repeat;
+}
+.calendar .details a span { display: none; }
 .twitterStream {
   -o-border-image: url(arboreal.article.twitterStream.backdrop.png) 36 36 36 108 round round;
   -icab-border-image: url(arboreal.article.twitterStream.backdrop.png) 36 36 36 108 round round;
