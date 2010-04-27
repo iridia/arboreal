@@ -3,6 +3,7 @@
 
 @import "lib.monoSnippets/lib.monoSnippets.reset.less";
 @import "lib.monoSnippets/lib.monoSnippets.less";
+@import "arboreal.typography.less";
 
 
 
@@ -25,6 +26,7 @@
 //	!Swatches
 	
 	@arborealBackdrop: rgb(204, 217, 196);
+	@arborealFooterBackdrop: rgb(126, 140, 112);
 
 
 
@@ -74,6 +76,32 @@
 		margin-bottom: .5 * @height - 1;
 			
 	}
+	
+	.razorSplitHorizontal {
+	
+		content: "";
+		display: block;
+		width: 0px;
+
+		margin-left: -2px;
+		border-left: 1px solid rgba(0, 0, 0, .2);
+		border-right: 1px solid rgba(255, 255, 255, .45);
+		
+		position: relative;
+		left: 1px;
+			
+	}
+	
+	.upwardsShadow {
+	
+	}
+	
+	.downwardsShadow {
+	
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0, 1)), color-stop(1, rgba(0,0,0, 0)));
+		background: -moz-linear-gradient(center top, rgba(0,0,0, 1) 0%, rgba(0,0,0, 0) 100%);
+	
+	}
 
 
 
@@ -86,7 +114,11 @@
 
 //	!Context
 
-
+	h1, h2, h3, h4, h5, h6, h7 {
+	
+		font-weight: normal;
+	
+	}
 
 
 
@@ -107,8 +139,13 @@
 	
 	body {
 	
-		width: @arborealWidth;
+		.typeSansSerifNeo;
+	
+		.rigidWidth(@arborealWidth);
+		padding: 0 @pack;
 		margin: 0 auto;
+		
+//		overflow-x: hidden;
 	
 	}
 	
@@ -147,14 +184,15 @@
 			float: right;
 			margin-top: 9 * @slice;
 			
-			
-			
 			ul {
 			
 				height: @arborealNavigationBarHeight - (2 * @arborealNavigationBarBorderWidth);
 				border: @arborealNavigationBarBorderWidth solid rgb(156, 185, 146);
 				background: rgb(165, 195, 154);
 				.borderRadius(4.5px);
+				
+				.doubleShadowed(rgba(0, 0, 0, .35), 0px, -1px, 0px, rgba(255, 255, 255, .5), 0px, 1px, 0px);
+				
 				overflow: visible;
 			
 				li {
@@ -168,7 +206,9 @@
 					text-align: center;
 					vertical-align: middle;
 				
-					.text(18px, @arborealNavigationBarHeight);
+					.text(18px, @arborealNavigationBarHeight, rgb(16, 38, 0));
+					text-shadow: 	rgba(255, 255, 255, .4) 0px 1px 0px,
+							rgba(0, 0, 0, .15) 0px -1px 0px;
 					
 					:first-child {
 					
@@ -179,6 +219,24 @@
 					:last-child {
 					
 						margin-right: -1 * @arborealNavigationBarBorderWidth;
+					
+					}
+					
+					+ li {
+					
+						:before {
+	
+							.razorSplitHorizontal;
+							position: absolute;
+						/*
+(2 * @slice);
+							width: 0;		
+*/			
+							height: @arborealNavigationBarHeight;
+							
+//							margin-left: -2 * @slice;
+						
+						}
 					
 					}
 				
@@ -329,11 +387,23 @@
 		
 		margin: 0 -36px 0 -36px;
 		
-		.text(24px, 36px);
+		
 		
 		div {
 		
 			margin-left: -72px;
+		
+		}
+		
+		span {
+		
+			.text(24px, 36px, rgb(3, 36, 0));
+		
+			text-shadow: 	rgba(255, 255, 255, .2) 0px 1px 0px,
+					rgba(0, 0, 0, .05) 0px -1px 0px,
+					rgba(0, 0, 0, .05) 0px 0px 4.5px;
+					
+			-webkit-text-stroke: 1px transparent;
 		
 		}
 		
@@ -377,25 +447,34 @@
 	
 		h2 {
 		
-			.text(20px, 36px);
-		
+			.text(20px, 36px, rgb(39, 73, 37));
+			
+			margin-left: 16 * @slice;
+			text-indent: -16 * @slice;
+			
+			text-shadow:	rgba(255, 255, 255, .65) 0px 1px 0px,
+					rgba(0, 0, 0, .15) 0px -1px 0px;
+			
 			time {
 			
-				float: left;
+				text-indent: 0;
+			
+				.inlineBlock;
 				width: 16 * @slice;
-				margin-left: -16 * @slice;
+				
+				font-weight: bold;
 			
 			}
 		
-			margin-left: 16 * @slice;
+			
 		
 		}
 		
 		p {
 		
-			.text(13px, 18px);
-			
+			.text(13px, 18px, rgb(89, 89, 89));
 			margin-left: 16 * @slice;
+			margin-top: 1 * @slice;
 		
 		}
 		
@@ -446,19 +525,95 @@
 	
 	footer {
 	
-		height: @pack;
+		margin-top: -1px;
+		border-top: 1px solid rgba(255, 255, 255, .65);
+
+		.text(14px, @pack, rgb(38, 38, 38));
+		text-shadow: 	rgba(255, 255, 255, .2) 0px 1px 0px,
+				rgba(0, 0, 0, .15) 0px -1px 0px,
+				rgba(255, 255, 255, .2) 0px 0px 1px;
 	
-		* {
+		position: absolute;
+		left: 0px;
+		right: 0px;
+	
+		background: @arborealFooterBackdrop;
 		
-			display: inline;
+		white-space: nowrap;
+		
+		div {
+		
+			overflow-y: hidden;
+			height: @pack;
+		
+			width: @arborealWidth;
+			margin: 0 auto;
+			
+			* {
+		
+				display: inline;
+			
+			}
 		
 		}
 		
-		.credit {
+		
+		
+		
+		
+		ul li {
+		
+			margin-right: 2 * @slice;
+			
+			:last-child {
+			
+				margin-right: 0;
+			
+			}
+		
+		}
+		
+		
+		
+		
+		
+		.credits {
 		
 			.inlineBlock;
+			width: 2 * @pack;
+			height: @pack;
 			float: right;
 		
+			span {
+			
+				display: none;
+			
+			}
+		
 		}
-	
+		
+		
+		
+		
+		
+		:before {
+		
+			content: "";
+			display: block;
+
+			position: relative;
+			top: 4px;
+			margin-top: -4px;
+			
+			height: 4px;
+
+			.downwardsShadow;
+			
+			margin-left: 0px;
+			margin-right: 0px;
+			
+			opacity: .35;
+		
+		}
+		
 	}
