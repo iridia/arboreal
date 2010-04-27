@@ -584,7 +584,7 @@
 			background: rgb(64, 74, 54);
 			
 			margin: @slice -19px @slice -19px;
-			padding: @slice 19px @slice 19px;
+			padding: @slice 0;
 			
 			:before {
 			
@@ -600,18 +600,25 @@
 			
 			}
 			
-			:before, :after {
+			li {
 			
-				margin-left: -19px;
-				margin-right: -19px;
+				.link;
+				height: 6 * @slice - 2;
+				
+				border-top: 1px solid transparent;
+				border-bottom: 1px solid transparent;
+				
+				padding: @slice 19px;
+				color: white;
 			
 			}
 			
-			li {
+			li:hover, li.active {
 			
-				height: 6 * @slice;
-				padding: @slice 0;
-				color: white;
+				background: rgba(0, 0, 0, .125);
+				
+				border-top: 1px solid rgba(0, 0, 0, .125);
+				border-bottom: 1px solid rgba(0, 0, 0, .125);
 			
 			}
 		

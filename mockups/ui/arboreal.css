@@ -454,7 +454,7 @@ header + * { clear: both; }
   clear: left;
   background: #404a36;
   margin: 9px -19px 9px -19px;
-  padding: 9px 19px 9px 19px;
+  padding: 9px 0;
 }
 .calendar .details:before {
   content: "";
@@ -484,18 +484,23 @@ header + * { clear: both; }
   opacity: 0.35;
   top: 8px;
 }
-.calendar .details:before {
-  margin-left: -19px;
-  margin-right: -19px;
-}
-.calendar .details:after {
-  margin-left: -19px;
-  margin-right: -19px;
-}
 .calendar .details li {
-  height: 54px;
-  padding: 9px 0;
+  cursor: pointer;
+  height: 52px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  padding: 9px 19px;
   color: white;
+}
+.calendar .details li:hover {
+  background: rgba(0, 0, 0, 0.125);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.calendar .details li.active {
+  background: rgba(0, 0, 0, 0.125);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 .calendar .details time {
   display: block;
