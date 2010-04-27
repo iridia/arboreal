@@ -41,6 +41,12 @@ abbr, article, aside, audio, canvas, details, figcaption, figure, footer, header
   content: "";
   font-family: "Wingdings";
 }
+.deselection {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.link { cursor: pointer; }
 .d * {
   background-color: rgba(255, 255, 255, 0.05);
   outline: 1px solid rgba(255, 255, 255, 0.2);
@@ -78,7 +84,12 @@ body {
   padding: 0 72px;
   margin: 0 auto;
 }
-header { height: 144px; }
+header {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  height: 144px;
+}
 header h1 {
   float: left;
   height: 144px;
