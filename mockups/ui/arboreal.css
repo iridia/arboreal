@@ -181,7 +181,7 @@ aside .calendar .details time {
   border-right-width: 36px;
   border-bottom-width: 36px;
   border-left-width: 108px;
-  margin: 0 -36px 0 -36px;
+  margin: 0 -18px;
 }
 .twitterStream div { margin-left: -72px; }
 .twitterStream span {
@@ -224,7 +224,7 @@ aside .calendar .details time {
   border-right-width: 36px;
   border-bottom-width: 54px;
   border-left-width: 36px;
-  margin: 0 -36px;
+  margin: 0 -18px;
   padding-bottom: 18px;
 }
 .blogPosts h2 {
