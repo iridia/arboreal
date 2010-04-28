@@ -121,8 +121,9 @@ header {
   user-select: none;
   height: 144px;
 }
-header h1 {
-  float: left;
+header h1 { float: left; }
+header h1 a {
+  display: block;
   height: 144px;
   width: 288px;
   background: url(arboreal.logotype.main.png) no-repeat left bottom;

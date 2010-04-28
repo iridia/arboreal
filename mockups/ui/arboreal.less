@@ -18,6 +18,8 @@
 	
 	@arborealNavigationBarBorderWidth: 4px;
 	@arborealNavigationBarHeight: 6 * @slice;
+	
+	@arborealCalendarItemWidth: 4 * @slice;
 
 
 
@@ -218,10 +220,16 @@
 		
 			float: left;
 		
-			height: 2 * @pack;
-			width: 4 * @pack;
+			a {
 			
-			background: url(arboreal.logotype.main.png) no-repeat left bottom;
+				display: block;
+				
+				height: 2 * @pack;
+				width: 4 * @pack;
+				
+				background: url(arboreal.logotype.main.png) no-repeat left bottom;
+			
+			}
 		
 			span {
 			
@@ -528,8 +536,6 @@
 		
 		.borderRadius(9px);
 		.shadowed(rgba(0, 0, 0, .45), 0px, 1px, 1px);
-	
-		@calendarItemWidth: 4 * @slice;
 		
 		h2 {
 		
@@ -568,7 +574,7 @@
 		
 			display: block;
 			float: left;
-			.size(1 * @calendarItemWidth, 1 * @calendarItemWidth);
+			.size(1 * @arborealCalendarItemWidth, 1 * @arborealCalendarItemWidth);
 			.text(16px, 36px);
 			
 			text-align: center;
@@ -607,13 +613,13 @@
 		
 		}
 		
-		.leadingSunday {	margin-left: 0 * @calendarItemWidth;	}
-		.leadingMonday {	margin-left: 1 * @calendarItemWidth;	}
-		.leadingTuesday {	margin-left: 2 * @calendarItemWidth;	}
-		.leadingWednesday {	margin-left: 3 * @calendarItemWidth;	}
-		.leadingThursday {	margin-left: 4 * @calendarItemWidth;	}
-		.leadingFriday {	margin-left: 5 * @calendarItemWidth;	}
-		.leadingSaturday {	margin-left: 6 * @calendarItemWidth;	}
+		.leadingSunday {	margin-left: 0 * @arborealCalendarItemWidth;	}
+		.leadingMonday {	margin-left: 1 * @arborealCalendarItemWidth;	}
+		.leadingTuesday {	margin-left: 2 * @arborealCalendarItemWidth;	}
+		.leadingWednesday {	margin-left: 3 * @arborealCalendarItemWidth;	}
+		.leadingThursday {	margin-left: 4 * @arborealCalendarItemWidth;	}
+		.leadingFriday {	margin-left: 5 * @arborealCalendarItemWidth;	}
+		.leadingSaturday {	margin-left: 6 * @arborealCalendarItemWidth;	}
 		
 		.details {
 		
