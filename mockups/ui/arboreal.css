@@ -733,7 +733,7 @@ footer div {
   overflow-y: hidden;
   height: 72px;
   width: 936px;
-  padding: 0px 18px;
+  padding: 0px 36px;
   margin: 0 auto;
 }
 footer div * { display: inline; }
