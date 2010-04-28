@@ -120,7 +120,7 @@ body > * {
   width: 936px;
   min-width: 936px;
   max-width: 936px;
-  padding: 0 36px;
+  padding: 0 18px;
   margin: 0 auto;
 }
 header {
@@ -693,7 +693,7 @@ footer div {
   overflow-y: hidden;
   height: 72px;
   width: 936px;
-  padding: 0px 36px;
+  padding: 0px 18px;
   margin: 0 auto;
 }
 footer div * { display: inline; }
