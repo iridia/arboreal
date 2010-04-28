@@ -584,12 +584,12 @@ article {
   border-bottom-width: 36px;
   border-left-width: 108px;
   margin: -18px -18px 0 -18px;
-}
-.twitterStream div { margin-left: -72px; }
-.twitterStream span {
   font-size: 24px;
   line-height: 36px;
   color: #032400;
+}
+.twitterStream div { margin-left: -72px; }
+.twitterStream span {
   text-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0px, rgba(0, 0, 0, 0.05) 0px -1px 0px, rgba(0, 0, 0, 0.05) 0px 0px 4.5px;
   -webkit-text-stroke: 1px transparent;
 }
