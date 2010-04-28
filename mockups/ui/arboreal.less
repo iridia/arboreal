@@ -324,30 +324,29 @@
 				
 				}
 				
-				li.information a {
+				li a[href*='information'] {
+					
+					span {
+					
+						display: none;
+				
+					}
 					
 					background: url(arboreal.navigationBar.information.png) center no-repeat;
 				
+					:hover {
+					
+						background: url(arboreal.navigationBar.information.hover.png) center no-repeat;
+					
+					}
+					
 				}
 				
-					
-				li.information:hover a {
-					
-					background: url(arboreal.navigationBar.information.hover.png) center no-repeat;
-					
-				}
-				
-				li.information.active a {
+				li.active a[href*='information'] {
 				
 					background: url(arboreal.navigationBar.information.active.png) center no-repeat;
 				
-				}
-				
-				li.information a span {
-					
-					display: none;
-				
-				}
+				} 
 				
 				
 				
