@@ -385,6 +385,9 @@ header + * { clear: both; }
   vertical-align: top;
 }
 .calendar {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   width: 252px;
   min-width: 252px;
   max-width: 252px;
@@ -412,6 +415,7 @@ header + * { clear: both; }
   line-height: 36px;
   color: inherit;
   text-align: center;
+  font-weight: bold;
   position: relative;
   margin-bottom: 18px;
 }
@@ -441,8 +445,33 @@ header + * { clear: both; }
   float: left;
   width: 36px;
   height: 36px;
+  font-size: 16px;
+  line-height: 36px;
+  color: inherit;
   text-align: center;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.35);
 }
+.calendar br {
+  width: 0px;
+  height: 0px;
+  clear: both;
+}
+.calendar .active { color: rgba(0, 0, 0, 0.6); }
+.calendar .today {
+  color: black;
+  background: #dfe1db;
+  -webkit-border-top-left-radius: 4.5px;
+  -webkit-border-top-right-radius: 4.5px;
+  -webkit-border-bottom-right-radius: 4.5px;
+  -webkit-border-bottom-left-radius: 4.5px;
+  -moz-border-radius: 4.5px 4.5px 4.5px 4.5px;
+  -o-border-radius: 4.5px 4.5px 4.5px 4.5px;
+  border-radius: 4.5px 4.5px 4.5px 4.5px;
+  -uu-border-radius: 4.5px 4.5px 4.5px 4.5px;
+  behavior: url(lib.monoSnippets.hack.borderRadius.htc);
+}
+.calendar .closed { color: rgba(0, 0, 0, 0.1); }
 .calendar .leadingSunday { margin-left: 0px; }
 .calendar .leadingMonday { margin-left: 36px; }
 .calendar .leadingTuesday { margin-left: 72px; }
@@ -453,7 +482,7 @@ header + * { clear: both; }
 .calendar .details {
   clear: left;
   background: #404a36;
-  margin: 9px -19px 9px -19px;
+  margin: 18px -19px 9px -19px;
   padding: 9px 0;
 }
 .calendar .details:before {
@@ -508,6 +537,8 @@ header + * { clear: both; }
   height: auto;
   float: none;
   text-align: left;
+  font-weight: normal;
+  color: inherit;
   font-size: 16px;
   line-height: 18px;
   color: inherit;

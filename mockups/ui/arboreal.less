@@ -517,6 +517,8 @@
 	
 	.calendar {
 	
+		.deselection;
+	
 		.rigidWidth(@arborealSidebarWidth - (4 * @slice));
 		padding: 0 (2 * @slice);
 		
@@ -533,7 +535,8 @@
 		
 			.text(16px, (.5 * @pack));
 			text-align: center;
-
+			font-weight: bold;
+			
 			position: relative;
 			
 			:before {
@@ -566,8 +569,42 @@
 			display: block;
 			float: left;
 			.size(1 * @calendarItemWidth, 1 * @calendarItemWidth);
+			.text(16px, 36px);
+			
 			text-align: center;
+			font-weight: bold;
+			
+			color: rgba(0, 0, 0, .35);
 				
+		}
+		
+		br {
+		
+			width: 0px;
+			height: 0px;
+			clear: both;
+		
+		}
+		
+		.active {
+		
+			color: rgba(0, 0, 0, .6);
+			
+		
+		}
+		
+		.today {
+		
+			color: black;
+			background: rgb(223, 225, 219);
+			.borderRadius(4.5px);
+		
+		}
+		
+		.closed {
+		
+			color: rgba(0, 0, 0, .1);
+		
 		}
 		
 		.leadingSunday {	margin-left: 0 * @calendarItemWidth;	}
@@ -583,7 +620,7 @@
 			clear: left;
 			background: rgb(64, 74, 54);
 			
-			margin: @slice -19px @slice -19px;
+			margin: (2 * @slice) -19px @slice -19px;
 			padding: @slice 0;
 			
 			:before {
@@ -628,6 +665,9 @@
 				.size(auto);
 				float: none;
 				text-align: left;
+				font-weight: normal;
+				
+				color: inherit;
 				
 				.text(16px, 18px);
 			
