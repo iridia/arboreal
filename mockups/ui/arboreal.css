@@ -344,6 +344,19 @@ header + * { clear: both; }
   bottom: 0px;
   background: black;
 }
+.gallery > li a {
+  display: block;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+.gallery > li a img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
 .gallery li.spotties {
   background: transparent;
   top: auto;
