@@ -13,8 +13,11 @@
 
 	@arborealWidth: 13 * @pack;
 	@arborealSidebarWidth: 4 * @pack;
-	
 	@arborealSidebarSpacing: 4 * @slice;
+	
+	@arborealSideSpacing: .5 * @pack;
+	
+	@arborealArticleWidth: @arborealWidth - @arborealSidebarWidth - @arborealSidebarSpacing;
 	
 	@arborealNavigationBarBorderWidth: 4px;
 	@arborealNavigationBarHeight: 6 * @slice;
@@ -189,15 +192,31 @@
 	
 	
 	
+	html, body {
+	
+		min-height: 100%;
+	
+	}
+	
 	body {
 	
 		.typeSansSerifNeo;
-	
-		.rigidWidth(@arborealWidth);
-		padding: 0 @pack;
-		margin: 0 auto;
 		
-//		overflow-x: hidden;
+		> * {
+		
+			.rigidWidth(@arborealWidth);
+			padding: 0 @arborealSideSpacing;
+			margin: 0 auto;
+		
+		}
+		
+		position: absolute;
+		width: 100%;
+		min-height: 100%;
+		
+		padding-bottom: @pack;
+		
+		overflow-y: auto;
 	
 	}
 	
@@ -428,8 +447,7 @@
 	
 		height: 5 * @pack;
 
-		margin: 0px -36px 0px -36px;
-		padding: 36px;
+		padding: 36px !important;
 	
 		position: relative;
 		
@@ -502,12 +520,9 @@
 	
 	.context {
 	
-		margin-top: .5 * @pack;
-	
-		margin-left: -1 * @arborealSidebarSpacing;
-		margin-right: -1 * @arborealSidebarSpacing;
 		border-spacing: @arborealSidebarSpacing 0;
-	
+		margin: (.5 * @pack) auto 0 auto;
+		padding: 0px !important;
 		display: table;
 		
 		> * {
@@ -716,6 +731,8 @@
 	
 	article {
 	
+		.rigidWidth(@arborealArticleWidth);
+	
 		header {
 		
 		}
@@ -890,6 +907,10 @@
 		position: absolute;
 		left: 0px;
 		right: 0px;
+		bottom: 0px;
+		
+		.rigidWidth(100%);
+		padding: 0;
 	
 		background: @arborealFooterBackdrop;
 		
@@ -901,6 +922,8 @@
 			height: @pack;
 		
 			width: @arborealWidth;
+			padding: 0px @arborealSideSpacing;
+			
 			margin: 0 auto;
 			
 			* {

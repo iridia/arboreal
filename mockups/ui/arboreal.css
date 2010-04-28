@@ -107,12 +107,20 @@ abbr, article, aside, audio, canvas, details, figcaption, figure, footer, header
 }
 h1, h2, h3, h4, h5, h6, h7 { font-weight: normal; }
 html { background-color: #ccd9c4; }
+html, body { min-height: 100%; }
 body {
   font-family: "Vegur", "Lucida Grande", "Lucida Unicode", "Helvetica", "Arial", "LiHei Pro", sans-serif;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: 72px;
+  overflow-y: auto;
+}
+body > * {
   width: 936px;
   min-width: 936px;
   max-width: 936px;
-  padding: 0 72px;
+  padding: 0 36px;
   margin: 0 auto;
 }
 header {
@@ -304,8 +312,7 @@ header nav ul li.active:after {
 header + * { clear: both; }
 .gallery {
   height: 360px;
-  margin: 0px -36px 0px -36px;
-  padding: 36px;
+  padding: 36px !important;
   position: relative;
 }
 .gallery:before {
@@ -375,10 +382,9 @@ header + * { clear: both; }
 .gallery li.spotties li.active { opacity: 1; }
 .gallery li.spotties li:hover { opacity: 1; }
 .context {
-  margin-top: 36px;
-  margin-left: -36px;
-  margin-right: -36px;
   border-spacing: 36px 0;
+  margin: 36px auto 0 auto;
+  padding: 0px !important;
   display: table;
 }
 .context > * {
@@ -561,6 +567,11 @@ header + * { clear: both; }
   background: url(arboreal.calendar.information.png) center no-repeat;
 }
 .calendar .details a span { display: none; }
+article {
+  width: 612px;
+  min-width: 612px;
+  max-width: 612px;
+}
 .twitterStream {
   -o-border-image: url(arboreal.article.twitterStream.backdrop.png) 36 36 36 108 round round;
   -icab-border-image: url(arboreal.article.twitterStream.backdrop.png) 36 36 36 108 round round;
@@ -670,6 +681,11 @@ footer {
   position: absolute;
   left: 0px;
   right: 0px;
+  bottom: 0px;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  padding: 0;
   background: #7e8c70;
   white-space: nowrap;
 }
@@ -677,6 +693,7 @@ footer div {
   overflow-y: hidden;
   height: 72px;
   width: 936px;
+  padding: 0px 36px;
   margin: 0 auto;
 }
 footer div * { display: inline; }
