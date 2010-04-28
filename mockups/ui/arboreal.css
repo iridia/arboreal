@@ -681,6 +681,16 @@ article {
   height: 36px;
   margin-bottom: -36px;
   background: url(arboreal.article.blogPosts.more.png) center right no-repeat;
+  position: relative;
+}
+.blogPosts .more a {
+  display: block;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: 0 -18px;
 }
 .blogPosts .more span { display: none; }
 footer {
