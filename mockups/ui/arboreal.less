@@ -890,14 +890,34 @@
 			
 				.full;
 				margin: 0 (-2 * @slice);
+				.borderRadius(0px, 0px, 9px, 9px);
+				
+				text-align: right;
+				.text(16px, 36px, rgb(89, 89, 89));
+			
+				span {
+			
+					display: none;
+					margin-right: 6 * @slice;
+					text-transform: uppercase;
+
+				}
+				
+				:hover {
+				
+					background: rgba(0, 0, 0, .05);
+					
+					span {
+			
+					//	display: inherit;
+					
+					}
+				
+				}
 			
 			}
 			
-			span {
 			
-				display: none;
-			
-			}
 		
 		}
 	
