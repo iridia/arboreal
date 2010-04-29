@@ -7,3 +7,6 @@
 [submodule "mockups/ui/lib.less.js"]
 	path = mockups/ui/lib.less.js
 	url = git@github.com:monoceroi/less.js.git
+[submodule "mockups/ui/lib.monoTwitterEngine"]
+	path = mockups/ui/lib.monoTwitterEngine
+	url = git@github.com:monoceroi/monoTwitterEngine.git
