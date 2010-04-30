@@ -403,13 +403,20 @@ header + * { clear: both; }
   display: table-cell;
   vertical-align: top;
 }
+.context article {
+  width: 612px;
+  min-width: 612px;
+  max-width: 612px;
+}
+.context aside {
+  width: 288px;
+  min-width: 288px;
+  max-width: 288px;
+}
 .calendar {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  width: 252px;
-  min-width: 252px;
-  max-width: 252px;
   padding: 0 18px;
   background-color: #f5f5f5;
   border: 1px solid white;
@@ -579,11 +586,6 @@ header + * { clear: both; }
   background: url(arboreal.calendar.information.png) center no-repeat;
 }
 .calendar .details a span { display: none; }
-article {
-  width: 612px;
-  min-width: 612px;
-  max-width: 612px;
-}
 .twitterStream {
   -o-border-image: url(arboreal.article.twitterStream.backdrop.png) 36 36 36 108 round round;
   -icab-border-image: url(arboreal.article.twitterStream.backdrop.png) 36 36 36 108 round round;

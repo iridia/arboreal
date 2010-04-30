@@ -542,10 +542,20 @@
 			vertical-align: top;
 		
 		}
+		
+		article {
+		
+			.rigidWidth(@arborealArticleWidth);
+		
+		}
+		
+		aside {
+		
+			.rigidWidth(@arborealSidebarWidth);
+		
+		}
 	
 	}
-	
-	
 	
 	
 	
@@ -553,7 +563,7 @@
 	
 		.deselection;
 	
-		.rigidWidth(@arborealSidebarWidth - (4 * @slice));
+		
 		padding: 0 (2 * @slice);
 		
 		background-color: rgb(245, 245, 245);
@@ -741,8 +751,6 @@
 	
 	
 	article {
-	
-		.rigidWidth(@arborealArticleWidth);
 	
 		header {
 		
