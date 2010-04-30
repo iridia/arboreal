@@ -30,6 +30,8 @@
 //	!Typography
 
 	.typeMonospaced () {
+	
+		font-family: "Panic Sans", "Menlo", "Bitstream Vera Sans Mono", "Monaco", monospace;
 
 	}
 	
@@ -1031,15 +1033,26 @@
 		
 			.text(13px, 18px, rgb(89, 89, 89));
 			margin-left: 16 * @slice;
-			margin-top: 1 * @slice;
+			margin-bottom: 2 * @slice;
 		
 		}
 		
-		li + li:before {
-				
-			.razorSplit(36px, .45, .2);
-			margin: 0 (-2 * @slice);
+		li + li {
 		
+			:before {
+				
+				.razorSplit(36px, .45, .2);
+				margin: 0 (-2 * @slice);
+		
+			}
+			
+			h2 {
+			
+				margin-top: 2 * @slice;
+			
+			}
+			
+			
 		}
 		
 		.more {
