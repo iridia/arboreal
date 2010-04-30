@@ -413,6 +413,7 @@ header + * { clear: both; }
   min-width: 288px;
   max-width: 288px;
 }
+.context > nav { display: table-row; }
 .calendar {
   -webkit-user-select: none;
   -moz-user-select: none;
