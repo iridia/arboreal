@@ -1,67 +1,68 @@
 //	arboreal.less
 //	Evadne Wu at Iridia, 2010
 
+
+//	arboreal.style.predicates.less
+//	Evadne Wu at Iridia, 2010
+
 @import "lib.monoSnippets/lib.monoSnippets.reset.less";
 @import "lib.monoSnippets/lib.monoSnippets.less";
-@import "arboreal.typography.less";
 
 
 
 
 
-//	Positioning
 
-	@arborealWidth: 13 * @pack;
-	@arborealSidebarWidth: 4 * @pack;
-	@arborealSidebarSpacing: 4 * @slice;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//	!Typography
+
+	.typeMonospaced () {
+
+	}
 	
-	@arborealSideSpacing: .25 * @pack;
-	
-	@arborealArticleWidth: @arborealWidth - @arborealSidebarWidth - @arborealSidebarSpacing;
-	
-	@arborealNavigationBarBorderWidth: 4px;
-	@arborealNavigationBarHeight: 6 * @slice;
-	
-	@arborealCalendarItemWidth: 4 * @slice;
-
-
-
-
-
-//	!Swatches
-	
-	@arborealBackdrop: rgb(204, 217, 196);
-	@arborealFooterBackdrop: rgb(126, 140, 112);
-
-
-
-
-
-
-
-
-
-
-//	!Debug Mode
-
-	.d * {
-	
-		background-color: rgba(255, 255, 255, .05);
-		outline: 1px solid rgba(255, 255, 255, .2);
-		
-		:hover {
-		
-			background-color: rgba(255, 255, 255, .25);
-		
-		}
+	.typeSerifHumanistic () {
 	
 	}
+	
+	.typeSansSerifNeo () {
+	
+		font-family: "Vegur", "Lucida Grande", "Lucida Unicode", "Helvetica", "Arial", "LiHei Pro", sans-serif;
+	
+	}
+	
 
 
 
 
 
-//	Snippets
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+//	!Snippets
 
 	.razorSplit (@height:36px) {
 	
@@ -101,6 +102,10 @@
 			margin-right: -1px;
 				
 		}
+	
+	
+	
+	
 	
 	.upwardsShadow {
 	
@@ -167,30 +172,81 @@
 
 
 
-//	!Context
 
-	h1, h2, h3, h4, h5, h6, h7 {
+
 	
-		font-weight: normal;
+
+
+
+
+
+
+
+
+
+//	!Positioning
+
+	@arborealWidth: 13 * @pack;
+	@arborealSidebarWidth: 4 * @pack;
+	@arborealSidebarSpacing: 4 * @slice;
+	
+	@arborealSideSpacing: .25 * @pack;
+	
+	@arborealArticleWidth: @arborealWidth - @arborealSidebarWidth - @arborealSidebarSpacing;
+	
+	@arborealNavigationBarBorderWidth: 4px;
+	@arborealNavigationBarHeight: 6 * @slice;
+	
+	@arborealCalendarItemWidth: 4 * @slice;
+
+
+
+
+
+//	!Swatches
+	
+	@arborealBackdrop: rgb(204, 217, 196);
+	@arborealFooterBackdrop: rgb(126, 140, 112);
+	
+	
+	
+	
+	
+//	!Debug Mode
+
+	.d * {
+	
+		background-color: rgba(255, 255, 255, .05);
+		outline: 1px solid rgba(255, 255, 255, .2);
+		
+		:hover {
+		
+			background-color: rgba(255, 255, 255, .25);
+		
+		}
 	
 	}
 
 
 
-	html {
+
+
+
+
+
+
+
 	
-		background-color: @arborealBackdrop;
-	
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+//	!Scaffold
 	
 	html, body {
 	
@@ -218,14 +274,26 @@
 	
 	}
 	
+
+
+
+
+
+
+
+
+
 	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+//	!Header
 	
 	header {
 	
@@ -240,10 +308,7 @@
 			a {
 			
 				display: block;
-				
-				height: 2 * @pack;
-				width: 4 * @pack;
-				
+				.size(4 * @pack, 2 * @pack);	
 				background: url(arboreal.logotype.main.png) no-repeat left bottom;
 			
 			}
@@ -280,9 +345,8 @@
 					float: left;
 					
 					.text(18px, @arborealNavigationBarHeight, rgb(32, 76, 0));
+					.size(1.5 * @pack, @arborealNavigationBarHeight);
 					
-					width: 1.5 * @pack;
-					height: @arborealNavigationBarHeight;
 					margin-top: -1 * @arborealNavigationBarBorderWidth;
 					text-align: center;
 					vertical-align: middle;
@@ -431,6 +495,40 @@
 	
 	}
 	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+//	!Context
+
+	h1, h2, h3, h4, h5, h6, h7 {
+	
+		font-weight: normal;
+	
+	}
+
+
+
+	html {
+	
+		background-color: @arborealBackdrop;
+	
+	}
 	
 	
 	
@@ -440,19 +538,40 @@
 	
 	
 	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+//	!Gallery Box
+		
 	.gallery {
 	
 		height: 5 * @pack;
-
 		padding: 36px !important;
-	
 		position: relative;
 		
 		:before {
 		
+			.full;
 			content: "";
 			display: block;
-			.full;
 			z-index: 1024;
 			.borderImage(url(arboreal.gallery.cover.png), 72, 72, 72, 108, round);
 		
@@ -483,10 +602,7 @@
 		
 			background: transparent;
 		
-			top: auto;
-			right: 18px;
-			bottom: 1.5 * @slice;
-			left: auto;
+			.full(auto, 18px, (1.5 * @slice), auto);
 			
 			z-index: 2048;
 			
@@ -496,13 +612,12 @@
 			li {
 			
 				display: table-cell;
+
 				.size(@slice);
-				.rigidWidth(@slice);
-				
+				.rigidWidth(@slice);				
 				.borderRadius;
 				
 				background: rgb(88, 88, 88);
-				
 				opacity: .55;
 				
 				.transitioning(.125s);
@@ -520,15 +635,27 @@
 	
 	}
 	
+
+
+
+
+
+
+
+
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+//	!Context
+
 	.context {
 	
 		border-spacing: @arborealSidebarSpacing 0;
@@ -543,17 +670,8 @@
 		
 		}
 		
-		article {
-		
-			.rigidWidth(@arborealArticleWidth);
-		
-		}
-		
-		aside {
-		
-			.rigidWidth(@arborealSidebarWidth);
-		
-		}
+		article {	.rigidWidth(@arborealArticleWidth);	}
+		aside {		.rigidWidth(@arborealSidebarWidth);	}
 		
 		> nav {
 		
@@ -563,8 +681,27 @@
 	
 	}
 	
+
+
+
+
+
+
+
+
+
 	
-	
+
+
+
+
+
+
+
+
+
+//	!Sidebar Calendar Box
+
 	.calendar {
 	
 		.deselection;
@@ -756,7 +893,9 @@
 	
 	
 	
-	article {
+//	!Article
+
+	.context > article > article {
 	
 		header {
 		
@@ -776,7 +915,14 @@
 	
 	
 	
-	.twitterStream {
+	
+	
+	
+	
+	
+//	!Twitter Stream Box
+
+	.context > article > .twitterStream {
 		
 		.borderImage(url(arboreal.article.twitterStream.backdrop.png), 36, 36, 36, 108, round);
 		
@@ -831,6 +977,23 @@
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	!Blog Post Box
+
 	.blogPosts {
 	
 		.borderImage(url(arboreal.article.blogPosts.backdrop.png), 36, 36, 54, 36, round);
@@ -872,20 +1035,10 @@
 		
 		}
 		
-		li {
-		
-			+ li {
-			
-				:before {
+		li + li:before {
 				
-					.razorSplit(36px, .45, .2);
-					
-					margin-left: -18px;
-					margin-right: -18px;
-				
-				}
-			
-			}
+			.razorSplit(36px, .45, .2);
+			margin: 0 (-2 * @slice);
 		
 		}
 		
@@ -945,6 +1098,18 @@
 	
 	
 	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+//	!Footer
 	
 	footer {
 	
@@ -956,26 +1121,27 @@
 				rgba(0, 0, 0, .15) 0px -1px 0px,
 				rgba(255, 255, 255, .2) 0px 0px 1px;
 	
-		position: absolute;
-		left: 0px;
-		right: 0px;
-		bottom: 0px;
-		
+		.full(auto, 0px, 0px, 0px);	
 		.rigidWidth(100%);
+
 		padding: 0;
-	
 		background: @arborealFooterBackdrop;
 		
 		white-space: nowrap;
 		
+		:before {
+		
+			.downwardsShadowBlock;
+		
+		}
+		
+		
 		div {
 		
 			overflow-y: hidden;
-			height: @pack;
-		
-			width: @arborealWidth;
-			padding: 0px (2 * @arborealSideSpacing);
-			
+			.size(@arborealWidth, @pack);
+
+			padding: 0px (2 * @arborealSideSpacing);			
 			margin: 0 auto;
 			
 			* {
@@ -985,11 +1151,8 @@
 			}
 		
 		}
-		
-		
-		
-		
-		
+
+
 		ul li {
 			
 			height: 2 * @slice;
@@ -1008,8 +1171,11 @@
 				margin: 0 (-1 * @slice);
 				.borderRadius(@slice);
 			
-				:hover {
+				:active {	background: rgba(0, 0, 0, .35);	}
+
 				
+				:hover {
+
 					background: rgba(0, 0, 0, .2);
 					.shadowed(rgba(255, 255, 255, .25), 0px, 1px, 0px);
 					color: white;
@@ -1017,57 +1183,25 @@
 				
 				}
 				
-				:active {
 				
-					background: rgba(0, 0, 0, .35);
-				
-				}
 			
 			}
 			
 		}
-		
-		
-		
 		
 		
 		.credits {
 		
 			.inlineBlock;
-			width: 2 * @pack;
-			height: @pack;
+			.size((2 * @pack), @pack);
 			float: right;
-		
-			span {
 			
-				display: none;
-			
-			}
-		
-		}
-		
-		
-		
-		
-		
-		:before {
-		
-			content: "";
-			display: block;
-
-			position: relative;
-			top: 4px;
-			margin-top: -4px;
-			
-			height: 4px;
-
-			.downwardsShadow;
-			
-			margin-left: 0px;
-			margin-right: 0px;
-			
-			opacity: .35;
+			span {	display: none;	}
 		
 		}
 		
 	}
+
+
+
+
