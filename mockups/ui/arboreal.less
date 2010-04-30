@@ -991,15 +991,34 @@
 		
 		
 		ul li {
-		
-			margin-right: 2 * @slice;
 			
+			height: 2 * @slice;
+			margin-right: 2 * @slice;
+		
 			:last-child {
 			
 				margin-right: 0;
 			
 			}
-		
+			
+			a {
+			
+				.link;
+				padding: 0 @slice;
+				margin: 0 (-1 * @slice);
+				.borderRadius(@slice);
+			
+				:hover {
+				
+					background: rgba(0, 0, 0, .2);
+					.shadowed(rgba(255, 255, 255, .25), 0px, 1px, 0px);
+					color: white;
+					text-shadow: rgba(0, 0, 0, .25) 0px 0px 1px;
+				
+				}
+			
+			}
+			
 		}
 		
 		
