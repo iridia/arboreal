@@ -246,6 +246,7 @@
 //	!Swatches
 	
 	@arborealBackdrop: rgb(204, 217, 196);
+	@arborealNavigationBarBackdrop: rgb(165, 195, 154);
 	@arborealFooterBackdrop: rgb(126, 140, 112);
 	@arborealPanelBackdrop: rgb(245, 245, 245);
 	
@@ -371,7 +372,7 @@
 			
 				height: @arborealNavigationBarHeight - (2 * @arborealNavigationBarBorderWidth);
 				border: @arborealNavigationBarBorderWidth solid rgb(156, 185, 146);
-				background: rgb(165, 195, 154);
+				background: @arborealNavigationBarBackdrop;
 				.borderRadius(4.5px);
 				
 				.doubleShadowed(rgba(0, 0, 0, .35), 0px, -1px, 0px, rgba(255, 255, 255, .5), 0px, 1px, 0px);
