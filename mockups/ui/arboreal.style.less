@@ -166,6 +166,17 @@
 			opacity: .35;
 
 		}
+	
+	
+	
+	
+	
+	.recessedGreenField {
+	
+		.borderImage(url(arboreal.field.recessed.green.backdrop.png), 18);
+		margin: -1 * @slice;
+	
+	}
 
 
 
@@ -209,6 +220,7 @@
 	
 	@arborealBackdrop: rgb(204, 217, 196);
 	@arborealFooterBackdrop: rgb(126, 140, 112);
+	@arborealPanelBackdrop: rgb(245, 245, 245);
 	
 	
 	
@@ -713,7 +725,7 @@
 		
 		padding: 0 (2 * @slice);
 		
-		background-color: rgb(245, 245, 245);
+		background-color: @arborealPanelBackdrop;
 		border: 1px solid white;
 		margin: -1px;
 		
@@ -1123,6 +1135,76 @@
 	
 	
 	
+
+//	!Letter Wrap
+	
+	.letterWrap {
+	
+		margin: @slice;
+		padding: @slice;
+		
+		position: relative;
+		background-color: @arborealPanelBackdrop;
+		
+		.borderRadius(2.25px);
+		
+		:before {
+		
+			content: "";
+			z-index: -1;
+			.full(-1 * @slice);
+			
+			background: url(arboreal.letter.backdrop.png) top left repeat;
+			background-color: white;
+			.borderRadius(4.5px);
+			
+			.shadowed(rgba(0, 0, 0, .45), 0px, 2px, 4px);
+		
+		}
+		
+		form {
+		
+			margin: 0 @slice;
+
+			input, textarea {
+		
+				width: 100%;
+				
+				.recessedGreenField;
+				margin-left: -2 * @slice;
+				
+				display: block;
+
+			}
+			
+			textarea {
+			
+				resize: vertical;
+			
+			}
+				
+		}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 
 //	!Footer
 	
