@@ -337,7 +337,7 @@
 
 //	!Header
 	
-	header {
+	body > header {
 	
 		.deselection;
 	
@@ -1201,6 +1201,66 @@
 		
 		margin: 0px (-2 * @slice) (2 * @slice) (-2 * @slice);
 		padding: 0px @slice;
+
+		header {
+
+			min-height: @pack;
+			height: @pack;
+
+			h2 {
+			
+				.text(20px, 36px);
+				
+				time {
+				
+					.inlineBlock;
+					width: 18 * @slice;
+					float: left;
+					
+					font-weight: bold;
+				
+				}
+			
+			}
+			
+			dfn {
+			
+				.text(13px, 18px);
+				display: block;
+				
+				margin-left: 18 * @slice;
+			
+			}
+			
+			+ * {
+			
+				:before {
+					
+					.razorSplit(36px, .45, .2);
+					margin: 0 (-2 * @slice);
+					margin-top: -4 * @slice;
+					padding-bottom: 4 * @slice;
+			
+				}
+				
+				margin-top: 4 * @slice;
+				
+			}
+		
+		}
+		
+		
+		p {
+		
+			.text(18px, 27px, rgb(64, 64, 64));
+			
+			+ p {
+			
+				margin-top: 27px;
+			
+			}
+		
+		}
 		
 	}
 
@@ -1321,7 +1381,7 @@
 
 //	!Footer
 	
-	footer {
+	body > footer {
 	
 		margin-top: -1px;
 		border-top: 1px solid rgba(255, 255, 255, .65);
