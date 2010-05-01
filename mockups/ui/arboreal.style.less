@@ -395,6 +395,7 @@
 					a {
 					
 						.full;
+						height: @arborealNavigationBarHeight;
 					
 					}
 				
@@ -1174,12 +1175,27 @@
 				margin-left: -2 * @slice;
 				
 				display: block;
+				
+				.text(27px, (3 * @slice), #444);
 
 			}
 			
 			textarea {
 			
 				resize: vertical;
+			
+			}
+			
+			input {
+			
+				height: 5 * @slice - 2 * @slice;
+				
+			
+			}
+			
+			textarea {
+			
+				min-height: 3 * @pack - 2 * @slice;
 			
 			}
 				
