@@ -194,7 +194,7 @@
 	
 		.threePartImage(url(arboreal.button.submit.backdrop.png), 36, 45);
 		
-		.inlineBlock;
+		display: block;
 		height: @pack;
 
 		.text(18px, 72px, rgb(16, 38, 0));
@@ -1196,6 +1196,8 @@
 	
 	.letterWrap {
 	
+		.deselection;
+	
 		margin: @slice;
 		padding: @slice;
 		
@@ -1254,6 +1256,15 @@
 			
 			}
 				
+		}
+		
+		+ a.submitButton {
+		
+			width: 7 * @slice;
+			
+			margin-left: auto;
+			margin-right: -2 * @slice;
+		
 		}
 	
 	}
