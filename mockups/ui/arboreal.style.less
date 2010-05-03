@@ -47,6 +47,19 @@
 		
 		}
 	
+	
+	
+	
+	
+	.arborealBlogArticleHeader {
+	
+		.text(20px, 36px, rgb(39, 73, 37));
+		
+		text-shadow:	rgba(255, 255, 255, .65) 0px 1px 0px,
+				rgba(0, 0, 0, .15) 0px -1px 0px;
+			
+	}
+	
 
 
 
@@ -1091,17 +1104,12 @@
 	
 		h2 {
 		
+			.arborealBlogArticleHeader;
 			.rigidWidth(@arborealArticleWidth - (4 * @slice));
-		
 			.delimitText;
-		
-			.text(20px, 36px, rgb(39, 73, 37));
-			
-			text-shadow:	rgba(255, 255, 255, .65) 0px 1px 0px,
-					rgba(0, 0, 0, .15) 0px -1px 0px;
 			
 			time {
-			
+		
 				.inlineBlock;
 				width: 8 * @slice;
 				
@@ -1109,9 +1117,7 @@
 				text-align: left;
 			
 			}
-		
-			
-		
+				
 		}
 		
 		p {
@@ -1260,18 +1266,8 @@
 
 			h2 {
 			
-				.text(20px, 36px);
+				.arborealBlogArticleHeader;
 				
-				time {
-				
-					.inlineBlock;
-					width: 18 * @slice;
-					float: left;
-					
-					font-weight: bold;
-				
-				}
-			
 			}
 			
 			dfn {
