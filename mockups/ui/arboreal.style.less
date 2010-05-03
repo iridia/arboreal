@@ -1263,7 +1263,7 @@
 
 			min-height: 6 * @slice;
 			height: 6 * @slice;
-			margin-bottom: 2 * @slice;
+		//	padding-bottom: 2 * @slice;
 
 			time {
 			
@@ -1277,10 +1277,24 @@
 				
 				float: left;
 				
-			//	Positional Hack
+			//	Positional Hack — Vegur misbehaves
 			
 				position: relative;
-				top: 6px;
+				top: 3px;
+				
+				:after {
+				
+					.razorSplitHorizontal;
+					height: 6 * @slice;
+					
+					position: absolute;
+				
+				//	Compensation
+				
+					top: -3px;
+					right: 2 * @slice;
+				
+				}
 			
 			}
 
@@ -1303,17 +1317,19 @@
 			
 			}
 			
-			:after {
-					
-				.razorSplit(36px, .45, .2);
-				margin: 0 (-2 * @slice);
-				margin-top: 2 * @slice;
-		
-			}
+			
 			
 			+ * {
 				
 				margin-top: 4 * @slice;
+				position: relative;
+				
+				:before {
+					
+					.razorSplit(36px, .45, .2);
+					.fullInset((-4 * @slice), (-2 * @slice), auto, (-2 * @slice));
+			
+				}
 				
 			}
 		
