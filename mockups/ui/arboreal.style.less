@@ -149,16 +149,16 @@
 	
 	}
 	
-		.downwardsShadowBlock {
+		.downwardsShadowBlock(@height: 4px) {
 		
 			content: "";
 			display: block;
 
 			position: relative;
-			top: 4px;
-			margin-top: -4px;
+			top: @height;
+			margin-top: -1 * @height;
 			
-			height: 4px;
+			height: @height;
 
 			.downwardsShadow;
 			
@@ -243,7 +243,7 @@
 	
 	@arborealBackdrop: rgb(204, 217, 196);
 	@arborealNavigationBarBackdrop: rgb(165, 195, 154);
-	@arborealFooterBackdrop: rgb(126, 140, 112);
+	@arborealFooterBackdrop: rgb(165, 178, 151);
 	@arborealPanelBackdrop: rgb(245, 245, 245);
 	
 	
@@ -1401,7 +1401,7 @@
 		
 		:before {
 		
-			.downwardsShadowBlock;
+			.downwardsShadowBlock(2px);
 		
 		}
 		
