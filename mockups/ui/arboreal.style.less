@@ -1072,22 +1072,22 @@
 	
 		h2 {
 		
+			.rigidWidth(@arborealArticleWidth - (4 * @slice));
+		
+			.delimitText;
+		
 			.text(20px, 36px, rgb(39, 73, 37));
-			
-			margin-left: 16 * @slice;
-			text-indent: -16 * @slice;
 			
 			text-shadow:	rgba(255, 255, 255, .65) 0px 1px 0px,
 					rgba(0, 0, 0, .15) 0px -1px 0px;
 			
 			time {
 			
-				text-indent: 0;
-			
 				.inlineBlock;
-				width: 16 * @slice;
+				width: 8 * @slice;
 				
 				font-weight: bold;
+				text-align: left;
 			
 			}
 		
@@ -1098,7 +1098,6 @@
 		p {
 		
 			.text(13px, 18px, rgb(89, 89, 89));
-			margin-left: 16 * @slice;
 			margin-bottom: 2 * @slice;
 		
 		}
