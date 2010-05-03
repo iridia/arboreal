@@ -1261,8 +1261,28 @@
 
 		header {
 
-			min-height: @pack;
-			height: @pack;
+			min-height: 6 * @slice;
+			height: 6 * @slice;
+			margin-bottom: 2 * @slice;
+
+			time {
+			
+				.arborealBlogArticleHeader;
+				.text(40px, 54px);
+				
+				font-weight: bold;
+				
+				.inlineBlock;
+				.size(16 * @slice, 6 * @slice);
+				
+				float: left;
+				
+			//	Positional Hack
+			
+				position: relative;
+				top: 6px;
+			
+			}
 
 			h2 {
 			
@@ -1270,25 +1290,28 @@
 				
 			}
 			
-			dfn {
+			ul {
 			
 				.text(13px, 18px);
 				display: block;
 				
-				margin-left: 18 * @slice;
+				li {
+				
+					display: inline;
+				
+				}
 			
 			}
 			
-			+ * {
-			
-				:before {
+			:after {
 					
-					.razorSplit(36px, .45, .2);
-					margin: 0 (-2 * @slice);
-					margin-top: -4 * @slice;
-					padding-bottom: 4 * @slice;
+				.razorSplit(36px, .45, .2);
+				margin: 0 (-2 * @slice);
+				margin-top: 2 * @slice;
+		
+			}
 			
-				}
+			+ * {
 				
 				margin-top: 4 * @slice;
 				
