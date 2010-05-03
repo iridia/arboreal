@@ -641,17 +641,22 @@
 		
 			background: transparent;
 		
-			.fullInset(auto, 18px, (1.5 * @slice), auto);
+			.fullInset(auto, 0, (1.5 * @slice), 0);
 			
 			z-index: 2048;
 			
-			display: table;
-			border-spacing: @slice 0px;
+			ul {
+			
+				display: table;
+				margin: 0 auto;	
+				border-spacing: @slice 0;
+		
+			}
 			
 			li {
 			
 				display: table-cell;
-
+				
 				.size(@slice);
 				.rigidWidth(@slice);				
 				.borderRadius;
