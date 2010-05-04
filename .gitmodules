@@ -10,3 +10,12 @@
 [submodule "mockups/ui/lib.monoTwitterEngine"]
 	path = mockups/ui/lib.monoTwitterEngine
 	url = http://github.com/monoceroi/monoTwitterEngine.git
+[submodule "mockups/ui/lib.LABjs"]
+	path = mockups/ui/lib.LABjs
+	url = git://github.com/monoceroi/LABjs.git
+[submodule "mockups/ui/lib.html5shiv"]
+	path = mockups/ui/lib.html5shiv
+	url = git://github.com/monoceroi/html5shiv.git
+[submodule "mockups/ui/lib.borderImage"]
+	path = mockups/ui/lib.borderImage
+	url = git://github.com/lrbabe/borderimage.git
