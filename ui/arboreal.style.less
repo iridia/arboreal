@@ -750,6 +750,7 @@
 	
 		.context;
 		display: block;
+		.rigidWidth(@arborealWidth);
 		
 		> * {
 		
@@ -762,8 +763,79 @@
 	.storeContext {
 	
 		.blockContext;
+		.rigidWidth(@arborealWidth + (2 * @arborealSidebarSpacing));
 	
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	!Blog Navigation
+
+	.blogNavigation {
+	
+		.rigidWidth(100%);
+		padding: 0px;
+	
+		background: rgba(0, 0, 0, .25);
+		
+		section {
+		
+			.context;
+			.rigidWidth(@arborealWidth);
+			padding: 0px !important;
+			border-spacing: 0px 0px;
+			
+			:before {
+		
+				content: "";
+				position: absolute;
+				
+			
+			}
+			
+			aside {
+			
+				.rigidWidth(7.5 * @pack);
+				
+				ul li {
+				
+					ul {
+					
+						:hover {}
+					
+					}
+				
+					li {
+					
+						.inlineBlock;
+					
+					}
+				
+				}
+			
+			}
+		
+		}
+	
+	}
+	
 
 
 
@@ -1266,7 +1338,7 @@
 	
 		.borderImage(url(arboreal.article.blogPost.backdrop.png), 36, 27, 36, 27, round);
 		
-		margin: (-2 * @slice) (-2 * @slice) (4 * @slice) (-2 * @slice);
+		margin: 0px (-2 * @slice) (4 * @slice) (-2 * @slice);
 		padding: 0px @slice;
 
 		header {
