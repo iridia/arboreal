@@ -1,21 +1,21 @@
-[submodule "mockups/ui/lib.monoSnippets"]
-	path = mockups/ui/lib.monoSnippets
-	url = http://github.com/monoceroi/monoSnippets.git
-[submodule "mockups/ui/lib.jquery"]
-	path = mockups/ui/lib.jquery
-	url = http://github.com/jquery/jquery.git
-[submodule "mockups/ui/lib.less.js"]
-	path = mockups/ui/lib.less.js
-	url = http://github.com/monoceroi/less.js.git
-[submodule "mockups/ui/lib.monoTwitterEngine"]
-	path = mockups/ui/lib.monoTwitterEngine
-	url = http://github.com/monoceroi/monoTwitterEngine.git
-[submodule "mockups/ui/lib.LABjs"]
-	path = mockups/ui/lib.LABjs
+[submodule "ui/lib.monoSnippets"]
+	path = ui/lib.monoSnippets
+	url = git://github.com/monoceroi/monoSnippets.git
+[submodule "ui/lib.jquery"]
+	path = ui/lib.jquery
+	url = git://github.com/jquery/jquery.git
+[submodule "ui/lib.less.js"]
+	path = ui/lib.less.js
+	url = git://github.com/monoceroi/less.js.git
+[submodule "ui/lib.monoTwitterEngine"]
+	path = ui/lib.monoTwitterEngine
+	url = git://github.com/monoceroi/monoTwitterEngine.git
+[submodule "ui/lib.LABjs"]
+	path = ui/lib.LABjs
 	url = git://github.com/monoceroi/LABjs.git
-[submodule "mockups/ui/lib.html5shiv"]
-	path = mockups/ui/lib.html5shiv
+[submodule "ui/lib.html5shiv"]
+	path = ui/lib.html5shiv
 	url = git://github.com/monoceroi/html5shiv.git
-[submodule "mockups/ui/lib.borderImage"]
-	path = mockups/ui/lib.borderImage
+[submodule "ui/lib.borderImage"]
+	path = ui/lib.borderImage
 	url = git://github.com/lrbabe/borderimage.git
