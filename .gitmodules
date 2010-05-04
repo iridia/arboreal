@@ -1,21 +1,21 @@
-[submodule "ui/lib.monoSnippets"]
-	path = ui/lib.monoSnippets
+[submodule "frontend/ui/lib.monoSnippets"]
+	path = frontend/ui/lib.monoSnippets
 	url = git://github.com/monoceroi/monoSnippets.git
-[submodule "ui/lib.jquery"]
-	path = ui/lib.jquery
+[submodule "frontend/ui/lib.jquery"]
+	path = frontend/ui/lib.jquery
 	url = git://github.com/jquery/jquery.git
-[submodule "ui/lib.less.js"]
-	path = ui/lib.less.js
+[submodule "frontend/ui/lib.less.js"]
+	path = frontend/ui/lib.less.js
 	url = git://github.com/monoceroi/less.js.git
-[submodule "ui/lib.monoTwitterEngine"]
-	path = ui/lib.monoTwitterEngine
+[submodule "frontend/ui/lib.monoTwitterEngine"]
+	path = frontend/ui/lib.monoTwitterEngine
 	url = git://github.com/monoceroi/monoTwitterEngine.git
-[submodule "ui/lib.LABjs"]
-	path = ui/lib.LABjs
+[submodule "frontend/ui/lib.LABjs"]
+	path = frontend/ui/lib.LABjs
 	url = git://github.com/monoceroi/LABjs.git
-[submodule "ui/lib.html5shiv"]
-	path = ui/lib.html5shiv
+[submodule "frontend/ui/lib.html5shiv"]
+	path = frontend/ui/lib.html5shiv
 	url = git://github.com/monoceroi/html5shiv.git
-[submodule "ui/lib.borderImage"]
-	path = ui/lib.borderImage
+[submodule "frontend/ui/lib.borderImage"]
+	path = frontend/ui/lib.borderImage
 	url = git://github.com/lrbabe/borderimage.git

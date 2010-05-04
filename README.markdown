@@ -6,11 +6,9 @@ Hello, World!  We are the world!
 
 
 
-##	Structure
+##	This Repository Contains…
 
-`./mockups` contains the mockups, and is where most front-end development happens.  Resources reside within `./mockups/ui` and are not to be copied manually.  Stage them by running the helper script so they are automatically copied to the right places.
-
-`./backbone` contains the wordpress installation.  The staging theme resides within it.
+`./frontend` contains a WordPress theme, and the appropriate mockups.  `./design` contains the design document.  Resources reside within `./frontend/ui`.
 
 
 
@@ -25,17 +23,17 @@ Hello, World!  We are the world!
 	
 *	Build jQuery
 
-		$ cd mockups/ui/lib.jquery;
+		$ cd frontend/ui/lib.jquery;
 		$ ant;
 	
 *	Build LESS.js (currently unused)
 
-		$ cd mockups/ui/lib.less.js;
+		$ cd frontend/ui/lib.less.js;
 		$ make less;
 	
 *	Build Stylesheets
 
-		$ cd mockups/ui;
+		$ cd frontend/ui;
 		$ lessc arboreal.style.less;
 
 
