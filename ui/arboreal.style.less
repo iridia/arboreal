@@ -155,6 +155,33 @@
 	
 	
 	
+	.rightwardsShadow {
+	
+		background: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(0,0,0, 1)), color-stop(1, rgba(0,0,0, 0)));
+		background: -moz-linear-gradient(center left, rgba(0,0,0, 1) 0%, rgba(0,0,0, 0) 100%);
+	
+	}
+	
+		.rightwardsShadowBlock(@width: 4px) {
+		
+			content: "";
+			display: block;
+			
+			width: @width;
+
+			.rightwardsShadow;
+			
+			margin-left: 0px;
+			margin-right: 0px;
+			
+			opacity: .35;
+
+		}
+	
+	
+	
+	
+	
 	.downwardsShadow {
 	
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0, 1)), color-stop(1, rgba(0,0,0, 0)));
@@ -181,6 +208,35 @@
 			opacity: .35;
 
 		}
+	
+	
+	
+	
+	
+	.leftwardsShadow {
+	
+		background: -webkit-gradient(linear, right top, left top, color-stop(0, rgba(0,0,0, 1)), color-stop(1, rgba(0,0,0, 0)));
+		background: -moz-linear-gradient(center right, rgba(0,0,0, 1) 0%, rgba(0,0,0, 0) 100%);
+	
+	}
+	
+		.leftwardsShadowBlock(@width: 4px) {
+		
+			content: "";
+			display: block;
+			
+			width: @width;
+
+			.leftwardsShadow;
+			
+			margin-left: 0px;
+			margin-right: 0px;
+			
+			opacity: .35;
+
+		}
+	
+	
 	
 	
 	
@@ -247,6 +303,9 @@
 	@arborealNavigationBarHeight: 6 * @slice;
 	
 	@arborealCalendarItemWidth: 4 * @slice;
+	
+	@arborealBlogPredicateBarRowHeight: 4 * @slice;
+	@arborealBlogPredicateBarRowsVisible: 3;
 
 
 
@@ -256,6 +315,7 @@
 	
 	@arborealBackdrop: rgb(204, 217, 196);
 	@arborealNavigationBarBackdrop: rgb(165, 195, 154);
+	@arborealPredicateBarBackdrop: rgb(64, 74, 54);
 	@arborealFooterBackdrop: rgb(165, 178, 151);
 	@arborealPanelBackdrop: rgb(245, 245, 245);
 	
@@ -786,14 +846,14 @@
 	
 	
 	
-//	!Blog Navigation
+//	!Blog Predicate Navigation
 
 	.blogNavigation {
 	
 		.rigidWidth(100%);
 		padding: 0px;
 	
-		background: rgba(0, 0, 0, .25);
+		background: @arborealPredicateBarBackdrop;
 		
 		section {
 		
@@ -802,29 +862,131 @@
 			padding: 0px !important;
 			border-spacing: 0px 0px;
 			
+			> * {
+			
+				display: block;
+			
+			}
+			
 			:before {
 		
 				content: "";
 				position: absolute;
-				
 			
 			}
 			
+			article {
+			
+				ul li {
+				
+					.inlineBlock;
+				
+				}
+			
+			}
+			
+			position: relative;
+			
 			aside {
+			
+				display: block;
+				float: right;
 			
 				.rigidWidth(7.5 * @pack);
 				
+				:before, :after {
+				
+					position: absolute;
+					height: 
+					top: 0;
+					bottom: 0;
+					
+					margin: 0;
+					height: (2 + @arborealBlogPredicateBarRowsVisible) * @arborealBlogPredicateBarRowHeight;
+					
+					opacity: .25;
+				
+				}
+				
+				:before {
+	
+					.razorSplitHorizontalReversed;
+					right: 7.5 * @pack;
+
+				}
+				
+				:after {
+	
+					.razorSplitHorizontal;
+					right: 0;
+
+				}
+				
+				height: (2 + @arborealBlogPredicateBarRowsVisible) * @arborealBlogPredicateBarRowHeight;
+				overflow-y: hidden;
+				
+				> ul {
+				
+					padding: @arborealBlogPredicateBarRowHeight 0px;
+					position: relative;
+					
+					:before, :after {
+					
+						position: absolute;
+						top: 0;
+						bottom: 0;
+					
+					}
+					
+					:before {
+					
+						left: 0;
+						.rightwardsShadowBlock(4.5px);
+					
+					}
+					
+					:after {
+					
+						right: 0;
+						.leftwardsShadowBlock(4.5px);
+					
+					}
+				
+				}
+				
 				ul li {
+				
+					padding: 0 (2 * @slice);
 				
 					ul {
 					
 						:hover {}
-					
-					}
+						
+						display: table;
 				
-					li {
-					
-						.inlineBlock;
+						li {
+						
+							display: table-cell;
+							text-align: center;
+						
+							padding: 0px;
+							height: @arborealBlogPredicateBarRowHeight;
+							
+							h3 {
+							
+								.text(18px, 36px, white);
+								.size(2 * @arborealBlogPredicateBarRowHeight, @arborealBlogPredicateBarRowHeight);
+							
+							}
+						
+							time {
+							
+								.text(13px, 36px, white);
+								.size(@arborealBlogPredicateBarRowHeight, @arborealBlogPredicateBarRowHeight);
+							
+							}
+						
+						}
 					
 					}
 				
