@@ -855,6 +855,21 @@
 	
 		background: @arborealPredicateBarBackdrop;
 		
+		:before {
+	
+		
+		}
+		
+		:after {
+		
+			
+		
+		}
+	
+	}
+	
+	.blogNavigation {
+		
 		section {
 		
 			.context;
@@ -1468,6 +1483,80 @@
 			}
 			
 			
+		
+		}
+	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//	!Blog Pagination Navigation
+
+	.context article + nav {
+	
+		text-align: center;
+		.text(20px, 36px, rgb(39, 73, 37));
+	
+		a {
+		
+			.inlineBlock;
+			height: 4 * @slice;
+			padding: (2 * @slice) 0;
+		
+			:first-child {
+			
+				:before {
+				
+					content: "«";
+					.inlineBlock;
+					padding-right: @slice;
+				
+				}
+			
+			}
+			
+			:last-child {
+			
+				:after {
+				
+					content: "»";
+					.inlineBlock;
+					padding-left: @slice;
+				
+				}
+			
+			}
+		
+			+ a {
+		
+				:before {
+				
+					content: "";
+					
+					.inlineBlock;
+					
+					width: 4 * @slice;
+				
+				}
+
+			}
 		
 		}
 	
