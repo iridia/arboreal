@@ -3,6 +3,10 @@
 .DS_Store
 
 
+# Convenience
+
+/product
+
 # LESS-generated files
 
 arboreal.style.css
