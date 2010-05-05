@@ -857,6 +857,7 @@
 		
 		:before {
 	
+			
 		
 		}
 		
@@ -865,10 +866,27 @@
 			
 		
 		}
+		
+		margin-bottom: @pack;
 	
 	}
 	
 	.blogNavigation {
+	
+		position: relative;
+	
+		.tab {
+		
+			display: block;
+			.size((12 * @slice), (4 * @slice));
+			
+			position: absolute;
+			
+			bottom: -4 * @slice;
+			left: 50%;
+			margin-left: 40 * @slice;
+		
+		}
 		
 		section {
 		
