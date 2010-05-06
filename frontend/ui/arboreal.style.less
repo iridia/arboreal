@@ -848,7 +848,7 @@
 	
 //	!Blog Predicate Navigation
 
-	.blogNavigation {
+	#blogNavigation {
 	
 		.rigidWidth(100%);
 		padding: 0px;
@@ -857,31 +857,15 @@
 		
 		position: relative;
 		
-		:before {
-	
-			.downwardsShadowBlock(4px);
-			.fullInset(0, 0, auto, 0);
-			position: absolute;
-			margin-top: -1px;
-			border-top: 1px solid rgba(255, 255, 255, .65);
-		
-		}
-		
-		:after {
-		
-			.upwardsShadowBlock(4px);
-			.fullInset(auto, 0, 0, 0);
-			position: absolute;
-			margin-bottom: -1px;
-			border-bottom: 1px solid rgba(255, 255, 255, .65);
-		
-		}
-		
-		margin-bottom: @pack;
+		margin-bottom: 1.5 * @pack;
 	
 	}
 	
-	.blogNavigation {
+	
+	
+	
+	
+	#blogNavigation {
 	
 		position: relative;
 	
@@ -894,20 +878,40 @@
 			
 			bottom: -4 * @slice;
 			left: 50%;
-			margin-left: 40 * @slice;
+					
+			padding-left: 2 * @slice;
+			margin-left: 40 * @slice - 2 * @slice;
 			
+/*
 			padding-top: 2 * @slice;
 			margin-top: -2 * @slice;
+*/
 			
-			background: @arborealPredicateBarBackdrop;
+			padding-bottom: 2 * @slice;
+			margin-bottom: -2 * @slice;
+			
+			padding-right: 2 * @slice;
+			margin-right: -2 * @slice;
+						
+			//	background: @arborealPredicateBarBackdrop;
+			
+			background-repeat: no-repeat;
+			background-position: center bottom;
 			
 			z-index: 1024;
 		
 		}
 		
+		
+		
+		
+		
+			margin-top: 4 * @slice;
+		
 		section {
 		
 			.context;
+			margin-top: 0px;
 			.rigidWidth(@arborealWidth);
 			padding: 0px !important;
 			border-spacing: 0px 0px;
@@ -1096,6 +1100,79 @@
 
 
 
+	#blogNavigation {
+	
+		.tab {
+		
+			background: url(arboreal.article.blogPosts.predicate.toggle.png) center bottom no-repeat;
+	
+		}
+		
+		> div {
+	
+			display: none;
+		
+		}
+		
+		:before {
+	
+			content: "";
+			.fullInset(0, 0, auto, 0);
+			margin-top: -1px;
+			border-top: 1px solid rgba(0, 0, 0, .2);
+			
+			z-index: 1024 + 512;
+		
+		}
+		
+		:after {
+		
+			content: "";
+			.fullInset(auto, 0, 0, 0);
+			margin-bottom: -1px;
+			border-bottom: 1px solid rgba(255, 255, 255, .45);
+		
+		}
+	
+	}
+	
+	#blogNavigation.active {
+	
+		.tab {
+		
+			background: url(arboreal.article.blogPosts.predicate.toggle.active.png) center bottom no-repeat;
+	
+		}
+		
+		> div {
+	
+		//	display: block;
+			
+		}
+		
+		:before {
+	
+			.downwardsShadowBlock(4px);
+			.fullInset(0, 0, auto, 0);
+			position: absolute;
+			margin-top: -1px;
+			border-top: 1px solid rgba(255, 255, 255, .65);
+		
+		}
+		
+		:after {
+		
+			.upwardsShadowBlock(4px);
+			.fullInset(auto, 0, 0, 0);
+			position: absolute;
+			margin-bottom: -1px;
+			border-bottom: 1px solid rgba(255, 255, 255, .65);
+		
+		}
+	
+	}
+	
+	 
 
 
 

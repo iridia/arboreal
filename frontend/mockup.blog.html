@@ -42,9 +42,11 @@
 
 
 
-<section class="blogNavigation">
+<section id="blogNavigation" class="">
 
-	<a class="tab"><span>More…</span></a>
+	<a id="blogNavigationToggle" class="tab"><span>More…</span></a>
+
+	<div>
 
 	<section>
 
@@ -148,6 +150,8 @@
 
 	</section>
 
+	</div>
+
 </section>
 
 
@@ -250,5 +254,17 @@
 
 
 
+
+<script type="text/javascript" src="ui/lib.jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+
+	$("#blogNavigationToggle").live("click", function() {
+		
+		$("#blogNavigation").toggleClass("active");
+		$("#blogNavigation > div").slideToggle();
+	
+	});
+
+</script>
 
 </body></html>
