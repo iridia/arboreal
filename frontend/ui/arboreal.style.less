@@ -131,16 +131,16 @@
 	
 	}
 	
-		.upwardsShadowBlock {
+		.upwardsShadowBlock(@height: 4px) {
 		
 			content: "";
 			display: block;
 
 			position: relative;
-			top: 4px;
-			margin-top: -4px;
+			top: @height;
+			margin-top: -1 * @height;
 			
-			height: 4px;
+			height: @height;
 
 			.upwardsShadow;
 			
@@ -855,15 +855,25 @@
 	
 		background: @arborealPredicateBarBackdrop;
 		
+		position: relative;
+		
 		:before {
 	
-			
+			.downwardsShadowBlock(4px);
+			.fullInset(0, 0, auto, 0);
+			position: absolute;
+			margin-top: -1px;
+			border-top: 1px solid rgba(255, 255, 255, .65);
 		
 		}
 		
 		:after {
 		
-			
+			.upwardsShadowBlock(4px);
+			.fullInset(auto, 0, 0, 0);
+			position: absolute;
+			margin-bottom: -1px;
+			border-bottom: 1px solid rgba(255, 255, 255, .65);
 		
 		}
 		
@@ -885,6 +895,13 @@
 			bottom: -4 * @slice;
 			left: 50%;
 			margin-left: 40 * @slice;
+			
+			padding-top: 2 * @slice;
+			margin-top: -2 * @slice;
+			
+			background: @arborealPredicateBarBackdrop;
+			
+			z-index: 1024;
 		
 		}
 		
@@ -913,7 +930,7 @@
 				input {
 				
 					margin-top: 4 * @slice;
-					margin-bottom: 2 * @slice;
+					margin-bottom: 1.5 * @slice;
 					.borderRadius(4.5px);
 					.text(18px, 18px, white);
 					padding: @slice - 2px;
@@ -999,6 +1016,8 @@
 					padding: @arborealBlogPredicateBarRowHeight 0px;
 					position: relative;
 					
+					z-index: 1024;
+					
 					:before, :after {
 					
 						position: absolute;
@@ -1029,7 +1048,13 @@
 				
 					ul {
 					
-						:hover {}
+						opacity: .75;
+					
+						:hover {
+						
+							opacity: 1;
+						
+						}
 						
 						display: table;
 				
