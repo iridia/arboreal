@@ -1909,6 +1909,31 @@
 		
 		}
 		
+		footer {
+		
+			position: relative;
+			height: 4 * @slice;
+
+			margin-top: 2 * @slice;
+			margin-bottom: -2 * @slice;
+
+			:before {
+						
+				.razorSplit(36px, .45, .2);
+				.fullInset((-2 * @slice), (-2 * @slice), auto, (-2 * @slice));
+		
+			}
+			
+			text-align: right;
+			
+			a {
+			
+				.text(13px, 36px, rgb(39, 73, 37));
+			
+			}
+				
+		}
+		
 	}
 
 
