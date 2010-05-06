@@ -868,8 +868,11 @@
 	#blogNavigation {
 	
 		position: relative;
+		margin-top: 4 * @slice;
 	
 		.tab {
+		
+			.link;
 		
 			display: block;
 			.size((12 * @slice), (4 * @slice));
@@ -882,31 +885,31 @@
 			padding-left: 2 * @slice;
 			margin-left: 40 * @slice - 2 * @slice;
 			
-/*
-			padding-top: 2 * @slice;
-			margin-top: -2 * @slice;
-*/
-			
 			padding-bottom: 2 * @slice;
 			margin-bottom: -2 * @slice;
 			
 			padding-right: 2 * @slice;
 			margin-right: -2 * @slice;
-						
-			//	background: @arborealPredicateBarBackdrop;
-			
+
 			background-repeat: no-repeat;
 			background-position: center bottom;
 			
 			z-index: 1024;
+			
+			span {
+			
+				display: block;
+				.size(100%, 100%);
+				overflow-x: hidden;
+				text-indent: 2 * @pack;
+			
+			}
 		
 		}
 		
 		
 		
 		
-		
-			margin-top: 4 * @slice;
 		
 		section {
 		
@@ -1106,6 +1109,18 @@
 		
 			background: url(arboreal.article.blogPosts.predicate.toggle.png) center bottom no-repeat;
 	
+			span {
+			
+				background: url(arboreal.article.blogPosts.predicate.toggle.glyph.png) center no-repeat;
+			
+			}
+			
+			span:hover {
+			
+				background: url(arboreal.article.blogPosts.predicate.toggle.glyph.hover.png) center no-repeat;
+			
+			}
+	
 		}
 		
 		> div {
@@ -1141,6 +1156,12 @@
 		.tab {
 		
 			background: url(arboreal.article.blogPosts.predicate.toggle.active.png) center bottom no-repeat;
+			
+			span {
+			
+				background: url(arboreal.article.blogPosts.predicate.toggle.active.glyph.png) center no-repeat;
+			
+			}
 	
 		}
 		
