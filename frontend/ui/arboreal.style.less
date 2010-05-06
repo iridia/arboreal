@@ -623,7 +623,7 @@
 
 
 
-
+	
 
 
 //	!Context
@@ -1781,7 +1781,8 @@
 
 			min-height: 6 * @slice;
 			height: 6 * @slice;
-		//	padding-bottom: 2 * @slice;
+			
+			position: relative;
 
 			time {
 			
@@ -1834,6 +1835,48 @@
 				}
 			
 			}
+			
+			a {
+			
+				span {
+				
+					display: none;
+				
+				}
+			
+				display: block;
+				
+				.size(4 * @slice);
+			
+			}
+			
+			a.share {
+			
+				.fullInset(0, 0, auto, auto);
+				
+			}
+			
+			a.share {
+			
+				background: url(arboreal.article.blogPost.header.share.png) center no-repeat;
+			
+			}
+			
+			a.share:hover {
+				
+				background: url(arboreal.article.blogPost.header.share.hover.png) center no-repeat;
+				
+			}
+				
+			a.share:active,
+			a.share.active,
+			a.share.active:hover {
+				
+				background: url(arboreal.article.blogPost.header.share.active.png) center no-repeat;
+			
+			}
+			
+			
 			
 			
 			
