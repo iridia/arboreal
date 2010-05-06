@@ -850,7 +850,7 @@
 
 	#blogNavigation {
 	
-		.rigidWidth(100%);
+		.rigidWidth(100%, (@arborealWidth + (2 * @arborealSidebarSpacing)), 100%);
 		padding: 0px;
 	
 		background: @arborealPredicateBarBackdrop;
@@ -910,6 +910,14 @@
 		
 		
 		
+		
+		div {
+		
+			.rigidWidth(@arborealWidth + (2 * @arborealSidebarSpacing));
+			margin-left: auto;
+			margin-right: auto;
+		
+		}
 		
 		section {
 		
