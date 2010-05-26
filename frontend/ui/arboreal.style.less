@@ -2094,9 +2094,95 @@
 		
 		position: relative;
 	
-		background: black;
+		background: rgb(160, 180, 181);
+		
+		> * {
+		
+			.rigidWidth(@arborealWidth);
+			margin: 0 auto;
+		
+		}
+		
+		ul {
+		
+			padding: (2 * @slice) 0;
+		
+			li {
+			
+				clear: left;
+			
+				margin-left: @arborealSidebarWidth + @arborealSidebarSpacing - (2 * @slice);
+				
+				margin-right: -2 * @slice;
 	
-//		arboreal.blogPost.comment.backdrop
+				.borderImage(url(arboreal.blogPost.comment.backdrop.png), 54, 36, 36, 36, stretch);
+				
+				margin-top: 2 * @slice;
+				margin-bottom: 2 * @slice;
+				
+				> * {
+				
+					position: relative;
+					top: -2 * @slice;
+					
+					:last-child {
+					
+						margin-bottom: -2 * @slice;
+					
+					}
+				
+				}
+				
+				aside {
+					
+					width: @arborealSidebarWidth - 12 * @slice;
+					.inlineBlock;
+					float: left;
+					margin-left: -1 * (@arborealSidebarWidth + @arborealSidebarSpacing + 2 * @slice - 12 * @slice);
+					
+					.avatar {
+					
+						float: left;
+						.size(@pack);
+						margin-left: -1.5 * @pack;
+						margin-top: -18px;
+						
+						background-color: white;
+						.borderRadius(4.5px);
+						.shadowed(rgba(0, 0, 0, .2), 0px, 1px, 1px);
+					
+					}
+					
+					h3 {
+					
+						margin-top: -1 * @slice;
+						.text(24px, 36px);
+						
+						font-weight: bold;
+					
+					}
+					
+					time {
+					
+						.text(13px, 18px);
+					
+					}
+					
+					font-weight: bold;
+					
+					color: rgb(81, 91, 92);
+					text-shadow:	rgba(255, 255, 255, .65) 0px 1px 0px,
+							rgba(0, 0, 0, .15) 0px -1px 0px;
+							
+					.thinStroke;
+				
+				}
+			
+			}
+		
+		}
+	
+//		
 	
 	}
 
