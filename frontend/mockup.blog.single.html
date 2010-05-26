@@ -241,10 +241,22 @@
 <script type="text/javascript" src="ui/lib.jquery/dist/jquery.js"></script>
 <script type="text/javascript">
 
-	$("#blogNavigationToggle").live("click", function() {
+	$("#blogNavigationToggle").toggle(function() {
 		
 		$("#blogNavigation").toggleClass("active");
-		$("#blogNavigation > div").slideToggle();
+		
+		$("#blogNavigation > div").slideToggle(function() {
+				
+			
+		});
+	
+	}, function() {
+		
+		$("#blogNavigation > div").slideToggle(function() {
+				
+			$("#blogNavigation").toggleClass("active");
+			
+		});
 	
 	});
 
