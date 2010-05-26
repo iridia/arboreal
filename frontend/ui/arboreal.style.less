@@ -676,8 +676,10 @@
 	.gallery {
 	
 		height: 5 * @pack;
-		padding: 36px !important;
+		padding: 18px !important;
 		position: relative;
+		margin-top: 2 * @slice;
+		margin-bottom: 6 * @slice;
 		
 		:before {
 		
@@ -685,7 +687,7 @@
 			content: "";
 			display: block;
 			z-index: 1024;
-			.borderImage(url(arboreal.gallery.cover.png), 72, 72, 72, 108, round);
+			.borderImage(url(arboreal.gallery.cover.png), 54, 54, 54, 72, round);
 		
 		}
 		
@@ -703,6 +705,7 @@
 			a {
 			
 				.full;
+				overflow-y: hidden;
 				
 				img {
 				
@@ -720,7 +723,7 @@
 		
 			background: transparent;
 		
-			.fullInset(auto, 0, (1.5 * @slice), 0);
+			.fullInset(auto, 0, (-.5 * @slice), 0);
 			
 			z-index: 2048;
 			
@@ -1468,7 +1471,7 @@
 
 	.context > article > .twitterStream {
 		
-		.borderImage(url(arboreal.article.twitterStream.backdrop.png), 36, 36, 36, 108, round);
+		.borderImage(url(arboreal.article.twitterStream.backdrop.png), 36, 108, 36, 36, round);
 		
 		margin: -18px -18px 0 -18px;
 		
@@ -1476,7 +1479,7 @@
 		
 		div {
 		
-			margin-left: -72px;
+			margin-right: -72px;
 		
 		}
 		
@@ -1542,7 +1545,7 @@
 	
 		.borderImage(url(arboreal.article.blogPosts.backdrop.png), 36, 36, 54, 36, round);
 		
-		margin: 0 -18px;
+		margin: 36px -18px 0 -18px;
 		
 		padding-bottom: 18px;
 	
