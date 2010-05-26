@@ -1255,13 +1255,9 @@
 	
 		
 		padding: 0 (2 * @slice);
-		
-		background-color: @arborealPanelBackdrop;
-		border: 1px solid white;
-		margin: -1px;
-		
-		.borderRadius(9px);
-		.shadowed(rgba(0, 0, 0, .45), 0px, 1px, 1px);
+		.borderImage(url(arboreal.calendar.portal.backdrop.png), 72, 36, 54, 36, stretch);
+		margin: -36px -36px -54px -36px;
+		background-color: transparent;
 		
 		h2 {
 		
@@ -1347,14 +1343,21 @@
 		.leadingFriday {	margin-left: 5 * @arborealCalendarItemWidth;	}
 		.leadingSaturday {	margin-left: 6 * @arborealCalendarItemWidth;	}
 		
+
+		.details, .actions {
+		
+			margin: 0px (-2 * @slice);
+		
+		}		
+		
 		.details {
 		
 			clear: left;
 			background: rgb(64, 74, 54);
 			
-			margin: (2 * @slice) -19px @slice -19px;
+			margin-top: (2 * @slice);
 			padding: @slice 0;
-			
+
 			:before {
 			
 				.downwardsShadowBlock;
@@ -1423,6 +1426,85 @@
 			
 					display: none;
 					
+				}
+			
+			}
+		
+		}
+		
+		.actions {
+		
+			text-align: center;
+			margin-bottom: -2 * @slice;
+			
+			height: 6 * @slice;
+			
+			li {
+			
+				.size(2 * @pack, 6 * @slice);
+				.text(18px, 54px);
+				.inlineBlock;
+				
+				position: relative;
+				
+				a {
+				
+					.link;
+				
+					.full(3px);
+					
+					padding: 0 @slice 0 (4 * @slice);
+										
+					background-position: left center;
+					background-position-x: @slice;
+					background-repeat: no-repeat;
+					
+						.transitioning(.05s);
+						-webkit-transition-property: background-color, -webkit-box-shadow;
+						.borderRadius(3px);
+					
+						color: black;
+						background-image: url(arboreal.calendar.portal.glyph.normal.png);
+						opacity: .5;
+					
+					:hover {
+
+						background-color: rgb(153, 153, 153);
+						color: white;
+					
+						background-image: url(arboreal.calendar.portal.glyph.hover.png);
+						opacity: 1;
+					
+					}
+					
+					:active {
+					
+						background-color: rgb(89, 89, 89);
+						color: white;
+						text-shadow: 0px 1px 2px rgba(0, 0, 0, .65);
+					
+						background-image: url(arboreal.calendar.portal.glyph.active.png);
+						opacity: 1;
+						
+						.innerShadowed(rgba(0, 0, 0, .75), 0px, 0px, 4px);
+					
+					}
+				
+				}
+				
+				:before, :after {
+				
+					.razorSplitHorizontal;
+					height: 100%;
+				
+				}
+				
+				:after {
+				
+					position: absolute;
+					right: 0;
+					top: 0;
+				
 				}
 			
 			}
