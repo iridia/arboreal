@@ -1256,7 +1256,7 @@
 	
 		
 		padding: 0 (2 * @slice);
-		.borderImage(url(arboreal.calendar.portal.backdrop.png), 72, 36, 54, 36, stretch);
+		.borderImage(url(arboreal.calendar.portal.backdrop.png), 54, 36, 54, 36, stretch);
 		margin: -36px -36px -54px -36px;
 		background-color: transparent;
 		
@@ -1274,22 +1274,28 @@
 				display: block;
 				position: absolute;
 				.size(4 * @slice);
-				top: 2 * @slice;
+				top: 4 * @slice;
 				left: 0;
 				
 				background: url(arboreal.calendar.sunday.png) center no-repeat;
-				background-color: .calendar['background-color'];
+				background-color: @arborealPanelBackdrop;
+				
+				z-index: 256;
 			
 			}
 			
 			:after {
 			
+				position: relative;
+				top: 18px;
 				.razorSplit(36px, .45, .2);
 				margin: 0 -18px 0 -18px;
+				
+				z-index: 128;
 			
 			}
 			
-			margin-bottom: 2 * @slice;
+			margin-bottom: 4 * @slice;
 		
 		}
 	
