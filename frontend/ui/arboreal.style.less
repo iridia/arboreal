@@ -314,7 +314,7 @@
 //	!Swatches
 	
 	@arborealBackdrop: rgb(208, 214, 195);
-	@arborealNavigationBarBackdrop: rgb(165, 195, 154);
+	@arborealNavigationBarBackdrop: rgb(180, 194, 158);
 	@arborealPredicateBarBackdrop: rgb(64, 74, 54);
 	@arborealFooterBackdrop: rgb(168, 176, 152);
 	@arborealPanelBackdrop: rgb(245, 245, 245);
@@ -439,8 +439,11 @@
 			
 			ul {
 			
+			//	A semi-transparent black overlay over a particular color
+			//	@color - rgb(255, 255, 255) * percentage
+			
 				height: @arborealNavigationBarHeight - (2 * @arborealNavigationBarBorderWidth);
-				border: @arborealNavigationBarBorderWidth solid rgb(156, 185, 146);
+				border: @arborealNavigationBarBorderWidth solid (@arborealNavigationBarBackdrop - (rgb(255, 255, 255) * 0.05));
 				background: @arborealNavigationBarBackdrop;
 				.borderRadius(4.5px);
 				
