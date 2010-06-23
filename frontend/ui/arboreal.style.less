@@ -2203,6 +2203,56 @@
 				.uaDisableSelection;
 			
 			}
+			
+			.newComment {
+	
+				.size((12 * @slice - 2), (4 * @slice - 2));
+				padding-top: 0;
+				padding-bottom: 0;
+				position: absolute;
+				left: 50%;
+				margin-left: 5 * @pack;
+				top: 2 * @slice;
+				
+				border: 1px solid rgba(0, 0, 0, .35);
+				.gradientBackdropVertical(rgba(255, 255, 255, .3), rgba(121, 128, 133, .3));
+				
+				.boxShadow(rgba(255, 255, 255, .3), 0px, 1px, 0px);
+				
+				overflow: hidden;
+				
+				.borderRadius(4.5px);
+				
+				.uaDisableSelection;
+				
+				span {
+				
+					display: block;
+					.size(12 * @slice, 4 * @slice);
+					color: transparent;
+					background: url(arboreal.blogPost.comment.glyph.addComment.png);
+					
+					background-position: center;
+					background-position: center -1px;
+					background-position-y: -1px;
+					background-repeat: no-repeat;
+				
+				}
+			
+			}
+			
+			.newComment.active,
+			.newComment:active {
+			
+				.gradientBackdropVertical(rgb(82, 87, 89), rgb(153, 153, 153));
+			
+				span {
+			
+					background-image: url(arboreal.blogPost.comment.glyph.addComment.active.png);
+					
+				}
+			
+			}
 		
 		}
 	
