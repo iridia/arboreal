@@ -1,4 +1,4 @@
-//	arboreal.less
+//	arboreal.style.less
 //	Evadne Wu at Iridia, 2010
 
 @import "lib.monoSnippets/lib.monoSnippets.reset.less";
@@ -983,6 +983,10 @@
 					
 						background-image: url(arboreal.calendar.portal.glyph.hover.png);
 						opacity: 1;
+						
+						-webkit-animation-name: arborealCalendarActionHoverAnimation;
+						-webkit-animation-duration: 4.5s;
+						-webkit-animation-iteration-count: infinite;
 					
 					}
 					
@@ -996,6 +1000,8 @@
 						opacity: 1;
 						
 						.boxShadowInner(rgba(0, 0, 0, .75), 0px, 0px, 4px);
+						
+						-webkit-animation-name: "";
 					
 					}
 				
@@ -1025,7 +1031,7 @@
 	
 	
 	
-
+	
 //	! 	
 //	!Context: Sidebar: Teal Box
 
