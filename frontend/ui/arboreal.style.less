@@ -2005,7 +2005,7 @@
 		}
 		
 		ul {
-		
+				
 			:before {
 			
 				content: "";
@@ -2013,46 +2013,51 @@
 				width: 100%;
 				.shadowDownBlock(4px);
 				position: absolute;
+				
+				z-index: 64;
 			
 			}
 			
 			:after {
 			
-				content: "";
-				.fullInset(0, 0, -18px, 0);
-				width: 100%;
-				.shadowUpBlock(4px);
+				.pseudoBlock;
+				background-color: rgb(196, 205, 206);
+				
+				z-index: 0;
+				
+				height: 100%;
+				margin-right: 2.5 * @pack;
 				position: absolute;
-				top: auto;
-				bottom: 0;
+				right: 50%;
+				top: 0%;
+				width: 50%;
+				
+				.boxShadow2(rgba(0, 0, 0, .15), 1px, 0px, 0px, rgba(0, 0, 0, .35), 0px, 0px, 3px);
+				border-right: 1px solid rgba(255, 255, 255, .20);
 			
 			}
-		
+			
 			padding: (2 * @slice) 0;
 		
 			li {
 			
 				clear: left;
 			
-				margin-left: @arborealSidebarWidth + @arborealSidebarSpacing - (2 * @slice);
-				
+				margin-left: 288px;	//(@arborealSidebarWidth + @arborealSidebarSpacing);
 				margin-right: -2 * @slice;
 	
 				.borderImage(url(arboreal.blogPost.comment.backdrop.png), 72, 36, 36, 54, stretch);
-				
-				margin-top: 2 * @slice;
-				margin-bottom: 2 * @slice;
-				
-				.text(13px, 18px, rgb(64, 64, 64));
+								
+				.text(16px, 27px, rgb(64, 64, 64));
 				
 				> * {
 				
 					position: relative;
-					top: -2 * @slice;
+					top: -4 * @slice;
 					
 					:last-child {
 					
-						margin-bottom: -2 * @slice;
+						margin-bottom: -4 * @slice;
 					
 					}
 				
@@ -2060,36 +2065,72 @@
 				
 				p {
 				
-					margin-bottom: 2 * @slice;
+					margin-bottom: 3 * @slice;
 				
 				}
 				
 				aside {
+				
+					z-index: 32;
 					
-					width: @arborealSidebarWidth - 12 * @slice;
+					width: @arborealSidebarWidth - 16 * @slice;
 					.inlineBlock;
 					float: left;
-					margin-left: -1 * (@arborealSidebarWidth + @arborealSidebarSpacing + 2 * @slice - 12 * @slice);
+					margin-left: -1 * (@arborealSidebarWidth + @arborealSidebarSpacing - 8 * @slice);
 					
 					.avatar {
 					
 						float: left;
-						.size(@pack);
+						.size(8 * @slice);
 						margin-left: -1.5 * @pack;
-						margin-top: -18px;
+						margin-top: -2 * @slice;
 						
-						background-color: white;
 						.borderRadius(4.5px);
-						.boxShadow(rgba(0, 0, 0, .2), 0px, 1px, 1px);
+						.boxShadowInner(rgba(0, 0, 0, .50), 0px, 0px, 3px);
+						background-color: rgb(139, 156, 166);
+
+						position: relative;
+						
+						:empty {
+						
+							.boxShadow(rgba(0, 0, 0, .0), 0px, 0px, 0px);
+							background: transparent;	
+						
+						}
+						
+						img {
+						
+							.size(100%);
+						
+						}
+					
+					}
+					
+					.noShadow {
+						
+						background-color: transparent;
+						.boxShadow(rgba(0, 0, 0, .0), 0px, 0px, 0px);
 					
 					}
 					
 					h3 {
 					
-						margin-top: -1 * @slice;
-						.text(24px, 36px);
-						
+						.text(24px, 27px);
 						font-weight: bold;
+						vertical-align: bottom;
+					
+					}
+					
+					a {
+							
+						display: block;
+					
+						background: url(arboreal.blogPost.comment.glyph.authorSite.png) top right no-repeat;
+						
+						background-position-y: -2px;
+						
+						margin-right: -4 * @slice;
+						padding-right: 4 * @slice;
 					
 					}
 					
@@ -2108,6 +2149,22 @@
 					.textStroke;
 				
 				}
+			
+			}
+		
+		}
+		
+		section.pagination {
+		
+			:before {
+			
+				content: "";
+				.fullInset(0, 0, -18px, 0);
+				width: 100%;
+				.shadowUpBlock(4px);
+				position: absolute;
+				top: auto;
+				bottom: 0;
 			
 			}
 		
