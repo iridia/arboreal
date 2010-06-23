@@ -52,6 +52,12 @@
 	
 	}
 	
+	.typeSansSerifPaleo {
+	
+		font-family: "Helvetica Neue", "Helvetica", "Arial";
+	
+	}
+	
 	
 	
 	
@@ -143,6 +149,7 @@
 	@arborealPredicateBarBackdrop: rgb(92, 102, 92);
 	@arborealFooterBackdrop: rgb(168, 176, 152);
 	@arborealPanelBackdrop: rgb(245, 245, 245);
+	@arborealBlogPagination: rgb(30, 43, 7);
 	
 	
 	
@@ -2163,8 +2170,37 @@
 				width: 100%;
 				.shadowUpBlock(4px);
 				position: absolute;
+				bottom: @pack;
 				top: auto;
-				bottom: 0;
+				margin-top: 0;
+			
+			}
+			
+			position:absolute;
+			
+			bottom: -1 * @pack;
+			height: @pack;
+			
+			.width(100%);
+			
+			text-align: center;
+			vertical-align: middle;
+			
+			a {
+			
+				.link;
+				.inlineBlock;
+				.size(4 * @slice);
+				padding: (2 * @slice) 0;
+				.text(24px, 36px, @arborealBlogPagination);
+				.typeSansSerifPaleo;
+			
+			}
+			
+			.previous, .next {
+			
+				color: transparent;
+				.uaDisableSelection;
 			
 			}
 		
