@@ -32,6 +32,10 @@
 //	! 
 //	!Typography
 
+
+
+
+
 	.typeMonospaced {
 	
 		font-family: "Panic Sans", "Menlo", "Bitstream Vera Sans Mono", "Monaco", monospace;
@@ -86,163 +90,6 @@
 
 
 
-//	! 
-//	!UI Snippets
-
-	.glareSplitVertical (@height:36px) {
-	
-		content: "";
-		display: block;
-		height: 0px;
-
-		margin-top: .5 * @height - 1;
-		border-top: 1px solid rgba(0, 0, 0, .2);
-		border-bottom: 1px solid rgba(255, 255, 255, .45);
-		margin-bottom: .5 * @height - 1;
-			
-	}
-	
-	.glareSplitHorizontal {
-	
-		content: "";
-		display: block;
-		width: 0px;
-
-		margin-left: -1px;
-		border-left: 1px solid rgba(0, 0, 0, .2);
-		border-right: 1px solid rgba(255, 255, 255, .45);
-		margin-right: -1px;
-			
-	}
-	
-		.glareSplitHorizontalReversed {
-		
-			content: "";
-			display: block;
-			width: 0px;
-	
-			margin-left: -1px;
-			border-left: 1px solid rgba(255, 255, 255, .45);
-			border-right: 1px solid rgba(0, 0, 0, .2);
-			margin-right: -1px;
-				
-		}
-	
-	
-	
-	
-	
-	.shadowUp {
-	
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0, 0)), color-stop(1, rgba(0,0,0, 1)));
-		background: -moz-linear-gradient(center top, rgba(0,0,0, 0) 0%, rgba(0,0,0, 1) 100%);
-	
-	}
-	
-		.shadowUpBlock(@height: 4px) {
-		
-			content: "";
-			display: block;
-
-			position: relative;
-			top: @height;
-			margin-top: -1 * @height;
-			
-			height: @height;
-
-			.shadowUp;
-			
-			margin-left: 0px;
-			margin-right: 0px;
-			
-			opacity: .35;
-
-		}
-	
-	
-	
-	
-	
-	.shadowRight {
-	
-		background: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(0,0,0, 1)), color-stop(1, rgba(0,0,0, 0)));
-		background: -moz-linear-gradient(center left, rgba(0,0,0, 1) 0%, rgba(0,0,0, 0) 100%);
-	
-	}
-	
-		.shadowRightBlock(@width: 4px) {
-		
-			content: "";
-			display: block;
-			
-			width: @width;
-
-			.shadowRight;
-			
-			margin-left: 0px;
-			margin-right: 0px;
-			
-			opacity: .35;
-
-		}
-	
-	
-	
-	
-	
-	.shadowDown {
-	
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0, 1)), color-stop(1, rgba(0,0,0, 0)));
-		background: -moz-linear-gradient(center top, rgba(0,0,0, 1) 0%, rgba(0,0,0, 0) 100%);
-	
-	}
-	
-		.shadowDownBlock(@height: 4px) {
-		
-			content: "";
-			display: block;
-
-			position: relative;
-			top: @height;
-			margin-top: -1 * @height;
-			
-			height: @height;
-
-			.shadowDown;
-			
-			margin-left: 0px;
-			margin-right: 0px;
-			
-			opacity: .35;
-
-		}
-	
-	
-	
-	
-	
-	.shadowLeft {
-	
-		background: -webkit-gradient(linear, right top, left top, color-stop(0, rgba(0,0,0, 1)), color-stop(1, rgba(0,0,0, 0)));
-		background: -moz-linear-gradient(center right, rgba(0,0,0, 1) 0%, rgba(0,0,0, 0) 100%);
-	
-	}
-	
-		.shadowLeftBlock(@width: 4px) {
-		
-			content: "";
-			display: block;
-			
-			width: @width;
-
-			.shadowLeft;
-			
-			margin-left: 0px;
-			margin-right: 0px;
-			
-			opacity: .35;
-
-		}
 	
 	
 	
