@@ -13,6 +13,12 @@
 
 
 
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Configuration ……………………………………………………………………………………………………………………………………………………………………
 
 
 
@@ -23,6 +29,7 @@
 
 
 
+//	! 
 //	!Typography
 
 	.typeMonospaced {
@@ -79,9 +86,10 @@
 
 
 
-//	!Snippets
+//	! 
+//	!UI Snippets
 
-	.razorSplit (@height:36px) {
+	.glareSplitVertical (@height:36px) {
 	
 		content: "";
 		display: block;
@@ -94,7 +102,7 @@
 			
 	}
 	
-	.razorSplitHorizontal {
+	.glareSplitHorizontal {
 	
 		content: "";
 		display: block;
@@ -107,7 +115,7 @@
 			
 	}
 	
-		.razorSplitHorizontalReversed {
+		.glareSplitHorizontalReversed {
 		
 			content: "";
 			display: block;
@@ -124,14 +132,14 @@
 	
 	
 	
-	.upwardsShadow {
+	.shadowUp {
 	
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0, 0)), color-stop(1, rgba(0,0,0, 1)));
 		background: -moz-linear-gradient(center top, rgba(0,0,0, 0) 0%, rgba(0,0,0, 1) 100%);
 	
 	}
 	
-		.upwardsShadowBlock(@height: 4px) {
+		.shadowUpBlock(@height: 4px) {
 		
 			content: "";
 			display: block;
@@ -142,7 +150,7 @@
 			
 			height: @height;
 
-			.upwardsShadow;
+			.shadowUp;
 			
 			margin-left: 0px;
 			margin-right: 0px;
@@ -155,21 +163,21 @@
 	
 	
 	
-	.rightwardsShadow {
+	.shadowRight {
 	
 		background: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(0,0,0, 1)), color-stop(1, rgba(0,0,0, 0)));
 		background: -moz-linear-gradient(center left, rgba(0,0,0, 1) 0%, rgba(0,0,0, 0) 100%);
 	
 	}
 	
-		.rightwardsShadowBlock(@width: 4px) {
+		.shadowRightBlock(@width: 4px) {
 		
 			content: "";
 			display: block;
 			
 			width: @width;
 
-			.rightwardsShadow;
+			.shadowRight;
 			
 			margin-left: 0px;
 			margin-right: 0px;
@@ -182,14 +190,14 @@
 	
 	
 	
-	.downwardsShadow {
+	.shadowDown {
 	
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0, 1)), color-stop(1, rgba(0,0,0, 0)));
 		background: -moz-linear-gradient(center top, rgba(0,0,0, 1) 0%, rgba(0,0,0, 0) 100%);
 	
 	}
 	
-		.downwardsShadowBlock(@height: 4px) {
+		.shadowDownBlock(@height: 4px) {
 		
 			content: "";
 			display: block;
@@ -200,7 +208,7 @@
 			
 			height: @height;
 
-			.downwardsShadow;
+			.shadowDown;
 			
 			margin-left: 0px;
 			margin-right: 0px;
@@ -213,21 +221,21 @@
 	
 	
 	
-	.leftwardsShadow {
+	.shadowLeft {
 	
 		background: -webkit-gradient(linear, right top, left top, color-stop(0, rgba(0,0,0, 1)), color-stop(1, rgba(0,0,0, 0)));
 		background: -moz-linear-gradient(center right, rgba(0,0,0, 1) 0%, rgba(0,0,0, 0) 100%);
 	
 	}
 	
-		.leftwardsShadowBlock(@width: 4px) {
+		.shadowLeftBlock(@width: 4px) {
 		
 			content: "";
 			display: block;
 			
 			width: @width;
 
-			.leftwardsShadow;
+			.shadowLeft;
 			
 			margin-left: 0px;
 			margin-right: 0px;
@@ -289,6 +297,7 @@
 
 
 
+//	! 
 //	!Positioning
 
 	@arborealWidth: 13 * @pack;
@@ -311,6 +320,7 @@
 
 
 
+//	! 
 //	!Swatches
 	
 	@arborealBackdrop: rgb(206, 217, 195);
@@ -322,26 +332,18 @@
 	
 	
 	
-	
-//	!Debug Mode
-
-	.d * {
-	
-		background-color: rgba(255, 255, 255, .05);
-		outline: 1px solid rgba(255, 255, 255, .2);
-		
-		:hover {
-		
-			background-color: rgba(255, 255, 255, .25);
-		
-		}
-	
-	}
 
 
 
 
 
+
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Initialization …………………………………………………………………………………………………………………………………………………………………
 
 
 
@@ -352,16 +354,22 @@
 
 
 
-
-
-
-
-
-//	!Scaffold
+//	! 
+//	!Scaffold and Geometry
+	
+	
+	
+	
 	
 	html, body {
 	
 		min-height: 100%;
+	
+	}
+
+	html {
+	
+		background-color: @arborealBackdrop;
 	
 	}
 	
@@ -371,7 +379,7 @@
 		
 		> * {
 		
-			.rigidWidth(@arborealWidth);
+			.width(@arborealWidth);
 			padding: 0 @arborealSideSpacing;
 			margin: 0 auto;
 		
@@ -384,6 +392,68 @@
 		overflow-y: auto;
 	
 	}
+
+	h1, h2, h3, h4, h5, h6, h7 {
+	
+		font-weight: normal;
+	
+	}
+	.context {
+	
+		border-spacing: @arborealSidebarSpacing 0;
+		margin: (.5 * @pack) auto 0 auto;
+		padding: 0px 0px (1.5 * @pack) 0px !important;
+		display: table;
+		
+		> * {
+		
+			display: table-cell;
+			vertical-align: top;
+		
+		}
+		
+		.width(@arborealWidth + (2 * @arborealSidebarSpacing));
+		
+		aside {		.width(@arborealSidebarWidth);	}
+		
+		> nav {
+		
+			display: table-row;
+		
+		}
+	
+	}
+	
+	.blockContext {
+	
+		.context;
+		display: block;
+		.width(@arborealWidth);
+		
+		> * {
+		
+			display: block;
+		
+		}
+	
+	}
+	
+	.storeContext {
+	
+		.blockContext;
+		.width(@arborealWidth + (2 * @arborealSidebarSpacing));
+	
+	}
+
+
+
+
+
+
+
+
+
+
 	
 
 
@@ -394,6 +464,12 @@
 
 
 
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Headers & Footers …………………………………………………………………………………………………………………………………………………………
 	
 
 
@@ -404,11 +480,12 @@
 
 
 
+//	! 
 //	!Header
 	
 	body > header {
 	
-		.deselection;
+		.uaDisableSelection;
 	
 		height: 2 * @pack;
 		
@@ -447,7 +524,7 @@
 				background: @arborealNavigationBarBackdrop;
 				.borderRadius(4.5px);
 				
-				.doubleShadowed(rgba(0, 0, 0, .35), 0px, -1px, 0px, rgba(255, 255, 255, .5), 0px, 1px, 0px);
+				.boxShadow2(rgba(0, 0, 0, .35), 0px, -1px, 0px, rgba(255, 255, 255, .5), 0px, 1px, 0px);
 				
 				overflow: visible;
 			
@@ -483,7 +560,7 @@
 					
 						:before {
 	
-							.razorSplitHorizontal;
+							.glareSplitHorizontal;
 							position: absolute;
 							left: -1;
 							height: @arborealNavigationBarHeight;
@@ -543,7 +620,7 @@
 				
 					:before {
 	
-						.razorSplitHorizontalReversed;
+						.glareSplitHorizontalReversed;
 						position: absolute;
 						left: -1;
 						height: @arborealNavigationBarHeight;
@@ -565,7 +642,7 @@
 					
 					:before {
 					
-						.razorSplitHorizontal;
+						.glareSplitHorizontal;
 					
 					}
 				
@@ -619,612 +696,155 @@
 
 
 
+//	! 
+//	!Footer
 	
+	body > footer {
+	
+		margin-top: -1px;
+		border-top: 1px solid rgba(255, 255, 255, .65);
 
+		.text(14px, @pack, rgb(38, 38, 38));
+		text-shadow: 	rgba(255, 255, 255, .2) 0px 1px 0px,
+				rgba(0, 0, 0, .15) 0px -1px 0px,
+				rgba(255, 255, 255, .2) 0px 0px 1px;
+	
+		.fullInset(auto, 0px, 0px, 0px);	
+		.width(100%);
 
-
-
-
-
-	
-
-
-//	!Context
-
-	h1, h2, h3, h4, h5, h6, h7 {
-	
-		font-weight: normal;
-	
-	}
-
-
-
-	html {
-	
-		background-color: @arborealBackdrop;
-	
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-//	!Gallery Box
+		padding: 0;
+		background: @arborealFooterBackdrop;
 		
-	.gallery {
-	
-		height: 5 * @pack;
-		padding: 18px !important;
-		position: relative;
-		margin-top: 2 * @slice;
-		margin-bottom: 6 * @slice;
+		white-space: nowrap;
 		
 		:before {
 		
-			.full;
-			content: "";
-			display: block;
-			z-index: 1024;
-			.borderImage(url(arboreal.gallery.cover.png), 54, 54, 54, 72, round);
+			.shadowDownBlock(2px);
 		
 		}
-		
-		li.default, li.current {
-		
-			z-index: 512;
-		
-		}
-		
-		> li {
-		
-			.full;
-			background: black;
-			
-			a {
-			
-				.full;
-				overflow-y: hidden;
-				
-				img {
-				
-					width: 100%;
-					height: auto;
-					min-height: 100%;
-				
-				}
-			
-			}
-					
-		}
-		
-		li.spotties {
-		
-			background: transparent;
-		
-			.fullInset(auto, 0, (-.5 * @slice), 0);
-			
-			z-index: 2048;
-			
-			ul {
-			
-				display: table;
-				margin: 0 auto;	
-				border-spacing: @slice 0;
-		
-			}
-			
-			li {
-			
-				display: table-cell;
-				
-				.size(@slice);
-				.rigidWidth(@slice);				
-				.borderRadius;
-				
-				background: rgb(88, 88, 88);
-				opacity: .55;
-				
-				.transitioning(.125s);
-				.link;
-			
-			}
-			
-			li.active, li:hover {
-			
-				opacity: 1;
-			
-			}
-		
-		}
-	
-	}
-	
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-//	!Context
-
-	.context {
-	
-		border-spacing: @arborealSidebarSpacing 0;
-		margin: (.5 * @pack) auto 0 auto;
-		padding: 0px 0px (1.5 * @pack) 0px !important;
-		display: table;
-		
-		> * {
-		
-			display: table-cell;
-			vertical-align: top;
-		
-		}
-		
-		.rigidWidth(@arborealWidth + (2 * @arborealSidebarSpacing));
-		
-	//	article {	.rigidWidth(@arborealArticleWidth);	}
-		aside {		.rigidWidth(@arborealSidebarWidth);	}
-		
-		> nav {
-		
-			display: table-row;
-		
-		}
-	
-	}
-	
-	.blockContext {
-	
-		.context;
-		display: block;
-		.rigidWidth(@arborealWidth);
-		
-		> * {
-		
-			display: block;
-		
-		}
-	
-	}
-	
-	.storeContext {
-	
-		.blockContext;
-		.rigidWidth(@arborealWidth + (2 * @arborealSidebarSpacing));
-	
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	!Blog Predicate Navigation
-
-	#blogNavigation {
-	
-		.rigidWidth(100%, (@arborealWidth + (2 * @arborealSidebarSpacing)), 100%);
-		padding: 0px;
-	
-		background: @arborealPredicateBarBackdrop;
-		
-		position: relative;
-		
-		margin-bottom: 1.5 * @pack;
-	
-	}
-	
-	
-	
-	
-	
-	#blogNavigation {
-	
-		position: relative;
-		margin-top: 4 * @slice;
-	
-		.tab {
-		
-			.link;
-		
-			display: block;
-			.size((12 * @slice), (4 * @slice));
-			
-			position: absolute;
-			
-			bottom: -4 * @slice;
-			left: 50%;
-					
-			padding-left: 2 * @slice;
-			margin-left: 40 * @slice - 2 * @slice;
-			
-			padding-bottom: 2 * @slice;
-			margin-bottom: -2 * @slice;
-			
-			padding-right: 2 * @slice;
-			margin-right: -2 * @slice;
-
-			background-repeat: no-repeat;
-			background-position: center bottom;
-			
-			z-index: 1024;
-			
-			span {
-			
-				display: block;
-				.size(100%, 100%);
-				overflow-x: hidden;
-				text-indent: 2 * @pack;
-			
-			}
-		
-		}
-		
-		
-		
 		
 		
 		div {
 		
-			.rigidWidth(@arborealWidth + (2 * @arborealSidebarSpacing));
-			margin-left: auto;
-			margin-right: auto;
+			overflow-y: hidden;
+			.size(@arborealWidth, @pack);
+
+			padding: 0px (2 * @arborealSideSpacing);			
+			margin: 0 auto;
+			
+			* {
+		
+				display: inline;
+			
+			}
+		
+		}
+
+
+		ul li {
+			
+			height: 2 * @slice;
+			margin-right: 2 * @slice;
+		
+			:last-child {
+			
+				margin-right: 0;
+			
+			}
+			
+			a {
+			
+				.link;
+				padding: 0 @slice;
+				margin: 0 (-1 * @slice);
+				.borderRadius(@slice);
+			
+				:active {	background: rgba(0, 0, 0, .35);	}
+
+				
+				:hover {
+
+					background: rgba(0, 0, 0, .2);
+					.boxShadow(rgba(255, 255, 255, .25), 0px, 1px, 0px);
+					color: white;
+					text-shadow: rgba(0, 0, 0, .25) 0px 0px 1px;
+				
+				}
+				
+				
+			
+			}
+			
+		}
+		
+		
+		.credits {
+		
+			.inlineBlock;
+			.size((2 * @pack), @pack);
+			float: right;
+			
+			span {	display: none;	}
 		
 		}
 		
-		section {
-		
-			.context;
-			margin-top: 0px;
-			.rigidWidth(@arborealWidth);
-			padding: 0px !important;
-			border-spacing: 0px 0px;
-			
-			> * {
-			
-				display: block;
-			
-			}
-			
-			:before {
-		
-				content: "";
-				position: absolute;
-			
-			}
-			
-			article {
-			
-				input {
-				
-					margin-top: 4 * @slice;
-					margin-bottom: 1.5 * @slice;
-					.borderRadius(4.5px);
-					.text(18px, 18px, white);
-					padding: @slice - 2px;
-					width: 32 * @slice - 2 * (@slice - 2px) - 2 * 2px;
-					border: 2px solid white;
-					border-color: rgba(255, 255, 255, .5);
-				
-				}
-			
-				ul {
-				
-					margin-left: 2 * @slice;
-					padding-left: 4 * @slice;
-				
-				}
-				
-				ul.tags {
-				
-					background: url(arboreal.article.blogPosts.predicate.tags.png) left center no-repeat;
-				
-				}
-				
-				ul.categories {
-				
-					background: url(arboreal.article.blogPosts.predicate.categories.png) left center no-repeat;
-				
-				}
-			
-				ul li {
-				
-					.inlineBlock;
-					height: 36px;
-					.text(13px, 36px, white);
-					
-					margin-right: @slice;
-				
-				}
-			
-			}
-			
-			position: relative;
-			
-			aside {
-			
-				display: block;
-				float: right;
-			
-				.rigidWidth(7.5 * @pack);
-				
-				:before, :after {
-				
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					
-					margin: 0;
-					height: (2 + @arborealBlogPredicateBarRowsVisible) * @arborealBlogPredicateBarRowHeight;
-					
-					opacity: .25;
-				
-				}
-				
-				:before {
-	
-					.razorSplitHorizontalReversed;
-					right: 7.5 * @pack;
+	}
 
-				}
-				
-				:after {
-	
-					.razorSplitHorizontal;
-					right: 0;
 
-				}
-				
-/*
-				height: (2 + @arborealBlogPredicateBarRowsVisible) * @arborealBlogPredicateBarRowHeight;
-				overflow-y: hidden;
-*/
-				
-				> ul {
-				
-					padding: @arborealBlogPredicateBarRowHeight 0px;
-					position: relative;
-					
-					z-index: 1024;
-					
-					:before, :after {
-					
-						position: absolute;
-						top: 0;
-						bottom: 0;
-					
-					}
-					
-					:before {
-					
-						left: 0;
-						.rightwardsShadowBlock(4.5px);
-					
-					}
-					
-					:after {
-					
-						right: 0;
-						.leftwardsShadowBlock(4.5px);
-					
-					}
-				
-				}
-				
-				ul li {
-				
-					padding: 0 (2 * @slice);
-				
-					ul {
-					
-						opacity: .75;
-					
-						:hover {
-						
-							opacity: 1;
-						
-						}
-						
-						display: table;
-				
-						li {
-						
-							display: table-cell;
-							text-align: center;
-						
-							padding: 0px;
-							height: @arborealBlogPredicateBarRowHeight;
-							
-							h3 {
-							
-								.text(18px, 36px, white);
-								.size(2 * @arborealBlogPredicateBarRowHeight, @arborealBlogPredicateBarRowHeight);
-							
-							}
-						
-							time {
-							
-								.text(13px, 36px, white);
-								.size(@arborealBlogPredicateBarRowHeight, @arborealBlogPredicateBarRowHeight);
-							
-							}
-						
-						}
-					
-					}
-				
-				}
-			
-			}
+
+
+
+
+
+
+
+
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Context ……………………………………………………………………………………………………………………………………………………………………………………
+
+
+
+
+
+
+
+
+
+
+//	! 
+//	!Context: Article
+
+	.context > article > article {
+	
+		header {
+		
+		}
+		
+		p {
+		
+		}
+		
+		footer {
 		
 		}
 	
 	}
 	
-
-
-
-
-	#blogNavigation {
 	
-		.tab {
-		
-			background: url(arboreal.article.blogPosts.predicate.toggle.png) center bottom no-repeat;
 	
-			span {
-			
-				background: url(arboreal.article.blogPosts.predicate.toggle.glyph.png) center no-repeat;
-			
-			}
-			
-			span:hover {
-			
-				background: url(arboreal.article.blogPosts.predicate.toggle.glyph.hover.png) center no-repeat;
-			
-			}
 	
-		}
-		
-		> div {
 	
-			display: none;
-		
-		}
-		
-		:before {
 	
-			content: "";
-			.fullInset(0, 0, auto, 0);
-			margin-top: -1px;
-			border-top: 1px solid rgba(0, 0, 0, .2);
-			
-			z-index: 1024 + 512;
-		
-		}
-		
-		:after {
-		
-			content: "";
-			.fullInset(auto, 0, 0, 0);
-			margin-bottom: -1px;
-			border-bottom: 1px solid rgba(255, 255, 255, .45);
-		
-		}
 	
-	}
 	
-	#blogNavigation.active {
-	
-		.tab {
-		
-			background: url(arboreal.article.blogPosts.predicate.toggle.active.png) center bottom no-repeat;
-			
-			span {
-			
-				background: url(arboreal.article.blogPosts.predicate.toggle.active.glyph.png) center no-repeat;
-			
-			}
-	
-		}
-		
-		> div {
-	
-		//	display: block;
-			
-		}
-		
-		:before {
-	
-			.downwardsShadowBlock(4px);
-			.fullInset(0, 0, auto, 0);
-			position: absolute;
-			margin-top: -1px;
-			border-top: 1px solid rgba(255, 255, 255, .65);
-		
-		}
-		
-		:after {
-		
-			.upwardsShadowBlock(4px);
-			.fullInset(auto, 0, 0, 0);
-			position: absolute;
-			margin-bottom: -1px;
-			border-bottom: 1px solid rgba(255, 255, 255, .65);
-		
-		}
-	
-	}
-	
-	 
-
-
-
-
-
 	
 
-
-
-
-
-
-
-
-
-//	!Sidebar
+//	! 
+//	!Context: Sidebar
 
 	aside {
 	
@@ -1251,11 +871,12 @@
 
 
 
-//	!Sidebar Calendar Box
+//	! 
+//	!Context: Sidebar: Calendar Box
 
 	.calendar {
 	
-		.deselection;
+		.uaDisableSelection;
 	
 		
 		padding: 0 (2 * @slice);
@@ -1291,7 +912,7 @@
 			
 				position: relative;
 				top: 18px;
-				.razorSplit(36px, .45, .2);
+				.glareSplitVertical(36px, .45, .2);
 				margin: 0 -18px 0 -18px;
 				
 				z-index: 128;
@@ -1374,14 +995,14 @@
 
 			:before {
 			
-				.downwardsShadowBlock;
+				.shadowDownBlock;
 				top: -4px;
 			
 			}
 			
 			:after {
 			
-				.upwardsShadowBlock;
+				.shadowUpBlock;
 				top: 8px;
 			
 			}
@@ -1425,7 +1046,7 @@
 			span {
 			
 				.text(24px, 36px);
-				.thinStroke;
+				.textStroke;
 			
 			}
 			
@@ -1473,7 +1094,7 @@
 					background-position-x: @slice;
 					background-repeat: no-repeat;
 					
-						.transitioning(.05s);
+						.transition(.05s);
 						-webkit-transition-property: background-color, -webkit-box-shadow;
 						.borderRadius(3px);
 					
@@ -1500,7 +1121,7 @@
 						background-image: url(arboreal.calendar.portal.glyph.active.png);
 						opacity: 1;
 						
-						.innerShadowed(rgba(0, 0, 0, .75), 0px, 0px, 4px);
+						.boxShadowInner(rgba(0, 0, 0, .75), 0px, 0px, 4px);
 					
 					}
 				
@@ -1508,7 +1129,7 @@
 				
 				:before, :after {
 				
-					.razorSplitHorizontal;
+					.glareSplitHorizontal;
 					height: 100%;
 				
 				}
@@ -1530,8 +1151,9 @@
 	
 	
 	
-	
-//	!Sidebar Teal Box
+
+//	! 	
+//	!Context: Sidebar: Teal Box
 
 	.tealBox {
 	
@@ -1584,44 +1206,157 @@
 		
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	!Article
 
-	.context > article > article {
+
+
+
 	
-		header {
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Portal ………………………………………………………………………………………………………………………………………………………………………………………
+
+
+
+
+
+
+
+
+
+
+//	! 
+//	!Portal: Gallery Box
+		
+	.gallery {
+	
+		height: 5 * @pack;
+		padding: 18px !important;
+		position: relative;
+		margin-top: 2 * @slice;
+		margin-bottom: 6 * @slice;
+		
+		:before {
+		
+			.full;
+			content: "";
+			display: block;
+			z-index: 1024;
+			.borderImage(url(arboreal.gallery.cover.png), 54, 54, 54, 72, round);
 		
 		}
 		
-		p {
+		li.default, li.current {
+		
+			z-index: 512;
 		
 		}
 		
-		footer {
+		> li {
+		
+			.full;
+			background: black;
+			
+			a {
+			
+				.full;
+				overflow-y: hidden;
+				
+				img {
+				
+					width: 100%;
+					height: auto;
+					min-height: 100%;
+				
+				}
+			
+			}
+					
+		}
+		
+		li.spotties {
+		
+			background: transparent;
+		
+			.fullInset(auto, 0, (-.5 * @slice), 0);
+			
+			z-index: 2048;
+			
+			ul {
+			
+				display: table;
+				margin: 0 auto;	
+				border-spacing: @slice 0;
+		
+			}
+			
+			li {
+			
+				display: table-cell;
+				
+				.size(@slice);
+				.width(@slice);				
+				.borderRadius;
+				
+				background: rgb(88, 88, 88);
+				opacity: .55;
+				
+				.transition(.125s);
+				.link;
+			
+			}
+			
+			li.active, li:hover {
+			
+				opacity: 1;
+			
+			}
 		
 		}
 	
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	!Twitter Stream Box
+
+
+
+
+//	! 
+//	!Portal: Twitter Stream Box
 
 	.context > article > .twitterStream {
 		
@@ -1643,7 +1378,7 @@
 					rgba(0, 0, 0, .05) 0px -1px 0px,
 					rgba(0, 0, 0, .05) 0px 0px 4.5px;
 					
-			.thinStroke;
+			.textStroke;
 		
 		}
 		
@@ -1678,22 +1413,8 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	!Blog Post Box
+//	! 
+//	!Portal: Blog Post Box
 
 	.blogPosts {
 	
@@ -1708,8 +1429,8 @@
 			height: 4 * @slice;
 		
 			.arborealBlogArticleHeader;
-			.rigidWidth(@arborealArticleWidth - (4 * @slice));
-			.delimitText;
+			.width(@arborealArticleWidth - (4 * @slice));
+			.textDelimited;
 			
 			time {
 			
@@ -1734,7 +1455,7 @@
 		
 			:before {
 				
-				.razorSplit(36px, .45, .2);
+				.glareSplitVertical(36px, .45, .2);
 				margin: 0 (-2 * @slice);
 		
 			}
@@ -1799,23 +1520,349 @@
 
 
 
+	
 
 
 
 
 
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Blog ……………………………………………………………………………………………………………………………………………………………………………………………
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+//	! 
+//	!Blog: Predicate Navigation
+
+	#blogNavigation {
+	
+		.width(100%, (@arborealWidth + (2 * @arborealSidebarSpacing)), 100%);
+		padding: 0px;
+	
+		background: @arborealPredicateBarBackdrop;
+		position: relative;
+
+		margin-top: 4 * @slice;		
+		margin-bottom: 1.5 * @pack;
+				
+		:before {
+	
+			content: "";
+			.fullInset(0, 0, auto, 0);
+			margin-top: -1px;
+			border-top: 1px solid rgba(0, 0, 0, .2);
+			
+			z-index: 1024 + 512;
+		
+		}
+		
+		:after {
+		
+			content: "";
+			.fullInset(auto, 0, 0, 0);
+			margin-bottom: -1px;
+			border-bottom: 1px solid rgba(255, 255, 255, .45);
+		
+		}
+	
+		.tab {
+		
+			.link;
+		
+			display: block;
+			.size((12 * @slice), (4 * @slice));
+			
+			position: absolute;
+			
+			bottom: -4 * @slice;
+			left: 50%;
+					
+			padding-left: 2 * @slice;
+			margin-left: 40 * @slice - 2 * @slice;
+			
+			padding-bottom: 2 * @slice;
+			margin-bottom: -2 * @slice;
+			
+			padding-right: 2 * @slice;
+			margin-right: -2 * @slice;
+
+			background-repeat: no-repeat;
+			background-position: center bottom;
+			
+			z-index: 1024;
+			
+			background: url(arboreal.article.blogPosts.predicate.toggle.png) center bottom no-repeat;
+			
+			span {
+			
+				background: url(arboreal.article.blogPosts.predicate.toggle.glyph.png) center no-repeat;
+				
+				:hover {
+			
+					background: url(arboreal.article.blogPosts.predicate.toggle.glyph.hover.png) center no-repeat;
+			
+				}
+			
+				display: block;
+				.size(100%, 100%);
+				overflow-x: hidden;
+				text-indent: 2 * @pack;
+			
+			}
+	
+		}
+		
+		> div {
+	
+			display: none;
+		
+		}
+		
+		div {
+		
+			.width(@arborealWidth + (2 * @arborealSidebarSpacing));
+			margin-left: auto;
+			margin-right: auto;
+		
+		}
+		
+		section {
+		
+			.context;
+			margin-top: 0px;
+			.width(@arborealWidth);
+			padding: 0px !important;
+			border-spacing: 0px 0px;
+			
+			> * {
+			
+				display: block;
+			
+			}
+			
+			:before {
+		
+				content: "";
+				position: absolute;
+			
+			}
+			
+			article {
+			
+				input {
+				
+					margin-top: 4 * @slice;
+					margin-bottom: 1.5 * @slice;
+					.borderRadius(4.5px);
+					.text(18px, 18px, white);
+					padding: @slice - 2px;
+					width: 32 * @slice - 2 * (@slice - 2px) - 2 * 2px;
+					border: 2px solid white;
+					border-color: rgba(255, 255, 255, .5);
+				
+				}
+			
+				ul {
+				
+					margin-left: 2 * @slice;
+					padding-left: 4 * @slice;
+					
+					li {
+				
+						.inlineBlock;
+						height: 36px;
+						.text(13px, 36px, white);
+						
+						margin-right: @slice;
+					
+					}
+				
+				}
+				
+				ul.tags {
+				
+					background: url(arboreal.article.blogPosts.predicate.tags.png) left center no-repeat;
+				
+				}
+				
+				ul.categories {
+				
+					background: url(arboreal.article.blogPosts.predicate.categories.png) left center no-repeat;
+				
+				}
+			
+			}
+			
+			position: relative;
+			
+			aside {
+			
+				display: block;
+				float: right;
+			
+				.width(7.5 * @pack);
+				
+				:before, :after {
+				
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					
+					margin: 0;
+					height: (2 + @arborealBlogPredicateBarRowsVisible) * @arborealBlogPredicateBarRowHeight;
+					
+					opacity: .25;
+				
+				}
+				
+				:before {
+	
+					.glareSplitHorizontalReversed;
+					right: 7.5 * @pack;
+
+				}
+				
+				:after {
+	
+					.glareSplitHorizontal;
+					right: 0;
+
+				}
+								
+				> ul {
+				
+					padding: @arborealBlogPredicateBarRowHeight 0px;
+					position: relative;
+					
+					z-index: 1024;
+					
+					:before, :after {
+					
+						position: absolute;
+						top: 0;
+						bottom: 0;
+					
+					}
+					
+					:before {
+					
+						left: 0;
+						.shadowRightBlock(4.5px);
+					
+					}
+					
+					:after {
+					
+						right: 0;
+						.shadowLeftBlock(4.5px);
+					
+					}
+				
+				}
+				
+				ul li {
+				
+					padding: 0 (2 * @slice);
+				
+					ul {
+					
+						opacity: .75;
+					
+						:hover {
+						
+							opacity: 1;
+						
+						}
+						
+						display: table;
+				
+						li {
+						
+							display: table-cell;
+							text-align: center;
+						
+							padding: 0px;
+							height: @arborealBlogPredicateBarRowHeight;
+							
+							h3 {
+							
+								.text(18px, 36px, white);
+								.size(2 * @arborealBlogPredicateBarRowHeight, @arborealBlogPredicateBarRowHeight);
+							
+							}
+						
+							time {
+							
+								.text(13px, 36px, white);
+								.size(@arborealBlogPredicateBarRowHeight, @arborealBlogPredicateBarRowHeight);
+							
+							}
+						
+						}
+					
+					}
+				
+				}
+			
+			}
+		
+		}
+	
+	}
+	
+	#blogNavigation.active {
+	
+		.tab {
+		
+			background: url(arboreal.article.blogPosts.predicate.toggle.active.png) center bottom no-repeat;
+			
+			span {
+			
+				background: url(arboreal.article.blogPosts.predicate.toggle.active.glyph.png) center no-repeat;
+			
+			}
+	
+		}
+		
+		:before {
+	
+			.shadowDownBlock(4px);
+			.fullInset(0, 0, auto, 0);
+			position: absolute;
+			margin-top: -1px;
+			border-top: 1px solid rgba(255, 255, 255, .65);
+		
+		}
+		
+		:after {
+		
+			.shadowUpBlock(4px);
+			.fullInset(auto, 0, 0, 0);
+			position: absolute;
+			margin-bottom: -1px;
+			border-bottom: 1px solid rgba(255, 255, 255, .65);
+		
+		}
+	
+	}
+	
+	 
 
 
 
-
-
-
-
-
-
-
-
-//	!Blog Pagination Navigation
+//	! 
+//	!Blog: Pagination Navigation
 
 	.context article + nav {
 	
@@ -1874,59 +1921,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//	!Store Shelf
-
-	.storeShelf {
-	
-		background: url(arboreal.shelf.backdrop.png) top center repeat-y;
-	
-		text-align: center;
-	
-		li {
-		
-			.inlineBlock;
-			.size(2 * @pack, 4 * @pack);
-			margin: 0 (0.5 * @pack);
-		
-		}
-	
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-//	!Single Blog Post
+//	! 
+//	!Blog: Single Post
 
 	.blogPost,
 	article article {
@@ -1962,7 +1958,7 @@
 				
 				:after {
 				
-					.razorSplitHorizontal;
+					.glareSplitHorizontal;
 					height: 6 * @slice;
 					
 					position: absolute;
@@ -2046,7 +2042,7 @@
 				
 				:before {
 					
-					.razorSplit(36px, .45, .2);
+					.glareSplitVertical(36px, .45, .2);
 					.fullInset((-4 * @slice), (-2 * @slice), auto, (-2 * @slice));
 			
 				}
@@ -2080,7 +2076,7 @@
 
 			:before {
 						
-				.razorSplit(36px, .45, .2);
+				.glareSplitVertical(36px, .45, .2);
 				.fullInset((-2 * @slice), (-2 * @slice), auto, (-2 * @slice));
 		
 			}
@@ -2095,14 +2091,15 @@
 
 
 
-//	!Blog Comments
+//	! 
+//	!Blog: Comments
 
 	.context + .comments {
 	
 		margin-top: -1.25 * @pack;
 		margin-bottom: 2 * @pack;
 	
-		.rigidWidth(100%, (@arborealWidth + (2 * @arborealSidebarSpacing)), 100%);
+		.width(100%, (@arborealWidth + (2 * @arborealSidebarSpacing)), 100%);
 		padding: 0px;
 		
 		position: relative;
@@ -2111,7 +2108,7 @@
 		
 		> * {
 		
-			.rigidWidth(@arborealWidth);
+			.width(@arborealWidth);
 			margin: 0 auto;
 		
 		}
@@ -2147,7 +2144,7 @@
 				content: "";
 				.fullInset(-18px, 0, 0, 0);
 				width: 100%;
-				.downwardsShadowBlock(4px);
+				.shadowDownBlock(4px);
 				position: absolute;
 			
 			}
@@ -2157,7 +2154,7 @@
 				content: "";
 				.fullInset(0, 0, -18px, 0);
 				width: 100%;
-				.upwardsShadowBlock(4px);
+				.shadowUpBlock(4px);
 				position: absolute;
 				top: auto;
 				bottom: 0;
@@ -2216,7 +2213,7 @@
 						
 						background-color: white;
 						.borderRadius(4.5px);
-						.shadowed(rgba(0, 0, 0, .2), 0px, 1px, 1px);
+						.boxShadow(rgba(0, 0, 0, .2), 0px, 1px, 1px);
 					
 					}
 					
@@ -2241,15 +2238,13 @@
 					text-shadow:	rgba(255, 255, 255, .65) 0px 1px 0px,
 							rgba(0, 0, 0, .15) 0px -1px 0px;
 							
-					.thinStroke;
+					.textStroke;
 				
 				}
 			
 			}
 		
 		}
-	
-//		
 	
 	}
 
@@ -2262,6 +2257,12 @@
 
 
 
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Store …………………………………………………………………………………………………………………………………………………………………………………………
 
 
 
@@ -2272,13 +2273,14 @@
 
 
 
-//	!Store Message
+//	! 
+//	!Store: Message
 
 	.storeMessage {
 	
 		position: fixed;
 		height: @arborealNavigationBarHeight;
-		.rigidWidth(7.5 * @pack);
+		.width(7.5 * @pack);
 		top: 0;
 		left: 50%;
 		margin-left: -1 * @pack;
@@ -2308,7 +2310,30 @@
 		
 		}
 		
-		.shadowed(rgba(0, 0, 0, .5), 0px, 2px, 4px);
+		.boxShadow(rgba(0, 0, 0, .5), 0px, 2px, 4px);
+	
+	}
+
+
+
+
+
+//	! 
+//	!Store: Shelf
+
+	.storeShelf {
+	
+		background: url(arboreal.shelf.backdrop.png) top center repeat-y;
+	
+		text-align: center;
+	
+		li {
+		
+			.inlineBlock;
+			.size(2 * @pack, 4 * @pack);
+			margin: 0 (0.5 * @pack);
+		
+		}
 	
 	}
 
@@ -2321,6 +2346,12 @@
 
 
 
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Contact …………………………………………………………………………………………………………………………………………………………………………………
 
 
 
@@ -2331,11 +2362,12 @@
 
 
 
-//	!Letter Wrap
+//	! 
+//	!Contact: Letter Wrap
 	
 	.letterWrap {
 	
-		.deselection;
+		.uaDisableSelection;
 	
 		margin: @slice;
 		padding: @slice;
@@ -2355,7 +2387,7 @@
 			background-color: white;
 			.borderRadius(4.5px);
 			
-			.shadowed(rgba(0, 0, 0, .45), 0px, 2px, 4px);
+			.boxShadow(rgba(0, 0, 0, .45), 0px, 2px, 4px);
 		
 		}
 		
@@ -2428,98 +2460,7 @@
 	
 
 
-//	!Footer
-	
-	body > footer {
-	
-		margin-top: -1px;
-		border-top: 1px solid rgba(255, 255, 255, .65);
 
-		.text(14px, @pack, rgb(38, 38, 38));
-		text-shadow: 	rgba(255, 255, 255, .2) 0px 1px 0px,
-				rgba(0, 0, 0, .15) 0px -1px 0px,
-				rgba(255, 255, 255, .2) 0px 0px 1px;
-	
-		.fullInset(auto, 0px, 0px, 0px);	
-		.rigidWidth(100%);
-
-		padding: 0;
-		background: @arborealFooterBackdrop;
-		
-		white-space: nowrap;
-		
-		:before {
-		
-			.downwardsShadowBlock(2px);
-		
-		}
-		
-		
-		div {
-		
-			overflow-y: hidden;
-			.size(@arborealWidth, @pack);
-
-			padding: 0px (2 * @arborealSideSpacing);			
-			margin: 0 auto;
-			
-			* {
-		
-				display: inline;
-			
-			}
-		
-		}
-
-
-		ul li {
-			
-			height: 2 * @slice;
-			margin-right: 2 * @slice;
-		
-			:last-child {
-			
-				margin-right: 0;
-			
-			}
-			
-			a {
-			
-				.link;
-				padding: 0 @slice;
-				margin: 0 (-1 * @slice);
-				.borderRadius(@slice);
-			
-				:active {	background: rgba(0, 0, 0, .35);	}
-
-				
-				:hover {
-
-					background: rgba(0, 0, 0, .2);
-					.shadowed(rgba(255, 255, 255, .25), 0px, 1px, 0px);
-					color: white;
-					text-shadow: rgba(0, 0, 0, .25) 0px 0px 1px;
-				
-				}
-				
-				
-			
-			}
-			
-		}
-		
-		
-		.credits {
-		
-			.inlineBlock;
-			.size((2 * @pack), @pack);
-			float: right;
-			
-			span {	display: none;	}
-		
-		}
-		
-	}
 
 
 
