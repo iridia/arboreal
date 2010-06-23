@@ -265,16 +265,18 @@
 	$("#blogNavigationToggle").toggle(function() {
 		
 		$("#blogNavigation").toggleClass("active");
+		$("#blogNavigation .tab").animate({opacity: 1}, 50).toggleClass("active");
 		
-		$("#blogNavigation > div").slideToggle(function() {
-				
-			
+		$("#blogNavigation > div").slideToggle(450, function() {
+							
 		});
 	
 	}, function() {
 		
-		$("#blogNavigation > div").slideToggle(function() {
-				
+		$("#blogNavigation .tab").toggleClass("active");
+		
+		$("#blogNavigation > div").slideToggle(450, function() {
+		
 			$("#blogNavigation").toggleClass("active");
 			
 		});

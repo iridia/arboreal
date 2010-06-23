@@ -1470,23 +1470,16 @@
 			
 			padding-right: 2 * @slice;
 			margin-right: -2 * @slice;
+			
+			padding-top: 0 * @slice;
+			margin-top: 0 * @slice;
 
 			background-repeat: no-repeat;
 			background-position: center bottom;
 			
 			z-index: 1024;
 			
-			background: url(arboreal.article.blogPosts.predicate.toggle.png) center bottom no-repeat;
-			
 			span {
-			
-				background: url(arboreal.article.blogPosts.predicate.toggle.glyph.png) center no-repeat;
-				
-				:hover {
-			
-					background: url(arboreal.article.blogPosts.predicate.toggle.glyph.hover.png) center no-repeat;
-			
-				}
 			
 				display: block;
 				.size(100%, 100%);
@@ -1609,8 +1602,10 @@
 				
 				:after {
 	
+/*
 					.glareSplitHorizontal;
 					right: 0;
+*/
 
 				}
 								
@@ -1638,8 +1633,10 @@
 					
 					:after {
 					
+/*
 						right: 0;
 						.shadowLeftBlock(4.5px);
+*/
 					
 					}
 				
@@ -1695,19 +1692,53 @@
 	
 	}
 	
+	.tab {
+		
+		.transition2(.125s, padding-top, margin-top);
+	
+	}
+	
+	.tab.fastAnimation {
+	
+		.transition(0s);
+	
+	}
+	
+	.tab {
+	
+		background: url(arboreal.article.blogPosts.predicate.toggle.png) center bottom no-repeat;
+			
+		span {
+		
+			background: url(arboreal.article.blogPosts.predicate.toggle.glyph.png) center no-repeat;
+			
+			:hover {
+		
+				background: url(arboreal.article.blogPosts.predicate.toggle.glyph.hover.png) center no-repeat;
+		
+			}
+		}
+	
+	}
+	
+	.tab.active {
+	
+		padding-top: (2 * @slice) !important;
+		margin-top: (-2 * @slice) !important;
+		
+		background: url(arboreal.article.blogPosts.predicate.toggle.active.png) center bottom no-repeat;
+			
+		span {
+		
+			background: url(arboreal.article.blogPosts.predicate.toggle.active.glyph.png) center no-repeat;
+		
+		}
+	
+	}
+	
 	#blogNavigation.active {
 	
-		.tab {
-		
-			background: url(arboreal.article.blogPosts.predicate.toggle.active.png) center bottom no-repeat;
-			
-			span {
-			
-				background: url(arboreal.article.blogPosts.predicate.toggle.active.glyph.png) center no-repeat;
-			
-			}
-	
-		}
+		margin-bottom: @pack;
 		
 		:before {
 	
@@ -1950,18 +1981,9 @@
 			
 			text-shadow:	0px 1px 0px rgba(255, 255, 255, .65),
 					0px -1px 0px rgba(0, 0, 0, .15);
-					
-			font-weight: bold;
 
-/*			:before {
-						
-				.glareSplitVertical(36px, .45, .2);
-				.fullInset((-2 * @slice), (-2 * @slice), auto, (-2 * @slice));
-		
-			}
-*/			
 			text-align: right;
-				
+			
 		}
 		
 	}
