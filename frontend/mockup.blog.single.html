@@ -282,6 +282,38 @@
 		});
 	
 	});
+	
+	
+	
+	
+	
+	function addComment (authorName, authorAvatarURL, authorSiteURL, commentDate, commentDateRep, commentHTML) {
+	
+		var commentObject = $("<li></li>").append(
+		
+			$("<aside></aside>").append(
+			
+				$("<div></div>").addClass("avatar")
+				
+			).append(
+			
+				$("<h3></h3>").text(authorName).wrap(
+				
+					(typeof siteURL == undefined) ? "" : $("<a></a>").attr("href", authorSiteURL)
+				
+				)
+			
+			).append(
+			
+				$("<time></time>").attr("datetime", commentDate).text(commentDateRep)
+			
+			)
+		
+		).append(commentHTML);
+		
+		commentObject.appendTo("section.comments ul").slideUp(0).slideDown(125);
+	
+	}
 
 </script>
 
