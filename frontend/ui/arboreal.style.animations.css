@@ -26,3 +26,45 @@
 		}
 	
 	}
+	
+	
+	
+	
+	
+	@-webkit-keyframes arborealTagCircularMotionAnimation {
+	
+		0% {
+		
+			-webkit-transform: translateX(0px), translateY(0px);
+		
+		}
+		
+		25% {
+		
+			-webkit-transform: translateX(4.5px), translateY(2.25px);
+		
+		}
+		
+		50% {
+		
+			-webkit-transform: translateX(9px), translateY(0px);
+		
+		}
+		
+		75% {
+		
+			-webkit-transform: translateX(4.5px), translateY(-2.25px);
+		
+		}
+		
+		100% {
+		
+			-webkit-transform: translateX(0px), translateY(0px);
+		
+		}
+	
+	}
+
+
+
+

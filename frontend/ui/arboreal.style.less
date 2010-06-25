@@ -2225,8 +2225,9 @@
 		
 			:before {
 			
-				content: "";
+				.pseudoBlock;
 				.fullInset(0, 0, -18px, 0);
+
 				width: 100%;
 				.shadowUpBlock(4px);
 				position: absolute;
@@ -2236,7 +2237,7 @@
 			
 			}
 			
-			position:absolute;
+			position: absolute;
 			
 			bottom: -1 * @pack;
 			height: @pack;
@@ -2267,17 +2268,8 @@
 			
 			}
 			
-			a, .previous, .next {
-			
-				opacity: .25;
-			
-			}
-			
-			a.active, a:hover {
-			
-				opacity: 1;
-			
-			}
+			a, .previous, .next {	opacity: .25;	}
+			a.active, a:hover {	opacity: 1;	}
 			
 			a.active {
 			
@@ -2390,6 +2382,36 @@
 					
 				
 				}
+				
+				
+			//	Invalid field indication
+				
+				.input:before {
+				
+					.pseudoBlock;
+					
+					.size(1.5 * @pack, 7 * @slice);
+					.fullInset(50%, 0px, 0px, -1.5 * @pack);
+					margin-top: -1 * (3.5 * @slice + 2 + @slice);
+					
+					background: url(arboreal.blogPost.comment.sheet.indicator.invalidField.png) center no-repeat;
+					
+					opacity: 0;
+					
+					.transition(.12
+					5s);
+					.animation(arborealTagCircularMotionAnimation, 2.5s, infinite);
+				
+				}
+				
+				.input.invalid:before {
+				
+					opacity: 1;
+
+				}
+			
+			
+			//	Geometry & faux border
 			
 				input, .input:after {
 
@@ -2416,10 +2438,41 @@
 					
 					}
 						
+				}
+
+				input.optional, .input.optional:after {
+				
+					height: 5 * @slice - 4;
+					border-style: dashed;
+
+					.text(18px, 27px, rgba(0, 0, 0, .5));
+				
 				}	
 				
+				.input {
+				
+					position: relative;
+					
+					:after {
+							
+						z-index: -1;
+										
+						.pseudoBlock;
+						.full;
+						border-color: rgba(255, 255, 255, .35);
+						
+						margin-top: -1px;
+					
+					}
+				
+				}
+				
+				
+			//	Active Highlight	
+				
 				input:active,
-				input:focus {
+				input:focus,
+				button:focus {
 				
 					background-color: rgba(255, 255, 255, .125);
 					.boxShadow(rgba(255, 255, 255, .5), 0px, 0px, 6px);
@@ -2432,14 +2485,8 @@
 				
 				}
 				
-				input.optional, .input.optional:after {
-				
-					height: 5 * @slice - 4;
-					border-style: dashed;
-
-					.text(18px, 27px, rgba(0, 0, 0, .5));
-				
-				}
+			
+			//	Comment body
 				
 				textarea {
 					
@@ -2465,6 +2512,9 @@
 				
 				}
 				
+				
+			//	Submit!	
+				
 				button {
 				
 					.borderRadius(4.5px);
@@ -2479,26 +2529,8 @@
 					.text(20px, 27px, white);
 					
 					opacity: .75;
-				
-				}
-
-			//	Wrapper for faux border shadow
-							
-				.input {
-				
-					position: relative;
 					
-					:after {
-							
-						z-index: -1;
-										
-						.pseudoBlock;
-						.full;
-						border-color: rgba(255, 255, 255, .35);
-						
-						margin-top: -1px;
-					
-					}
+					.transition(.25s);
 				
 				}
 				
@@ -2514,6 +2546,9 @@
 		}
 	
 	}
+	
+	
+	// Backdrop	
 	
 	.context + .comments {
 	
