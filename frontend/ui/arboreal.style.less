@@ -1525,22 +1525,21 @@
 			margin-top: 0px;
 			.width(@arborealWidth + (2 * @arborealSidebarSpacing));
 			padding: 0px !important;
-			border-spacing: 0px 0px;
+			border-spacing: 18px 18px;
 			
 			section.search {
 				
-				.width(4 * @pack);
+				.width(3.375 * @pack);
 				padding: (2 * @slice) !important;
 				background: rgba(0, 0, 0, .15);
 				.boxShadowInner(rgba(0, 0, 0, .25), 0px, 0px, 8px);
 				
 				border: 1px solid rgba(255, 255, 255, .25);
-				margin: 2 * @slice - 1px;
+				margin: (2 * @slice - 1px) !important;
 				
 				.borderRadius(4.5px);
 				
-				display: block;
-				float: left;
+				display: table-cell;
 				
 /*				:before {
 				
@@ -1570,8 +1569,6 @@
 					
 					.text(18px, 36px, white);
 					
-					
-
 					.borderRadius(4.5px);
 					
 					.gradientBackdropVertical(rgba(0, 0, 0, .55), rgba(0, 0, 0, .30));
@@ -1585,6 +1582,8 @@
 				
 					margin-left: 2 * @slice;
 					padding-left: 4 * @slice;
+					
+					width: 4 * @pack;
 					
 					li {
 				
@@ -1627,9 +1626,8 @@
 			
 			aside.browse {
 			
-				display: block;
+				display: table-cell;
 				
-			
 				.width(7.5 * @pack);
 				
 				:before, :after {
@@ -1647,6 +1645,19 @@
 								
 				ul.years {
 				
+					position: absolute;
+					
+					width: 3 * @pack;
+					
+					background-color: rgba(0, 0, 0, .65);
+					.boxShadowInner(rgba(0, 0, 0, .35), 0px, 0px, 9px);
+					
+					top: 0px;
+					bottom: 0px;
+					
+					border: 1px solid rgba(255, 255, 255, .45);
+					margin-left: -1px;
+					margin-right: -1px;
 				
 				}
 				
