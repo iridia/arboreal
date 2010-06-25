@@ -19,3 +19,6 @@
 [submodule "frontend/ui/lib.borderImage"]
 	path = frontend/ui/lib.borderImage
 	url = git://github.com/lrbabe/borderimage.git
+[submodule "frontend/ui/lib.eCSStender"]
+	path = frontend/ui/lib.eCSStender
+	url = git://github.com/easy-designs/eCSStender.js.git
