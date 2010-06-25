@@ -260,7 +260,7 @@
 		position: absolute;
 		width: 100%;
 		min-height: 100%;
-		
+			
 		overflow-y: auto;
 	
 	}
@@ -864,8 +864,10 @@
 			
 			margin-top: (2 * @slice);
 
+/*
 			border-left: 1px solid rgba(0, 0, 0, .25);
 			border-right: 1px solid rgba(0, 0, 0, .25);
+*/
 			
 			padding: @slice 0;
 
@@ -899,9 +901,19 @@
 			li:hover, li.active {
 			
 				background: rgba(0, 0, 0, .125);
+				.gradientBackdropVertical(rgba(0, 0, 0, .075), rgba(0, 0, 0, .250));
 				
 				border-top: 1px solid rgba(0, 0, 0, .125);
-				border-bottom: 1px solid rgba(0, 0, 0, .125);
+				border-bottom: 1px solid rgba(0, 0, 0, .350);
+			
+			}
+			
+			li:active {
+			
+				background: rgba(0, 0, 0, .125);
+				.gradientBackdropVertical(rgba(0, 0, 0, .625), rgba(0, 0, 0, .35));
+				
+				border-bottom-color: rgba(255, 255, 255, .35);
 			
 			}
 		
@@ -2118,7 +2130,7 @@
 					width: @arborealSidebarWidth - 16 * @slice;
 					.inlineBlock;
 					float: left;
-					margin-left: -1 * (@arborealSidebarWidth + @arborealSidebarSpacing - 8 * @slice);
+					margin-left: -1 * (@arborealSidebarWidth + @arborealSidebarSpacing - 10 * @slice);
 					
 					.avatar {
 					
@@ -2133,25 +2145,44 @@
 
 						position: relative;
 						
+						overflow: visible;
+						
 						:empty {
 						
-							.boxShadow(rgba(0, 0, 0, .0), 0px, 0px, 0px);
+							.boxShadowInner(rgba(0, 0, 0, .0), 0px, 0px, 0px);
 							background: transparent;	
+							
+							img {
+							
+								.boxShadowInner(rgba(0, 0, 0, 0), 0px, 0px, 3px);
+							
+							}
 						
 						}
 						
 						img {
 						
+							background-color: transparent;
 							.size(100%);
-						
+							.borderRadius(4.5px);
+							.boxShadowInner(rgba(0, 0, 0, .50), 0px, 0px, 3px);
+							
+							z-index: 32;
+													
 						}
 					
 					}
 					
 					.noShadow {
 						
-						background-color: transparent;
 						.boxShadow(rgba(0, 0, 0, .0), 0px, 0px, 0px);
+						background-color: transparent;
+						
+						img {
+						
+							.boxShadowInner(rgba(0, 0, 0, 0), 0px, 0px, 3px);
+						
+						}
 					
 					}
 					
