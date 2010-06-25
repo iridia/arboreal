@@ -1529,7 +1529,7 @@
 			
 			section.search {
 				
-				.width(3.375 * @pack);
+				.width(4 * @pack);
 				padding: (2 * @slice) !important;
 				background: rgba(0, 0, 0, .15);
 				.boxShadowInner(rgba(0, 0, 0, .25), 0px, 0px, 8px);
@@ -1540,22 +1540,6 @@
 				.borderRadius(4.5px);
 				
 				display: table-cell;
-				
-/*				:before {
-				
-					.pseudoBlock;
-					background: url(arboreal.article.blogPosts.predicate.decor.stencil.png) center no-repeat;
-					
-					top: -2 * @slice;
-					bottom: -2 * @slice;
-					
-					.width(4 * @slice);
-					
-					position: absolute;
-					
-					left: -6 * @slice;
-				
-				}	*/
 			
 				input {
 				
@@ -1628,7 +1612,7 @@
 			
 				display: table-cell;
 				
-				.width(7.5 * @pack);
+				.width(8.5 * @pack);
 				
 				:before, :after {
 				
@@ -1663,7 +1647,20 @@
 				
 				ul.articles {
 				
+					position: absolute;
+
+					width: (8.5 - 3) * @pack;
+					top: 0;
+					bottom: 0;
+					right: 4 * @slice;
 					
+					:before {
+					
+						.pseudoBlock;
+						.full;
+						.borderImage(url(arboreal.blog.predicate.articleTitles.backdrop.png), 72, 144, 0, 90, stretch);
+					
+					}
 				
 				}
 			
