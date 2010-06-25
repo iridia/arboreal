@@ -2283,6 +2283,8 @@
 				
 				.uaDisableSelection;
 				
+				z-index: 192;
+				
 				span {
 				
 					display: block;
@@ -2314,7 +2316,13 @@
 		
 		}
 		
+		
+		
+		
+		
 		section.commentForm {
+		
+			z-index: 128;
 		
 			.transition(.25s);
 		
@@ -2359,8 +2367,30 @@
 					
 					text-indent: @slice;					
 					font-weight: bold;
+					
+					.transition(.25s);
+					
+					:after {
+					
+						.transition(.25s);
+					
+					}
 						
 				}	
+				
+				input:active,
+				input:focus {
+				
+					background-color: rgba(255, 255, 255, .125);
+					.boxShadow(rgba(255, 255, 255, .5), 0px, 0px, 6px);
+				
+					:after {
+					
+						opacity: 0;
+					
+					}
+				
+				}
 				
 				input.optional, .input.optional:after {
 				
@@ -2433,8 +2463,6 @@
 				}
 				
 			}
-			
-			z-index: 128;
 				
 		}
 		
@@ -2443,6 +2471,39 @@
 			bottom: -4 * @slice;
 			opacity: 0;
 		
+		}
+	
+	}
+	
+	.context + .comments {
+	
+		:before {
+			
+			.pseudoBlock;
+			
+			.full;
+			position: fixed;
+			
+			background-color: rgba(0, 0, 0, .35);
+			
+			z-index: 96;
+			
+			display: none;
+			opacity: 0;
+			
+			.transition(.25);
+	
+		}
+	
+	}
+	
+	.context + .comments.backdropped {
+	
+		:before {
+		
+			display: block;
+			opacity: 1;
+					
 		}
 	
 	}

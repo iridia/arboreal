@@ -277,6 +277,10 @@
 <script type="text/javascript" src="ui/lib.jquery/dist/jquery.js"></script>
 <script type="text/javascript">
 
+
+
+
+
 	$("#blogNavigationToggle").toggle(function() {
 		
 		$("#blogNavigation").toggleClass("active");
@@ -302,8 +306,15 @@
 	
 	
 	
-	$("#newComment").click(function() {
-	
+	$("#newComment").toggle(function() {
+
+		$(".context + .comments").toggleClass("backdropped");
+		$("#newComment").toggleClass("active");
+		$(".commentForm").toggleClass("hiddenCommentForm");
+		
+	}, function() {
+
+		$(".context + .comments").toggleClass("backdropped");
 		$("#newComment").toggleClass("active");
 		$(".commentForm").toggleClass("hiddenCommentForm");
 		
