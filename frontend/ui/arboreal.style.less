@@ -862,13 +862,7 @@
 			clear: left;
 			background: @arborealPredicateBarBackdrop;
 			
-			margin-top: (2 * @slice);
-
-/*
-			border-left: 1px solid rgba(0, 0, 0, .25);
-			border-right: 1px solid rgba(0, 0, 0, .25);
-*/
-			
+			margin-top: (2 * @slice);			
 			padding: @slice 0;
 
 			:before {
@@ -998,9 +992,7 @@
 						background-image: url(arboreal.calendar.portal.glyph.hover.png);
 						opacity: 1;
 						
-						-webkit-animation-name: arborealCalendarActionHoverAnimation;
-						-webkit-animation-duration: 4.5s;
-						-webkit-animation-iteration-count: infinite;
+						.animation(arborealCalendarActionHoverAnimation, 4.5s, infinite);
 					
 					}
 					
@@ -2285,7 +2277,6 @@
 				.gradientBackdropVertical(rgba(255, 255, 255, .3), rgba(121, 128, 133, .3));
 				
 				.boxShadow(rgba(255, 255, 255, .3), 0px, 1px, 0px);
-				
 				overflow: hidden;
 				
 				.borderRadius(4.5px);
