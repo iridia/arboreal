@@ -235,13 +235,30 @@
 <script type="text/javascript" src="ui/lib.jquery/dist/jquery.js"></script>
 <script type="text/javascript">
 
-	$("#blogNavigationToggle").live("click", function() {
+	$("#blogNavigationToggle").toggle(function() {
 		
 		$("#blogNavigation").toggleClass("active");
+		$("#blogNavigation .tab").animate({opacity: 1}, 50).toggleClass("active");
+		
+		$("#blogNavigation > div").slideToggle(450, function() {
+							
+		});
+	
+	}, function() {
+		
 		$("#blogNavigation .tab").toggleClass("active");
-		$("#blogNavigation > div").slideToggle();
+		
+		$("#blogNavigation > div").slideToggle(450, function() {
+		
+			$("#blogNavigation").toggleClass("active");
+			
+		});
 	
 	});
+
+
+
+
 
 </script>
 
