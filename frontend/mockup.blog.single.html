@@ -219,11 +219,11 @@
 		
 		<a class="next">Next</a>
 		
-		<a class="newComment"><span>Post Comment</span></a>
+		<a class="newComment" id="newComment"><span>Post Comment</span></a>
 	
 	</section>
 
-	<section class="commentForm">
+	<section class="commentForm hiddenCommentForm">
 	
 		<form>
 
@@ -296,6 +296,17 @@
 			
 		});
 	
+	});
+	
+	
+	
+	
+	
+	$("#newComment").click(function() {
+	
+		$("#newComment").toggleClass("active");
+		$(".commentForm").toggleClass("hiddenCommentForm");
+		
 	});
 	
 	

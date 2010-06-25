@@ -2316,6 +2316,8 @@
 		
 		section.commentForm {
 		
+			.transition(.25s);
+		
 			display: block;
 			position: absolute;
 			
@@ -2338,11 +2340,12 @@
 				
 					display: block;
 					
-					.borderRadius(4.5px);
 				
 				}
 			
 				input, .input:after {
+
+					.borderRadius(4.5px);
 
 					.size(100%, 6 * @slice - 4);
 					
@@ -2369,6 +2372,8 @@
 				}
 				
 				textarea {
+					
+					.borderRadius(4.5px);
 				
 					.size(3.75 * @pack, 2 * @pack);
 					margin: -2px;
@@ -2385,10 +2390,14 @@
 					
 					.text(20px, 36px, rgba(0, 0, 0, .65));
 					.textPlaceholderColor;
+					
+					.uiScrollbar;
 				
 				}
 				
 				button {
+				
+					.borderRadius(4.5px);
 				
 					.size(12 * @slice, 5 * @slice);
 				
@@ -2427,6 +2436,13 @@
 			
 			z-index: 128;
 				
+		}
+		
+		section.hiddenCommentForm {
+		
+			bottom: -4 * @slice;
+			opacity: 0;
+		
 		}
 	
 	}
