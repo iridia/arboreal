@@ -2314,10 +2314,119 @@
 		
 		}
 		
-		form {
+		section.commentForm {
 		
-		//	FIXME: arboreal.blogPost.comment.sheet.backdrop
-		
+			display: block;
+			position: absolute;
+			
+			.borderImage(url(arboreal.blogPost.comment.sheet.backdrop.png), @packRaw, 2 * @packRaw, @packRaw, @packRaw, stretch);
+			
+			.size(3 * @pack, 5.375 * @pack);
+			.width(2.5 * @pack);
+			
+			bottom: -3 * @slice;
+			left: 50%;
+			
+			margin-left: -1 * @pack - 1.5 * @pack + 4.25 * @pack;
+			
+			form {
+			
+				.margin(-2 * @slice + 2, -10 * @slice + 2, -2 * @slice + 2, -2 * @slice + 2);
+				position: relative;
+				
+				> * {
+				
+					display: block;
+					
+					.borderRadius(4.5px);
+				
+				}
+			
+				input, .input:after {
+
+					.size(100%, 6 * @slice - 4);
+					
+					margin: -2px;
+					margin-bottom: 2 * @slice + 2;
+					
+					border: 2px solid rgb(166, 142, 24);
+
+					.text(24px, 36px, rgba(0, 0, 0, .5));
+					.textPlaceholderColor;
+					
+					text-indent: @slice;					
+					font-weight: bold;
+						
+				}	
+				
+				input.optional, .input.optional:after {
+				
+					height: 5 * @slice - 4;
+					border-style: dashed;
+
+					.text(18px, 27px, rgba(0, 0, 0, .5));
+				
+				}
+				
+				textarea {
+				
+					.size(3.75 * @pack, 2 * @pack);
+					margin: -2px;
+					margin-bottom: 2 * @slice + 2;
+					
+					resize: none;
+					
+					padding: @slice;
+					
+					.gradientBackdropVertical(rgb(217, 212, 148), rgb(230, 224, 157));
+					
+					
+					.boxShadow2(rgba(0, 0, 0, .2), 0px, -1px, 0px, rgba(255, 255, 255, .7), 0px, 1px, 0px);
+					
+					.text(20px, 36px, rgba(0, 0, 0, .65));
+					.textPlaceholderColor;
+				
+				}
+				
+				button {
+				
+					.size(12 * @slice, 5 * @slice);
+				
+					background: transparent;
+					border: 2px solid white;
+					margin: -2px;
+					margin-left: auto;
+					
+					.text(20px, 27px, white);
+					
+					opacity: .75;
+				
+				}
+
+			//	Wrapper for faux border shadow
+							
+				.input {
+				
+					position: relative;
+					
+					:after {
+							
+						z-index: -1;
+										
+						.pseudoBlock;
+						.full;
+						border-color: rgba(255, 255, 255, .35);
+						
+						margin-top: -1px;
+					
+					}
+				
+				}
+				
+			}
+			
+			z-index: 128;
+				
 		}
 	
 	}
