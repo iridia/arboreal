@@ -860,7 +860,6 @@
 		.leadingThursday {	margin-left: 4 * @arborealCalendarItemWidth;	}
 		.leadingFriday {	margin-left: 5 * @arborealCalendarItemWidth;	}
 		.leadingSaturday {	margin-left: 6 * @arborealCalendarItemWidth;	}
-		
 
 		.details, .actions {
 		
@@ -1169,8 +1168,7 @@
 		:before {
 		
 			.full;
-			content: "";
-			display: block;
+			.pseudoBlock;
 			z-index: 1024;
 			.borderImage(url(arboreal.gallery.cover.png), 54, 54, 54, 72, round);
 		
@@ -1257,7 +1255,7 @@
 		
 		.borderImage(url(arboreal.article.twitterStream.backdrop.png), 36, 108, 36, 36, round);
 		
-		margin: -18px -18px 0 -18px;
+		margin: -2 * @slice;
 		
 		.text(24px, 36px, rgb(52, 62, 64));
 		
@@ -1787,7 +1785,7 @@
 		
 				:before {
 				
-					content: "";
+					.pseudoBlock;
 					
 					.inlineBlock;
 					
@@ -2293,6 +2291,8 @@
 					background-repeat: no-repeat;
 				
 				}
+				
+				.transition(.25s);
 			
 			}
 			
@@ -2302,7 +2302,7 @@
 				z-index: 192;
 				border-color: rgba(0, 0, 0, .65);
 				
-				.gradientBackdropVertical(rgb(82, 87, 89), rgb(153, 153, 153));
+				.gradientBackdropVertical(rgba(82, 87, 89, .75), rgba(153, 153, 153, .75));
 			
 				span {
 			
@@ -2734,7 +2734,7 @@
 		
 		:before {
 		
-			content: "";
+			.pseudoBlock;
 			z-index: -1;
 			.full(-1 * @slice);
 			
