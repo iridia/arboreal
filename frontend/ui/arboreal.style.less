@@ -2412,6 +2412,13 @@
 				}
 				
 				.transition(.25s);
+				
+				:hover {
+				
+					.gradientBackdropVertical(rgba(255, 255, 255, .45), rgba(121, 128, 133, .45));
+					border-color: rgba(0, 0, 0, .5);
+				
+				}
 			
 			}
 			
@@ -2421,7 +2428,9 @@
 				z-index: 192;
 				border-color: rgba(0, 0, 0, .65);
 				
-				.gradientBackdropVertical(rgba(82, 87, 89, .75), rgba(153, 153, 153, .75));
+				.gradientBackdropVertical(rgba(0, 0, 0, .85), rgba(64, 64, 64, .75));
+				
+				opacity: .85;
 			
 				span {
 			
@@ -2721,17 +2730,20 @@
 	.storeMessage {
 	
 		position: fixed;
-		.size(7.5 * @pack, @arborealNavigationBarHeight);
+		.size(4.5 * @pack, @arborealNavigationBarHeight);
+		.width(4.5 * @pack, 4.5 * @pack, 6 * @pack);
 
 		top: 0;
-		left: 50%;
-		margin-left: -1 * @pack;
+		right: 50%;
+		margin-right: -0.5 * @arborealWidth;
 		
 		padding: 0; 
 		
-		background: rgb(216, 190, 79);
+		
+	//	We use an additional backdrop statement, so a solid RGB fallback is automatically generated
 		
 		.gradientBackdropVertical(rgb(220, 202, 109), rgb(193, 173, 65));
+		.gradientBackdropVertical(rgba(220, 202, 109, .98), rgba(193, 173, 65, .95));
 					
 		> div {
 		
@@ -2747,6 +2759,16 @@
 				.inlineBlock;
 				text-shadow: 	0px 1px 0px rgba(255, 255, 255, .5),
 						0px -1px 0px rgba(255, 255, 255, .1);
+			
+			}
+			
+			span.amountPayable {
+			
+				.text(24px, 36px, rgb(16, 38, 0));
+				font-weight: bold;
+				
+				position: relative;
+				top: 2px;			//	line-height: abnormal;
 			
 			}
 		
