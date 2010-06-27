@@ -1631,6 +1631,8 @@
 								
 				ul.years {
 				
+					.uaDisableSelection;
+				
 					position: absolute;
 					
 					width: 3 * @pack;
@@ -1666,10 +1668,42 @@
 							margin-top: 0.5 * @pack;
 						
 						}
+						
+						top: 3px;	//	baseline: abnormal;
+						
+						.transition(.125s);
 											
 					}
 					
-					li.active h3 {
+					li:active {
+					
+						.animation(arborealSlightDimLightAnimation, 1.5s, infinite, ease-in-out);
+					
+					}
+					
+					li h3 {
+					
+						.link;
+						opacity: .5;
+						.transition(.125s);
+					
+					}
+					
+					:active li {
+					
+						opacity: .65;
+					
+					}
+					
+					:active li:active {
+					
+						opacity: .1;
+					
+					}
+					
+					li:active h3, li.active h3 {
+					
+						opacity: 1;
 					
 						:before, :after {
 
@@ -1740,6 +1774,8 @@
 							margin-top: 0.5 * @pack;
 						
 						}
+						
+						top: 3px;
 					
 					}
 					
