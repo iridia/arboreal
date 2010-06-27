@@ -22,3 +22,6 @@
 [submodule "frontend/ui/lib.eCSStender"]
 	path = frontend/ui/lib.eCSStender
 	url = git://github.com/easy-designs/eCSStender.js.git
+[submodule "externals/pictorial"]
+	path = externals/pictorial
+	url = git://github.com/monoceroi/pictorial.git
