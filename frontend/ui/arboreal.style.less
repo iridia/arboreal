@@ -1474,6 +1474,7 @@
 		.tab {
 		
 			.link;
+			.uaDisableTextZoom;
 		
 			display: block;
 			.size((12 * @slice), (4 * @slice));
@@ -1582,7 +1583,7 @@
 			
 				input {
 				
-					.size((@arborealSidebarWidth - 4 * @slice - 2), (4 * @slice - 2));
+					.width(@arborealSidebarWidth - 4 * @slice - 2);
 					border: 1px solid rgba(0, 0, 0, .50);
 					
 					padding-left: @slice;
@@ -1590,7 +1591,8 @@
 					
 					margin-bottom: 2 * @slice;
 					
-					.text(18px, 36px, white);
+					.text(18px, (4 * @slice - 2), white);
+					min-height: (4 * @slice - 2);
 					
 					.borderRadius(4.5px);
 					
@@ -1606,12 +1608,11 @@
 					margin-left: 2 * @slice;
 					padding-left: 4 * @slice;
 					
-					width: 4 * @pack;
+				//	width: 4 * @pack;
 					
 					li {
 				
 						.inlineBlock;
-						height: 2 * @slice;
 						.text(13px, 18px, white);
 						
 						margin-right: @slice;
@@ -1626,7 +1627,7 @@
 					
 					}
 					
-					background-position: top left;
+					background-position: center left;
 					background-repeat: no-repeat;
 				
 				}
@@ -1723,6 +1724,8 @@
 						.link;
 						opacity: .5;
 						.transition(.125s);
+						
+						position: relative;
 					
 					}
 					
@@ -1751,7 +1754,7 @@
 							
 							position: absolute;
 							
-							bottom: 6 * @slice;
+							bottom: 50%;
 							
 							.boxShadow(rgba(255, 255, 255, .5), 0px, 0px, 6px);
 							.borderRadius(2px);
@@ -1760,14 +1763,14 @@
 						
 						:before {
 						
-							margin-left: -0.5 * @pack;
+							margin-left: -1.5em;
 							left: -50%;
 						
 						}
 						
 						:after {
 						
-							margin-right: -0.5 * @pack;
+							margin-right: -1.5em;
 							right: -50%;
 						
 						}
@@ -1925,6 +1928,8 @@
 		padding: 0px @slice;
 
 		header {
+		
+			.uaDisableTextZoom;
 
 			min-height: 6 * @slice;
 			height: 6 * @slice;
@@ -2057,6 +2062,8 @@
 		}
 		
 		footer {
+		
+			.uaDisableTextZoom;
 		
 			position: relative;
 			height: 4 * @slice;
@@ -2202,6 +2209,8 @@
 				
 				aside {
 				
+					.uaDisableTextZoom;
+				
 					z-index: 32;
 					
 					width: @arborealSidebarWidth - 16 * @slice;
@@ -2303,6 +2312,9 @@
 		}
 		
 		section.pagination {
+		
+			.uaDisableTextZoom;
+			.uaDisableSelection;
 		
 			background-color: @arborealBackdrop;
 		
@@ -2447,6 +2459,8 @@
 		
 		
 		section.commentForm {
+		
+			.uaDisableTextZoom;
 		
 			z-index: 128;
 		
