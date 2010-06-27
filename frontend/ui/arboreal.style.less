@@ -1443,14 +1443,18 @@
 		margin-top: 4 * @slice;		
 		margin-bottom: 1.5 * @pack;
 				
-		:before {
-	
+		:before, :after {
+		
+			z-index: 128;
 			.pseudoBlock;
+		
+		}
+		
+		:before {
+			
 			.fullInset(0, 0, auto, 0);
 			margin-top: -1px;
 			border-top: 1px solid rgba(0, 0, 0, .2);
-			
-			z-index: 1024 + 512;
 		
 		}
 		
@@ -1511,7 +1515,7 @@
 		
 		div {
 		
-			.width(@arborealWidth + (2 * @arborealSidebarSpacing));
+			.width(@arborealWidth + 4 * @slice);
 			margin-left: auto;
 			margin-right: auto;
 		
@@ -1521,33 +1525,33 @@
 		
 			.context;
 			margin-top: 0px;
-			.width(@arborealWidth + (2 * @arborealSidebarSpacing));
+			.width(@arborealWidth + 4 * @slice);
 			padding: 0px !important;
 			border-spacing: 18px 18px;
 			
 			section.search {
 				
-				.width(4 * @pack);
+				.width(4 * @pack - 2 * @slice);
 				padding: (2 * @slice) !important;
 				background: rgba(0, 0, 0, .15);
 				.boxShadowInner(rgba(0, 0, 0, .25), 0px, 0px, 8px);
 				
-				border: 1px solid rgba(255, 255, 255, .25);
+				border: 1px solid rgba(255, 255, 255, .15);
 				margin: (2 * @slice - 1px) !important;
 				
-				.borderRadius(4.5px);
+				.borderRadius(9px);
 				
 				display: table-cell;
 			
 				input {
 				
-					.size((@arborealSidebarWidth - 2 * @slice - 2), (4 * @slice - 2));
+					.size((@arborealSidebarWidth - 4 * @slice - 2), (4 * @slice - 2));
 					border: 1px solid rgba(0, 0, 0, .50);
 					
 					padding-left: @slice;
 					padding-right: @slice;
 					
-					margin-bottom: 2 * @slice - 1;
+					margin-bottom: 2 * @slice;
 					
 					.text(18px, 36px, white);
 					
@@ -1637,28 +1641,109 @@
 					top: 0px;
 					bottom: 0px;
 					
-					border: 1px solid rgba(255, 255, 255, .45);
+					border-left: 1px solid rgba(255, 255, 255, .45);
+					border-right: 1px solid rgba(255, 255, 255, .45);
+					
 					margin-left: -1px;
 					margin-right: -1px;
+					
+					z-index: 32;
+				//	The z-index is needed for the outset border to show over
+				
+					li {
+					
+						.text(24px, 36px, white);
+						text-align: center;
+						font-weight: bold;
+						
+						.size(100%, @pack);
+						position: relative;
+						
+						text-shadow: 0px 0px 6px rgba(255, 255, 255, .5);
+						
+						:first-child {
+						
+							margin-top: 0.5 * @pack;
+						
+						}
+											
+					}
+					
+					li.active {
+					
+						:before, :after {
+
+							.pseudoBlock;						
+							.size(100%, 4px);
+							
+							background-color: white;
+							
+							position: absolute;
+							
+							bottom: 6 * @slice;
+							
+							.boxShadow(rgba(255, 255, 255, .5), 0px, 0px, 6px);
+							.borderRadius(2px);
+						
+						}
+						
+						:before {
+						
+							margin-left: -0.5 * @pack;
+							left: -50%;
+						
+						}
+						
+						:after {
+						
+							margin-right: -0.5 * @pack;
+							right: -50%;
+						
+						}
+					
+					}
+
+					overflow: hidden;
 				
 				}
 				
 				ul.articles {
 				
 					position: absolute;
-
+					
 					width: (8.5 - 3) * @pack;
+					right: 2 * @slice;
+					
 					top: 0;
-					bottom: 0;
-					right: 4 * @slice;
+					bottom: 0;					
 					
 					:before {
 					
 						.pseudoBlock;
 						.full;
 						.borderImage(url(arboreal.blog.predicate.articleTitles.backdrop.png), 72, 144, 0, 90, stretch);
+						
+						z-index: 8;
 					
 					}
+					
+					li {
+					
+						position: relative;
+						z-index: 16;
+						
+						.text(18px, 36px, white);
+						margin-left: 4 * @slice;
+						
+						:first-child {
+						
+							margin-top: 0.5 * @pack;
+						
+						}
+					
+					}
+					
+					overflow: hidden;
 				
 				}
 			
