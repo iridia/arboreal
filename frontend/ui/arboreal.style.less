@@ -1938,6 +1938,8 @@
 
 			time {
 			
+				.uaDisableSelection;
+			
 				.arborealBlogArticleHeader;
 				.text(40px, 54px, rgb(39, 73, 37));
 				
@@ -1988,43 +1990,80 @@
 			
 			}
 			
-			a {
-			
-				span {
+			.actions {
 				
-					display: none;
+				.uaDisableSelection;
+				
+				.fullInset(0, 0, auto, auto);
+				.size(auto, 4 * @slice);
+				
+				
+				display: table;
+				border-spacing: 0px 0px;
+				
+				li {
+				
+					display: table-cell;
+					vertical-align: top;
 				
 				}
 			
-				display: block;
+				a {
 				
-				.size(4 * @slice);
-			
-			}
-			
-			a.share {
-			
-				.fullInset(0, 0, auto, auto);
+					span {
+					
+						display: none;
+					
+					}
 				
-			}
-			
-			a.share {
-			
-				background: url(arboreal.article.blogPost.header.share.png) center no-repeat;
-			
-			}
-			
-			a.share:hover {
+					display: block;
+					
+					.size(4 * @slice);
 				
-				background: url(arboreal.article.blogPost.header.share.hover.png) center no-repeat;
+				}
 				
-			}
+				a.comments {
 				
-			a.share:active,
-			a.share.active,
-			a.share.active:hover {
+					.borderImage(url(arboreal.article.blogPost.header.comments.png), 9, 27, 9, 27, stretch);
+					
+					.size(1 * @slice , 2 * @slice);
+					
+					.text(18px, 18px, white);
+					
+					:hover {
+					
+						.borderImage(url(arboreal.article.blogPost.header.comments.hover.png), 9, 27, 9, 27, stretch);
+						
+					}
+					
+					span.count {
+					
+						display: inline;
+					
+						position: relative;
+						top: 1px;			//	line-height fix
+					
+					}
 				
-				background: url(arboreal.article.blogPost.header.share.active.png) center no-repeat;
+				}
+				
+				a.share {
+				
+					background: url(arboreal.article.blogPost.header.share.png) center no-repeat;
+				
+					:hover {
+					
+						background: url(arboreal.article.blogPost.header.share.hover.png) center no-repeat;
+						
+					}
+				
+					:active {
+					
+						background: url(arboreal.article.blogPost.header.share.active.png) center no-repeat;
+					
+					}
+				
+				}
 			
 			}
 			
@@ -2038,6 +2077,8 @@
 				position: relative;
 				
 				:before {
+				
+					.uaDisableSelection;
 					
 					.glareSplitVertical(36px, .45, .2);
 					.fullInset((-4 * @slice), (-2 * @slice), auto, (-2 * @slice));
@@ -2064,6 +2105,7 @@
 		footer {
 		
 			.uaDisableTextZoom;
+			.uaDisableSelection;
 		
 			position: relative;
 			height: 4 * @slice;
