@@ -805,7 +805,7 @@
 				position: relative;
 				top: 18px;
 				.glareSplitVertical(36px, .45, .2);
-				margin: 0 -18px 0 -18px;
+				margin: 0 (-2 * @slice);
 				
 				z-index: 128;
 			
@@ -831,8 +831,7 @@
 		
 		br {
 		
-			width: 0px;
-			height: 0px;
+			.size(0px);
 			clear: both;
 		
 		}
@@ -1197,8 +1196,7 @@
 				
 				img {
 				
-					width: 100%;
-					height: auto;
+					.size(100%, auto);
 					min-height: 100%;
 				
 				}
@@ -1613,8 +1611,6 @@
 					margin-left: 2 * @slice;
 					padding-left: 4 * @slice;
 					
-				//	width: 4 * @pack;
-					
 					li {
 				
 						.inlineBlock;
@@ -1904,9 +1900,7 @@
 				:before {
 				
 					.pseudoBlock;
-					
 					.inlineBlock;
-					
 					width: 4 * @slice;
 				
 				}
@@ -1935,7 +1929,6 @@
 		header {
 		
 			.uaDisableTextZoom;
-			
 			position: relative;
 
 			time {
@@ -1952,21 +1945,15 @@
 				
 				float: left;
 				
-			//	Positional Hack — Vegur misbehaves
-			
 				position: relative;
-				top: 3px;
+				top: 3px;			//	line-height: abnormal;
 				
 				:after {
 				
 					.glareSplitHorizontal;
-					height: 6 * @slice;
-					
+					height: 6 * @slice;					
 					position: absolute;
-				
-				//	Compensation
-				
-					top: -3px;
+					top: -3px;		//	line-height: abnormal compensation
 					right: 2 * @slice;
 				
 				}
@@ -2043,9 +2030,8 @@
 					span.count {
 					
 						display: inline;
-					
 						position: relative;
-						top: 1px;			//	line-height fix
+						top: 1px;			//	line-height: abnormal;
 					
 					}
 				
@@ -2101,7 +2087,7 @@
 					
 					z-index: 18;
 										
-					margin-top: 3px;			//	line-height
+					margin-top: 3px;			//	line-height: abnormal;
 				
 				}
 				
@@ -2805,19 +2791,16 @@
 				
 				button {
 				
-					.borderRadius(4.5px);
-				
-					.size(12 * @slice, 5 * @slice);
-				
 					background: transparent;
-					border: 2px solid white;
-					margin: -2px;
+					opacity: .75;
+				
+					.borderRadius(4.5px);
+					.size(12 * @slice, 5 * @slice);
+					.borderInset(white, 2px);
+					
 					margin-left: auto;
 					
 					.text(20px, 27px, white);
-					
-					opacity: .75;
-					
 					.transition(.25s);
 				
 				}
@@ -2842,9 +2825,10 @@
 	
 		:before {
 			
-			.pseudoBlock;
-			
 			.full;
+			.pseudoBlock;
+			.transition(.25);
+			
 			position: fixed;
 			
 			background-color: rgba(0, 0, 0, .35);
@@ -2853,8 +2837,6 @@
 			
 			display: none;
 			opacity: 0;
-			
-			.transition(.25);
 	
 		}
 	
@@ -2940,7 +2922,7 @@
 		
 		
 	//	We use an additional backdrop statement, so a solid RGB fallback is automatically generated
-		
+			
 		.gradientBackdropVertical(rgb(220, 202, 109), rgb(193, 173, 65));
 		.gradientBackdropVertical(rgba(220, 202, 109, .98), rgba(193, 173, 65, .95));
 					
