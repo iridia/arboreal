@@ -13,7 +13,7 @@
 
 
 
-//	Dependencies
+//	!Dependencies
 
 	function _arboreal_initialize() {
 
@@ -120,6 +120,35 @@ var arboreal = {
 
 
 
+// !Section-Specific Code
+
+
+
+
+
+	arboreal.view = {};
+	
+	
+	
+	
+	
+	arboreal.view.blog = {
+	
+		init: function() {
+		
+		//	= new self.articleSharingController () {} … ?
+			
+		},
+		
+		predicateController: {
+		
+		},
+		
+		shareController: function () {
+		
+		}
+	
+	};
 
 
 
@@ -130,7 +159,19 @@ var arboreal = {
 
 
 
-_arboreal_initialize(); delete _arboreal_initialize;
+
+
+
+
+
+
+
+
+
+
+// !Initializer Invocation
+
+_arboreal_initialize();
 
 
 
