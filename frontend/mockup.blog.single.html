@@ -116,6 +116,14 @@
 				<li><a class="share" href="##"><span>Share This Article</span></a></li>
 			
 			</ul>
+			
+			<section class="share"><ul>
+			
+				<li>Plurk</li>
+				<li>Twitter</li>
+				<li>Facebook</li>
+			
+			</ul></section>
 		
 		</header>
 
@@ -295,6 +303,20 @@
 		$(".context + .comments").toggleClass("backdropped");
 		$("#newComment").toggleClass("active");
 		$(".commentForm").toggleClass("hiddenCommentForm");
+		
+	});
+	
+	
+	
+	
+	
+	$(".context article header .actions .share").toggle(function() {
+	
+		$(this).closest("header").find("section.share").addClass("active");
+		
+	}, function() {
+	
+		$(this).closest("header").find("section.share").removeClass("active");
 		
 	});
 	
