@@ -313,10 +313,16 @@
 	$(".context article header .actions .share").toggle(function() {
 	
 		$(this).closest("header").find("section.share").addClass("active");
+		$(this).closest("header").find("section.share").find("ul").hide().slideDown();
 		
 	}, function() {
 	
-		$(this).closest("header").find("section.share").removeClass("active");
+		$(this).closest("header").find("section.share").find("ul").slideUp(function() {
+		
+			$(this).parent().removeClass("active");
+			
+		});
+		
 		
 	});
 	
