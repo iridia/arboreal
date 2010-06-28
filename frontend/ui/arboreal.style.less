@@ -2091,6 +2091,8 @@
 				
 				:before {
 				
+					.pseudoBlock;
+					
 					content: "Share On:";
 					text-transform: uppercase;
 					.text(20px, 36px, rgba(255, 255, 255, .5));
@@ -2098,9 +2100,7 @@
 					.fullInset((2 * @slice), auto, (2 * @slice), (2 * @slice));
 					
 					z-index: 18;
-					
-					display: none;
-					
+										
 					margin-top: 3px;			//	line-height
 				
 				}
@@ -2172,7 +2172,7 @@
 				border-top-color: rgba(255, 255, 255, .45);
 				border-bottom-color: rgba(255, 255, 255, .65);
 				
-				:before, ul {
+				ul {
 				
 					display: block;
 				
@@ -2206,9 +2206,8 @@
 			
 			
 			
-			section.share.active ul {
+			section.share ul {
 				
-
 				background-color: @arborealBlogShareArticleBackdrop;
 			
 			}

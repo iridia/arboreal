@@ -312,12 +312,15 @@
 	
 	$(".context article header .actions .share").toggle(function() {
 	
-		$(this).closest("header").find("section.share").addClass("active");
-		$(this).closest("header").find("section.share").find("ul").hide().slideDown(250);
+		$(this).closest("header").find("section.share").addClass("active").find("ul").stop(true, true).hide().slideDown(250, function() {
+			
+			$(this).parent().addClass("active");
+			
+		});
 		
 	}, function() {
 	
-		$(this).closest("header").find("section.share").find("ul").slideUp(250, function() {
+		$(this).closest("header").find("section.share").find("ul").stop(true, true).slideUp(250, function() {
 		
 			$(this).parent().removeClass("active");
 			
