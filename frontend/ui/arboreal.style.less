@@ -152,7 +152,7 @@
 	@arborealBlogPagination: rgb(30, 43, 7);
 	@arborealBlogCommentPaginationLink: rgb(71, 77, 77);
 	
-	@arborealBlogShareArticleBackdrop: rgb(64, 105, 104);
+	@arborealBlogShareArticleBackdrop: rgb(94, 105, 104);
 	@arborealBlogShareArticleBackdropPlurk: rgb(148, 91, 38);
 	@arborealBlogShareArticleBackdropTwitter: rgb(125, 159, 176);
 	@arborealBlogShareArticleBackdropFacebook: rgb(125, 130, 176);
@@ -2184,7 +2184,15 @@
 				
 				}
 				
+				ul:hover li {
+				
+					opacity: .75;
+				
+				}
+				
 				ul li:hover {
+				
+					.animation(arborealSlightDimLightAnimation, 2.5s, infinite, ease-in-out);
 				
 					background-color: rgba(255, 255, 255, .25);
 					.boxShadow(rgba(255, 255, 255, .55), 0px, 0px, 2px);
@@ -2585,7 +2593,7 @@
 				
 				.uaDisableSelection;
 				
-				z-index: 192 !important;
+				z-index: (1024 + 192) !important;
 				
 				span {
 				
@@ -2615,7 +2623,7 @@
 			.newComment.active,
 			.newComment:active {
 			
-				z-index: 192;
+				z-index: 1024 + 192;
 				border-color: rgba(0, 0, 0, .65);
 				
 				.gradientBackdropVertical(rgba(0, 0, 0, .85), rgba(64, 64, 64, .75));
@@ -2640,7 +2648,7 @@
 		
 			.uaDisableTextZoom;
 		
-			z-index: 128;
+			z-index: 1024 + 128;
 		
 			.transition(.25s);
 		
@@ -2842,7 +2850,7 @@
 			
 			background-color: rgba(0, 0, 0, .35);
 			
-			z-index: 96;
+			z-index: 1024 + 96;
 			
 			display: none;
 			opacity: 0;
