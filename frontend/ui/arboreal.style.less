@@ -1986,7 +1986,6 @@
 				.fullInset(0, 0, auto, auto);
 				.size(auto, 4 * @slice);
 				
-				
 				display: table;
 				border-spacing: 0px 0px;
 				
@@ -1994,9 +1993,44 @@
 				
 					display: table-cell;
 					vertical-align: top;
+					
+					a {
+
+						.size(4 * @slice);
+					
+					}
+					
+					padding: 0px (2 * @slice);
+					
+					+ li {
+					
+					//	The second action item, which is optional, will always be bordered.
+				
+						border: 2px solid rgb(240, 240, 240);
+						padding: 0px;
+						
+						:hover, :active, .active {
+						
+							border-color: rgb(216, 216, 216);
+						
+						}
+						
+						.borderRadius(4.5px);
+					
+						a {
+						
+							margin: -2px;
+					
+						}
+					
+					}
 				
 				}
-			
+				
+				
+				
+				
+				
 				a {
 				
 					margin: 0;
@@ -2008,8 +2042,6 @@
 					}
 				
 					display: block;
-					
-					.size(4 * @slice);
 				
 				}
 				
@@ -2017,19 +2049,32 @@
 				
 					.borderImage(url(arboreal.article.blogPost.header.comments.png), 9, 27, 9, 27, stretch);
 					
-					.size(1 * @slice , 2 * @slice);
+					.size(auto , 2 * @slice);
 					
 					.text(18px, 18px, white);
+					
+					margin: 0 (-1 * @slice);
 					
 					:hover {
 					
 						.borderImage(url(arboreal.article.blogPost.header.comments.hover.png), 9, 27, 9, 27, stretch);
 						
+						span.count {
+						
+							max-width: none;	//	Always show on hover
+						
+						}
+						
 					}
 					
 					span.count {
 					
-						display: inline;
+						.inlineBlock;
+						.width(auto, 18px, 36px);
+						.textDelimited;			//	Needs “Lots”?
+						
+						margin: 0px -9px;
+						text-align: center;
 						position: relative;
 						top: 1px;			//	line-height: abnormal;
 					
@@ -2039,19 +2084,45 @@
 				
 				a.share {
 				
-					background: url(arboreal.article.blogPost.header.share.png) center no-repeat;
-				
+					background-position: center center;
+					background-repeat: no-repeat;
+					
+					background-image: url(arboreal.article.blogPost.header.share.png);
+					
 					:hover {
 					
-						background: url(arboreal.article.blogPost.header.share.hover.png) center no-repeat;
+						background-image: url(arboreal.article.blogPost.header.share.hover.png);
 						
 					}
 				
 					:active {
 					
-						background: url(arboreal.article.blogPost.header.share.active.png) center no-repeat;
+						background-image: url(arboreal.article.blogPost.header.share.active.png);
 					
 					}
+					
+					.transition(.5s);
+				
+				}
+				
+				a.share.active {
+				
+					.transformRotate(135deg);
+					
+					background-image: url(arboreal.article.blogPost.header.share.active.png);
+									
+				}
+				
+				a.share.fastAnimation {
+				
+					.transition(0s);
+				
+				}
+				
+				a.share.disclosed {
+				
+					.transformRotate(0deg);
+					background-image: url(arboreal.article.blogPost.header.share.disclosed.png);
 				
 				}
 			
@@ -2062,6 +2133,8 @@
 			
 			
 			section.share {
+			
+				.uaDisableSelection;
 			
 				padding: 0;
 				
