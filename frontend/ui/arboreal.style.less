@@ -62,13 +62,35 @@
 	
 	
 	
-	.arborealBlogArticleHeader {
+	.arborealBlogArticleHeaderTitle {
 	
 		.text(20px, 36px, rgb(39, 73, 37));
 		
 		text-shadow:	rgba(255, 255, 255, .65) 0px 1px 0px,
 				rgba(0, 0, 0, .15) 0px -1px 0px;
 			
+	}
+	
+	
+	
+	
+	
+	.arborealBlogArticleHeaderDateTime {
+	
+		.text(40px, 54px, rgb(39, 73, 37));
+		
+		font-weight: bold;
+	
+	}
+	
+	
+	
+	
+	
+	.arborealBlogArticleHeaderCategoriesAndTags {
+	
+		.text(13px, 18px, rgb(39, 73, 37));
+	
 	}
 	
 
@@ -1324,7 +1346,7 @@
 		
 			line-height: 4 * @slice;
 		
-			.arborealBlogArticleHeader;
+			.arborealBlogArticleHeaderTitle;
 			.width(@arborealArticleWidth - (4 * @slice));
 			.textDelimited;
 			
@@ -1932,13 +1954,9 @@
 			position: relative;
 
 			time {
-			
+
 				.uaDisableSelection;
-			
-				.arborealBlogArticleHeader;
-				.text(40px, 54px, rgb(39, 73, 37));
-				
-				font-weight: bold;
+				.arborealBlogArticleHeaderDateTime;
 				
 				.inlineBlock;
 				.size(16 * @slice, 6 * @slice);
@@ -1962,13 +1980,14 @@
 
 			h2 {
 			
-				.arborealBlogArticleHeader;
+				.arborealBlogArticleHeaderTitle;
 				
 			}
 			
 			ul {
 			
-				.text(13px, 18px);
+				.arborealBlogArticleHeaderCategoriesAndTags;
+
 				display: block;
 				
 				li {
