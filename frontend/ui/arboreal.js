@@ -150,7 +150,35 @@ var arboreal = {
 			
 			}, function(data) {
 				
-				mono.log("got results", data.feed.entry);
+				if (data.feed.entry === undefined) return;
+				
+				var eventEntries = data.feed.entry;
+				
+				var _handleEvent = function(eventObject) {
+					
+					mono.log("object incoming", 
+						
+						eventObject, 
+						Date.fromISO8601(eventObject.when && eventObject.when.startTime)
+						.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}")
+					
+					);
+					
+				}
+				
+				$.each(eventEntries, function(index, eventObject) {
+				
+					mono.log("Raw event object?", eventObject);
+				
+					_handleEvent({
+					
+						title: eventObject.title && eventObject.title['$t'] || "",
+						content: eventObject.content && eventObject.content['$t'] || "",
+						when: eventObject['gd$when'] && eventObject['gd$when'][0] || {}
+					
+					});
+					
+				});
 				
 			});
 			
