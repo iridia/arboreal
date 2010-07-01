@@ -149,7 +149,12 @@ var arboreal = {
 	
 		predicates: {
 		
-			"mainCalendarStream": "0lgqdbsiischmeimnpu89bqudo"
+			"mainCalendarStream": {
+			
+				"calendarID": "0lgqdbsiischmeimnpu89bqudo",
+				"calendarContainerSelectorString": ".calendar .details"
+				
+			}
 		
 		},
 	
@@ -162,46 +167,102 @@ var arboreal = {
 				var calendarEnginePredicate = arboreal.calendar.predicates[calendarEnginePredicateKey]
 				if (calendarEnginePredicate == undefined) continue;
 				
-				arboreal.calendar.workers[calendarEnginePredicateKey] = new  arboreal.calendar.engineWithIdentifier(calendarEnginePredicate);
+				arboreal.calendar.workers[calendarEnginePredicateKey] = new  arboreal.calendar.engineWithPredicate(calendarEnginePredicate);
 				
 			});
 			
 		},
 	
-		engineWithIdentifier: function(inIdentifier) {
+		engineWithPredicate: function(inPredicate) {
+		
+			var inCalendarIdentifier = inPredicate['calendarID'];
+			var inCalendarContainer = $(inPredicate['calendarContainerSelectorString']);
+			var inCalendarItemTemplate = inCalendarContainer.children("*[irCalendarEngineTemplate]").eq(0);
 			
-			$.getJSON(arboreal.calendar.baseURLWithIdentifier(inIdentifier), {
+			inCalendarContainer.empty().attr("irCalendarEngine:busy", "true");
+			
+			$.getJSON(arboreal.calendar.baseURLWithIdentifier(inCalendarIdentifier), {
 			
 				"start-min": (new Date()).format("#{YEAR, 4}-#{MONTH, 2}-01"),
 				"start-max": (new Date()).nextMonth().previousDay().format("#{YEAR, 4}-#{MONTH, 2}-#{DAY, 2}")
 			
 			}, function(data) {
+			
+				inCalendarContainer.attr("irCalendarEngine:busy", "false");
 				
 				if (data.feed.entry === undefined) return;
 				
 				var eventEntries = data.feed.entry;
 				
 				var _handleEvent = function(eventObject) {
+				
+					var eventItem = inCalendarItemTemplate.clone();
+				
+					var eventTime = Date.fromISO8601(eventObject.when && eventObject.when.startTime);
+					var eventTimeString = eventTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
 					
-					mono.log("object incoming", 
+					var eventTitle = eventObject.title;
+					
+					var eventLink = (function() {
+					
+						var linkHref = "";
 						
-						eventObject, 
-						Date.fromISO8601(eventObject.when && eventObject.when.startTime)
-						.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}")
+						$.each(eventObject.link, function(index, linkType) {
+						
+							mono.log("linkType.type", linkType.type);
+						
+							if (linkType.type != "text/html") return true;
+
+							linkHref = (linkType && linkType.href || "");
+							return false; 
+							
+						});
+						
+						return linkHref;
 					
-					);
+					})();
+					
+					
+					mono.log("link is", eventLink);
+					
+				//	FIXME: relatize the time.
+					
+					eventItem.children("*[irCalendarEngineTemplate='event:time']")
+					.attr("datetime", eventTimeString)
+					.text(eventTimeString);
+					
+					eventItem.children("*[irCalendarEngineTemplate='event:title']")
+					.text(eventTitle);
+					
+					mono.log(eventItem.children("*[irCalendarEngineTemplate='event:link']"));
+					
+					eventItem.children("*[irCalendarEngineTemplate='event:link']")
+					.attr("href", eventLink)
+					.attr("target", "_blank")
+					.click(function(event) {
+					
+						event.stopPropagation();
+						
+					});
+					
+					eventItem.click(function(event) {
+						
+						eventItem.children("*[irCalendarEngineTemplate='event:link']").eq(0).click();
+						
+					});
+					
+					eventItem.appendTo(inCalendarContainer);
 					
 				}
 				
 				$.each(eventEntries, function(index, eventObject) {
 				
-					mono.log("Raw event object?", eventObject);
-				
 					_handleEvent({
 					
 						title: eventObject.title && eventObject.title['$t'] || "",
 						content: eventObject.content && eventObject.content['$t'] || "",
-						when: eventObject['gd$when'] && eventObject['gd$when'][0] || {}
+						when: eventObject['gd$when'] && eventObject['gd$when'][0] || {},
+						link: eventObject.link
 					
 					});
 					
