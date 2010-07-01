@@ -1,5 +1,10 @@
 //	arboreal.js
-//	Evadne Wu at Iridia Productions.
+//	Evadne Wu at Iridia Productions, 2010.
+
+
+
+
+
 
 
 
@@ -7,13 +12,17 @@
 
 //	Framework Wrapper
 
-	function _(thePath) { return "ui/" + thePath.replace(/(\.js)$/ig, '') + ".js" };
+	function _(thePath) {
+	
+		return "ui/" + thePath.replace(/(\.js)$/ig, '') + ".js"
+		
+	};
 
 
 
 
 
-//	!Dependencies
+//	Dependencies.  We load all the required framework here.
 
 	function _arboreal_initialize() {
 
@@ -24,17 +33,33 @@
 		
 		).wait().script(
 		
+			_("lib.jsClass/build/min/loader.js")
+		
+		).wait().script(
+		
 			_("lib.monoSnippets/lib.monoSnippets.notificationCenter.js"),
 			_("lib.monoSnippets/lib.monoSnippets.preferencesController.js"),
-			_("lib.monoTwitterEngine/lib.mono.twitterEngine.js")
+			_("lib.monoTwitterEngine/lib.mono.twitterEngine.js"),
+			_("lib.monoDate/lib.mono.date.js")
 		
 		).wait(function() {
 		
 			arboreal.init();
 		
 		});
+
 	
 	}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -50,6 +75,7 @@ var arboreal = {
 	init: function() {
 		
 		this.twitter.init();
+		this.calendar.init();
 		
 	},
 	
@@ -59,8 +85,7 @@ var arboreal = {
 		
 			mainTwitterStream: {
 			
-				account: 'okogreen',
-				delegate: this.twitter
+				account: 'okogreen'
 			
 			}
 		
@@ -71,6 +96,7 @@ var arboreal = {
 		init: function() {
 			
 			var thisObject = this;
+			
 			
 			$("*[class*='monoTwitterEngine']").each(function() {
 			
@@ -107,7 +133,38 @@ var arboreal = {
 		
 		});
 	
+	},
+	
+	calendar: {
+	
+		calendarID: "0lgqdbsiischmeimnpu89bqudo",
+	
+		init: function() {
+			
+			mono.log("Getting JSON from", arboreal.calendar.baseURL());
+			
+			$.getJSON(arboreal.calendar.baseURL(), {
+			
+				"start-min": (new Date()).format("#{YEAR, 4}-#{MONTH, 2}-01"),
+				"start-max": (new Date()).nextMonth().previousDay().format("#{YEAR, 4}-#{MONTH, 2}-#{DAY, 2}")
+			
+			}, function(data) {
+				
+				mono.log("got results", data.feed.entry);
+				
+			});
+			
+		},
+		
+		baseURL: function () {
+		
+			return "http://www.google.com/calendar/feeds/" + arboreal.calendar.calendarID + "@group.calendar.google.com/public/full?alt=json";
+		
+		}
+	
 	}
+	
+	//	www.google.com/calendar/feeds/0lgqdbsiischmeimnpu89bqudo%40group.calendar.google.com/public/full?alt=json
 
 }
 
