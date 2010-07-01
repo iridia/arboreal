@@ -141,8 +141,6 @@ var arboreal = {
 	
 		init: function() {
 			
-			mono.log("Getting JSON from", arboreal.calendar.baseURL());
-			
 			$.getJSON(arboreal.calendar.baseURL(), {
 			
 				"start-min": (new Date()).format("#{YEAR, 4}-#{MONTH, 2}-01"),
@@ -186,7 +184,7 @@ var arboreal = {
 		
 		baseURL: function () {
 		
-			return "http://www.google.com/calendar/feeds/" + arboreal.calendar.calendarID + "@group.calendar.google.com/public/full?alt=json";
+			return "http://www.google.com/calendar/feeds/" + arboreal.calendar.calendarID + "@group.calendar.google.com/public/full?alt=json-in-script&callback=?";
 		
 		}
 	
