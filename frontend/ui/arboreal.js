@@ -104,31 +104,13 @@ var arboreal = {
 				
 			}, function (data) {
 			
-				mono.log(data);
+				var tweetObject = $("*[irTwitterEngine]").eq(0).children("*[irTwitterEngineTemplate]");
+				
+				tweetObject.children("*[irTwitterEngineTemplate='tweet:text']")
+				.text(data[0].text);
 				
 			});
-			
-			$("*[class*='monoTwitterEngine']").each(function() {
-			
-				var plausibleClass = $(this).attr("class").match(/(monoTwitterEngine)([^\s])+/);
-				if (plausibleClass === null) return;
-				
-				var predicateKey = plausibleClass[0].replace(/(monoTwitterEngine:)/, '');
-				var predicate = thisObject.predicates[predicateKey];
-				
-				if (!predicate) return;
-				
-				mono.groupStart("Found object that needs a Twitter Engine instance with predicate key", predicateKey);
-				
-				if (!!thisObject.workers[predicateKey])
-				return mono.error("Twitter Engine worker with key", predicateKey, "already exists").groupEnd();
-								
-				thisObject.workers[predicateKey] = new mono.twitterEngine(predicate);
-				
-				mono.groupEnd();
-				
-			});
-			
+						
 		}
 	
 	},
