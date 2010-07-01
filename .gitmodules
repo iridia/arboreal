@@ -31,3 +31,6 @@
 [submodule "frontend/ui/lib.monoDate"]
 	path = frontend/ui/lib.monoDate
 	url = git://github.com/monoceroi/monoDate.git
+[submodule "frontend/ui/lib.tidyCJK.js"]
+	path = frontend/ui/lib.tidyCJK.js
+	url = git://github.com/monoceroi/tidyCJK.js.git
