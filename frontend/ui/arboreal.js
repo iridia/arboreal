@@ -204,8 +204,6 @@ var arboreal = {
 						
 						$.each(eventObject.link, function(index, linkType) {
 						
-							mono.log("linkType.type", linkType.type);
-						
 							if (linkType.type != "text/html") return true;
 
 							linkHref = (linkType && linkType.href || "");
@@ -226,8 +224,6 @@ var arboreal = {
 					
 					eventItem.children("*[irCalendarEngineTemplate='event:title']")
 					.text(eventTitle);
-					
-					mono.log(eventItem.children("*[irCalendarEngineTemplate='event:link']"));
 					
 					eventItem.children("*[irCalendarEngineTemplate='event:link']")
 					.attr("href", eventLink)
