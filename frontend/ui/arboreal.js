@@ -153,6 +153,19 @@ var arboreal = {
 				
 			});
 			
+			
+			
+			
+			
+			var todayRowPositionTop = $("aside .calendar").children("time.today").position().top;
+			
+			$("aside .calendar").children("time").each(function(index, dateElement) {
+			
+				if ($(dateElement).position().top != todayRowPositionTop)
+				$(dateElement).addClass("secondaryDate");
+				
+			});
+			
 		},
 	
 		engineWithPredicate: function(inPredicate) {
