@@ -14,9 +14,9 @@
 
 	function _(thePath) {
 	
-		return "ui/" + thePath.replace(/(\.js)$/ig, '') + ".js"
+		return "ui/" + thePath.replace(/(\.js)$/ig, '') + ".js";
 		
-	};
+	}
 
 
 
@@ -99,7 +99,6 @@ var arboreal = {
 			
 			$.getJSON("http://api.twitter.com/1/statuses/user_timeline.json?callback=?", {
 			
-			
 				"screen_name": "okogreen",
 				"count": 1
 				
@@ -112,7 +111,7 @@ var arboreal = {
 			$("*[class*='monoTwitterEngine']").each(function() {
 			
 				var plausibleClass = $(this).attr("class").match(/(monoTwitterEngine)([^\s])+/);
-				if (plausibleClass == null) return;
+				if (plausibleClass === null) return;
 				
 				var predicateKey = plausibleClass[0].replace(/(monoTwitterEngine:)/, '');
 				var predicate = thisObject.predicates[predicateKey];
@@ -219,8 +218,6 @@ var arboreal = {
 		}
 	
 	}
-	
-	//	www.google.com/calendar/feeds/0lgqdbsiischmeimnpu89bqudo%40group.calendar.google.com/public/full?alt=json
 
 }
 
