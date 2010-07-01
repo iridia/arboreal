@@ -158,11 +158,18 @@ var arboreal = {
 			
 			
 			var todayRowPositionTop = $("aside .calendar").children("time.today").position().top;
+			var elementsToHide = [];
 			
 			$("aside .calendar").children("time").each(function(index, dateElement) {
 			
-				if ($(dateElement).position().top != todayRowPositionTop)
-				$(dateElement).addClass("secondaryDate");
+				if ($(dateElement).offset().top != todayRowPositionTop)
+				elementsToHide.push($(dateElement));
+				
+			});
+			
+			$.each(elementsToHide, function(index, element) {
+			
+				element.addClass("secondaryDate");
 				
 			});
 			
