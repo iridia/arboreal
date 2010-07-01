@@ -97,6 +97,17 @@ var arboreal = {
 			
 			var thisObject = this;
 			
+			$.getJSON("http://api.twitter.com/1/statuses/user_timeline.json?callback=?", {
+			
+			
+				"screen_name": "okogreen",
+				"count": 1
+				
+			}, function (data) {
+			
+				mono.log(data);
+				
+			});
 			
 			$("*[class*='monoTwitterEngine']").each(function() {
 			
@@ -137,11 +148,30 @@ var arboreal = {
 	
 	calendar: {
 	
-		calendarID: "0lgqdbsiischmeimnpu89bqudo",
+		predicates: {
+		
+			"mainCalendarStream": "0lgqdbsiischmeimnpu89bqudo"
+		
+		},
 	
 		init: function() {
+		
+			$("*[irCalendarEngine]").each(function(index, object) {
 			
-			$.getJSON(arboreal.calendar.baseURL(), {
+				var self = $(object);
+				var calendarEnginePredicateKey = self.attr("irCalendarEngine");
+				var calendarEnginePredicate = arboreal.calendar.predicates[calendarEnginePredicateKey]
+				if (calendarEnginePredicate == undefined) continue;
+				
+				arboreal.calendar.workers[calendarEnginePredicateKey] = new  arboreal.calendar.engineWithIdentifier(calendarEnginePredicate);
+				
+			});
+			
+		},
+	
+		engineWithIdentifier: function(inIdentifier) {
+			
+			$.getJSON(arboreal.calendar.baseURLWithIdentifier(inIdentifier), {
 			
 				"start-min": (new Date()).format("#{YEAR, 4}-#{MONTH, 2}-01"),
 				"start-max": (new Date()).nextMonth().previousDay().format("#{YEAR, 4}-#{MONTH, 2}-#{DAY, 2}")
@@ -182,9 +212,9 @@ var arboreal = {
 			
 		},
 		
-		baseURL: function () {
+		baseURLWithIdentifier: function (inCalendarIdentifier) {
 		
-			return "http://www.google.com/calendar/feeds/" + arboreal.calendar.calendarID + "@group.calendar.google.com/public/full?alt=json-in-script&callback=?";
+			return "http://www.google.com/calendar/feeds/" + String(inCalendarIdentifier) + "@group.calendar.google.com/public/full?alt=json-in-script&callback=?";
 		
 		}
 	
