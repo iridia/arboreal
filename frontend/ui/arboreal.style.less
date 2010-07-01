@@ -36,6 +36,12 @@
 
 
 
+	* {
+	
+		text-rendering: optimizeLegibility;
+	
+	}
+
 	.typeMonospaced {
 	
 		font-family: "Menlo", "Bitstream Vera Sans Mono", "Monaco", monospace;
@@ -43,6 +49,8 @@
 	}
 	
 	.typeSerifHumanistic {
+	
+		
 	
 	}
 	
@@ -2153,6 +2161,8 @@
 				
 				.borderInsetTop(rgba(0, 0, 0, .20));
 				.borderInsetBottom(rgba(255, 255, 255, .45));
+				
+				.transition2(.25s, border-top-color, border-bottom-color);
 				
 				margin: (2 * @slice - 1) (-2 * @slice);
 				
