@@ -105,9 +105,7 @@ var arboreal = {
 			}, function (data) {
 			
 				var tweetObject = $("*[irTwitterEngine]").eq(0).children("*[irTwitterEngineTemplate]");
-				
-				tweetObject.children("*[irTwitterEngineTemplate='tweet:text']")
-				.text(data[0].text);
+				tweetObject.children("*[irTwitterEngineTemplate='tweet:text']").text(data[0].text);
 				
 			});
 						
@@ -139,6 +137,8 @@ var arboreal = {
 			}
 		
 		},
+		
+		workers: {},
 	
 		init: function() {
 		
@@ -147,7 +147,7 @@ var arboreal = {
 				var self = $(object);
 				var calendarEnginePredicateKey = self.attr("irCalendarEngine");
 				var calendarEnginePredicate = arboreal.calendar.predicates[calendarEnginePredicateKey]
-				if (calendarEnginePredicate == undefined) continue;
+				if (calendarEnginePredicate == undefined) return false;
 				
 				arboreal.calendar.workers[calendarEnginePredicateKey] = new  arboreal.calendar.engineWithPredicate(calendarEnginePredicate);
 				
@@ -205,8 +205,6 @@ var arboreal = {
 					})();
 					
 					
-					mono.log("link is", eventLink);
-					
 				//	FIXME: relatize the time.
 					
 					eventItem.children("*[irCalendarEngineTemplate='event:time']")
@@ -251,6 +249,8 @@ var arboreal = {
 				});
 				
 			});
+			
+			return this;
 			
 		},
 		
