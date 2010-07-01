@@ -28,3 +28,6 @@
 [submodule "frontend/ui/lib.jsClass"]
 	path = frontend/ui/lib.jsClass
 	url = git://github.com/jcoglan/js.class.git
+[submodule "frontend/ui/lib.monoDate"]
+	path = frontend/ui/lib.monoDate
+	url = git://github.com/monoceroi/monoDate.git
