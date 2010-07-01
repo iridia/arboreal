@@ -25,3 +25,6 @@
 [submodule "externals/pictorial"]
 	path = externals/pictorial
 	url = git://github.com/monoceroi/pictorial.git
+[submodule "frontend/ui/lib.jsClass"]
+	path = frontend/ui/lib.jsClass
+	url = git://github.com/jcoglan/js.class.git
