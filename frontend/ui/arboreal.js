@@ -200,7 +200,7 @@ var arboreal = {
 				
 					var eventItem = inCalendarItemTemplate.clone();
 				
-					var eventTime = Date.fromISO8601(eventObject.when && eventObject.when.startTime);
+					var eventTime = eventObject.startDate;
 					var eventTimeString = eventTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
 					
 					var eventTitle = eventObject.title;
@@ -251,16 +251,35 @@ var arboreal = {
 					
 				}
 				
-				$.each(eventEntries, function(index, eventObject) {
+				var regulatedEventObjects = $.map(eventEntries, function(eventObject) {
 				
-					_handleEvent({
+					var eventTime = eventObject['gd$when'] && eventObject['gd$when'][0] || {};
+					var eventStartTime = eventTime && eventTime.startTime || "";
+					var eventStartDate = Date.fromISO8601(eventStartTime);
+				
+					return {
 					
 						title: eventObject.title && eventObject.title['$t'] || "",
 						content: eventObject.content && eventObject.content['$t'] || "",
-						when: eventObject['gd$when'] && eventObject['gd$when'][0] || {},
+						startDate: eventStartDate,
 						link: eventObject.link
 					
-					});
+					};
+					
+				}).sort(function(firstObject, secondObject) {
+				
+				//	< 0: firstObject comes first
+				//	0: ordered same
+				//	> 0: secondObject comes first
+				
+					return (Number(firstObject && firstObject.startDate) - Number(secondObject && secondObject.startDate));
+					
+				});
+				
+				
+				$.each(regulatedEventObjects, function(index, eventObject) {
+				
+					_handleEvent(eventObject);
 					
 				});
 				
