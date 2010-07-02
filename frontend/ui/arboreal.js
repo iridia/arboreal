@@ -179,9 +179,9 @@ var arboreal = {
 		
 			var inCalendarIdentifier = inPredicate['calendarID'];
 			var inCalendarContainer = $(inPredicate['calendarContainerSelectorString']);
-			var inCalendarItemTemplate = inCalendarContainer.children("*[irCalendarEngineTemplate]").eq(0);
+			var inCalendarItemTemplate = inCalendarContainer.children("*[irCalendarEngineTemplate]").eq(0).attr("irCalendarEngineTemplate", "");
 			
-			inCalendarContainer.empty().attr("irCalendarEngine:busy", "true");
+			inCalendarContainer.empty().attr("irCalendarEngineBusy", "true");
 			
 			$.getJSON(arboreal.calendar.baseURLWithIdentifier(inCalendarIdentifier), {
 			
@@ -190,7 +190,7 @@ var arboreal = {
 			
 			}, function(data) {
 			
-				inCalendarContainer.attr("irCalendarEngine:busy", "false");
+				inCalendarContainer.attr("irCalendarEngineBusy", "");
 				
 				if (data.feed.entry === undefined) return;
 				

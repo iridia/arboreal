@@ -873,7 +873,7 @@
 		
 		:hover .secondaryDate {
 		
-			display: block;
+		//	display: block;
 		
 		}
 		
@@ -905,6 +905,20 @@
 		
 		}		
 		
+		
+		
+		
+		
+		.details:empty, .details[irCalendarEngineBusy='true'] {
+		
+			:after {
+			
+				display: block;
+			
+			}
+		
+		}
+		
 		.details {
 		
 			clear: left;
@@ -920,10 +934,24 @@
 			
 			}
 			
-			:after {
+			+ *:before {
 			
 				.shadowUpBlock;
-				top: 8px;
+				top: 0px;
+			
+			}
+			
+			:after {
+
+				.pseudoBlock;
+			
+				content: "Loading…";
+				.text(16px, @pack, white);
+				text-align: center;
+				
+				height: @pack;
+				
+				display: none;
 			
 			}
 			
@@ -937,6 +965,12 @@
 				
 				padding: @slice 19px;
 				color: white;
+			
+			}
+
+			li[irCalendarEngineTemplate='true'] {
+			
+				display: none;
 			
 			}
 			
