@@ -934,10 +934,17 @@
 			
 			}
 			
-			+ *:before {
+			+ * {
 			
-				.shadowUpBlock;
-				top: 0px;
+				position: relative;
+			
+				:before {
+			
+					.shadowUpBlock;
+					.fullInset(0, 0, auto, 0);
+					top: 0px !important;		// FIXME: bug
+				
+				}
 			
 			}
 			
