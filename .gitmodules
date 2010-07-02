@@ -34,3 +34,6 @@
 [submodule "frontend/ui/lib.tidyCJK.js"]
 	path = frontend/ui/lib.tidyCJK.js
 	url = git://github.com/monoceroi/tidyCJK.js.git
+[submodule "frontend/ui/lib.jStorage"]
+	path = frontend/ui/lib.jStorage
+	url = git://github.com/iridia/jStorage.git
