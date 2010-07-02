@@ -14,7 +14,7 @@
 
 	function _(thePath) {
 	
-		return "ui/" + thePath.replace(/(\.js)$/ig, '') + ".js";
+		return "ui/" + thePath;
 		
 	}
 
@@ -29,18 +29,23 @@
 		$LAB.script(
 		
 			_("lib.jquery/dist/jquery.js"),
-			_("lib.monoSnippets/lib.monoSnippets")
+			_("lib.monoSnippets/lib.monoSnippets.js")
 		
 		).wait().script(
 		
 			_("lib.jsClass/build/min/loader.js")
+			
+		).wait().script(
 		
+			_("lib.monoDate/lib.mono.date.js"),
+			_("lib.xRegExp/lib.xRegExp.1.5.0.js"),
+			_("lib.tidyCJK.js/lib.tidyCJK.js")
+			
 		).wait().script(
 		
 			_("lib.monoSnippets/lib.monoSnippets.notificationCenter.js"),
 			_("lib.monoSnippets/lib.monoSnippets.preferencesController.js"),
-			_("lib.monoTwitterEngine/lib.mono.twitterEngine.js"),
-			_("lib.monoDate/lib.mono.date.js")
+			_("lib.monoTwitterEngine/lib.mono.twitterEngine.js")
 		
 		).wait(function() {
 		
