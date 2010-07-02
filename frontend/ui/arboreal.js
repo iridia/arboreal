@@ -38,7 +38,13 @@
 		).wait().script(
 		
 			_("lib.monoDate/lib.mono.date.js"),
+			
 			_("lib.xRegExp/lib.xRegExp.1.5.0.js"),
+			_("lib.xRegExp/lib.xRegExp.unicode.base.0.5.js"),
+			_("lib.xRegExp/lib.xRegExp.unicode.blocks.1.0.js"),
+			_("lib.xRegExp/lib.xRegExp.unicode.categories.1.0.js"),
+			_("lib.xRegExp/lib.xRegExp.unicode.scripts.1.0.js"),
+			
 			_("lib.tidyCJK.js/lib.tidyCJK.js")
 			
 		).wait().script(
@@ -110,7 +116,7 @@ var arboreal = {
 			}, function (data) {
 			
 				var tweetObject = $("*[irTwitterEngine]").eq(0).children("*[irTwitterEngineTemplate]");
-				tweetObject.children("*[irTwitterEngineTemplate='tweet:text']").text(data[0].text);
+				tweetObject.children("*[irTwitterEngineTemplate='tweet:text']").text(mono.tidyCJK(data[0].text));
 				
 			});
 						
