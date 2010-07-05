@@ -7,9 +7,6 @@
 [submodule "frontend/ui/lib.less.js"]
 	path = frontend/ui/lib.less.js
 	url = git://github.com/monoceroi/less.js.git
-[submodule "frontend/ui/lib.monoTwitterEngine"]
-	path = frontend/ui/lib.monoTwitterEngine
-	url = git://github.com/monoceroi/monoTwitterEngine.git
 [submodule "frontend/ui/lib.LABjs"]
 	path = frontend/ui/lib.LABjs
 	url = git://github.com/monoceroi/LABjs.git
