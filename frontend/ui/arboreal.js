@@ -98,6 +98,10 @@
 				.provides("jQuery.jStorage")
 				.requires("jQuery");
 				
+				this.file(_("lib.jquery-jsonp/core/jquery.jsonp.js"))
+				.provides("jQuery.jsonp")
+				.requires("jQuery");
+				
 				
 				this.file(_("lib.monoSnippets/lib.monoSnippets.js"))
 				.provides("mono");
@@ -117,7 +121,7 @@
 			
 				this.file(_("lib.irCalendarEngine/lib.iridia.calendarEngine.js"))
 				.provides("iridia.calendarEngine")
-				.requires("jQuery", "JS.Class", "JS.Observable", "Date.prototype.format", "mono");
+				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Observable", "Date.prototype.format", "mono");
 				
 				this.file(_("lib.tidyCJK.js/lib.tidyCJK.js"))
 				.provides("mono.tidyCJK")
@@ -353,31 +357,7 @@ var arborealOld = {
 					
 				}
 				
-				var regulatedEventObjects = $.map(eventEntries, function(eventObject) {
-				
-					var eventTime = eventObject['gd$when'] && eventObject['gd$when'][0] || {};
-					var eventStartTime = eventTime && eventTime.startTime || "";
-					var eventStartDate = Date.fromISO8601(eventStartTime);
-				
-					return {
-					
-						title: eventObject.title && eventObject.title['$t'] || "",
-						content: eventObject.content && eventObject.content['$t'] || "",
-						startDate: eventStartDate,
-						link: eventObject.link
-					
-					};
-					
-				}).sort(function(firstObject, secondObject) {
-				
-				//	< 0: firstObject comes first
-				//	0: ordered same
-				//	> 0: secondObject comes first
-				
-					return (Number(firstObject && firstObject.startDate) - Number(secondObject && secondObject.startDate));
-					
-				});
-				
+								
 				
 				$.each(regulatedEventObjects, function(index, eventObject) {
 				

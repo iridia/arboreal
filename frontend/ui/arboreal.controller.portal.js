@@ -50,7 +50,9 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 			"calendarID": arboreal.presets.calendarID,
 			
-			"queryPredicate": {
+			"methodImmediatelyExecutes": true,
+			"methodName": "fetchEvents",
+			"methodArguments": {
 			
 				"fromDate": (new Date()),
 				"toDate": (new Date()).lastDayInMonth()
@@ -65,19 +67,45 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 	calendarEngineDidLoad: function(inCalendarEngine) {
 	
-		mono.log("Calendar engine", inCalendarEngine, "did load.");
+		mono.log("Calendar engine", inCalendarEngine.hash(), "did load.");
+		
+	},
+	
+	calendarEngineShouldSendRequest: function(inCalendarEngine, inRequest) {
+	
+		return true;
 		
 	},
 	
 	calendarEngineDidStartLoadingEvents: function(inCalendarEngine) {
 	
 		mono.log("Calendar engine", inCalendarEngine, "did start loading events.");
+		
+/*
+		var inCalendarIdentifier = inPredicate['calendarID'];
+		var inCalendarContainer = $(inPredicate['calendarContainerSelectorString']);
+		var inCalendarItemTemplate = inCalendarContainer.children("*[irCalendarEngineTemplate]").eq(0).attr("irCalendarEngineTemplate", "");
+		
+		inCalendarContainer.empty().attr("irCalendarEngineBusy", "true");
+*/
 	
 	},
 	
 	calendarEngineDidReceiveEvents: function(inCalendarEngine, inEvents) {
 	
 		mono.log("Calednar engine", inCalendarEngine, "did receive events", inEvents, ".");
+		
+		$.each(inEvents, function(index, eventObject) {
+				
+			mono.log("event object", eventObject);
+			
+		});
+		
+	},
+	
+	calendarEngineShouldRetry: function(inCalendarEngine) {
+	
+		return true;
 		
 	}
 
