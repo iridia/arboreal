@@ -37,3 +37,6 @@
 [submodule "frontend/ui/lib.irCalendarEngine"]
 	path = frontend/ui/lib.irCalendarEngine
 	url = git://github.com/iridia/irCalendarEngine.git
+[submodule "frontend/ui/lib.jquery-jsonp"]
+	path = frontend/ui/lib.jquery-jsonp
+	url = git://github.com/iridia/jquery-jsonp.git
