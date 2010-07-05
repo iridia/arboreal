@@ -10,57 +10,161 @@
 
 
 
-//	Framework Wrapper
-
-	function _(thePath) {
+	var arboreal = {
 	
-		return "ui/" + thePath;
+		"debugMode": true,
+		"presets": {
 		
-	}
+			"calendarID": "0lgqdbsiischmeimnpu89bqudo",
+			"twitterAccount": "okogreen"
+		
+		}
+		
+	};
 
 
 
 
 
-//	Dependencies.  We load all the required framework here.
 
-	function _arboreal_initialize() {
 
+
+
+
+//	Dependencies.
+
+	(function arboreal_initialize (global) {
+		
+		
+		var _ = (function(isDebugging) {
+			
+			if (isDebugging) return function(thePath) {
+				
+				return "ui/" + thePath + "?t=" + String(Number((new Date())));
+				
+			};
+			
+			return function(thePath) {
+				
+				return "ui/" + thePath;
+				
+			};
+				
+		})(arboreal && arboreal['debugMode'] || false);
+		
+		
+		var _c = function _c (controllerName) {
+		
+			return _("arboreal.controller." + controllerName + ".js");
+			
+		}
+		
+		
+		
+		
+		
+		JSCLASS_PATH = 'ui/lib.jsClass/build/min/';
+		
 		$LAB.script(
 		
-			_("lib.jquery/dist/jquery.js"),
-			_("lib.monoSnippets/lib.monoSnippets.js")
-		
-		).wait().script(
-		
 			_("lib.jsClass/build/min/loader.js")
-			
-		).wait().script(
 		
-			_("lib.monoDate/lib.mono.date.js"),
+		).wait().script(
 			
-			_("lib.xRegExp/lib.xRegExp.1.5.0.js"),
+			_("lib.xRegExp/lib.xRegExp.1.5.0.js")
+		
+		).wait().script(
+			
 			_("lib.xRegExp/lib.xRegExp.unicode.base.0.5.js"),
 			_("lib.xRegExp/lib.xRegExp.unicode.blocks.1.0.js"),
 			_("lib.xRegExp/lib.xRegExp.unicode.categories.1.0.js"),
-			_("lib.xRegExp/lib.xRegExp.unicode.scripts.1.0.js"),
-			
-			_("lib.tidyCJK.js/lib.tidyCJK.js")
-			
-		).wait().script(
-		
-			_("lib.monoSnippets/lib.monoSnippets.notificationCenter.js"),
-			_("lib.monoSnippets/lib.monoSnippets.preferencesController.js"),
-			_("lib.monoTwitterEngine/lib.mono.twitterEngine.js")
+			_("lib.xRegExp/lib.xRegExp.unicode.scripts.1.0.js")
 		
 		).wait(function() {
 		
-			arboreal.init();
+			JS.Packages(function() {
+			
+				this.file(_("lib.jquery/dist/jquery.js"))
+				.provides("jQuery");
+				
+			});
+			
+			JS.Packages(function() {
+			
+				this.file(_("lib.jquery/dist/jquery.js"))
+				.provides("jQuery");
+				
+				this.file(_("lib.jStorage/jstorage.min.js"))
+				.provides("jQuery.jStorage")
+				.requires("jQuery");
+				
+				
+				this.file(_("lib.monoSnippets/lib.monoSnippets.js"))
+				.provides("mono");
+				
+				this.file(_("lib.monoSnippets/lib.monoSnippets.notificationCenter.js"))
+				.provides("mono.notificationCenter")
+				.requires("mono");
+				
+				this.file(_("lib.monoSnippets/lib.monoSnippets.preferencesController.js"))
+				.provides("mono.preferencesController")
+				.requires("mono");
+				
+				
+				this.file(_("lib.monoDate/lib.mono.date.js"))
+				.provides("Date.prototype.format");
+			
+			
+				this.file(_("lib.irCalendarEngine/lib.iridia.calendarEngine.js"))
+				.provides("iridia.calendarEngine")
+				.requires("jQuery", "JS.Class", "JS.Observable", "Date.prototype.format", "mono");
+				
+				this.file(_("lib.tidyCJK.js/lib.tidyCJK.js"))
+				.provides("mono.tidyCJK")
+				.requires("XRegExp");
+			
+			
+			//	Page Controllers
+			
+				this.file(_c("archetype"))
+				.provides("arboreal.controller.archetype", "arboreal.controller.protocol")
+				.requires("JS.Singleton", "JS.Class", "JS.Interface", "jQuery", "mono");
+				
+				this.file(_c("portal"))
+				.provides("arboreal.controller.portal")
+				.requires("iridia.calendarEngine", "arboreal.controller.archetype");
+			
+			});
+			
+
+			JS.require("arboreal.controller.archetype", function() {
+			
+				var plausiblePageClass = $("head meta[name='irArborealAssociatedControllerName']").attr("content"); if (!plausiblePageClass) return;
+							
+				JS.require("arboreal.controller." + plausiblePageClass, function() {
+				
+					var plausiblePageController = eval("arboreal.controller." + plausiblePageClass);
+					
+					try {
+					
+						JS.Interface.ensure(plausiblePageController, arboreal.controller.protocol)
+					
+					} catch (exception) {
+					
+						return mono.error("Page controller does not implement the required protocol.  Bailing.");
+					
+					}
+									
+					arboreal.currentPageController = plausiblePageController;
+					arboreal.currentPageController.initializePage();
+				
+				});
+				
+			});
 		
 		});
-
 	
-	}
+	})(window);
 
 
 
@@ -81,11 +185,11 @@
 
 
 
-var arboreal = {
+var arborealOld = {
 
 	init: function() {
 		
-		this.twitter.init();
+	//	this.twitter.init();
 		this.calendar.init();
 		
 	},
@@ -128,7 +232,7 @@ var arboreal = {
 		
 		mono.notificationCenter.dispatchNotificationWithKeyAndPredicate("arboreal.twitterStream.receivedData", {
 		
-			sender: sender,
+ 			sender: sender,
 			userInfo: userInfo,
 			data: data
 		
@@ -152,26 +256,13 @@ var arboreal = {
 		workers: {},
 	
 		init: function() {
-		
-			$("*[irCalendarEngine]").each(function(index, object) {
-			
-				var self = $(object);
-				var calendarEnginePredicateKey = self.attr("irCalendarEngine");
-				var calendarEnginePredicate = arboreal.calendar.predicates[calendarEnginePredicateKey]
-				if (calendarEnginePredicate == undefined) return false;
-				
-				arboreal.calendar.workers[calendarEnginePredicateKey] = new  arboreal.calendar.engineWithPredicate(calendarEnginePredicate);
-				
-			});
-			
-			
-			
-			
-			
-			var todayRowPositionTop = $("aside .calendar").children("time.today").position().top;
+					
+			var todayRowPositionTop = $("aside .calendar").find("time.today").position().top;
 			var elementsToHide = [];
 			
-			$("aside .calendar").children("time").each(function(index, dateElement) {
+			$("aside .calendar").find("time").each(function(index, dateElement) {
+			
+				mono.log("found a time tag, which is ", $(dateElement))
 			
 				if ($(dateElement).offset().top != todayRowPositionTop)
 				elementsToHide.push($(dateElement));
@@ -214,7 +305,7 @@ var arboreal = {
 					var eventTime = eventObject.startDate;
 					var eventTimeString = eventTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
 					
-					var eventTitle = eventObject.title;
+					var eventTitle = eventObject.txitle;
 					
 					var eventLink = (function() {
 					
@@ -314,64 +405,6 @@ var arboreal = {
 
 
 
-
-
-
-
-
-// !Section-Specific Code
-
-
-
-
-
-	arboreal.view = {};
-	
-	
-	
-	
-	
-	arboreal.view.blog = {
-	
-		init: function() {
-		
-		//	= new self.articleSharingController () {} … ?
-			
-		},
-		
-		predicateController: {
-		
-		},
-		
-		shareController: function () {
-		
-		}
-	
-	};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// !Initializer Invocation
-
-_arboreal_initialize();
 
 
 
