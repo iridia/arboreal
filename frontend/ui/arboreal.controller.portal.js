@@ -15,7 +15,8 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 
 	initializePage: function() {
 	
-		this.initializeCalendar();
+		this.initializeCalendarPanel();
+		this.initializeCalendarEngine();
 		
 	},
 	
@@ -23,12 +24,34 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 	
 
-//	Calendar Box
+//	Calendar Panel
+
+	initializeCalendarPanel: function() {
+		
+		var todayRowPositionTop = $("aside .calendar").find("time.today").position().top;
+		var elementsToHide = [];
+		
+		$("aside .calendar").find("time").each(function(index, dateElement) {
+		
+			mono.log("found a time tag, which is ", $(dateElement))
+		
+			if ($(dateElement).offset().top != todayRowPositionTop)
+			elementsToHide.push($(dateElement));
+			
+		});
+		
+		$.each(elementsToHide, function(index, element) {
+		
+			element.addClass("secondaryDate");
+			
+		});
+		
+	},
 	
-	initializeCalendar: function() {
+	initializeCalendarEngine: function() {
 	
 		var thisObject = this;
-	
+		
 		$("*[irCalendarEngine]").each(function(index, object) {
 		
 			var self = $(object);
@@ -100,10 +123,17 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			mono.log("event object", eventObject);
 			
 		});
-		
+				
 	},
 	
 	calendarEngineShouldRetry: function(inCalendarEngine) {
+	
+		if (this.retryCount === undefined)
+		this.retryCount = 0;
+		
+		this.retryCount++;
+		
+		if (this.retryCount > 3) return false;
 	
 		return true;
 		

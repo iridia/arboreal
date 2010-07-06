@@ -261,23 +261,7 @@ var arborealOld = {
 	
 		init: function() {
 					
-			var todayRowPositionTop = $("aside .calendar").find("time.today").position().top;
-			var elementsToHide = [];
 			
-			$("aside .calendar").find("time").each(function(index, dateElement) {
-			
-				mono.log("found a time tag, which is ", $(dateElement))
-			
-				if ($(dateElement).offset().top != todayRowPositionTop)
-				elementsToHide.push($(dateElement));
-				
-			});
-			
-			$.each(elementsToHide, function(index, element) {
-			
-				element.addClass("secondaryDate");
-				
-			});
 			
 		},
 	
