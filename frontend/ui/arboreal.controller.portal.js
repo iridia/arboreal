@@ -240,7 +240,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			.text(eventTimeString);
 			
 			eventItem.children("*[irCalendarEngineTemplate='event:title']")
-			.text(eventTitle);
+			.text(mono.tidyCJK(eventTitle));
 			
 			eventItem.children("*[irCalendarEngineTemplate='event:link']")
 			.attr("href", eventLink)

@@ -143,7 +143,7 @@
 				
 				this.file(_c("portal"))
 				.provides("arboreal.controller.portal")
-				.requires("Array.prototype.hasObject")
+				.requires("Array.prototype.hasObject", "mono.tidyCJK")
 				.requires("iridia.calendarEngine", "arboreal.controller.archetype");
 			
 			});
