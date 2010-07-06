@@ -40,3 +40,6 @@
 [submodule "frontend/ui/lib.jquery-jsonp"]
 	path = frontend/ui/lib.jquery-jsonp
 	url = git://github.com/iridia/jquery-jsonp.git
+[submodule "frontend/ui/lib.monoArray"]
+	path = frontend/ui/lib.monoArray
+	url = git://github.com/monoceroi/monoArray
