@@ -178,15 +178,21 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 		mono.log("Calendar engine", inCalendarEngine, "did receive events", inEvents, ".");
 	
+	
+	//	Snapshot — we’ll have good use of thisObject down below when we highlight active days
+		
+		var thisObject = this;
+	
+	
 		var thePredicate = this.calendarPredicate[inCalendarEngine.options.context];
 	//	var inCalendarIdentifier = thePredicate.calendarID;
-		var inCalendarContainer = $(thePredicate.calendarContainerSelectorString);
+		var inCalendarContainer = this.bindings.calendarDetailsHolder;
 		
-		inCalendarContainer.attr("irCalendarEngineBusy", "false");
+		this.bindings.calendarDetailsHolder.attr("irCalendarEngineBusy", "false");
 		
-		var inCalendarItemTemplate = inCalendarContainer.children("*[irCalendarEngineTemplate]").eq(0).attr("irCalendarEngineTemplate", "").detach();
+		var inCalendarItemTemplate = this.bindings.calendarDetailsHolder.children("*[irCalendarEngineTemplate]").eq(0).attr("irCalendarEngineTemplate", "").detach();
 		
-		inCalendarContainer.empty().attr("irCalendarEngineBusy", "true");
+		this.bindings.calendarDetailsHolder.empty().attr("irCalendarEngineBusy", "true");
 		
 				
 		var _handleEvent = function (eventObject) {
@@ -244,18 +250,28 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 				
 			});
 			
-			eventItem.appendTo(inCalendarContainer);
+			eventItem.appendTo(thisObject.bindings.calendarDetailsHolder);
+			
+			thisObject.bindings.calendarDateHolder.children("time").each(function(index, dateElement) {
+			
+				if (eventTime.getDate() == $(dateElement).data("irCalendarDate").getDate()) {
+				
+					$(dateElement).addClass("active");
+					return true;
+				
+				}
+				
+			});
 			
 		};
-		
-								
+						
 		$.each(inEvents, function (index, eventObject) {
 		
 			_handleEvent(eventObject);
 			
 		});
 		
-		inCalendarContainer.attr("irCalendarEngineBusy", "false");
+		this.bindings.calendarDetailsHolder.attr("irCalendarEngineBusy", "false");
 				
 	},
 	
