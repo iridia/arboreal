@@ -38,11 +38,15 @@
 		
 		var _ = (function(isDebugging) {
 			
-			if (isDebugging) return function(thePath) {
+			if (isDebugging) {
+			
+				return function(thePath) {
 				
-				return "ui/" + thePath + "?t=" + String(Number((new Date())));
+					return "ui/" + thePath + "?t=" + String(Number((new Date())));
 				
-			};
+				};
+			
+			}
 			
 			return function(thePath) {
 				
@@ -50,14 +54,14 @@
 				
 			};
 				
-		})(arboreal && arboreal['debugMode'] || false);
+		})(arboreal && arboreal.debugMode || false);
 		
 		
 		var _c = function _c (controllerName) {
 		
 			return _("arboreal.controller." + controllerName + ".js");
 			
-		}
+		};
 		
 		
 		
@@ -88,7 +92,7 @@
 				.provides("jQuery");
 				
 			});
-			
+				
 			JS.Packages(function() {
 			
 				this.file(_("lib.jquery/dist/jquery.js"))
@@ -143,15 +147,21 @@
 
 			JS.require("arboreal.controller.archetype", function() {
 			
-				var plausiblePageClass = $("head meta[name='irArborealAssociatedControllerName']").attr("content"); if (!plausiblePageClass) return;
+				var plausiblePageClass = $("head meta[name='irArborealAssociatedControllerName']").attr("content");
+				
+				if (!plausiblePageClass) {
+				
+					return;
+					
+				}
 							
 				JS.require("arboreal.controller." + plausiblePageClass, function() {
 				
-					var plausiblePageController = eval("arboreal.controller." + plausiblePageClass);
+					var plausiblePageController = (arboreal.controller && arboreal.controller[plausiblePageClass] || undefined);
 					
 					try {
 					
-						JS.Interface.ensure(plausiblePageController, arboreal.controller.protocol)
+						JS.Interface.ensure(plausiblePageController, arboreal.controller.protocol);
 					
 					} catch (exception) {
 					
@@ -191,13 +201,6 @@
 
 var arborealOld = {
 
-	init: function() {
-		
-	//	this.twitter.init();
-		this.calendar.init();
-		
-	},
-	
 	twitter: {
 	
 		predicates: {
@@ -236,134 +239,15 @@ var arborealOld = {
 		
 		mono.notificationCenter.dispatchNotificationWithKeyAndPredicate("arboreal.twitterStream.receivedData", {
 		
- 			sender: sender,
+			sender: sender,
 			userInfo: userInfo,
 			data: data
 		
 		});
 	
-	},
-	
-	calendar: {
-	
-		predicates: {
-		
-			"mainCalendarStream": {
-			
-				"calendarID": "0lgqdbsiischmeimnpu89bqudo",
-				"calendarContainerSelectorString": ".calendar .details"
-				
-			}
-		
-		},
-		
-		workers: {},
-	
-		init: function() {
-					
-			
-			
-		},
-	
-		engineWithPredicate: function(inPredicate) {
-		
-			var inCalendarIdentifier = inPredicate['calendarID'];
-			var inCalendarContainer = $(inPredicate['calendarContainerSelectorString']);
-			var inCalendarItemTemplate = inCalendarContainer.children("*[irCalendarEngineTemplate]").eq(0).attr("irCalendarEngineTemplate", "");
-			
-			inCalendarContainer.empty().attr("irCalendarEngineBusy", "true");
-			
-			$.getJSON(arboreal.calendar.baseURLWithIdentifier(inCalendarIdentifier), {
-			
-				"start-min": (new Date()).format("#{YEAR, 4}-#{MONTH, 2}-01"),
-				"start-max": (new Date()).nextMonth().previousDay().format("#{YEAR, 4}-#{MONTH, 2}-#{DAY, 2}")
-			
-			}, function(data) {
-			
-				inCalendarContainer.attr("irCalendarEngineBusy", "");
-				
-				if (data.feed.entry === undefined) return;
-				
-				var eventEntries = data.feed.entry;
-				
-				var _handleEvent = function(eventObject) {
-				
-					var eventItem = inCalendarItemTemplate.clone();
-				
-					var eventTime = eventObject.startDate;
-					var eventTimeString = eventTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
-					
-					var eventTitle = eventObject.txitle;
-					
-					var eventLink = (function() {
-					
-						var linkHref = "";
-						
-						$.each(eventObject.link, function(index, linkType) {
-						
-							if (linkType.type != "text/html") return true;
-
-							linkHref = (linkType && linkType.href || "");
-							return false; 
-							
-						});
-						
-						return linkHref;
-					
-					})();
-					
-					
-				//	FIXME: relatize the time.
-					
-					eventItem.children("*[irCalendarEngineTemplate='event:time']")
-					.attr("datetime", eventTimeString)
-					.text(eventTimeString);
-					
-					eventItem.children("*[irCalendarEngineTemplate='event:title']")
-					.text(eventTitle);
-					
-					eventItem.children("*[irCalendarEngineTemplate='event:link']")
-					.attr("href", eventLink)
-					.attr("target", "_blank")
-					.click(function(event) {
-					
-						event.stopPropagation();
-						
-					});
-					
-					eventItem.click(function(event) {
-						
-						eventItem.children("*[irCalendarEngineTemplate='event:link']").eq(0).click();
-						
-					});
-					
-					eventItem.appendTo(inCalendarContainer);
-					
-				}
-				
-								
-				
-				$.each(regulatedEventObjects, function(index, eventObject) {
-				
-					_handleEvent(eventObject);
-					
-				});
-				
-			});
-			
-			return this;
-			
-		},
-		
-		baseURLWithIdentifier: function (inCalendarIdentifier) {
-		
-			return "http://www.google.com/calendar/feeds/" + String(inCalendarIdentifier) + "@group.calendar.google.com/public/full?alt=json-in-script&callback=?";
-		
-		}
-	
 	}
 
-}
+};
 
 
 
