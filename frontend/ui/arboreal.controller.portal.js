@@ -93,6 +93,15 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 		
 	//	Dim known closing days
+	
+		$.each(this.bindings.calendarDateHolder.children("time"), function(index, dateElement) {
+		
+		//	0 = Sunday, 1 = Monday, etc — this array is hardcoded for now.
+		
+			if([0, 1].hasObject($(dateElement).data("irCalendarDate").getDay()))
+			$(dateElement).addClass("closed");
+			
+		});
 		
 		
 	//	Hide “secondary dates” — dates not in the current week

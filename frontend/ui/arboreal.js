@@ -121,6 +121,9 @@
 				
 				this.file(_("lib.monoDate/lib.mono.date.js"))
 				.provides("Date.prototype.format");
+				
+				this.file(_("lib.monoArray/lib.mono.array.js"))
+				.provides("Array.prototype.hasObject");
 			
 			
 				this.file(_("lib.irCalendarEngine/lib.iridia.calendarEngine.js"))
@@ -140,6 +143,7 @@
 				
 				this.file(_c("portal"))
 				.provides("arboreal.controller.portal")
+				.requires("Array.prototype.hasObject")
 				.requires("iridia.calendarEngine", "arboreal.controller.archetype");
 			
 			});
