@@ -20,7 +20,8 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		this.bindings = {
 	
 			calendarDateHolder: $("aside .calendar .dates"),
-			calendarDetailsHolder: $("aside .calendar .details")
+			calendarDetailsHolder: $("aside .calendar .details"),
+			calendarSubscriptionAnchor: $("aside .calendar .actions a:eq(0)")
 		
 		};
 		
@@ -124,6 +125,12 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			element.addClass("secondaryDate");
 			
 		});
+	
+	
+	//	Wire up “Subscribe”
+	
+		this.bindings.calendarSubscriptionAnchor.attr("href", iridia.calendarEngineGetSubscriptionURLWithIdentifier(this.calendarPredicate.mainCalendarStream.calendarID));
+		
 		
 	},
 	
