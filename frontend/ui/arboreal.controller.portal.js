@@ -84,6 +84,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		for (var theDayInMonth = 1; theDayInMonth <= daysInThisMonth; theDayInMonth ++) {
 		
 			var theDay = new Date();
+			
 			theDay.setDate(theDayInMonth);
 			
 			templateDate.clone().addClass(
@@ -98,14 +99,14 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 				([0, 1].hasObject(theDay.getDay())) ? "closed" : ""
 				
-			).attr(
+			).attr("datetime", 
+
+				theDay.format("#{YEAR, 4}-#{MONTH, 2}-#{DAY, 2}")
 			
-				"datetime", theDay.format("#{YEAR, 4}-#{MONTH, 2}-#{DAY, 2}")
+			).data("irCalendarDate", 
 			
-			).data(
-			
-				"irCalendarDate", (new Date(theDay))
-			
+				(new Date(theDay))
+				
 			).text(String(theDayInMonth)).appendTo(this.bindings.calendarDateHolder);
 		
 		}
@@ -133,10 +134,12 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			var calendarEnginePredicateKey = self.attr("irCalendarEngine");
 			var calendarEnginePredicate = thisObject.calendarPredicate[calendarEnginePredicateKey];
 
-			if (!calendarEnginePredicate) {
+			if (calendarEnginePredicate == undefined) {
 			
-				return false;
+				mono.info("Found Calendar Engine predicate key", calendarEnginePredicateKey, "in the DOM without respective predicate defined.");
 				
+				return true;
+			
 			}
 			
 			thisObject.calendarWorkers[calendarEnginePredicateKey] = new iridia.calendarEngine(calendarEnginePredicate, thisObject, calendarEnginePredicateKey);
