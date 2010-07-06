@@ -15,6 +15,38 @@ arboreal.controller = arboreal.controller || {};
 
 arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 
+	configure: function() {
+	
+		this.bindings = {
+	
+			calendarDateHolder: $("aside .calendar .dates"),
+			calendarDetailsHolder: $("aside .calendar .details")
+		
+		};
+		
+		this.calendarPredicate = {
+	
+			mainCalendarStream: {
+			
+				"calendarID": arboreal.presets.calendarID,
+				
+				"methodImmediatelyExecutes": true,
+				"methodName": "fetchEvents",
+				"methodArguments": {
+				
+					"fromDate": (new Date()),
+					"toDate": (new Date()).lastDayInMonth()
+				
+				},
+				
+				"calendarContainerSelectorString": this.bindings.calendarDetailsHolder.selector
+				
+			}
+		
+		};
+		
+	},
+
 	initializePage: function () {
 	
 		this.initializeCalendarPanel();
@@ -29,11 +61,46 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 //	Calendar Panel
 
 	initializeCalendarPanel: function () {
+	
+	//	Lay out today’s dates
 		
-		var todayRowPositionTop = $("aside .calendar").find("time.today").position().top;
+		this.bindings.calendarDateHolder.empty();
+		
+		var daysInThisMonth = (new Date()).lastDayInMonth().getDate();
+		var dayInMonthToday = (new Date()).getDate();
+		
+		var templateDate = $("<time>");
+		
+		for (var theDayInMonth = 1; theDayInMonth <= daysInThisMonth; theDayInMonth ++) {
+		
+			var theDay = new Date();
+			theDay.setDate(theDayInMonth);
+			
+			templateDate.clone()
+			.addClass((theDayInMonth == dayInMonthToday) ? "today" : "")
+			.attr("datetime", theDay.format("#{YEAR, 4}-#{MONTH, 2}-#{DAY, 2}"))
+			.data("irCalendarDate", (new Date(theDay)))
+			.text(String(theDayInMonth))
+			.appendTo(this.bindings.calendarDateHolder);
+		
+		}
+		
+	
+	//	Find first date, indent properly
+				
+		var firstDayInCalendar = this.bindings.calendarDateHolder.children("time").eq(0);
+		firstDayInCalendar.addClass("leading" + firstDayInCalendar.data("irCalendarDate").getDateName());
+		
+		
+	//	Dim known closing days
+		
+		
+	//	Hide “secondary dates” — dates not in the current week
+		
+		var todayRowPositionTop = this.bindings.calendarDateHolder.find("time.today").position().top;
 		var elementsToHide = [];
 		
-		$("aside .calendar").find("time").each(function (index, dateElement) {
+		this.bindings.calendarDateHolder.find("time").each(function (index, dateElement) {
 		
 			if ($(dateElement).offset().top !== todayRowPositionTop) {
 
@@ -74,27 +141,6 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	},
 	
 	calendarWorkers: {},
-	
-	calendarPredicate: {
-	
-		mainCalendarStream: {
-		
-			"calendarID": arboreal.presets.calendarID,
-			
-			"methodImmediatelyExecutes": true,
-			"methodName": "fetchEvents",
-			"methodArguments": {
-			
-				"fromDate": (new Date()),
-				"toDate": (new Date()).lastDayInMonth()
-			
-			},
-			
-			"calendarContainerSelectorString": ".calendar .details"
-			
-		}
-	
-	},
 	
 	calendarEngineDidLoad: function (inCalendarEngine) {
 	
@@ -189,7 +235,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 				
 			});
 			
-			eventItem.clone().appendTo(inCalendarContainer);
+			eventItem.appendTo(inCalendarContainer);
 			
 		};
 		
