@@ -15,6 +15,12 @@ arboreal.controller = arboreal.controller || {};
 
 arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 
+
+
+
+
+//	!Configuration & Initializer
+
 	configure: function() {
 	
 		this.bindings = {
@@ -59,7 +65,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 	
 
-//	Calendar Panel
+//	!Calendar Panel & irCalendarEngine
 
 	initializeCalendarPanel: function () {
 	
@@ -67,8 +73,11 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 		this.bindings.calendarDateHolder.empty();
 		
-		var daysInThisMonth = (new Date()).lastDayInMonth().getDate();
-		var dayInMonthToday = (new Date()).getDate();
+		var dateToday = new Date();
+		
+		var daysInThisMonth = dateToday.lastDayInMonth().getDate();
+		var dayInMonthOfToday = dateToday.getDate();
+		var weekInYearOfToday = dateToday.getWeek();
 		
 		var templateDate = $("<time>");
 		
@@ -77,12 +86,27 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			var theDay = new Date();
 			theDay.setDate(theDayInMonth);
 			
-			templateDate.clone()
-			.addClass((theDayInMonth == dayInMonthToday) ? "today" : "")
-			.attr("datetime", theDay.format("#{YEAR, 4}-#{MONTH, 2}-#{DAY, 2}"))
-			.data("irCalendarDate", (new Date(theDay)))
-			.text(String(theDayInMonth))
-			.appendTo(this.bindings.calendarDateHolder);
+			templateDate.clone().addClass(
+			
+				(theDayInMonth == dayInMonthOfToday) ? "today" : ""
+				
+			).addClass(
+			
+				(theDay.getWeek() == weekInYearOfToday) ? "" : "secondaryDate"
+			
+			).addClass(
+			
+				([0, 1].hasObject(theDay.getDay())) ? "closed" : ""
+				
+			).attr(
+			
+				"datetime", theDay.format("#{YEAR, 4}-#{MONTH, 2}-#{DAY, 2}")
+			
+			).data(
+			
+				"irCalendarDate", (new Date(theDay))
+			
+			).text(String(theDayInMonth)).appendTo(this.bindings.calendarDateHolder);
 		
 		}
 		
@@ -91,46 +115,11 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 				
 		var firstDayInCalendar = this.bindings.calendarDateHolder.children("time").eq(0);
 		firstDayInCalendar.addClass("leading" + firstDayInCalendar.data("irCalendarDate").getDateName());
-		
-		
-	//	Dim known closing days
-	
-		$.each(this.bindings.calendarDateHolder.children("time"), function(index, dateElement) {
-		
-		//	0 = Sunday, 1 = Monday, etc — this array is hardcoded for now.
-		
-			if([0, 1].hasObject($(dateElement).data("irCalendarDate").getDay()))
-			$(dateElement).addClass("closed");
-			
-		});
-		
-		
-	//	Hide “secondary dates” — dates not in the current week
-		
-		var todayRowPositionTop = this.bindings.calendarDateHolder.find("time.today").position().top;
-		var elementsToHide = [];
-		
-		this.bindings.calendarDateHolder.find("time").each(function (index, dateElement) {
-		
-			if ($(dateElement).offset().top !== todayRowPositionTop) {
-
-				elementsToHide.push($(dateElement));
-				
-			}
-			
-		});
-		
-		$.each(elementsToHide, function (index, element) {
-		
-			element.addClass("secondaryDate");
-			
-		});
 	
 	
 	//	Wire up “Subscribe”
 	
 		this.bindings.calendarSubscriptionAnchor.attr("href", iridia.calendarEngineGetSubscriptionURLWithIdentifier(this.calendarPredicate.mainCalendarStream.calendarID));
-		
 		
 	},
 	
@@ -192,22 +181,17 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 	
 		var thePredicate = this.calendarPredicate[inCalendarEngine.options.context];
-	//	var inCalendarIdentifier = thePredicate.calendarID;
 		var inCalendarContainer = this.bindings.calendarDetailsHolder;
-		
-		this.bindings.calendarDetailsHolder.attr("irCalendarEngineBusy", "false");
-		
 		var inCalendarItemTemplate = this.bindings.calendarDetailsHolder.children("*[irCalendarEngineTemplate]").eq(0).attr("irCalendarEngineTemplate", "").detach();
 		
 		this.bindings.calendarDetailsHolder.empty().attr("irCalendarEngineBusy", "true");
 		
-				
-		var _handleEvent = function (eventObject) {
+		
+		$.each(inEvents, function (index, eventObject) {
 				
 			var eventItem = inCalendarItemTemplate.clone();
 		
-			var eventTime = eventObject.startDate;
-			var eventTimeString = eventTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
+			var eventTimeString = eventObject.startDate.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
 			
 			var eventTitle = eventObject.title;
 			
@@ -233,7 +217,8 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			})();
 			
 			
-		//	FIXME: relatize the time.
+		//	Create the DOM items and insert them into the calendar’s details holder.
+		//	FIXME: relatize the time in event:time’s text.
 			
 			eventItem.children("*[irCalendarEngineTemplate='event:time']")
 			.attr("datetime", eventTimeString)
@@ -244,37 +229,17 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 			eventItem.children("*[irCalendarEngineTemplate='event:link']")
 			.attr("href", eventLink)
-			.attr("target", "_blank")
-			.click(function (event) {
-			
-				event.stopPropagation();
-				
-			});
-			
-			eventItem.click(function (event) {
-				
-				eventItem.children("*[irCalendarEngineTemplate='event:link']").eq(0).click();
-				
-			});
+			.attr("target", "_blank");
 			
 			eventItem.appendTo(thisObject.bindings.calendarDetailsHolder);
 			
 			thisObject.bindings.calendarDateHolder.children("time").each(function(index, dateElement) {
 			
-				if (eventTime.getDate() == $(dateElement).data("irCalendarDate").getDate()) {
+				if (eventObject.startDate.getDate() != $(dateElement).data("irCalendarDate").getDate()) return true;
 				
-					$(dateElement).addClass("active");
-					return true;
-				
-				}
+				$(dateElement).addClass("active");
 				
 			});
-			
-		};
-						
-		$.each(inEvents, function (index, eventObject) {
-		
-			_handleEvent(eventObject);
 			
 		});
 		
