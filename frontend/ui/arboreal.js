@@ -40,15 +40,21 @@
 			
 			if (isDebugging) {
 			
-				return function(thePath) {
+				return function (thePath) {
 				
-					return "ui/" + thePath + "?t=" + String(Number((new Date())));
+					if ((/\.js$/).exec(thePath)) {
+
+						return "ui/" + thePath + "?t=" + String(Number((new Date())));
+					
+					}
+					
+					return "ui/" + thePath;
 				
 				};
 			
 			}
 			
-			return function(thePath) {
+			return function (thePath) {
 				
 				return "ui/" + thePath;
 				
@@ -67,14 +73,11 @@
 		
 		
 		
-		JSCLASS_PATH = 'ui/lib.jsClass/build/min/';
+		JSCLASS_PATH = _("lib.jsClass/build/min");
 		
 		$LAB.script(
 		
-			_("lib.jsClass/build/min/loader.js")
-		
-		).wait().script(
-			
+			_("lib.jsClass/build/min/loader.js"),
 			_("lib.xRegExp/lib.xRegExp.1.5.0.js")
 		
 		).wait().script(
@@ -86,13 +89,6 @@
 		
 		).wait(function() {
 		
-			JS.Packages(function() {
-			
-				this.file(_("lib.jquery/dist/jquery.js"))
-				.provides("jQuery");
-				
-			});
-				
 			JS.Packages(function() {
 			
 				this.file(_("lib.jquery/dist/jquery.js"))
@@ -139,12 +135,14 @@
 			
 				this.file(_c("archetype"))
 				.provides("arboreal.controller.archetype", "arboreal.controller.protocol")
-				.requires("JS.Singleton", "JS.Class", "JS.Interface", "jQuery", "mono");
+				.requires("jQuery", "mono")
+				.requires("JS.Singleton", "JS.Class", "JS.Interface");
 				
 				this.file(_c("portal"))
 				.provides("arboreal.controller.portal")
-				.requires("Array.prototype.hasObject", "mono.tidyCJK")
-				.requires("iridia.calendarEngine", "arboreal.controller.archetype");
+				.requires("arboreal.controller.archetype")
+				.requires("iridia.calendarEngine")
+				.requires("Array.prototype.hasObject", "mono.tidyCJK");
 			
 			});
 			
