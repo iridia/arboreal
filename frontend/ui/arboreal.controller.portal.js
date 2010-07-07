@@ -31,6 +31,12 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 		};
 		
+		this.magicStrings = {
+		
+			calendarEventTitleOnClosedDay: "公休"
+		
+		};
+		
 		this.calendarPredicate = {
 	
 			mainCalendarStream: {
@@ -95,10 +101,6 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 				(theDay.getWeek() == weekInYearOfToday) ? "" : "secondaryDate"
 			
-			).addClass(
-			
-				([0, 1].hasObject(theDay.getDay())) ? "closed" : ""
-				
 			).attr("datetime", 
 
 				theDay.format("#{YEAR, 4}-#{MONTH, 2}-#{DAY, 2}")
@@ -148,6 +150,29 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 	},
 	
+	calendarPanelItemForDay: function (inDate) {
+	
+		var dateToFind = new Date(inDate).format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2}");
+		
+		var foundElement = undefined;
+	
+		this.bindings.calendarDateHolder.children("time").each(function(index, dateElement) {
+		
+			var dateInElement = new Date($(dateElement).data("irCalendarDate")).format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2}")
+			
+			if (dateInElement == dateToFind) {
+			
+				foundElement = $(dateElement);
+				return false;
+			
+			}
+			
+		});
+		
+		return foundElement;
+		
+	},
+	
 	calendarWorkers: {},
 	
 	calendarEngineDidLoad: function (inCalendarEngine) {
@@ -182,22 +207,34 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 		var thisObject = this;
 	
-	
 		var thePredicate = this.calendarPredicate[inCalendarEngine.options.context];
 		var inCalendarContainer = this.bindings.calendarDetailsHolder;
 		var inCalendarItemTemplate = this.bindings.calendarDetailsHolder.children("*[irCalendarEngineTemplate]").eq(0).attr("irCalendarEngineTemplate", "").detach();
 		
 		this.bindings.calendarDetailsHolder.empty().attr("irCalendarEngineBusy", "true");
 		
-		
 		$.each(inEvents, function (index, eventObject) {
+		
+			if (eventObject.private) {
+			
+				return true;
 				
+			}
+			
+			if (eventObject.title.match(thisObject.magicStrings.calendarEventTitleOnClosedDay) != null) {
+			
+				thisObject.calendarPanelItemForDay(eventObject.startDate).addClass("closed");
+				return true;
+			
+			}
+			
+		
+		//	Event object deserves a place in the details list
+							
 			var eventItem = inCalendarItemTemplate.clone();
 		
 			var eventTimeString = eventObject.startDate.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
-			
-			var eventTitle = eventObject.title;
-			
+						
 			var eventLink = (function () {
 			
 				var linkHref = "";
@@ -223,12 +260,18 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		//	Create the DOM items and insert them into the calendar’s details holder.
 		//	FIXME: relatize the time in event:time’s text.
 			
+			eventItem.addClass(
+			
+				(Number(eventObject.startDate) < Number(new Date())) ? "old" : ""
+			
+			);
+			
 			eventItem.children("*[irCalendarEngineTemplate='event:time']")
 			.attr("datetime", eventTimeString)
 			.text(eventTimeString);
 			
 			eventItem.children("*[irCalendarEngineTemplate='event:title']")
-			.text(mono.tidyCJK(eventTitle));
+			.text(mono.tidyCJK(eventObject.title));
 			
 			eventItem.children("*[irCalendarEngineTemplate='event:link']")
 			.attr("href", eventLink)
