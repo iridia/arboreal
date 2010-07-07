@@ -268,6 +268,14 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 		return true;
 		
+	},
+	
+	calendarEngineEndpointUnavailable: function (inCalendarEngine) {
+	
+		mono.log("Calendar engine", inCalendarEngine, "is unavailable.");
+		
+		this.bindings.calendarDetailsHolder.attr("irCalendarEngineBusy", "error");
+		
 	}
 
 });
