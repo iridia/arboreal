@@ -1351,12 +1351,14 @@
 //	!Portal: Twitter Stream Box
 
 	.context > article > .twitterStream {
+	
+		.uaDisableTextZoom;
 		
 		.borderImage(url(arboreal.article.twitterStream.backdrop.png), 36, 108, 36, 36, round);
 		
 		margin: -2 * @slice;
 		
-		.text(24px, 36px, rgb(52, 62, 64));
+		.text(20px, 36px, rgb(52, 62, 64));
 		
 		div {
 		
@@ -1371,6 +1373,48 @@
 					rgba(0, 0, 0, .05) 0px 0px 4.5px;
 					
 			.textStroke;
+			
+			a {
+
+
+				.inlineBlock;
+				.textDelimited;
+				
+				.size(3 * @pack, 4 * @slice);
+				padding-right: 11 * @slice;
+				
+				white-space: nowrap;
+				
+				position: relative;
+				
+				:hover {
+				
+					text-shadow: 	rgba(255, 255, 255, .5) 0px 0px 3px;
+							
+				}
+			
+				:after {
+				
+					position: absolute;
+					right: 0px;
+					top: -1px;
+					
+					.pseudoBlock;
+					.inlineBlock;
+					vertical-align: top;
+					
+					.size(11 * @slice, 4 * @slice);
+					
+					background: url(arboreal.article.twitterStream.linkBadge.png) center no-repeat;
+					
+					color: transparent;
+					text-shadow: none;
+					
+					overflow: hidden;
+				
+				}
+			
+			}
 		
 		}
 		
@@ -1378,7 +1422,7 @@
 		
 			.inlineBlock;
 			.size(36px, 36px);
-			vertical-align: bottom;
+			vertical-align: top;
 		
 			background: url(arboreal.article.twitterStream.information.png) center no-repeat;
 		
@@ -1387,6 +1431,8 @@
 				display: none;
 			
 			}
+			
+			display: none;
 		
 		}
 		

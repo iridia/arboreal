@@ -25,6 +25,8 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 		this.bindings = {
 	
+			twitterStreamHolder: $("article section.twitterStream"),
+	
 			calendarDateTitle: $("aside .calendar h2:eq(0)"),
 			calendarDateHolder: $("aside .calendar .dates"),
 			calendarDetailsHolder: $("aside .calendar .details"),
@@ -66,11 +68,35 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		this.initializeCalendarPanel();
 		this.initializeCalendarEngine();
 		
+	//	this.initializeTwitterPanel();
+		
 	},
 	
 	
 	
 	
+
+//	!Twitter Panel & irTwitterEngine
+
+	initializeTwitterPanel: function() {
+	
+		this.bindings.twitterStreamHolder.empty();
+		
+	},
+	
+	twitterEngineDidStartLoadingTweets: function (inTwitterEngine) {
+	
+		mono.log("Twitter engine", inTwitterEngine, "did start loading tweets.");
+
+		var inTwitterStreamContainer = this.bindings.twitterStreamHolder;
+		
+		inTwitterStreamContainer.attr("irTwitterEngineBusy", "true");
+		
+	},
+
+
+
+
 
 //	!Calendar Panel & irCalendarEngine
 
