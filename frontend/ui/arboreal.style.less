@@ -978,13 +978,23 @@
 			li {
 			
 				.link;
-				height: 6 * @slice - 2;
 				
 				border-top: 1px solid transparent;
 				border-bottom: 1px solid transparent;
 				
-				padding: @slice 19px;
+				padding: @slice (2 * @slice);
 				color: white;
+			
+			}
+			
+			a {
+			
+				display: block;
+				
+				width: 100%;
+				
+				margin: (-1 * @slice) (-2 * @slice);
+				padding: @slice (2 * @slice);
 			
 			}
 
@@ -1030,29 +1040,10 @@
 			span {
 			
 				.inlineBlock;
-				
-				.width(207px);
-				
-				.text(24px, 36px);
+								
+				.text(18px, 27px);
 				.textStroke;
-				
-				.textDelimited;
-			
-			}
-			
-			a {
-			
-				.inlineBlock;
-				float: right;
-				.size(36px);
-				background: url(arboreal.calendar.information.png) center no-repeat;
-			
-				span {
-			
-					display: none;
-					
-				}
-			
+							
 			}
 		
 		}
@@ -1387,12 +1378,6 @@
 				
 				position: relative;
 				
-				:hover {
-				
-					text-shadow: 	rgba(255, 255, 255, .5) 0px 0px 3px;
-							
-				}
-			
 				:after {
 				
 					position: absolute;

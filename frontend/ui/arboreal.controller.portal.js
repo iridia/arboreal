@@ -238,7 +238,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 		var thePredicate = this.calendarPredicate[inCalendarEngine.options.context];
 		var inCalendarContainer = this.bindings.calendarDetailsHolder;
-		var inCalendarItemTemplate = this.bindings.calendarDetailsHolder.children("*[irCalendarEngineTemplate]").eq(0).attr("irCalendarEngineTemplate", "").detach();
+		var inCalendarItemTemplate = this.bindings.calendarDetailsHolder.find("*[irCalendarEngineTemplate]").eq(0).attr("irCalendarEngineTemplate", "").detach();
 		
 		this.bindings.calendarDetailsHolder.empty().attr("irCalendarEngineBusy", "true");
 		
@@ -295,14 +295,14 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 			);
 			
-			eventItem.children("*[irCalendarEngineTemplate='event:time']")
+			eventItem.find("*[irCalendarEngineTemplate='event:time']")
 			.attr("datetime", eventTimeString)
 			.text(eventTimeString);
 			
-			eventItem.children("*[irCalendarEngineTemplate='event:title']")
+			eventItem.find("*[irCalendarEngineTemplate='event:title']")
 			.text(mono.tidyCJK(eventObject.title));
 			
-			eventItem.children("*[irCalendarEngineTemplate='event:link']")
+			eventItem.find("*[irCalendarEngineTemplate='event:link']")
 			.attr("href", eventLink)
 			.attr("target", "_blank");
 			
