@@ -35,7 +35,9 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 			
 			blogArticleSharingToggle: $(".context article header .actions .share"),
 			blogSingleArticleSharingDestinationsWrapper: $(".context article header section.share"),
-			blogSingleArticleSharingDestinationElementSelectorString: "li"
+			blogSingleArticleSharingDestinationElementSelectorString: "li",
+			
+			blogArticleImages: $(".context article article > * img")
 		
 		};
 		
@@ -46,6 +48,8 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 		this.initializeNavigationPredicate();
 		this.initializeCommentForm();
 		this.initializeArticleSharingDestinations();
+		
+		this.wrapArticleImages();
 		
 	},
 	
@@ -168,6 +172,30 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 
 
 
+
+//	!Blog Article Images
+
+	wrapArticleImages: function() {
+	
+		this.bindings.blogArticleImages.each(function(index, imageElement) {
+		
+			var theElement = $(imageElement);
+			
+			mono.log("the element is", theElement, theElement.parent(), theElement.parent()[0]);
+			
+			if (theElement.parent()[0].tagName.match(/span/ig))
+			if (theElement.parent().hasClass("wrapStrap"))
+			return true;
+			
+			theElement.wrap($("<span>").addClass("wrapStrap"));
+			
+		//	if (theElement.parent()[0].tagName.match(/span/ig))
+			
+		//	$(".context article article > * img").eq(0).parent()[0].tagName
+			
+		});
+		
+	},
 
 //	!Blog Comment Manipulation
 

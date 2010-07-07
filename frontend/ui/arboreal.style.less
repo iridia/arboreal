@@ -2455,6 +2455,51 @@
 		
 		}
 		
+		.wrapStrap {
+		
+			.inlineBlock;
+			position: relative;
+			
+			padding: 3px;
+			margin: (@pack - 3px);
+			
+			background-color: rgb(242, 242, 242);
+			.boxShadow(rgba(0, 0, 0, .50), 0px, 1px, 3px);
+			
+			:before, :after {
+			
+				.pseudoBlock;
+				position: absolute;
+				
+				.size(2 * @pack);
+				background: url(arboreal.blogPost.decor.cornerStrap.png) center no-repeat;
+			
+			}
+			
+			:before {
+			
+				left: -1 * @pack;
+				top: -1 * @pack;
+			
+			}
+			
+			:after {
+			
+				right: -1 * @pack;
+				bottom: -1 * @pack;
+			
+			}
+			
+			img {
+			
+			//	We need a block element so there is no residue whitespace below it
+			
+				display: block;
+			
+			}
+		
+		}
+		
 		
 		
 		
