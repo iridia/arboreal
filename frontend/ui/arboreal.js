@@ -143,6 +143,11 @@
 				.requires("arboreal.controller.archetype")
 				.requires("iridia.calendarEngine")
 				.requires("Array.prototype.hasObject", "mono.tidyCJK");
+				
+				this.file(_c("blog"))
+				.provides("arboreal.controller.blog")
+				.requires("arboreal.controller.archetype")
+				.requires("mono.tidyCJK");
 			
 			});
 			

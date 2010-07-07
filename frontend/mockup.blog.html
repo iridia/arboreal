@@ -11,6 +11,8 @@
 	<link href="ui/arboreal.style.css" rel="stylesheet"/>
 	<link href="ui/arboreal.style.retinal.css" rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" />
 	
+	<meta name="irArborealAssociatedControllerName" content="blog" />
+	
 </head><body>
 
 
@@ -251,38 +253,7 @@
 
 
 
-<script type="text/javascript" src="ui/lib.jquery/dist/jquery.js"></script>
-<script type="text/javascript">
-
-
-
-
-
-	$("#blogNavigationToggle").toggle(function() {
-		
-		$("#blogNavigation").toggleClass("active");
-		$("#blogNavigation .tab").animate({opacity: 1}, 50).toggleClass("active");
-		
-		$("#blogNavigation > div").slideToggle(350, function() {
-							
-		});
-	
-	}, function() {
-		
-		$("#blogNavigation .tab").toggleClass("active");
-		
-		$("#blogNavigation > div").slideToggle(350, function() {
-		
-			$("#blogNavigation").toggleClass("active");
-			
-		});
-	
-	});
-
-
-
-
-
-</script>
+<script src="ui/lib.LABjs/LAB.src.js"></script>
+<script src="ui/arboreal.js"></script>
 
 </body></html>
