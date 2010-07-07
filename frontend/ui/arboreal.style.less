@@ -982,8 +982,14 @@
 				border-top: 1px solid transparent;
 				border-bottom: 1px solid transparent;
 				
-				padding: @slice (2 * @slice);
+				padding: (@slice - 1) (2 * @slice);
 				color: white;
+				
+				:first-child {
+				
+					margin-top: @slice;
+				
+				}
 			
 			}
 			
@@ -1034,6 +1040,8 @@
 				color: inherit;
 				
 				.text(16px, 18px);
+				
+				opacity: .75;
 			
 			}
 			
