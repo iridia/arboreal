@@ -135,7 +135,7 @@
 			
 				this.file(_c("archetype"))
 				.provides("arboreal.controller.archetype", "arboreal.controller.protocol")
-				.requires("jQuery", "mono")
+				.requires("jQuery.jStorage", "jQuery", "mono")
 				.requires("JS.Singleton", "JS.Class", "JS.Interface");
 				
 				this.file(_c("portal"))
@@ -225,17 +225,7 @@ var arborealOld = {
 			
 			var thisObject = this;
 			
-			$.getJSON("http://api.twitter.com/1/statuses/user_timeline.json?callback=?", {
 			
-				"screen_name": "okogreen",
-				"count": 1
-				
-			}, function (data) {
-			
-				var tweetObject = $("*[irTwitterEngine]").eq(0).children("*[irTwitterEngineTemplate]");
-				tweetObject.children("*[irTwitterEngineTemplate='tweet:text']").text(mono.tidyCJK(data[0].text));
-				
-			});
 						
 		}
 	

@@ -68,7 +68,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		this.initializeCalendarPanel();
 		this.initializeCalendarEngine();
 		
-	//	this.initializeTwitterPanel();
+		this.initializeTwitterPanel();
 		
 	},
 	
@@ -80,7 +80,40 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 
 	initializeTwitterPanel: function() {
 	
-		this.bindings.twitterStreamHolder.empty();
+		var parseURL = function (inString) {
+
+			return inString.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/, function(url) {
+
+				return url.link(url);
+
+			});
+
+		};
+
+		var thisObject = this;
+		
+		$.getJSON("http://api.twitter.com/1/statuses/user_timeline.json?callback=?", {
+			
+			"screen_name": "okogreen",
+			"count": 1
+			
+		}, function (data) {
+		
+			mono.log("data received", data);
+		
+			mono.log("thisObject", thisObject.bindings.twitterStreamHolder);
+		
+			var tweetObject = thisObject.bindings.twitterStreamHolder.find("*[irTwitterEngineTemplate]");
+			
+			tweetObject.children("*[irTwitterEngineTemplate='tweet:text']")
+			.html(parseURL(mono.tidyCJK(data[0].text)))
+			.find("a").each(function(index, anchorElement) {
+							
+				$(anchorElement).attr("target", "_blank").text($(anchorElement).text().replace(/^http:\/\//, ""));
+				
+			});
+			
+		});
 		
 	},
 	
