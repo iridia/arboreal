@@ -99,7 +99,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 				
 			).addClass(
 			
-				(theDay.getWeek() == weekInYearOfToday) ? "" : "secondaryDate"
+				(Math.abs(theDay.getWeek() - weekInYearOfToday) > 1) ? "secondaryDate" : ""
 			
 			).attr("datetime", 
 
