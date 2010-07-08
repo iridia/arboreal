@@ -1,0 +1,40 @@
+#	Staging ignore — conforms to rsync’s --exclude-from, denotes files to ignore while staging the site (theme).
+
+
+
+
+
+.git*
+.DS_Store
+
+
+
+
+
+- *.png~
+
++ ui/arboreal.*.css
+
++ ui/lib.jquery/dist/***
+- ui/lib.jquery/**
+
++ ui/lib.jquery-jsonp/core/***
+- ui/lib.jquery-jsonp/**
+
++ ui/lib.less.js/build/***
+- ui/lib.less.js/**
+
++ ui/lib.jsClass/build/***
++ ui/lib.jsClass/*.js
+- ui/lib.jsClass/*/*
+- ui/lib.jsClass/*
+
++ ui/lib.eCSStender/min/***
+- ui/lib.eCSStender/**
+
++ ui/lib.borderImage/*.js
+- ui/lib.borderImage/**
+
+
+
+

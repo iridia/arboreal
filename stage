@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+
+
+
+
+if [ -n "$PROJECT_ARBOREAL_LOCAL_TESTING_SERVER_ROOT" ]; then
+
+	rsync -vax --exclude-from '.stagingignore' --exclude ".git" "frontend/" "$PROJECT_ARBOREAL_LOCAL_TESTING_SERVER_ROOT/wp-content/themes/arboreal/"
+
+else
+
+	echo "Please set up $PROJECT_ARBOREAL_LOCAL_TESTING_SERVER_ROOT in your Bash profile to where your local server runs."
+
+fi
+
+
+
+
