@@ -328,8 +328,23 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 			);
 			
+			mono.log("event takes all day?", eventObject.takesAllDay);
+			mono.log("controller got event time", eventTime);
+			
 			eventItem.find("*[irCalendarEngineTemplate='event:time']")
-			.attr("datetime", eventTime.toISO8601())
+			.attr("datetime", (function (theTime, isAllDayEvent) {
+			
+				if (isAllDayEvent) {
+				
+					return theTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2}");
+					
+				} else {
+				
+					return eventTime.toISO8601();
+				
+				}
+			
+			})(eventTime, eventObject.takesAllDay))
 			.text((function (theTime) {
 			
 				if (theTime.isInVicinity(1, "weeks")) {
