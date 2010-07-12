@@ -10,15 +10,17 @@
 
 
 
-	var arboreal = {
+	var arboreal = arboreal || {};
 	
-		"debugMode": true,
-		"presets": {
+	arboreal.debugMode = true;
+	arboreal.presets = arboreal.presets || {};
+	
+	arboreal.presets.pages = arboreal.presets.pages || {};
+	
+	arboreal.presets.pages.portal = {
 		
-			"calendarID": "0lgqdbsiischmeimnpu89bqudo",
-			"twitterAccount": "okogreen"
-		
-		}
+		"calendarID": "0lgqdbsiischmeimnpu89bqudo",
+		"twitterAccount": "okogreen"
 		
 	};
 
@@ -188,6 +190,8 @@
 									
 					arboreal.currentPageController = plausiblePageController;
 					
+					arboreal.currentPageControllerClass = plausiblePageClass;
+					
 					if (arboreal.currentPageController.configure !== undefined) {
 
 						arboreal.currentPageController.configure();
@@ -203,65 +207,6 @@
 		});
 	
 	})(window);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var arborealOld = {
-
-	twitter: {
-	
-		predicates: {
-		
-			mainTwitterStream: {
-			
-				account: 'okogreen'
-			
-			}
-		
-		},
-		
-		workers: {},
-	
-		init: function() {
-			
-			var thisObject = this;
-			
-			
-						
-		}
-	
-	},
-		
-	twitterEngineDidReceiveData: function(sender, userInfo, data) {
-		
-		mono.notificationCenter.dispatchNotificationWithKeyAndPredicate("arboreal.twitterStream.receivedData", {
-		
-			sender: sender,
-			userInfo: userInfo,
-			data: data
-		
-		});
-	
-	}
-
-};
 
 
 

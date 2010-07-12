@@ -44,7 +44,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 			mainCalendarStream: {
 			
-				"calendarID": arboreal.presets.calendarID,
+				"calendarID": arboreal.presets.pages.portal.calendarID,
 				
 				"methodImmediatelyExecutes": true,
 				"methodName": "fetchEvents",
@@ -94,7 +94,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 		$.getJSON("http://api.twitter.com/1/statuses/user_timeline.json?callback=?", {
 			
-			"screen_name": "okogreen",
+			"screen_name": arboreal.presets.pages.portal.twitterAccount,
 			"count": 1
 			
 		}, function (data) {
