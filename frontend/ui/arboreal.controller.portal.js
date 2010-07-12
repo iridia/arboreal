@@ -295,7 +295,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 							
 			var eventItem = inCalendarItemTemplate.clone();
 		
-			var eventTimeString = eventObject.startDate.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
+			var eventTime = eventObject.startDate;
 						
 			var eventLink = (function () {
 			
@@ -329,8 +329,18 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			);
 			
 			eventItem.find("*[irCalendarEngineTemplate='event:time']")
-			.attr("datetime", eventTimeString)
-			.text(eventTimeString);
+			.attr("datetime", eventTime.toISO8601())
+			.text((function (theTime) {
+			
+				if (theTime.isInVicinity(1, "weeks")) {
+				
+					return theTime.relativeDateLocalized("days");
+				
+				}
+				
+				return theTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
+			
+			})(eventTime));
 			
 			eventItem.find("*[irCalendarEngineTemplate='event:title']")
 			.text(mono.tidyCJK(eventObject.title));
