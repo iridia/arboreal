@@ -188,8 +188,11 @@
 									
 					arboreal.currentPageController = plausiblePageController;
 					
-					if (arboreal.currentPageController.configure !== undefined)
-					arboreal.currentPageController.configure();
+					if (arboreal.currentPageController.configure !== undefined) {
+
+						arboreal.currentPageController.configure();
+					
+					}
 					
 					arboreal.currentPageController.initializePage();
 				
