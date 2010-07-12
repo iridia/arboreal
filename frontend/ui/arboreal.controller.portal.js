@@ -30,7 +30,9 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			calendarDateTitle: $("aside .calendar h2:eq(0)"),
 			calendarDateHolder: $("aside .calendar .dates"),
 			calendarDetailsHolder: $("aside .calendar .details"),
-			calendarSubscriptionAnchor: $("aside .calendar .actions a:eq(0)")
+			calendarSubscriptionAnchor: $("aside .calendar .actions a:eq(0)"),
+			
+			calendarTooltip: $("aside .calendar .tooltip:eq(0)")
 		
 		};
 		

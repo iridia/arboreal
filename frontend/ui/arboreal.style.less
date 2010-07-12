@@ -894,8 +894,57 @@
 		.closed {
 		
 			color: rgba(0, 0, 0, .1);
+			
+			position: relative;
+		
+			:before {
+			
+				.pseudoBlock;
+			
+				position: absolute;
+			
+				.borderImage(url(arboreal.calendar.portal.tooltip.backdrop.png), 18, 36, 18, 18, stretch);
+				
+				padding-left: 18px;
+				
+				top: -45px;	
+				right: -9px;			
+				
+				z-index: 256 + 64;
+				
+				content:"Closed";
+				
+				.text(16px, 16px, white);
+				
+				display: block;
+				text-align: center;
+				
+				opacity: 0;
+				
+				.transition(.125s);
+				
+				margin-top: 9px;
+				
+				visibility: hidden;
+				
+			}
+			
+			:hover {
+			
+				:before {
+				
+					margin-top: 0px;
+				
+					opacity: 1;
+					
+					visibility: visible;
+				
+				}
+			
+			}
 		
 		}
+		
 		
 		.leadingSunday {	margin-left: 0 * @arborealCalendarItemWidth;	}
 		.leadingMonday {	margin-left: 1 * @arborealCalendarItemWidth;	}
@@ -2080,6 +2129,8 @@
 
 		header {
 		
+			.typeSansSerifNeo;
+		
 			.uaDisableTextZoom;
 			position: relative;
 
@@ -2448,6 +2499,7 @@
 		
 		
 		
+		.typeSansSerifUniversal;
 		.text(18px, 27px, rgb(89, 89, 89));
 		
 		p {
@@ -2512,6 +2564,8 @@
 		
 		
 		footer {
+		
+			.typeSansSerifNeo;
 		
 			.uaDisableTextZoom;
 			.uaDisableSelection;
