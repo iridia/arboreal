@@ -102,6 +102,8 @@
 				.provides("jQuery.jsonp")
 				.requires("jQuery");
 				
+			
+			//	Mono-family frameworks
 				
 				this.file(_("lib.monoSnippets/lib.monoSnippets.js"))
 				.provides("mono");
@@ -115,21 +117,29 @@
 				.requires("mono");
 				
 				
+				this.file(_("lib.monoString/lib.mono.string.js"))
+				.provides("mono.stringAdditions")
+				.requires("mono");
+				
 				this.file(_("lib.monoDate/lib.mono.date.js"))
-				.provides("Date.prototype.format");
+				.provides("mono.dateAdditions")
+				.requires("mono.stringAdditions", "mono");
 				
 				this.file(_("lib.monoArray/lib.mono.array.js"))
-				.provides("Array.prototype.hasObject");
-			
-			
-				this.file(_("lib.irCalendarEngine/lib.iridia.calendarEngine.js"))
-				.provides("iridia.calendarEngine")
-				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Observable", "Date.prototype.format", "mono");
+				.provides("mono.arrayAdditions")
+				.requires("mono");
 				
 				this.file(_("lib.tidyCJK.js/lib.tidyCJK.js"))
 				.provides("mono.tidyCJK")
-				.requires("XRegExp");
+				.requires("XRegExp", "mono");
 			
+			
+			//	Iridia-family Engines
+			
+				this.file(_("lib.irCalendarEngine/lib.iridia.calendarEngine.js"))
+				.provides("iridia.calendarEngine")
+				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Observable", "mono.dateAdditions", "mono");
+
 			
 			//	Page Controllers
 			
@@ -142,7 +152,7 @@
 				.provides("arboreal.controller.portal")
 				.requires("arboreal.controller.archetype")
 				.requires("iridia.calendarEngine")
-				.requires("Array.prototype.hasObject", "mono.tidyCJK");
+				.requires("mono.dateAdditions", "mono.arrayAdditions", "mono.tidyCJK");
 				
 				this.file(_c("blog"))
 				.provides("arboreal.controller.blog")
