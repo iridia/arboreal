@@ -101,10 +101,6 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 		}, function (data) {
 		
-			mono.log("data received", data);
-		
-			mono.log("thisObject", thisObject.bindings.twitterStreamHolder);
-		
 			var tweetObject = thisObject.bindings.twitterStreamHolder.find("*[irTwitterEngineTemplate]");
 			
 			tweetObject.children("*[irTwitterEngineTemplate='tweet:text']")
@@ -330,9 +326,6 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 			);
 			
-			mono.log("event takes all day?", eventObject.takesAllDay);
-			mono.log("controller got event time", eventTime);
-			
 			eventItem.find("*[irCalendarEngineTemplate='event:time']")
 			.attr("datetime", (function (theTime, isAllDayEvent) {
 			
@@ -357,7 +350,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 
 			//	FIXME: needs a relativeDateLocalized("weekdays") that says "Monday" etc.
 				
-/*				if (theTime.isInVicinity(2, "weeks")) {
+			/*	if (theTime.isInVicinity(2, "weeks")) {
 				
 					return theTime.relativeDateLocalized("weeks").capitalize();
 				
