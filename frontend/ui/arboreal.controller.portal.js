@@ -354,6 +354,14 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 					return theTime.relativeDateLocalized("days").capitalize();
 				
 				}
+
+			//	FIXME: needs a relativeDateLocalized("weekdays") that says "Monday" etc.
+				
+/*				if (theTime.isInVicinity(2, "weeks")) {
+				
+					return theTime.relativeDateLocalized("weeks").capitalize();
+				
+				}	*/
 				
 				return theTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
 			
