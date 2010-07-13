@@ -143,6 +143,13 @@
 				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Observable", "mono.dateAdditions", "mono");
 
 			
+			//	Flesler frameworks
+			
+				this.file(_("lib.flesler/jquery.scrollTo/jquery.scrollTo.js"))
+				.provides("jQuery.scrollTo")
+				.requires("jQuery");
+				
+			
 			//	Page Controllers
 			
 				this.file(_c("archetype"))
