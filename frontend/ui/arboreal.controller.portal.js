@@ -344,7 +344,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 				if (theTime.isInVicinity(1, "weeks")) {
 				
-					return theTime.relativeDateLocalized("days").capitalize();
+					return mono.tidyCJK(theTime.relativeDateLocalized("days").capitalize() + theTime.format("(#{MONTH, 2}/#{DAY, 2})"));
 				
 				}
 
