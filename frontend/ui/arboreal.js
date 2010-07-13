@@ -127,6 +127,10 @@
 				.provides("mono.dateAdditions")
 				.requires("mono.stringAdditions", "mono");
 				
+				this.file(_("lib.monoDate/lib.mono.date.localizedStrings.js"))
+				.provides("mono.dateAdditionsLocalizedStrings")
+				.requires("iridia.localizedString");
+				
 				this.file(_("lib.monoArray/lib.mono.array.js"))
 				.provides("mono.arrayAdditions")
 				.requires("mono");
@@ -140,7 +144,11 @@
 			
 				this.file(_("lib.irCalendarEngine/lib.iridia.calendarEngine.js"))
 				.provides("iridia.calendarEngine")
-				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Observable", "mono.dateAdditions", "mono");
+				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Observable", "mono.dateAdditions", "mono.dateAdditionsLocalizedStrings", "mono");
+				
+				this.file(_("lib.irLocalizedString/lib.irLocalizedString.js"))
+				.provides("iridia.localizedString")
+				.requires("jQuery", "JS.Class", "mono.arrayAdditions", "mono");
 
 			
 			//	Flesler frameworks
@@ -180,6 +188,18 @@
 					return;
 					
 				}
+				
+				if (window.iridia === undefined)
+				iridia = {};
+				
+				if (iridia.presets === undefined)
+				iridia.presets = {};
+					
+				if (iridia.presets.localizedString === undefined)
+				iridia.presets.localizedString = {};
+				
+				iridia.presets.localizedString.preferredLocales = ["zh-TW", "en-US"];
+
 							
 				JS.require("arboreal.controller." + plausiblePageClass, function() {
 				
@@ -198,6 +218,7 @@
 					arboreal.currentPageController = plausiblePageController;
 					
 					arboreal.currentPageControllerClass = plausiblePageClass;
+					
 					
 					if (arboreal.currentPageController.configure !== undefined) {
 
