@@ -49,3 +49,6 @@
 [submodule "frontend/ui/lib.monoString"]
 	path = frontend/ui/lib.monoString
 	url = git://github.com/monoceroi/monoString.git
+[submodule "frontend/ui/lib.PIE"]
+	path = frontend/ui/lib.PIE
+	url = git://github.com/lojjic/PIE.git
