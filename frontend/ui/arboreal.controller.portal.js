@@ -284,6 +284,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			if (eventObject.title.match(thisObject.magicStrings.calendarEventTitleOnClosedDay) != null) {
 			
 				thisObject.calendarPanelItemForDay(eventObject.startDate).addClass("closed");
+
 				return true;
 			
 			}
