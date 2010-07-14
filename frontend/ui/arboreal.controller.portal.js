@@ -340,23 +340,36 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 				}
 			
 			})(eventTime, eventObject.takesAllDay))
-			.text((function (theTime) {
+			.text(mono.tidyCJK((function (fromTime) {
 			
-				if (theTime.isInVicinity(1, "weeks")) {
+				var quotedTime = function (inDateObject, withTime) {
 				
-					return mono.tidyCJK(theTime.relativeDateLocalized("days").capitalize() + theTime.format("(#{MONTH, 2}/#{DAY, 2})"));
+					if (!(inDateObject instanceof Date)) return "";
 				
-				} else if (theTime.isInVicinity(2, "weeks")) {
-				
-					return mono.tidyCJK(theTime.relativeDateLocalized("weekdays").capitalize() + theTime.format("(#{MONTH, 2}/#{DAY, 2})"));
-				
-				} else {
-				
-					return theTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
+					return inDateObject.format("(#{MONTH, 2}/#{DAY, 2}" + (withTime ? " #{HOURS, 2}:#{MINUTES, 2}" : "") + ")");
 				
 				}
-			
-			})(eventTime));
+				
+				
+				if (fromTime.isInVicinity(1, "weeks")) return [
+				
+					fromTime.relativeDateLocalized("days").capitalize(),
+					quotedTime(fromTime, !eventObject.takesAllDay)
+					
+				].join("");
+				
+				
+				if (fromTime.isInVicinity(2, "weeks")) return [
+				
+					fromTime.relativeDateLocalized("weekdays").capitalize(),
+					quotedTime(fromTime, !eventObject.takesAllDay)
+					
+				].join("");
+				
+				
+				return fromTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
+				
+			})(eventObject.startDate)));
 			
 			eventItem.find("*[irCalendarEngineTemplate='event:title']")
 			.text(mono.tidyCJK(eventObject.title));
