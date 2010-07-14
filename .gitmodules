@@ -58,3 +58,9 @@
 [submodule "frontend/ui/lib.irLocalizedString"]
 	path = frontend/ui/lib.irLocalizedString
 	url = git://github.com/iridia/localizedString.git
+[submodule "frontend/ui/lib.irSlidesController"]
+	path = frontend/ui/lib.irSlidesController
+	url = git://github.com/iridia/irSlidesController.git
+[submodule "frontend/ui/lib.jQuery.constants"]
+	path = frontend/ui/lib.jQuery.constants
+	url = git://github.com/monoceroi/jQConstants.git

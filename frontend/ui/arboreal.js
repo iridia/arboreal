@@ -104,6 +104,10 @@
 				.provides("jQuery.jsonp")
 				.requires("jQuery");
 				
+				this.file(_("lib.jQuery.constants/lib.jQuery.constants.js"))
+				.provides("jQuery.mnConstants")
+				.requires("jQuery");
+				
 			
 			//	Mono-family frameworks
 				
@@ -144,12 +148,16 @@
 			
 				this.file(_("lib.irCalendarEngine/lib.iridia.calendarEngine.js"))
 				.provides("iridia.calendarEngine")
-				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Observable", "iridia.localizedString", "mono.dateAdditions", "mono.dateAdditionsLocalizedStrings", "mono");
+				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Interface", "JS.Observable", "iridia.localizedString", "mono.dateAdditions", "mono.dateAdditionsLocalizedStrings", "mono");
 				
 				this.file(_("lib.irLocalizedString/lib.irLocalizedString.js"))
 				.provides("iridia.localizedString")
 				.requires("jQuery", "JS.Class", "mono.arrayAdditions", "mono");
-
+				
+				this.file(_("lib.irSlidesController/lib.irSlidesController.js"))
+				.provides("iridia.slidesController")
+				.requires("jQuery", "jQuery.scrollTo", "JS.Class", "JS.Interface", "mono");
+			
 			
 			//	Flesler frameworks
 			
@@ -169,6 +177,7 @@
 				.provides("arboreal.controller.portal")
 				.requires("arboreal.controller.archetype")
 				.requires("iridia.calendarEngine")
+				.requires("iridia.slidesController")
 				.requires("mono.dateAdditions", "mono.arrayAdditions", "mono.tidyCJK");
 				
 				this.file(_c("blog"))
