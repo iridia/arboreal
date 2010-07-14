@@ -396,19 +396,13 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 	calendarEngineShouldRetry: function (inCalendarEngine) {
 	
-		if (this.retryCount === undefined) {
-		
-			this.retryCount = 0;
-		
-		}
+		if (this.retryCount === undefined)	
+		this.retryCount = 0;
 		
 		this.retryCount++;
 		
-		if (this.retryCount > 3) {
-		
-			return false;
-			
-		}
+		if (this.retryCount > 3)
+		return false;
 	
 		return true;
 		
