@@ -144,7 +144,7 @@
 			
 				this.file(_("lib.irCalendarEngine/lib.iridia.calendarEngine.js"))
 				.provides("iridia.calendarEngine")
-				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Observable", "mono.dateAdditions", "mono.dateAdditionsLocalizedStrings", "mono");
+				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Observable", "iridia.localizedString", "mono.dateAdditions", "mono.dateAdditionsLocalizedStrings", "mono");
 				
 				this.file(_("lib.irLocalizedString/lib.irLocalizedString.js"))
 				.provides("iridia.localizedString")

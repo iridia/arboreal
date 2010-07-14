@@ -318,7 +318,6 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 			
 		//	Create the DOM items and insert them into the calendar’s details holder.
-		//	FIXME: relatize the time in event:time’s text.
 			
 			eventItem.addClass(
 			
@@ -346,17 +345,15 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 				
 					return mono.tidyCJK(theTime.relativeDateLocalized("days").capitalize() + theTime.format("(#{MONTH, 2}/#{DAY, 2})"));
 				
+				} else if (theTime.isInVicinity(2, "weeks")) {
+				
+					return mono.tidyCJK(theTime.relativeDateLocalized("weekdays").capitalize() + theTime.format("(#{MONTH, 2}/#{DAY, 2})"));
+				
+				} else {
+				
+					return theTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
+				
 				}
-
-			//	FIXME: needs a relativeDateLocalized("weekdays") that says "Monday" etc.
-				
-			/*	if (theTime.isInVicinity(2, "weeks")) {
-				
-					return theTime.relativeDateLocalized("weeks").capitalize();
-				
-				}	*/
-				
-				return theTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
 			
 			})(eventTime));
 			
