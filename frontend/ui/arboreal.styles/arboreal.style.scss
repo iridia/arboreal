@@ -625,7 +625,7 @@
 	
 		background: $arborealFooterBackdrop;
 		
-		@include borderInsetTop(rgba(255, 255, 255, .65));
+		@include borderInset("top", rgba(255, 255, 255, .65));
 
 		@include text(14px, $pack, rgb(38, 38, 38));
 
@@ -1670,14 +1670,14 @@
 		&:before {
 			
 			@include fullInset(0, 0, auto, 0);
-			@include borderInsetTop(rgba(0, 0, 0, .2));
+			@include borderInset("top", rgba(0, 0, 0, .2));
 		
 		}
 		
 		&:after {
 		
 			@include fullInset(auto, 0, 0, 0);
-			@include borderInsetBottom(rgba(255, 255, 255, .45));
+			@include borderInset("bottom", rgba(255, 255, 255, .45));
 		
 		}
 	
@@ -2049,7 +2049,7 @@
 	
 			@include shadowDownBlock(4px);
 			@include fullInset(0, 0, auto, 0);
-			@include borderInsetTop(rgba(255, 255, 255, .65));
+			@include borderInset("top", rgba(255, 255, 255, .65));
 		
 		}
 		
@@ -2057,7 +2057,7 @@
 		
 			@include shadowUpBlock(4px);
 			@include fullInset(auto, 0, 0, 0);
-			@include borderInsetBottom(rgba(255, 255, 255, .65));
+			@include borderInset("bottom", rgba(255, 255, 255, .65));
 		
 		}
 	
@@ -2349,8 +2349,8 @@
 			
 				padding: 0;
 				
-				@include borderInsetTop(rgba(0, 0, 0, .20));
-				@include borderInsetBottom(rgba(255, 255, 255, .45));
+				@include borderInset("top", rgba(0, 0, 0, .20));
+				@include borderInset("bottom", rgba(255, 255, 255, .45));
 				
 				@include transition2(.25s, border-top-color, border-bottom-color);
 				
@@ -2627,8 +2627,8 @@
 			@include pseudoBlock;
 			@include fullInset(0, 0, auto, 0);
 
-			@include borderInsetTop(rgba(255, 255, 255, .45));
-			@include borderInsetBottom(rgba(0, 0, 0, .2));
+			@include borderInset("top", rgba(255, 255, 255, .45));
+			@include borderInset("bottom", rgba(0, 0, 0, .2));
 			
 			z-index: 1024 + 512;
 		
@@ -2639,8 +2639,8 @@
 			@include pseudoBlock;
 			@include fullInset(auto, 0, 0, 0);
 			
-			@include borderInsetTop(rgba(0, 0, 0, .2));
-			@include borderInsetBottom(rgba(255, 255, 255, .45));
+			@include borderInset("top", rgba(0, 0, 0, .2));
+			@include borderInset("bottom", rgba(255, 255, 255, .45));
 		
 		}
 		
@@ -2655,7 +2655,7 @@
 			&:before {
 			
 				@include pseudoBlock;
-				@include borderInsetTop(rgba(255, 255, 255, .85));
+				@include borderInset("top", rgba(255, 255, 255, .85));
 				
 				width: 100%;
 				@include shadowDownBlock(4px);
