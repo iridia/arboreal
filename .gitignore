@@ -14,8 +14,9 @@
 
 
 
-# LESS-generated files
+# Generated stylesheets
 
+.sass-cache
 arboreal.style.css
 
 
