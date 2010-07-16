@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+ulimit -n 4096;
+cd frontend; livereload; cd .;
+
+
+
+
