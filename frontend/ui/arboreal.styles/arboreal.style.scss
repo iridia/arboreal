@@ -283,6 +283,8 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 		@include typeSansSerifNeo;
 		
+		background-image: url(../arboreal.images/arboreal.backdrop.whiteNoise.15.png);
+		
 		min-width: $arborealWidth + 2 * $arborealSidebarSpacing;
 		
 		> * {
@@ -1342,7 +1344,7 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			@include pseudoBlock;
 			z-index: 1024;
 			@include borderImage(url(../arboreal.images/arboreal.gallery.cover.png), 54, 54, 54, 90, round);
-		
+					
 		}
 		
 		li.default, li.current {
@@ -1401,6 +1403,8 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 				
 				@include transition(.125s);
 				@include link;
+				
+				@include boxShadow(rgba(255, 255, 255, .15), 0px, 1px, 0px);
 			
 			}
 			
