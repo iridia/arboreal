@@ -146,7 +146,7 @@
 			
 			//	Iridia-family Engines
 			
-				this.file(_("lib.irCalendarEngine/lib.iridia.calendarEngine.js"))
+				this.file(_("lib.irCalendarEngine/lib.irCalendarEngine.js"))
 				.provides("iridia.calendarEngine")
 				.requires("jQuery", "jQuery.jsonp", "JS.Class", "JS.Interface", "JS.Observable", "iridia.localizedString", "mono.dateAdditions", "mono.dateAdditionsLocalizedStrings", "mono");
 				
