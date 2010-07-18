@@ -44,7 +44,44 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 		text-rendering: optimizeLegibility;
 	
 	}
-
+	
+	@font-face {
+	
+		font-family: "arborealTypeSansSerifUniversal";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("Lucida Grande"), local("Lucida Unicode"), local("Helvetica"), local("Arial"), local("LiHei Pro");
+	
+	}
+	
+	@font-face {
+	
+		font-family: "arborealTypeSansSerifPaleo";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("Palatino Italic"), local("Palatino-Italic"), local("Palatino"), local("Georgia");
+	
+	}
+	
+	@font-face {
+	
+		font-family: "arborealTypeSansSerifPaleoCJK";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("HiraMinProN-W3"), local("Hiragino Mincho ProN W3"), local("LiSongPro"), local("LiSong Pro");
+	
+	}
+	
+	
+	
+	
+	
 	@mixin typeMonospaced {
 	
 		font-family: "Menlo", "Bitstream Vera Sans Mono", "Monaco", monospace;
@@ -65,13 +102,24 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 	@mixin typeSansSerifUniversal {
 	
-		font-family: "Lucida Grande", "Lucida Unicode", "Helvetica", "Arial", "LiHei Pro", sans-serif;
+		font-family: "arborealTypeSansSerifUniversal", sans-serif;
 	
 	}
 	
 	@mixin typeSansSerifPaleo {
 	
-		font-family: "Helvetica Neue", "Helvetica", "Arial";
+		font-family: "arborealTypeSansSerifPaleo", serif;
+	
+	}
+	
+	
+	
+	
+	
+	i, cite, em, var, address {
+	
+		font-family: "arborealTypeSansSerifPaleo", "arborealTypeSansSerifPaleoCJK";
+		font-style: normal;
 	
 	}
 	
