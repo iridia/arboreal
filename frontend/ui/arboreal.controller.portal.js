@@ -414,6 +414,45 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 		this.bindings.calendarDetailsHolder.attr("irCalendarEngineBusy", "error");
 		
+	},
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//! 
+	//!Slides Controller Delegation
+	
+	
+	/* ([iridia.slidesControllerSlides, …]) */ slidesForController: function (slideController) {
+	
+		mono.log("SlidesController", slideController, "asks for slides.");
+	
+	},
+			
+	/* (void) */ slideWillAppear: function (slideController, theSlide) {
+	
+	},
+	
+	/* (void) */ slideDidAppear: function (slideController, theSlide) {
+	
+	},
+				
+	/* (void) */ slideWillDisappear: function (slideController, theSlide) {
+	
+	},
+	
+	/* (void) */ slideDidDisappear: function (slideController, theSlide) {
+	
+	},
+	
+	/* (Boolean) */ slidesControllerShouldShowSlide: function (slideController, theSlide) {
+	
 	}
 
 });
