@@ -108,6 +108,10 @@
 				.provides("jQuery.mnConstants")
 				.requires("jQuery");
 				
+				this.file(_("lib.jQuery.imageLoaded/ahpi.imgload.js"))
+				.provides("jQuery.event.special.load")
+				.requires("jQuery");
+				
 			
 			//	Mono-family frameworks
 				
@@ -156,7 +160,7 @@
 				
 				this.file(_("lib.irSlidesController/lib.irSlidesController.js"))
 				.provides("iridia.slidesController")
-				.requires("jQuery", "jQuery.scrollTo", "JS.Class", "JS.Interface", "mono");
+				.requires("jQuery", "JS.Class", "JS.Interface", "mono");
 			
 			
 			//	Flesler frameworks
