@@ -67,3 +67,6 @@
 [submodule "frontend/ui/lib.jQuery.imageLoaded"]
 	path = frontend/ui/lib.jQuery.imageLoaded
 	url = git://github.com/peol/jquery.imgloaded.git
+[submodule "frontend/ui/lib.jsClass.delegatable"]
+	path = frontend/ui/lib.jsClass.delegatable
+	url = git://github.com/monoceroi/js.delegatable.git

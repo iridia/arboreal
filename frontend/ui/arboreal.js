@@ -113,6 +113,13 @@
 				.requires("jQuery");
 				
 			
+			//	JS.Class additions
+			
+				this.file(_("lib.jsClass.delegatable/lib.jsClass.delegatable.js"))
+				.provides("JS.Delegatable")
+				.requires("JS.Class");
+				
+			
 			//	Mono-family frameworks
 				
 				this.file(_("lib.monoSnippets/lib.monoSnippets.js"))
@@ -160,7 +167,7 @@
 				
 				this.file(_("lib.irSlidesController/lib.irSlidesController.js"))
 				.provides("iridia.slidesController")
-				.requires("jQuery", "JS.Class", "JS.Interface", "mono");
+				.requires("jQuery", "JS.Class", "JS.Interface", "JS.Delegatable", "mono");
 			
 			
 			//	Flesler frameworks
