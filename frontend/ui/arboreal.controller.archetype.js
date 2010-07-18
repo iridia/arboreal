@@ -27,6 +27,16 @@ arboreal.controller.archetype = new JS.Class({
 	
 		mono.error("ERROR: initializePage() is not implemented!");
 		
+	},
+	
+	viewsWithClass: function (theClass) {
+	
+		return $("*[" + theClass + "]")
+	
 	}
 
 });
+
+
+
+

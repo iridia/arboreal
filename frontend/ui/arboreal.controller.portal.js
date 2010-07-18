@@ -190,7 +190,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 		var thisObject = this;
 		
-		$("*[irCalendarEngine]").each(function (index, object) {
+		this.viewsWithClass("irCalendarEngine").each(function (index, object) {
 		
 			var self = $(object);
 			var calendarEnginePredicateKey = self.attr("irCalendarEngine");
@@ -218,7 +218,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 		this.bindings.calendarDateHolder.children("time").each(function(index, dateElement) {
 		
-			var dateInElement = new Date($(dateElement).data("irCalendarDate")).format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2}")
+			var dateInElement = (new Date($(dateElement).data("irCalendarDate"))).format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2}")
 			
 			if (dateInElement == dateToFind) {
 			
