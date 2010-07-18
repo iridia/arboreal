@@ -93,6 +93,9 @@
 		
 			JS.Packages(function() {
 			
+			
+			//	jQuery and associates
+			
 				this.file(_("lib.jquery/dist/jquery.js"))
 				.provides("jQuery");
 				
