@@ -52,7 +52,18 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 		font-style: normal;
 		font-weight: normal;
 		
-		src: local("Lucida Grande"), local("Lucida Unicode"), local("Helvetica"), local("Arial"), local("LiHei Pro");
+		src: local("Lucida Grande"), local("Lucida Unicode"), local("Helvetica"), local("Arial");
+	
+	}
+	
+	@font-face {
+	
+		font-family: "arborealTypeSansSerifUniversalCJK";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("LiHei Pro");
 	
 	}
 	
@@ -102,13 +113,13 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 	@mixin typeSansSerifUniversal {
 	
-		font-family: "arborealTypeSansSerifUniversal", sans-serif;
+		font-family: "arborealTypeSansSerifUniversal", "arborealTypeSansSerifUniversalCJK", sans-serif;
 	
 	}
 	
 	@mixin typeSansSerifPaleo {
 	
-		font-family: "arborealTypeSansSerifPaleo", serif;
+		font-family: "arborealTypeSansSerifPaleo", "arborealTypeSansSerifPaleoCJK", serif;
 	
 	}
 	
@@ -118,7 +129,7 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 	i, cite, em, var, address {
 	
-		font-family: "arborealTypeSansSerifPaleo", "arborealTypeSansSerifPaleoCJK";
+		@include typeSansSerifPaleo;
 		font-style: normal;
 	
 	}
