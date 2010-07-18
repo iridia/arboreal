@@ -3100,7 +3100,7 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 				input:active, input:focus, button:focus {
 				
 					background-color: rgba(255, 255, 255, .125);
-					@include boxShadow(rgba(255, 255, 255, .5), 0px, 0px, 6px);
+					@include boxShadow(rgba(255, 255, 255, .75), 0px, 0px, 6px);
 				
 					&:after {
 					
@@ -3116,6 +3116,8 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 				textarea {
 					
 					@include borderRadius(4.5px);
+					
+					border: none;
 				
 					@include size(3.75 * $pack, 2 * $pack);
 					margin: -2px;
@@ -3146,9 +3148,10 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 				
 					@include borderRadius(4.5px);
 					@include size(12 * $slice, 5 * $slice);
-					@include borderInset(white, 2px);
+					@include borderInset("", white, 2px);
 					
 					margin-left: auto;
+					margin-right: -4px;
 					
 					@include text(20px, 27px, white);
 					@include transition(.25s);
