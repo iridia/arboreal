@@ -64,3 +64,6 @@
 [submodule "frontend/ui/lib.jQuery.constants"]
 	path = frontend/ui/lib.jQuery.constants
 	url = git://github.com/monoceroi/jQConstants.git
+[submodule "frontend/ui/lib.jQuery.imageLoaded"]
+	path = frontend/ui/lib.jQuery.imageLoaded
+	url = git://github.com/peol/jquery.imgloaded.git
