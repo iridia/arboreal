@@ -26,16 +26,8 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 
 
 
-
-
-
-
-
 //	! 
 //	!Typography
-
-
-
 
 
 	* {
@@ -93,6 +85,100 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 	
 	
+	@font-face {
+	
+		font-family: 'typeVegurLight';
+		src: url('../arboreal.typography/vegur.l.eot');
+		src: local('☺'), url('../arboreal.typography/vegur.l.woff') format('woff'), url('../arboreal.typography/vegur.l.ttf') format('truetype'), url('../arboreal.typography/vegur.l.svg#webfontsT4L3JLw') format('svg');
+		font-weight: normal;
+		font-style: normal;
+		
+	}
+	
+	@font-face {
+	
+		font-family: 'typeVegurMedium';
+		src: url('../arboreal.typography/vegur.m.eot');
+		src: local('☺'), url('../arboreal.typography/vegur.m.woff') format('woff'), url('../arboreal.typography/vegur.m.ttf') format('truetype'), url('../arboreal.typography/vegur.m.svg#webfont3Nm12ln4') format('svg');
+		font-weight: normal;
+		font-style: normal;
+		
+	}
+	
+	@font-face {
+	
+		font-family: 'typeVegur';
+		src: url('../arboreal.typography/vegur.r.eot');
+		src: local('☺'), url('../arboreal.typography/vegur.r.woff') format('woff'), url('../arboreal.typography/vegur.r.ttf') format('truetype'), url('../arboreal.typography/vegur.r.svg#webfontwZw8xeV0') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	
+	}
+
+	@font-face {
+
+		font-family: 'typeVegur';
+		src: url('../arboreal.typography/vegur.b.eot');
+		src: local('☺'), url('../arboreal.typography/vegur.b.woff') format('woff'), url('../arboreal.typography/vegur.b.ttf') format('truetype'), url('../arboreal.typography/vegur.b.svg#webfontR2OlSzun') format('svg');
+		font-weight: bold;
+		font-style: normal;
+
+	}
+	
+	
+	
+	
+	
+	@font-face {
+	
+		font-family: "typeSansSerifNeo";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		//	Note: In “development mode” we place the local copy of Vegur after the URLs because Chrome does not play well with FontExplorer X, and a FontExplored-managed copy of Vegur referenced by local() could not show; Chrome’s faulty and buggy fall-back mechanism will kill the rest of the fallback chain and directly show glyphs from Last Resort, which is undesirable.
+		
+		//	Also, we use typeVegur instead of Vegur in order not to trigger Chrome’s suicidal fallback.
+		
+		//	http://www.google.com/support/forum/p/Chrome/thread?tid=051106cc9f772c3a&hl=en
+		
+		//	Alternatively, place the PostScript names before the fonts’ names if their PostScript names are different from their ordinary names.  This helps Firefox and Opera.
+		
+		src:	url('../arboreal.typography/vegur.r.woff') format('woff'),
+			url('../arboreal.typography/vegur.r.ttf') format('truetype'), 
+			url('../arboreal.typography/vegur.r.svg#webfontwZw8xeV0') format('svg'), 
+		//	local("Vegur"),
+			
+			local("LucidaGrande"), 
+			local("Lucida Grande"), 
+			
+			local("LucidaSansUnicode"), 
+			local("Lucida Sans Unicode"), 
+			
+			local("HelveticaNeue"), 
+			local("Helvetica Neue"), 
+			
+			local("Helvetica"), 
+			
+			local("Arial");
+	
+	}
+	
+	@font-face {
+	
+		font-family: "typeSansSerifNeoCJK";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("LiHeiPro"), local("LiHei Pro");
+	
+	}
+	
+	
+	
+	
+	
 	@mixin typeMonospaced {
 	
 		font-family: "Menlo", "Bitstream Vera Sans Mono", "Monaco", monospace;
@@ -107,7 +193,7 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 	@mixin typeSansSerifNeo {
 	
-		font-family: "Vegur", "Lucida Grande", "Lucida Unicode", "Helvetica", "Arial", "LiHei Pro", sans-serif;
+		font-family: "typeVegur", "typeSansSerifNeo", "typeSansSerifNeoCJK", sans-serif;
 	
 	}
 	
@@ -149,7 +235,7 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 	@mixin arborealBlogArticleHeaderDateTime {
 	
-		@include text(40px, 54px, rgb(39, 73, 37));
+		@include text(40px, 40px, rgb(39, 73, 37));
 		
 		font-weight: bold;
 	
@@ -161,48 +247,6 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 	}
 	
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
 
 
 
@@ -1193,10 +1237,16 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			li {
 			
 				@include size(2 * $pack, 6 * $slice);
-				@include text(18px, 54px);
+				
 				@include inlineBlock;
 				
 				position: relative;
+				
+				&, a {
+				
+					@include text(18px, 45px);
+				
+				}
 				
 				a {
 				
