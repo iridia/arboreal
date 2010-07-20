@@ -291,9 +291,71 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	$arborealBlogShareArticleBackdropTwitter: rgb(125, 159, 176);
 	$arborealBlogShareArticleBackdropFacebook: rgb(125, 130, 176);
 	
+
+
+
+
+//	! 
+//	!Animations
+	
+	@-webkit-keyframes arborealCalendarActionHoverAnimation {
+	
+		0% {	background-color: rgb(153, 153, 153);	}
+		
+		50% {	background-color: rgb(96, 96, 96);	}
+		
+		100% {	background-color: rgb(153, 153, 153);	}
+	
+	}
+	
+	@-webkit-keyframes arborealTagCircularMotionAnimation {
+	
+		0% {	-webkit-transform: translateX(0px), translateY(0px);		}
+		
+		25% {	-webkit-transform: translateX(4.5px), translateY(2.25px);	}
+		
+		50% {	-webkit-transform: translateX(9px), translateY(0px);		}
+		
+		75% {	-webkit-transform: translateX(4.5px), translateY(-2.25px);	}
+		
+		100% {	-webkit-transform: translateX(0px), translateY(0px);		}
+	
+	}
+
+	@-webkit-keyframes arborealSlightDimLightAnimation {
+	
+		0% {	opacity: 1;	}
+		
+		25% {	opacity: .9;	}
+		
+		50% {	opacity: .75;	}
+		
+		75% {	opacity: .9;	}
+
+		100% {	opacity: 1;	}
+	
+	}	
 	
 	
 	
+	
+	
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
 
 
 
