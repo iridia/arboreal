@@ -322,6 +322,20 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 	}
 
+	@-webkit-keyframes arborealTagCircularRotationAnimation {
+	
+		0% {	-webkit-transform: rotate(0deg);	}
+		
+		25% {	-webkit-transform: rotate(90deg);	}
+		
+		50% {	-webkit-transform: rotate(180deg);	}
+		
+		75% {	-webkit-transform: rotate(270deg);	}
+		
+		100% {	-webkit-transform: rotate(360deg);	}
+	
+	}
+
 	@-webkit-keyframes arborealSlightDimLightAnimation {
 	
 		0% {	opacity: 1;	}
@@ -3648,3 +3662,192 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 
 	
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Informative …………………………………………………………………………………………………………………………………………………………………………
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+//	! 
+//	!General
+
+
+
+
+
+	.informativeContext {
+	
+		h2 {
+		
+			margin: 0 auto;
+		
+			color: transparent;
+			@include uaDisableSelection;
+			
+			position: relative;
+			
+			@include size(4  * $pack, 3 * $pack);
+			
+			background: url(../arboreal.images/arboreal.404.chrome.png) center no-repeat;
+			
+			margin-top: $pack;
+			margin-bottom: $pack;
+			
+			.spinner {
+			
+				position: absolute;
+				
+				@include size($pack);
+				
+				top: $pack;
+				left: 50%;
+				margin-left: -0.5 * $pack;
+				
+				@include animation(arborealTagCircularRotationAnimation, 360s, infinite, linear);
+			
+			}
+			
+			.spinner.foreground {
+			
+				background: url(../arboreal.images/arboreal.404.symbol.png) center no-repeat;
+				
+				z-index: 128;
+			
+			}
+			
+			.spinner.background {
+			
+				background: url(../arboreal.images/arboreal.404.symbol.backdrop.png) center no-repeat;
+				
+				margin-top: 1px;
+				
+				z-index: 64;
+			
+			}
+		
+		}
+	
+		p {
+		
+			@include uaDisableTextZoom;
+		
+			&, input, button {
+		
+				@include text(18px, 36px, rgb(66, 66, 66));
+			
+			}
+	
+			text-align: center;
+			
+			span, input, button {
+			
+				@include height(36px);
+				
+			}
+			
+			span {
+			
+				> * {
+				
+					@include inlineBlock;
+					margin: 0;
+					vertical-align: top;
+				
+				}
+				
+				margin: auto (2 * $slice);
+				
+				
+			
+			}
+			
+			input {
+			
+				@include borderRadius(4.5px);
+				@include gradientBackdropVertical(rgba(0, 0, 0, .1), rgba(255, 255, 255, .2));
+				
+				@include borderInsetSolidEngraved(rgba(0, 0, 0, .2), 1px, transparent, rgba(255, 255, 255, .5));
+			
+				@include textPlaceholderColor(rgb(66, 66, 66));
+			
+				padding-left: $slice;
+				padding-right: $pack + $slice;
+				width: 3 * $pack;
+				
+				+ button {
+				
+					margin-left: -1 * $pack;
+				
+				}
+				
+				line-height: 40px;
+			
+			}
+			
+			button {
+			
+				@include uaDisableSelection;
+			
+				@include borderRadius(0px, 4.5px, 4.5px, 0px);
+				@include borderInsetSolid2(rgba(255, 255, 255, .15), 2px, rgba(0, 0, 0, .35), 1px);
+				
+				background: green;
+				
+				@include gradientBackdropVertical(rgb(111, 161, 129), rgb(62, 92, 72));
+				
+				color: white;
+				text-shadow: 0px -1px 0px black;
+				
+				@include width($pack);
+				
+				&:active {
+				
+					@include gradientBackdropVertical(rgb(62, 92, 72), rgb(111, 161, 129));
+				
+				}
+			
+			}
+			
+			a {
+			
+				@include inlineBlock;
+				vertical-align: top;
+				
+				@include height(36px);
+				
+				line-height: 35px;
+			
+				@include borderRadius(4.5px);
+				padding: 0 $slice;
+				
+				margin-left: $slice;
+				margin-right: $slice;
+			
+				@include borderInsetSolidEngraved(rgba(0, 0, 0, .25), 1px, transparent, rgba(255, 255, 255, .45));
+				background: rgba(0, 0, 0, .1);
+			
+			}
+		
+		}
+	
+	}
+
+
+
+
+
+
+
+
+
+
