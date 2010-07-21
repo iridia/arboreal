@@ -628,7 +628,7 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 				height: $arborealNavigationBarHeight - (2 * $arborealNavigationBarBorderWidth);
 				border: $arborealNavigationBarBorderWidth solid ($arborealNavigationBarBackdrop - (rgb(255, 255, 255) * 0.05));
 				background: $arborealNavigationBarBackdrop;
-
+				
 				@include borderRadius(4.5px);
 				@include boxShadow2(rgba(0, 0, 0, .35), 0px, -1px, 0px, rgba(255, 255, 255, .5), 0px, 1px, 0px);
 				
@@ -741,9 +741,9 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 				
 					text-shadow:   	rgba(255, 255, 255, .4) 0px 1px 0px,
 							rgba(0, 0, 0, .15) 0px -1px 0px;
-							
+						
 					background: none;
-					
+									
 					&:before {
 					
 						@include glareSplitHorizontal;
@@ -2454,8 +2454,6 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 					
 					@include size(auto , 2 * $slice);
 					
-					@include text(18px, 18px, white);
-					
 					margin: 0 (-1 * $slice);
 					
 					&:hover {
@@ -2476,7 +2474,10 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 						@include width(auto, 18px, 36px);
 						@include textDelimited;			//	Needs “Lots”?
 						
-						margin: 0px -9px;
+						@include text(18px, 12px, white);
+						
+						margin: -9px;
+						padding: 9px 0px;
 						text-align: center;
 						position: relative;
 						top: 1px;			//	line-height: abnormal;
@@ -3795,6 +3796,8 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			}
 			
 			button {
+			
+				@include typeSansSerifUniversal;
 			
 				@include uaDisableSelection;
 			
