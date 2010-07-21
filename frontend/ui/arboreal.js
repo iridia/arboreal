@@ -180,6 +180,12 @@
 				.requires("jQuery");
 				
 			
+			//	Other frameworks
+			
+				this.file(_("lib.modernizr/modernizr.js"))
+				.provides("Modernizr");
+				
+			
 			//	Page Controllers
 			
 				this.file(_c("archetype"))

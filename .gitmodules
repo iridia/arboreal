@@ -79,3 +79,6 @@
 [submodule "frontend/ui/lib.jQuery.jStorage"]
 	path = frontend/ui/lib.jQuery.jStorage
 	url = git://github.com/andris9/jStorage.git
+[submodule "frontend/ui/lib.modernizr"]
+	path = frontend/ui/lib.modernizr
+	url = git://github.com/Modernizr/Modernizr.git
