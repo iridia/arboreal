@@ -1,8 +1,8 @@
 [submodule "frontend/ui/lib.monoSnippets"]
 	path = frontend/ui/lib.monoSnippets
 	url = git://github.com/monoceroi/monoSnippets.git
-[submodule "frontend/ui/lib.jquery"]
-	path = frontend/ui/lib.jquery
+[submodule "frontend/ui/lib.jQuery"]
+	path = frontend/ui/lib.jQuery
 	url = git://github.com/jquery/jquery.git
 [submodule "frontend/ui/lib.less.js"]
 	path = frontend/ui/lib.less.js
@@ -73,3 +73,9 @@
 [submodule "frontend/ui/lib.jQuery.animate.CSS.rotate.scale"]
 	path = frontend/ui/lib.jQuery.animate.CSS.rotate.scale
 	url = git://github.com/zachstronaut/jquery-animate-css-rotate-scale.git
+[submodule "frontend/ui/lib.jQuery.jsonp"]
+	path = frontend/ui/lib.jQuery.jsonp
+	url = git://github.com/iridia/jquery-jsonp.git
+[submodule "frontend/ui/lib.jQuery.jStorage"]
+	path = frontend/ui/lib.jQuery.jStorage
+	url = git://github.com/andris9/jStorage.git

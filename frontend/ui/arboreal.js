@@ -96,14 +96,14 @@
 			
 			//	jQuery and associates
 			
-				this.file(_("lib.jquery/dist/jquery.js"))
+				this.file(_("lib.jQuery/dist/jquery.js"))
 				.provides("jQuery");
 				
-				this.file(_("lib.jStorage/jstorage.min.js"))
+				this.file(_("lib.jQuery.jStorage/jstorage.min.js"))
 				.provides("jQuery.jStorage")
 				.requires("jQuery");
 				
-				this.file(_("lib.jquery-jsonp/core/jquery.jsonp.js"))
+				this.file(_("lib.jQuery.jsonp/core/jquery.jsonp.js"))
 				.provides("jQuery.jsonp")
 				.requires("jQuery");
 				
