@@ -506,6 +506,8 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 	}
 	
+	@include textSelectionColor;
+	
 	@mixin arborealContext {
 	
 		border-spacing: $arborealSidebarSpacing 0;
