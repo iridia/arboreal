@@ -40,3 +40,23 @@ arboreal.controller.archetype = new JS.Class({
 
 
 
+
+$(document).ready(function() {
+
+	$("img").each(function() {
+
+		if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+		
+			mono.log("this is broken", this);
+			
+			$(this).fadeOut();
+	
+		}
+
+	});
+
+});
+
+
+
+
