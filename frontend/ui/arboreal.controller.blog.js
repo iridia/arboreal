@@ -211,9 +211,10 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 			
 			theElement.wrap($("<span>").addClass("wrapStrap"));
 			
-		//	if (theElement.parent()[0].tagName.match(/span/ig))
+			mono.log("theElement.attr title", theElement.attr("title"));
 			
-		//	$(".context article article > * img").eq(0).parent()[0].tagName
+			if (theElement.attr("title") != "")
+			$("<figure>").text(theElement.attr("title")).insertAfter(theElement.closest("span.wrapStrap"));
 			
 		});
 		

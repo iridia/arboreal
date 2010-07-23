@@ -2526,6 +2526,41 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 				@include text(14px, 27px, black);
 			
 			}
+			
+			h1, h2 {
+			
+				margin-top: 36px;
+				@include text(18px, 27px);
+				margin-bottom: 9px;
+				
+			}
+			
+			blockquote {
+			
+				@include boxShadowInnerEngraved(rgba(0, 0, 0, .25), 0px, 0px, 3px, transparent, rgba(255, 255, 255, .25));
+				
+				background: rgba(0, 0, 0, .025);
+				
+				margin: 2 * $slice;
+				
+				padding: 2 * $slice;
+				
+				@include borderRadius(4.5px);
+				
+				cite {
+				
+					display: block;
+					text-align: right;
+					
+					&:before {
+					
+						content: "—";
+					
+					}
+				
+				}
+			
+			}
 		
 		}
 		
@@ -2578,6 +2613,13 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 		
 		}
 		
+		img + figure,
+		.wrapStrap + figure {
+		
+			@include text(14px, 18px, rgb(64, 64, 64));
+		
+		}
+		
 		
 		
 		
@@ -2606,6 +2648,12 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			
 			text-shadow:	0px 1px 0px rgba(255, 255, 255, .65),
 					0px -1px 0px rgba(0, 0, 0, .15);
+					
+			> *, li {
+			
+				@include inlineBlock;
+			
+			}
 			
 		}
 		
