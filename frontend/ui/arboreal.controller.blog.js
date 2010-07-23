@@ -34,6 +34,9 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 			blogNavigationContainer: $("#blogNavigation > div"),
 			
 			blogArticleSharingToggle: $(".context article header .actions .share"),
+			blogArticleCommentsContainer: $(".context article header .actions .comments"),
+			blogArticleCommentsIndicatorSelectorString: ".count",
+			
 			blogSingleArticleSharingDestinationsWrapper: $(".context article header section.share"),
 			blogSingleArticleSharingDestinationElementSelectorString: "li",
 			
@@ -46,8 +49,10 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 	initializePage: function () {
 	
 		this.initializeNavigationPredicate();
+		this.initializeArticleHeaders();
+		
 		this.initializeCommentForm();
-		this.initializeArticleSharingDestinations();
+	//	this.initializeArticleSharingDestinations();
 		
 		this.wrapArticleImages();
 		
@@ -86,6 +91,23 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 	
 	
 	
+//	!Article Headers
+
+	initializeArticleHeaders: function () {
+	
+		var thisObject = this;
+		
+		thisObject.bindings.blogArticleCommentsContainer.each(function (indexOfElement, theContainer) {
+		
+			mono.log("working with the container", theContainer);
+			
+			if(parseInt($(theContainer).children(thisObject.bindings.blogArticleCommentsIndicatorSelectorString).text(), 10) == 0)
+			$(theContainer).addClass("zero");
+		
+		})
+	
+	},
+
 //	!Comment Form
 
 	initializeCommentForm: function() {

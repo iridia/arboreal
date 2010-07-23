@@ -81,6 +81,17 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 	}
 	
+	@font-face {
+	
+		font-family: "arborealTypeSansSerifPure";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("Helvetica"), local("Arial");
+	
+	}
+	
 	
 	
 	
@@ -207,6 +218,12 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 		font-family: "arborealTypeSansSerifPaleo", "arborealTypeSansSerifPaleoCJK", serif;
 	
+	}
+	
+	@mixin typeSansSerifPure {
+	
+		font-family: "arborealTypeSansSerifPure", sans-serif;
+		
 	}
 	
 	
@@ -2325,6 +2342,12 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 		@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.png), 36, 27, 36, 27, round);
 		
+		&.more {
+		
+		@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.more.png), 36, 27, 36, 27, round);
+		
+		}
+		
 		margin: 0px (-2 * $slice) (4 * $slice) (-2 * $slice);
 		padding: 0px $slice;
 
@@ -2335,36 +2358,13 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			@include uaDisableTextZoom;
 			position: relative;
 
-			time {
-
-				@include uaDisableSelection;
-				@include arborealBlogArticleHeaderDateTime;
-				
-				@include inlineBlock;
-				@include size(16 * $slice, 6 * $slice);
-				
-				float: left;
-				
-				position: relative;
-				top: 3px;			//	line-height: abnormal;
-				
-				&:after {
-				
-					@include glareSplitHorizontal;
-					height: 6 * $slice;					
-					position: absolute;
-					top: -3px;		//	line-height: abnormal compensation
-					right: 2 * $slice;
-				
-				}
-			
-			}
-
 			h2 {
 			
 				@include arborealBlogArticleHeaderTitle;
-				@include width($arborealArticleWidth + 4 * $slice);
+				@include width($arborealArticleWidth + 2.5 * $pack);
 				@include textDelimited;
+				
+				margin-bottom: 2 * $slice;
 				
 			}
 			
@@ -2399,32 +2399,13 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 					
 					a {
 
-						@include size(4 * $slice);
+						@include size(auto, 4 * $slice);
 					
 					}
 					
-					padding: 0px (2 * $slice);
-					
 					+ li {
-					
-					//	The second action item, which is optional, will always be bordered.
-				
-						border: 2px solid rgb(240, 240, 240);
-						padding: 0px;
 						
-						&:hover, &:active, .active {
-						
-							border-color: rgb(216, 216, 216);
-						
-						}
-						
-						@include borderRadius(4.5px);
-					
-						a {
-						
-							margin: -2px;
-					
-						}
+						padding-left: 0px (2 * $slice);
 					
 					}
 				
@@ -2448,251 +2429,54 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 				
 				}
 				
+				//arboreal.article.blogPost.header.comments.glyph
+				
 				a.comments {
-				
-					@include borderImage(url(../arboreal.images/arboreal.article.blogPost.header.comments.png), 9, 27, 9, 27, stretch);
-					
-					@include size(auto , 2 * $slice);
-					
-					margin: 0 (-1 * $slice);
-					
-					&:hover {
-					
-						@include borderImage(url(../arboreal.images/arboreal.article.blogPost.header.comments.hover.png), 9, 27, 9, 27, stretch);
-						
-						span.count {
-						
-							max-width: none;	//	Always show on hover
-						
-						}
-						
-					}
-					
-					span.count {
-					
-						@include inlineBlock;
-						@include width(auto, 18px, 36px);
-						@include textDelimited;			//	Needs “Lots”?
-						
-						@include text(18px, 12px, white);
-						
-						margin: -9px;
-						padding: 9px 0px;
-						text-align: center;
-						position: relative;
-						top: 1px;			//	line-height: abnormal;
-					
-					}
-				
-				}
-				
-				a.share {
-				
-					background-position: center center;
-					background-repeat: no-repeat;
-					
-					background-image: url(../arboreal.images/arboreal.article.blogPost.header.share.png);
-					
-					&:hover {
-					
-						background-image: url(../arboreal.images/arboreal.article.blogPost.header.share.hover.png);
-						
-					}
-				
-					&:active {
-					
-						background-image: url(../arboreal.images/arboreal.article.blogPost.header.share.active.png);
-					
-					}
-					
-					@include transition(.5s);
-				
-				}
-				
-				a.share.active {
-				
-					@include transformRotate(135deg);
-					
-					background-image: url(../arboreal.images/arboreal.article.blogPost.header.share.active.png);
-									
-				}
-				
-				a.share.fastAnimation {
-				
-					@include transition(0s);
-				
-				}
-				
-				a.share.disclosed {
-				
-					@include transformRotate(0deg);
-					background-image: url(../arboreal.images/arboreal.article.blogPost.header.share.disclosed.png);
-				
-				}
-			
-			}
-			
-			
-			
-			
-			
-			section.share {
-			
-				@include uaDisableSelection;
-			
-				padding: 0;
-				
-				@include borderInset("top", rgba(0, 0, 0, .20));
-				@include borderInset("bottom", rgba(255, 255, 255, .45));
-				
-				@include transition2(.25s, border-top-color, border-bottom-color);
-				
-				margin: (2 * $slice - 1) (-2 * $slice);
-				
-				position: relative;
-
-				overflow: hidden;
-			//	hides the :before during the slide animations.
-				
-				&:before {
-				
-					@include pseudoBlock;
-					
-					content: "Share On:";
-					text-transform: uppercase;
-					@include text(20px, 36px, rgba(255, 255, 255, .5));
-					
-					@include fullInset((2 * $slice), auto, (2 * $slice), (2 * $slice));
-					
-					z-index: 18;
-										
-					margin-top: 3px;			//	line-height: abnormal;
-				
-				}
-				
-				ul {
-				
-					@include transition1(.25s, background-color);
-				
-					display: none;
-					
-					margin: 0;
-					padding: 2 * $slice;
-					
-					text-align: center;
-					
-					position: relative;
-
-					&:before {
-
-						@include shadowDownBlock(3px);
-						@include fullInset(0, 0, auto, 0);
-						border-top: 1px solid rgba(0, 0, 0, .65);
-						
-						top: 3px;
-					
-					}
-					
-					&:after {
-					
-						@include shadowUpBlock(3px);
-						@include fullInset(auto, 0, 0, 0);
-						border-bottom: 1px solid rgba(0, 0, 0, .65);
-						
-						bottom: 0px;
-					
-					}
-					
-					li {
-					
-						@include link;
-					
-						@include inlineBlock;
-						@include size(16 * $slice, 4 * $slice);
-						
-						@include borderInset(white, 2px);
-						margin: 0 (2 * $slice - 2);
-						
-						@include text(20px, (36px - 2px), white);
-						
-						text-align: center;
-						
-						@include borderRadius(9px);
-						
-						span {
-						
-							position: relative;
-							top: 3px;
-						
-						}
-					
-					}
-				
-				}
-				
-			}
-			
-			section.share.active {
-			
-				border-top-color: rgba(255, 255, 255, .45);
-				border-bottom-color: rgba(255, 255, 255, .65);
-				
-				ul {
-				
-					display: block;
-				
-				}
-				
-				ul li {
-				
-					@include transition(.125s);
-				
-				}
-				
-				ul:hover li {
 				
 					opacity: .75;
 				
+					&.zero {
+					
+						opacity: .35;
+					
+					}
+					
+					&:hover {
+					
+						opacity: .85;
+					
+					}
+				
+					padding-left: 4 * $slice;
+					background: url(../arboreal.images/arboreal.article.blogPost.header.comments.glyph.png);
+					
+					background-position: left center;
+					background-repeat: no-repeat;
+					
+					span {
+					
+						display: none;
+					
+					}
+				
+					span.count {
+					
+						@include typeSansSerifPure;
+					
+						@include inlineBlock;
+						@include textDelimited;			//	Needs “Lots”?
+						
+						min-width: 36px;
+						
+						@include text(24px, 36px);
+
+						text-align: center;
+						position: relative;
+					
+					}
+				
 				}
 				
-				ul li:hover {
-				
-					@include animation(arborealSlightDimLightAnimation, 2.5s, infinite, ease-in-out);
-				
-					background-color: rgba(255, 255, 255, .25);
-					@include boxShadow(rgba(255, 255, 255, .55), 0px, 0px, 2px);
-					text-shadow: 0px 0px 2px rgba(255, 255, 255, .55);
-				
-				}
-				
-			}
-			
-			
-			
-			
-			
-			section.share ul {
-				
-				background-color: $arborealBlogShareArticleBackdrop;
-			
-			}
-			
-			section.share.plurk ul {
-			
-				background-color: $arborealBlogShareArticleBackdropPlurk;
-			
-			}
-			
-			section.share.twitter ul {
-			
-				background-color: $arborealBlogShareArticleBackdropTwitter;
-			
-			}
-			
-			section.share.facebook ul {
-			
-				background-color: $arborealBlogShareArticleBackdropFacebook;
-			
 			}
 		
 		}
@@ -2767,13 +2551,20 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 		
 		footer {
 		
+			&:before {
+			
+				@include glareSplitVertical;
+				
+				margin: (2 * $slice) (-2 * $slice);
+			
+			}
+		
 			@include typeSansSerifNeo;
 		
 			@include uaDisableTextZoom;
 			@include uaDisableSelection;
 		
 			position: relative;
-			height: 4 * $slice;
 
 			margin-top: 2 * $slice;
 			margin-bottom: -2 * $slice;
@@ -2782,8 +2573,6 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			
 			text-shadow:	0px 1px 0px rgba(255, 255, 255, .65),
 					0px -1px 0px rgba(0, 0, 0, .15);
-
-			text-align: right;
 			
 		}
 		
