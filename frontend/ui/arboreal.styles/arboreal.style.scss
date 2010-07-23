@@ -2500,13 +2500,46 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 		
 		}
 		
+		> blockquote {
+		
+			position: relative;
+		
+			&:before {
+			
+				@include pseudoBlock;
+				@include fullInset(-36px, -36px, -54px, -36px);
+				@include borderImage(url(../arboreal.images/arboreal.article.blogPost.blockQuote.backdrop.png), 36, 90, 54, 36, round);
+			
+			}
+			
+			> * {
+			
+				position: relative;
+				z-index: 1;
+			
+			}
+			
+			margin: 72px 144px;
+			
+			&, > * {
+			
+				@include text(14px, 27px, black);
+			
+			}
+		
+		}
+		
 		.wrapStrap {
 		
 			@include inlineBlock;
 			position: relative;
 			
 			padding: 3px;
-			margin: ($pack - 3px);
+			
+			margin-top: $pack - 3px;
+			margin-right: auto;
+			margin-bottom: (0.5 * $pack - 3px);
+			margin-left: auto;
 			
 			background-color: rgb(242, 242, 242);
 			@include boxShadow(rgba(0, 0, 0, .25), 0px, 1px, 2px);
