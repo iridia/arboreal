@@ -2652,7 +2652,6 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			@include typeSansSerifNeo;
 		
 			@include uaDisableTextZoom;
-			@include uaDisableSelection;
 		
 			position: relative;
 			
@@ -2660,26 +2659,31 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 
 			@include text(13px, 36px, rgb(128, 128, 128));
 			
-			> *, li {
+			> * {
 			
 				@include inlineBlock;
-				line-height: 2 * $slice;
-				height: 2 * $slice;
+				
+				background-position: top left;
+				background-position-y: 9px;
+				
+				background-repeat: no-repeat;
+				
+				padding-left: 3 * $slice;
+				
+				line-height: 4 * $slice;
+				min-height: 4 * $slice;
 			
 			}
 			
 			> * {
 			
-				background-position: center left;
-				background-repeat: no-repeat;
+				margin-right: 2 * $slice;
 				
-				padding-left: 3 * $slice;
-			
-			}
-			
-			> * + * {
-			
-				margin-left: 2 * $slice;
+				&:last-child {
+				
+					margin-right: 0px;
+				
+				}
 			
 			}
 			
@@ -2709,14 +2713,21 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			
 				li {
 				
+					@include inlineBlock;
+				
+					line-height: 2 * $slice;
+					height: 2 * $slice;
+				
 					background: rgba(0, 0, 0, .05);
 					@include borderRadius($slice);
 					@include borderInsetSolid(rgba(0, 0, 0, .1));
 					padding: 0 $slice;
 					
-					+ li {
+					margin-right: 0.5 * $slice;
 					
-						margin-left: 0.5 * $slice;
+					&:last-child {
+					
+						margin-right: 0px;
 					
 					}
 				
