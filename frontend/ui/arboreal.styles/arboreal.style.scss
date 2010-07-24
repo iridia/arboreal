@@ -1,10 +1,10 @@
 //	arboreal.style.scss
 //	Evadne Wu at Iridia, 2010
 
-@import "../lib.monoSnippets/lib.monoSnippets.reset.css";
+@import "../lib.monoSnippets/lib.monoSnippets.reset";
 
 $monoSnippetsDirectory: "../lib.monoSnippets/";
-@import "../lib.monoSnippets/lib.monoSnippets.scss";
+@import "../lib.monoSnippets/lib.monoSnippets";
 
 @import "arboreal.style.includes.typography";
 @import "arboreal.style.includes.positioning";
