@@ -1228,9 +1228,12 @@
 			
 			.newComment {
 			
+				@include uaDisableSelection;
+			
 				opacity: 1;
 	
-				@include size((12 * $slice - 2), (4 * $slice - 2));
+				@include size(12 * $slice, 4 * $slice);
+				
 				padding-top: 0;
 				padding-bottom: 0;
 				position: absolute;
@@ -1238,15 +1241,18 @@
 				margin-left: 5 * $pack;
 				top: 2 * $slice;
 				
-				border: 1px solid rgba(0, 0, 0, .35);
 				@include gradientBackdropVertical(rgba(255, 255, 255, .3), rgba(121, 128, 133, .3));
 				
-				@include boxShadow(rgba(255, 255, 255, .3), 0px, 1px, 0px);
+				@include borderInsetSolidShadowed(
+				
+					rgba(0, 0, 0, .35), 1px,
+					rgba(255, 255, 255, .3), 0px, 1px, 0px
+					
+				);
+				
 				overflow: hidden;
 				
 				@include borderRadius(4.5px);
-				
-				@include uaDisableSelection;
 				
 				z-index: (1024 + 192) !important;
 				
@@ -1447,9 +1453,19 @@
 					
 					padding: $slice;
 					
-					@include gradientBackdropVertical(rgb(217, 212, 148), rgb(230, 224, 157));
+					@include gradientBackdropVertical(
 					
-					@include boxShadow2(rgba(0, 0, 0, .2), 0px, -1px, 0px, rgba(255, 255, 255, .7), 0px, 1px, 0px);
+						rgb(217, 212, 148), 
+						rgb(230, 224, 157)
+					
+					);
+					
+					@include boxShadow2(
+					
+						rgba(0, 0, 0, .2), 0px, -1px, 0px, 
+						rgba(255, 255, 255, .7), 0px, 1px, 0px
+						
+					);
 					
 					@include text(20px, 36px, rgba(0, 0, 0, .65));
 					@include textPlaceholderColor;
