@@ -609,10 +609,12 @@
 				a.comments {
 				
 					opacity: .75;
+					
+					@include transition(.125s);
 				
 					&.zero {
 					
-						opacity: .35;
+						opacity: .125;
 					
 					}
 					
