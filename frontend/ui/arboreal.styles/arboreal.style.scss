@@ -2344,14 +2344,24 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 		@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.png), 36, 27, 36, 27, round);
 		
+		margin: 0px (-2 * $slice) (4 * $slice) (-2 * $slice);
+		padding: 0px $slice;
+		
+			margin-bottom: 4 * $slice - 3px;
+			padding-bottom: 3px;
+		
 		&.more {
 		
-		@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.more.png), 36, 27, 36, 27, round);
+		//	We add an additional 3 pixels below every single truncated article because of how their backdrop looks — this helps visual balance
+		
+			@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.more.png), 36, 27, 36, 27, round);
+		
+			margin-bottom: 4 * $slice - 6px;
+			padding-bottom: 6px;
 		
 		}
 		
-		margin: 0px (-2 * $slice) (4 * $slice) (-2 * $slice);
-		padding: 0px $slice;
+		
 
 		header {
 		
@@ -2632,9 +2642,12 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			
 				@include glareSplitVertical;
 				
-				margin: (2 * $slice) (-2 * $slice);
+				margin: 0 (-2 * $slice);
 			
 			}
+			
+			margin-top: 2 * $slice;
+			margin-bottom: -2 * $slice + -1 * $slice;	//	the second negation eats out the border 
 		
 			@include typeSansSerifNeo;
 		
@@ -2642,18 +2655,91 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			@include uaDisableSelection;
 		
 			position: relative;
+			
+			min-height: 4 * $slice;
 
-			margin-top: 2 * $slice;
-			margin-bottom: -2 * $slice;
+			@include text(13px, 36px, rgb(128, 128, 128));
 			
-			@include text(13px, 36px, rgb(39, 73, 37));
-			
-			text-shadow:	0px 1px 0px rgba(255, 255, 255, .65),
-					0px -1px 0px rgba(0, 0, 0, .15);
-					
 			> *, li {
 			
 				@include inlineBlock;
+				line-height: 2 * $slice;
+				height: 2 * $slice;
+			
+			}
+			
+			> * {
+			
+				background-position: center left;
+				background-repeat: no-repeat;
+				
+				padding-left: 3 * $slice;
+			
+			}
+			
+			> * + * {
+			
+				margin-left: 2 * $slice;
+			
+			}
+			
+			.author {
+			
+				background-image: url(../arboreal.images/arboreal.article.blogPost.footer.author.glyph.png);
+			
+			}
+			
+			time {
+			
+				background-image: url(../arboreal.images/arboreal.article.blogPost.footer.dateTime.glyph.png);
+			
+			}
+			
+			.categories {
+			
+				background-image: url(../arboreal.images/arboreal.article.blogPost.footer.categories.glyph.png);
+			
+			}
+			
+			.tags {
+			
+				background-image: url(../arboreal.images/arboreal.article.blogPost.footer.tags.glyph.png);
+			
+			}
+			
+				li {
+				
+					background: rgba(0, 0, 0, .05);
+					@include borderRadius($slice);
+					@include borderInsetSolid(rgba(0, 0, 0, .1));
+					padding: 0 $slice;
+					
+					+ li {
+					
+						margin-left: 0.5 * $slice;
+					
+					}
+				
+				}
+			
+			.shareArticle,
+			.more {
+			
+				float: right;
+				line-height: 4 * $slice;
+				height: 4 * $slice;
+			
+			}
+			
+			.shareArticle {
+			
+				
+			
+			}
+			
+			.more {
+			
+				
 			
 			}
 			
