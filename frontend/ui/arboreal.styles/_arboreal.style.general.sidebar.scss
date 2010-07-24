@@ -1,0 +1,517 @@
+//	arboreal.style.general.sidebar.scss
+//	Evadne Wu at Iridia, 2010
+
+
+
+
+
+//	! 
+//	!Context: Sidebar
+
+	aside {
+	
+		@include text(14px, 18px, #444);
+		
+		p {
+		
+			+ p {
+			
+				margin-top: 2 * $slice;
+			
+			}
+		
+		}
+	
+	}
+
+
+
+
+
+
+
+
+
+
+//	! 
+//	!Context: Sidebar: Calendar Box
+
+	.calendar {
+	
+		@include uaDisableSelection;
+		@include uaDisableTextZoom;
+		
+		padding: 0 (2 * $slice);
+		@include borderImage(url(../arboreal.images/arboreal.calendar.portal.backdrop.png), 54, 36, 54, 36, stretch);
+		margin: -36px -36px -54px -36px;
+		background-color: transparent;
+		
+		h2 {
+		
+			@include text(16px, (.5 * $pack));
+			text-align: center;
+			font-weight: bold;
+			
+			position: relative;
+			
+			&:before {
+			
+				@include pseudoBlock;
+				
+				position: absolute;
+				@include size(4 * $slice);
+				
+				top: 4 * $slice;
+				left: 0;
+				
+				background: url(../arboreal.images/arboreal.calendar.sunday.png) center no-repeat;
+				background-color: $arborealPanelBackdrop;
+				
+				z-index: 256;
+			
+			}
+			
+			&:after {
+			
+				position: relative;
+				top: 18px;
+				@include glareSplitVertical(36px);
+				margin: 0 (-2 * $slice);
+				
+				z-index: 128;
+			
+			}
+			
+			margin-bottom: 4 * $slice;
+		
+		}
+	
+		time {
+		
+			display: block;
+			float: left;
+			@include size(1 * $arborealCalendarItemWidth, 1 * $arborealCalendarItemWidth);
+			@include text(16px, 36px);
+			
+			text-align: center;
+			font-weight: bold;
+			
+			color: rgba(0, 0, 0, .35);
+				
+		}
+		
+		br {
+		
+			@include size(0px);
+			clear: both;
+		
+		}
+		
+		.active {
+		
+			color: rgba(0, 0, 0, .6);
+			
+		
+		}
+		
+		.secondaryDate {
+		
+			display: none;
+		
+		}
+		
+		&:hover .secondaryDate {
+		
+		//	display: block;
+		
+		}
+		
+		.today {
+		
+			color: black;
+			background: rgb(223, 225, 219);
+			@include borderRadius(4.5px);
+		
+		}
+		
+		.closed {
+		
+			color: rgba(0, 0, 0, .1);
+			
+			position: relative;
+		
+			&:before {
+			
+				@include pseudoBlock;
+			
+				position: absolute;
+			
+				@include borderImage(url(../arboreal.images/arboreal.calendar.portal.tooltip.backdrop.png), 18, 36, 18, 18, stretch);
+				
+				padding-left: 18px;
+				
+				top: -45px;	
+				right: -9px;			
+				
+				z-index: 256 + 64;
+				
+				content:"公休";
+				white-space: nowrap;
+				
+				@include text(16px, 16px, white);
+				font-weight: normal;
+				
+				display: block;
+				text-align: center;
+				
+				opacity: 0;
+				
+				@include transition(.125s);
+				
+				margin-top: 9px;
+				
+				visibility: hidden;
+				
+			}
+			
+			&:hover {
+			
+				&:before {
+				
+					margin-top: 0px;
+				
+					opacity: 1;
+					
+					visibility: visible;
+				
+				}
+			
+			}
+		
+		}
+		
+		
+		.leadingSunday {	margin-left: 0 * $arborealCalendarItemWidth;	}
+		.leadingMonday {	margin-left: 1 * $arborealCalendarItemWidth;	}
+		.leadingTuesday {	margin-left: 2 * $arborealCalendarItemWidth;	}
+		.leadingWednesday {	margin-left: 3 * $arborealCalendarItemWidth;	}
+		.leadingThursday {	margin-left: 4 * $arborealCalendarItemWidth;	}
+		.leadingFriday {	margin-left: 5 * $arborealCalendarItemWidth;	}
+		.leadingSaturday {	margin-left: 6 * $arborealCalendarItemWidth;	}
+
+		.details, .actions {
+		
+			margin: 0px (-2 * $slice);
+		
+		}		
+		
+		
+		
+		
+		
+		.details:empty, .details[irCalendarEngineBusy='true'] {
+		
+			&:after {
+			
+				display: block;
+			
+			}
+		
+		}
+		
+		.details[irCalendarEngineBusy='error'] {
+		
+			&:after {
+			
+				display: block;
+				content: "Host Unreachable";
+			
+			}
+		
+		}
+		
+		.details {
+		
+			clear: left;
+			background: $arborealPredicateBarBackdrop;
+			
+			margin-top: (2 * $slice);			
+			padding: $slice 0;
+
+			&:before {
+			
+				@include shadowDownBlock;
+				top: -4px;
+			
+			}
+			
+			+ * {
+			
+				position: relative;
+			
+				&:before {
+			
+					@include shadowUpBlock;
+					@include fullInset(0, 0, auto, 0);
+					top: 0px !important;		// FIXME: bug
+				
+				}
+			
+			}
+			
+			&:after {
+
+				@include pseudoBlock;
+			
+				content: "Loading…";
+				@include text(16px, $pack, white);
+				text-align: center;
+				
+				height: $pack;
+				
+				display: none;
+				
+				font-weight: bold; 
+			
+			}
+			
+			li {
+			
+				@include link;
+				
+				border-top: 1px solid transparent;
+				border-bottom: 1px solid transparent;
+				
+				padding: ($slice - 1) (2 * $slice);
+				color: white;
+				
+				&:first-child {
+				
+					margin-top: $slice;
+				
+				}
+			
+			}
+			
+			a {
+			
+				display: block;
+				
+				width: 100%;
+				
+				margin: (-1 * $slice) (-2 * $slice);
+				padding: $slice (2 * $slice);
+			
+			}
+
+			li[irCalendarEngineTemplate='true'] {
+			
+				display: none;
+			
+			}
+			
+			li:hover, li.active {
+			
+				background: rgba(0, 0, 0, .125);
+				@include gradientBackdropVertical(rgba(0, 0, 0, .075), rgba(0, 0, 0, .250));
+				
+				border-top: 1px solid rgba(0, 0, 0, .125);
+				border-bottom: 1px solid rgba(0, 0, 0, .350);
+			
+			}
+			
+			li:active {
+			
+				background: rgba(0, 0, 0, .125);
+				@include gradientBackdropVertical(rgba(0, 0, 0, .625), rgba(0, 0, 0, .35));
+				
+				border-bottom-color: rgba(255, 255, 255, .35);
+			
+			}
+		
+			time {
+			
+				display: block;
+				@include size(auto);
+				float: none;
+				text-align: left;
+				font-weight: normal;
+				
+				color: inherit;
+				
+				@include text(16px, 18px);
+				
+				opacity: .75;
+			
+			}
+			
+			span {
+			
+				@include inlineBlock;
+								
+				@include text(18px, 27px);
+				@include textStroke;
+							
+			}
+		
+		}
+		
+		.actions {
+		
+			text-align: center;
+			margin-bottom: -2 * $slice;
+			
+			height: 6 * $slice;
+			
+			li {
+			
+				@include size(2 * $pack, 6 * $slice);
+				
+				@include inlineBlock;
+				
+				position: relative;
+				
+				&, a {
+				
+					@include text(18px, 45px);
+				
+				}
+				
+				a {
+				
+					@include link;
+				
+					@include full(3px);
+					
+					padding: 0 $slice 0 (4 * $slice);
+										
+					background-position: left center;
+					background-position-x: $slice;
+					background-repeat: no-repeat;
+					
+						@include transition(.05s);
+						-webkit-transition-property: background-color, -webkit-box-shadow;
+						@include borderRadius(3px);
+					
+						color: black;
+						background-image: url(../arboreal.images/arboreal.calendar.portal.glyph.normal.png);
+						opacity: .5;
+					
+					&:hover {
+
+						background-color: rgb(153, 153, 153);
+						color: white;
+					
+						background-image: url(../arboreal.images/arboreal.calendar.portal.glyph.hover.png);
+						opacity: 1;
+						
+						@include animation(arborealCalendarActionHoverAnimation, 2.5s, infinite);
+					
+					}
+					
+					&:active {
+					
+						background-color: rgb(89, 89, 89);
+						color: white;
+						text-shadow: 0px 1px 2px rgba(0, 0, 0, .65);
+					
+						background-image: url(../arboreal.images/arboreal.calendar.portal.glyph.active.png);
+						opacity: 1;
+						
+						@include boxShadowInner(rgba(0, 0, 0, .75), 0px, 0px, 4px);
+						
+						@include animation(none, 0s, 0);
+					
+					}
+				
+				}
+				
+				&:before, &:after {
+				
+					@include glareSplitHorizontal;
+					height: 100%;
+				
+				}
+				
+				&:after {
+				
+					position: absolute;
+					right: 0;
+					top: 0;
+				
+				}
+			
+			}
+		
+		}
+	
+	}
+	
+	
+	
+	
+	
+//	! 	
+//	!Context: Sidebar: Teal Box
+
+	.tealBox {
+	
+		@include borderImage(url(../arboreal.images/arboreal.aside.tealBox.backdrop.png), 36, 36, 36, 108, stretch);
+		
+		margin: -2 * $slice;
+		
+		margin-top: $pack;
+		margin-bottom: 0px;
+		
+		background-color: transparent;
+		
+		> * {
+		
+			margin-left: -1 * $pack;
+		
+		}
+		
+		header {
+		
+			> * {
+			
+				margin-left: -1 * $pack;
+			
+			}
+		
+			margin-left: -12 * $slice;
+			margin-right: -4 * $slice;
+			margin-top: -4 * $slice;	
+			
+			@include borderImage(url(../arboreal.images/arboreal.aside.tealBox.header.backdrop.png), 36, 36, 36, 108, stretch);
+			
+			h2 {
+			
+				margin-top: -1 * $slice;
+			
+				@include text(20px, 36px, rgb(44, 68, 87));
+				text-shadow:	0px 1px 0px rgba(255, 255, 255, .65),
+						0px -1px 0px rgba(0, 0, 0, .15);
+						
+				@include textDelimited;
+				margin-bottom: -1 * $slice;
+			
+			}
+			
+			time {
+				
+				@include text(13px, 27px, rgb(64, 64, 64));
+				
+				margin-bottom: -1 * $slice;
+			
+			}
+		
+		}
+		
+		@include text(13px, 18px);
+		
+	}
+
+
+
+

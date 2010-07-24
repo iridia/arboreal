@@ -1,0 +1,685 @@
+//	arboreal.style.general.scss
+//	Evadne Wu at Iridia, 2010
+
+
+
+
+
+//	! 
+//	!Scaffold and Geometry
+	
+	
+	
+	
+	
+	html, body {
+	
+		min-height: 100%;
+	
+	}
+
+	html {
+	
+		background-color: $arborealBackdrop;
+	
+	}
+	
+	body {
+	
+		@include typeSansSerifNeo;
+
+		background-image: url(../arboreal.images/arboreal.backdrop.whiteNoise.15.png);
+		
+		min-width: $arborealWidth + 2 * $arborealSidebarSpacing;
+		
+		> * {
+		
+			@include width($arborealWidth);
+			padding: 0 (2 * $arborealSideSpacing);
+			margin: 0 auto;
+		
+		}
+		
+		position: absolute;
+		width: 100%;
+		min-height: 100%;
+			
+		overflow-y: auto;
+	
+	}
+
+	h1, h2, h3, h4, h5, h6, h7 {
+	
+		font-weight: normal;
+	
+	}
+	
+	@include textSelectionColor;
+	
+	@mixin arborealContext {
+	
+		border-spacing: $arborealSidebarSpacing 0;
+		margin: (.5 * $pack) auto 0 auto;
+		padding: 0px 0px (1.5 * $pack) 0px !important;
+		display: table;
+		
+		> * {
+		
+			display: table-cell;
+			vertical-align: top;
+		
+		}
+		
+		@include width($arborealWidth + (2 * $arborealSidebarSpacing));
+		
+		aside {	
+		
+			@include width($arborealSidebarWidth);
+		
+		}
+		
+		> nav {
+		
+			display: table-row;
+		
+		}
+	
+	}
+	
+	.context {
+	
+		@include arborealContext;
+	
+	}
+	
+	.blockContext {
+	
+		@include arborealContext;
+		display: block;
+		@include width($arborealWidth);
+		
+		> * {
+		
+			display: block;
+		
+		}
+	
+	}
+	
+	.storeContext {
+	
+		@include arborealContext;
+		@include width($arborealWidth + (2 * $arborealSidebarSpacing));
+	
+	}
+	
+	.informativeContext {
+	
+		h2 {
+		
+			margin: 0 auto;
+		
+			color: transparent;
+			@include uaDisableSelection;
+			
+			position: relative;
+			 
+			@include size(4  * $pack, 3 * $pack);
+			
+			background: url(../arboreal.images/arboreal.404.chrome.png) center no-repeat;
+			
+			margin-top: 2.5 * $pack;
+			margin-bottom: 0.25 * $pack;
+			
+			.spinner {
+			
+				position: absolute;
+				
+				@include size($pack);
+				
+				top: $pack;
+				left: 50%;
+				margin-left: -0.5 * $pack;
+				
+				@include animation(arborealTagCircularRotationAnimation, 360s, infinite, linear);
+			
+			}
+			
+			.spinner.foreground {
+			
+				background: url(../arboreal.images/arboreal.404.symbol.png) center no-repeat;
+				
+				z-index: 128;
+			
+			}
+			
+			.spinner.background {
+			
+				background: url(../arboreal.images/arboreal.404.symbol.backdrop.png) center no-repeat;
+				
+				margin-top: 1px;
+				
+				z-index: 64;
+			
+			}
+		
+		}
+	
+		p {
+		
+			@include uaDisableTextZoom;
+		
+			&, input, button {
+		
+				@include text(18px, 36px, rgb(66, 66, 66));
+			
+			}
+	
+			text-align: center;
+			
+			span, input, button {
+			
+				@include height(36px);
+				
+			}
+			
+			span {
+			
+				> * {
+				
+					@include inlineBlock;
+					margin: 0;
+					vertical-align: top;
+				
+				}
+				
+				margin: auto (2 * $slice);
+				
+				
+			
+			}
+			
+			input {
+			
+				@include borderRadius(4.5px);
+				@include gradientBackdropVertical(rgba(0, 0, 0, .1), rgba(255, 255, 255, .2));
+				
+				@include borderInsetSolidEngraved(rgba(0, 0, 0, .2), 1px, transparent, rgba(255, 255, 255, .5));
+			
+				@include textPlaceholderColor(rgb(66, 66, 66));
+			
+				padding-left: $slice;
+				padding-right: $pack + $slice;
+				width: 3 * $pack;
+				
+				+ button {
+				
+					margin-left: -1 * $pack;
+				
+				}
+				
+				line-height: 40px;
+			
+			}
+			
+			button {
+			
+				@include typeSansSerifUniversal;
+			
+				@include uaDisableSelection;
+			
+				@include borderRadius(0px, 4.5px, 4.5px, 0px);
+				@include borderInsetSolid2(rgba(255, 255, 255, .15), 2px, rgba(0, 0, 0, .35), 1px);
+				
+				background: green;
+				
+				@include gradientBackdropVertical(rgb(111, 161, 129), rgb(62, 92, 72));
+				
+				color: white;
+				text-shadow: 0px -1px 0px black;
+				
+				@include width($pack);
+				
+				&:active {
+				
+					@include gradientBackdropVertical(rgb(62, 92, 72), rgb(111, 161, 129));
+				
+				}
+			
+			}
+			
+			a {
+			
+				@include inlineBlock;
+				vertical-align: top;
+				
+				@include height(36px);
+				
+				line-height: 35px;
+			
+				@include borderRadius(4.5px);
+				padding: 0 $slice;
+				
+				margin-left: $slice;
+				margin-right: $slice;
+			
+				@include borderInsetSolidEngraved(rgba(0, 0, 0, .25), 1px, transparent, rgba(255, 255, 255, .45));
+				background: rgba(0, 0, 0, .1);
+			
+			}
+		
+		}
+	
+	}
+
+
+
+
+
+//	! 
+//	!Context: Article
+
+	.context > article > article {
+	
+		header {
+		
+		}
+		
+		p {
+		
+		}
+		
+		footer {
+		
+		}
+	
+	}
+
+
+
+
+
+//	! 
+//	!Misc ……………………………………………………………………………………………………………………………………………………………………………………………
+
+
+
+
+
+	@mixin recessedGreenField {
+	
+		@include borderImage(url(../arboreal.images/arboreal.field.recessed.green.backdrop.png), 18);
+		margin: -1 * $slice;
+	
+	}
+	
+	
+	
+	
+	
+	@mixin submitButton {
+	
+		@include link;
+	
+		@include threePartImage(url(../arboreal.images/arboreal.button.submit.backdrop.png), 36, 45);
+		
+		display: block;
+		height: $pack;
+
+		@include text(18px, 72px, rgb(16, 38, 0));
+		text-shadow:	rgba(255, 255, 255, .4), 0px, 1px, 0px,
+				rgba(0, 0, 0, .15), 0px, -1px, 0px;
+				
+		padding: 0 (3 * $slice) 0 (2 * $slice);
+	
+	}
+
+
+
+
+
+
+
+
+
+
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Headers & Footers …………………………………………………………………………………………………………………………………………………………
+	
+
+
+
+
+
+
+
+
+
+//	! 
+//	!Header
+	
+	body > header {
+	
+		@include uaDisableSelection;
+	
+		height: 2 * $pack;
+		
+		h1 {
+		
+			float: left;
+		
+			a {
+			
+				display: block;
+				@include size(4 * $pack, 2 * $pack);	
+				background: url(../arboreal.images/arboreal.logotype.main.png) no-repeat left bottom;
+			
+			}
+		
+			span {
+			
+				display: none;
+			
+			}
+		
+		}
+	
+	
+	//	The navigation bar
+	
+		nav {
+		
+			@include uaDisableTextZoom;
+		
+			float: right;
+			margin-top: 9 * $slice;
+			
+			ul {
+			
+			//	A semi-transparent black overlay over a particular color
+			//	@color - rgb(255, 255, 255) * percentage
+			
+				height: $arborealNavigationBarHeight;
+
+				background: $arborealNavigationBarBackdrop;
+				
+				@include borderRadius(4.5px);
+				
+				@include borderInsetSolidShadowed2(
+
+					($arborealNavigationBarBackdrop - (rgb(255, 255, 255) * 0.05)),
+					$arborealNavigationBarBorderWidth,
+					
+					rgba(0, 0, 0, .35), 0px, -1px, 0px, 
+					rgba(255, 255, 255, .5), 0px, 1px, 0px
+					
+				);
+				
+				overflow: visible;
+			
+				li {
+				
+					position: relative;
+				
+					display: block;
+					float: left;
+					
+					@include text(18px, ($arborealNavigationBarHeight - 2), rgb(32, 76, 0));
+					@include size(1.5 * $pack, $arborealNavigationBarHeight);
+					
+					text-align: center;
+					vertical-align: middle;
+					
+					&:first-child {
+					
+						@include borderRadius(4.5px, 0, 0, 4.5px);
+						
+					}
+					
+					&:last-child {
+					
+						@include borderRadius(0, 4.5px, 4.5px, 0);
+						
+					}
+					
+					+ li {
+					
+						&:before {
+	
+							@include glareSplitHorizontal;
+							position: absolute;
+							left: -1 * $slice;
+							height: $arborealNavigationBarHeight;
+
+						}
+					
+					}
+					
+					a {
+					
+						@include full;
+						height: $arborealNavigationBarHeight;
+					
+					}
+				
+				}
+				
+
+			//	The Information section has a glyph instead of plain text
+				
+				li a[href*='information'] {
+					
+					span {	display: none;	}
+					
+					background: url(../arboreal.images/arboreal.navigationBar.information.png) center no-repeat;
+				
+					&:hover {
+					
+						background: url(../arboreal.images/arboreal.navigationBar.information.hover.png) center no-repeat;
+					
+					}
+					
+				}
+				
+				li.active a[href*='information'] {
+				
+					background: url(../arboreal.images/arboreal.navigationBar.information.active.png) center no-repeat;
+				
+				} 
+				
+				
+			//	States	
+				
+				li:hover,
+				li.hover {
+
+					background: rgba(0, 0, 0, 0.25);
+					color: white;
+					text-shadow: none;	
+				
+				}
+				
+				li + li:hover,
+				li + li.hover {
+				
+					&:before {
+	
+						@include glareSplitHorizontal(reversed);
+
+					}
+					
+				}
+				
+				
+				
+				
+				
+				li, li.active, li.active:hover {
+				
+					text-shadow:   	rgba(255, 255, 255, .4) 0px 1px 0px,
+							rgba(0, 0, 0, .15) 0px -1px 0px;
+						
+					background: none;
+									
+					&:before {
+					
+						@include glareSplitHorizontal;
+					
+					}
+				
+				}
+				
+				li.active,
+				li.active:hover {
+				
+					color: rgb(16, 38, 0);
+					
+				}
+				
+				li.active:after {
+						
+					@include pseudoBlock;
+					@include size(2 * $slice, 4 * $slice);
+					
+					position: absolute;
+
+					left: 50%;
+					margin-left: -1 * $slice;
+					
+					top: 100%;
+					margin-top: -2 * $slice;
+					background: url(../arboreal.images/arboreal.navigationBar.active.indicator.png) center no-repeat;
+				
+				}
+			
+			}
+		
+		}
+		
+		+ * {
+		
+			clear: both;
+		
+		}
+	
+	}
+	
+
+
+
+
+
+
+
+
+
+//	! 
+//	!Footer
+	
+	body > footer {
+	
+		@include uaDisableTextZoom;
+		
+		@include fullInset(auto, 0px, 0px, 0px);	
+		@include width(100%);
+		padding: 0;
+	
+		background: $arborealFooterBackdrop;
+		
+		@include borderInset(rgba(255, 255, 255, .65));
+
+		@include text(14px, $pack, rgb(38, 38, 38));
+
+		text-shadow: 	rgba(255, 255, 255, .2) 0px 1px 0px,
+				rgba(0, 0, 0, .15) 0px -1px 0px,
+				rgba(255, 255, 255, .2) 0px 0px 1px;
+
+		white-space: nowrap;
+		
+				
+		&:before {
+		
+			@include shadowDownBlock(2px);
+		
+		}
+		
+		
+		div {
+		
+			overflow-y: hidden;
+			@include size($arborealWidth, $pack);
+
+			padding: 0px (2 * $arborealSideSpacing);			
+			margin: 0 auto;
+			
+			* {
+		
+				display: inline;
+			
+			}
+		
+		}
+
+
+		ul li {
+			
+			height: 2 * $slice;
+			margin-right: 2 * $slice;
+		
+			&:last-child {
+			
+				margin-right: 0;
+			
+			}
+			
+			a {
+			
+				@include link;
+				padding: 0 $slice;
+				margin: 0 (-1 * $slice);
+				@include borderRadius($slice);
+			
+				&:active {
+				
+					background: rgba(0, 0, 0, .35);
+				
+				}
+
+				
+				&:hover {
+
+					background: rgba(0, 0, 0, .2);
+					@include boxShadow(rgba(255, 255, 255, .25), 0px, 1px, 0px);
+					color: white;
+					text-shadow: rgba(0, 0, 0, .25) 0px 0px 1px;
+				
+				}	
+			
+			}
+			
+		}
+		
+		
+		.credits {
+		
+			@include inlineBlock;
+			@include size((2 * $pack), $pack);
+			float: right;
+			
+			span {
+			
+				display: none;
+			
+			}
+		
+		}
+		
+	}
+
+
+
+

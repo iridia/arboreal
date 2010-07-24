@@ -1,0 +1,323 @@
+//	arboreal.style.pages.portal.scss
+//	Evadne Wu at Iridia, 2010
+	
+	
+	
+	
+
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Portal ………………………………………………………………………………………………………………………………………………………………………………………
+
+
+
+
+
+
+
+
+
+
+//	! 
+//	!Portal: Gallery Box
+		
+	.gallery {
+	
+		height: 5 * $pack;
+		padding: 18px !important;
+		position: relative;
+		margin-top: 2 * $slice;
+		margin-bottom: 6 * $slice;
+		
+		&:before {
+		
+			@include full;
+			@include pseudoBlock;
+			z-index: 1024;
+			@include borderImage(url(../arboreal.images/arboreal.gallery.cover.png), 54, 54, 54, 90, round);
+					
+		}
+		
+		li.default, li.current {
+		
+			z-index: 512;
+		
+		}
+		
+		> li {
+		
+			@include full;
+			background: black;
+			
+			a {
+			
+				@include full;
+				overflow-y: hidden;
+				
+				img {
+				
+					@include size(100%, auto);
+					min-height: 100%;
+				
+				}
+			
+			}
+					
+		}
+		
+		li.spotties {
+		
+			background: transparent;
+		
+			@include fullInset(auto, 0, (-.5 * $slice), 0);
+			
+			z-index: 2048;
+			
+			ul {
+			
+				display: table;
+				margin: 0 auto;	
+				border-spacing: $slice 0;
+		
+			}
+			
+			li {
+			
+				display: table-cell;
+				
+				@include size($slice);
+				@include width($slice);				
+				@include borderRadius(4.5px);
+				
+				background: rgb(88, 88, 88);
+				opacity: .55;
+				
+				@include transition(.125s);
+				@include link;
+				
+				@include boxShadow(rgba(255, 255, 255, .15), 0px, 1px, 0px);
+			
+			}
+			
+			li.active, li:hover {
+			
+				opacity: 1;
+			
+			}
+		
+		}
+	
+	}
+	
+
+
+
+
+//	! 
+//	!Portal: Twitter Stream Box
+
+	.context > article > .twitterStream {
+	
+		@include uaDisableTextZoom;
+		@include typeSansSerifUniversal;
+		
+		@include borderImage(url(../arboreal.images/arboreal.article.twitterStream.backdrop.png), 36, 108, 36, 36, round);
+		
+		margin: -2 * $slice;
+		
+		@include text(20px, 36px, rgb(52, 62, 64));
+		
+		div {
+		
+			margin-right: -72px;
+		
+		}
+		
+		span {
+		
+			text-shadow: 	rgba(255, 255, 255, .2) 0px 1px 0px,
+					rgba(0, 0, 0, .05) 0px -1px 0px,
+					rgba(0, 0, 0, .05) 0px 0px 4.5px;
+					
+			@include textStroke;
+			
+			a {
+
+				@include inlineBlock;
+				@include textDelimited;
+				
+				@include size(0, 4 * $slice);
+				color: transparent;
+				text-shadow: none;
+				
+				padding-right: 11 * $slice;
+				
+				white-space: nowrap;
+				
+				position: relative;
+				
+				vertical-align: middle;
+				
+				&:after {
+				
+					position: absolute;
+					right: 0px;
+					top: -2px;
+					
+					@include pseudoBlock;
+					@include inlineBlock;
+					vertical-align: top;
+					
+					@include size(11 * $slice, 4 * $slice);
+					
+					background: url(../arboreal.images/arboreal.article.twitterStream.linkBadge.png) center no-repeat;
+					
+					color: transparent;
+					text-shadow: none;
+					
+					overflow: hidden;
+				
+				}
+			
+			}
+		
+		}
+		
+		a[title*='more'] {
+		
+			@include inlineBlock;
+			@include size(36px, 36px);
+			vertical-align: top;
+		
+			background: url(../arboreal.images/arboreal.article.twitterStream.information.png) center no-repeat;
+		
+			span {
+		
+				display: none;
+			
+			}
+			
+			display: none;
+		
+		}
+		
+		time {
+		
+			@include inlineBlock;
+			float: right;
+			margin-top: 2 * $slice;
+			@include text(12px, 18px);
+		
+		}
+	
+	}
+	
+	
+	
+	
+	
+//	! 
+//	!Portal: Blog Post Box
+
+	.blogPosts {
+	
+		@include borderImage(url(../arboreal.images/arboreal.article.blogPosts.backdrop.png), 36, 36, 54, 36, round);
+		
+		margin: 36px -18px 0 -18px;
+		
+		padding-bottom: 18px;
+	
+		h2 {
+		
+			@include arborealBlogArticleHeaderTitle;
+			@include width($arborealArticleWidth - (4 * $slice));
+			@include textDelimited;
+			
+			line-height: 4 * $slice;
+			
+			time {
+			
+				@include inlineBlock;
+				padding-right: 0.5em;
+				
+				font-weight: bold;
+				text-align: left;
+			
+			}
+				
+		}
+		
+		p {
+		
+			@include text(14px, 18px, rgb(89, 89, 89));
+			margin-bottom: 2 * $slice;
+		
+		}
+		
+		li + li {
+		
+			&:before {
+				
+				@include glareSplitVertical(36px);
+				margin: 0 (-2 * $slice);
+		
+			}
+			
+			h2 {
+			
+				margin-top: 2 * $slice;
+			
+			}
+			
+			
+		}
+		
+		.more {
+		
+			@include link;
+		
+			height: 4 * $slice;
+			margin-bottom: -4 * $slice;
+			
+			background: url(../arboreal.images/arboreal.article.blogPosts.more.png) center right no-repeat;
+			
+			position: relative;
+			
+			a {
+			
+				@include full;
+				margin: 0 (-2 * $slice);
+				@include borderRadius(0px, 0px, 9px, 9px);
+				
+				text-align: right;
+				@include text(16px, 36px, rgb(89, 89, 89));
+			
+				span {
+			
+					display: none;
+					margin-right: 6 * $slice;
+					text-transform: uppercase;
+
+				}
+				
+				&:hover {
+				
+					background: rgba(0, 0, 0, .05);
+				
+				}
+			
+			}
+			
+			
+		
+		}
+	
+	}
+
+
+
+
+	

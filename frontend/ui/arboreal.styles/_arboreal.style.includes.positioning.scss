@@ -1,0 +1,29 @@
+//	arboreal.style.includes.positioning.scss
+//	Evadne Wu at Iridia, 2010
+
+
+
+
+
+//	! 
+//	!Positioning
+
+	$arborealWidth: 13 * $pack;
+	$arborealSidebarWidth: 4 * $pack;
+	$arborealSidebarSpacing: 4 * $slice;
+	
+	$arborealSideSpacing: .25 * $pack;
+
+	$arborealNavigationBarBorderWidth: 4px;
+	$arborealNavigationBarHeight: 6 * $slice;
+	
+	$arborealCalendarItemWidth: 4 * $slice;
+	
+	$arborealArticleWidth: $arborealWidth - $arborealSidebarWidth - $arborealSidebarSpacing;
+
+	$arborealBlogPredicateBarRowHeight: 4 * $slice;
+	$arborealBlogPredicateBarRowsVisible: 3;
+
+
+
+

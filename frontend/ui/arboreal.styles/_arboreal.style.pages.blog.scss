@@ -1,0 +1,1530 @@
+//	arboreal.style.pages.blog.scss
+//	Evadne Wu at Iridia, 2010
+
+
+
+
+
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Blog ……………………………………………………………………………………………………………………………………………………………………………………………
+
+
+	
+	
+	
+//	! 
+//	!Blog: Predicate Navigation
+
+	#blogNavigation {
+	
+		@include width(100%, ($arborealWidth + (2 * $arborealSidebarSpacing)), 100%);
+		padding: 0px;
+	
+		background: $arborealPredicateBarBackdrop;
+		position: relative;
+
+		margin-top: 4 * $slice;		
+		margin-bottom: 1.5 * $pack;
+		
+		@include boxShadow(rgba(255, 255, 255, .5), 0px, 0px, 9px);
+		
+	//	Shadows
+				
+		&:before, &:after {
+		
+			z-index: 128;
+			@include pseudoBlock;
+		
+		}
+		
+		&:before {
+			
+			@include fullInset(0, 0, auto, 0);
+			@include borderInset("top", rgba(0, 0, 0, .2));
+		
+		}
+		
+		&:after {
+		
+			@include fullInset(auto, 0, 0, 0);
+			@include borderInset("bottom", rgba(255, 255, 255, .45));
+		
+		}
+	
+	
+	//	The disclosure tab
+	
+		.tab {
+		
+			@include link;
+			@include uaDisableTextZoom;
+		
+			display: block;
+			@include size((12 * $slice), (4 * $slice));
+			
+			position: absolute;
+			
+			bottom: -4 * $slice;
+			left: 50%;
+					
+			padding-left: 2 * $slice;
+			margin-left: 40 * $slice - 2 * $slice;
+			
+			padding-bottom: 2 * $slice;
+			margin-bottom: -2 * $slice;
+			
+			padding-right: 2 * $slice;
+			margin-right: -2 * $slice;
+			
+			padding-top: 0 * $slice;
+			margin-top: 0 * $slice;
+
+			background-repeat: no-repeat;
+			background-position: center bottom;
+			
+			z-index: 1024;
+			
+			@include transition2(.250s, padding-top, margin-top);
+		
+			background:  url(../arboreal.images/arboreal.article.blogPosts.predicate.toggle.png) center bottom no-repeat;
+				
+			span {
+			
+				display: block;
+				@include size(100%, 100%);
+				overflow-x: hidden;
+				text-indent: 2 * $pack;
+			
+				background: url(../arboreal.images/arboreal.article.blogPosts.predicate.toggle.glyph.png) center no-repeat;
+				
+				&:hover {
+			
+					background: url(../arboreal.images/arboreal.article.blogPosts.predicate.toggle.glyph.hover.png) center no-repeat;
+			
+				}
+				
+			}
+	
+		}
+		
+		.tab.active {
+		
+			padding-top: (2 * $slice) !important;
+			margin-top: (-2 * $slice) !important;
+			
+			background: url(../arboreal.images/arboreal.article.blogPosts.predicate.toggle.active.png) center bottom no-repeat;
+				
+			span {
+			
+				background: url(../arboreal.images/arboreal.article.blogPosts.predicate.toggle.active.glyph.png) center no-repeat;
+			
+			}
+		
+		}
+		
+		
+	//	Content wrapper
+		
+		> div {
+	
+			display: none;
+		
+		}
+		
+		div {
+		
+			@include width($arborealWidth + 4 * $slice);
+			margin-left: auto;
+			margin-right: auto;
+		
+		}
+	
+	
+	//	Actual content
+		
+		section {
+		
+			@include arborealContext;
+			margin-top: 0px;
+			@include width($arborealWidth + 4 * $slice);
+			padding: 0px !important;
+			border-spacing: 18px 18px;
+			
+			section.search {
+				
+				@include width(4 * $pack - 2 * $slice);
+				padding: (2 * $slice) !important;
+				background: rgba(0, 0, 0, .15);
+				@include boxShadowInner(rgba(0, 0, 0, .25), 0px, 0px, 8px);
+				
+				border: 1px solid rgba(255, 255, 255, .15);
+				margin: (2 * $slice - 1px) !important;
+				
+				@include borderRadius(9px);
+				
+				display: table-cell;
+			
+				input {
+				
+					@include width($arborealSidebarWidth - 4 * $slice - 2);
+					border: 1px solid rgba(0, 0, 0, .50);
+					
+					padding-left: $slice;
+					padding-right: $slice;
+					
+					margin-bottom: 2 * $slice;
+					
+					@include text(18px, (4 * $slice - 2), white);
+					min-height: (4 * $slice - 2);
+					
+					@include borderRadius(4.5px);
+					
+					@include gradientBackdropVertical(rgba(0, 0, 0, .55), rgba(0, 0, 0, .30));
+					@include boxShadow(rgba(255, 255, 255, .2), 0px, 1px, 0px);	
+				
+				}
+			
+				ul {
+				
+					display: block;
+				
+					margin-left: 2 * $slice;
+					padding-left: 4 * $slice;
+					
+					li {
+				
+						@include inlineBlock;
+						@include text(13px, 18px, white);
+						
+						margin-right: $slice;
+					
+					}
+					
+					margin-bottom: 2 * $slice;
+					
+					&:last-child {
+					
+						margin-bottom: 0;
+					
+					}
+					
+					background-position: center left;
+					background-repeat: no-repeat;
+				
+				}
+				
+				ul.tags {
+				
+					background-image: url(../arboreal.images/arboreal.article.blogPosts.predicate.tags.png)
+				
+				}
+				
+				ul.categories {
+				
+					background-image: url(../arboreal.images/arboreal.article.blogPosts.predicate.categories.png);
+				
+				}
+			
+			}
+			
+			position: relative;
+			
+			aside.browse {
+			
+				display: table-cell;
+				
+				@include width(8.5 * $pack);
+				
+				&:before, &:after {
+				
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					
+					margin: 0;
+					height: (2 + $arborealBlogPredicateBarRowsVisible) * $arborealBlogPredicateBarRowHeight;
+					
+					opacity: .25;
+				
+				}
+								
+				ul.years {
+				
+					@include uaDisableSelection;
+				
+					position: absolute;
+					
+					width: 3 * $pack;
+					
+					background-color: rgba(0, 0, 0, .65);
+					@include boxShadowInner(rgba(0, 0, 0, .35), 0px, 0px, 9px);
+					
+					top: 0px;
+					bottom: 0px;
+					
+					border-left: 1px solid rgba(255, 255, 255, .45);
+					border-right: 1px solid rgba(255, 255, 255, .45);
+					
+					margin-left: -1px;
+					margin-right: -1px;
+					
+					z-index: 32;
+				//	The z-index is needed for the outset border to show over
+				
+					li {
+					
+						@include text(24px, 36px, white);
+						text-align: center;
+						font-weight: bold;
+						
+						@include size(100%, $pack);
+						position: relative;
+						
+						text-shadow: 0px 0px 6px rgba(255, 255, 255, .5);
+						
+						&:first-child {
+						
+							margin-top: 0.5 * $pack;
+						
+						}
+						
+						top: 3px;	//	baseline: abnormal;
+						
+						@include transition(.125s);
+											
+					}
+					
+					li:active {
+					
+						@include animation(arborealSlightDimLightAnimation, 1.5s, infinite, ease-in-out);
+					
+					}
+					
+					li h3 {
+					
+						@include link;
+						opacity: .5;
+						@include transition(.125s);
+						
+						position: relative;
+					
+					}
+					
+					&:active li {
+					
+						opacity: .65;
+					
+					}
+					
+					&:active li:active {
+					
+						opacity: .1;
+					
+					}
+					
+					li:active h3, li.active h3 {
+					
+						opacity: 1;
+					
+						&:before, &:after {
+
+							@include pseudoBlock;						
+							@include size(100%, 4px);
+							
+							background-color: white;
+							
+							position: absolute;
+							
+							bottom: 50%;
+							
+							@include boxShadow(rgba(255, 255, 255, .5), 0px, 0px, 6px);
+							@include borderRadius(2px);
+						
+						}
+						
+						&:before {
+						
+							margin-left: -1.5em;
+							left: -50%;
+						
+						}
+						
+						&:after {
+						
+							margin-right: -1.5em;
+							right: -50%;
+						
+						}
+					
+					}
+
+					overflow: hidden;
+				
+				}
+				
+				ul.articles {
+				
+					position: absolute;
+					
+					width: (8.5 - 3) * $pack;
+					right: 2 * $slice;
+					
+					top: 0;
+					bottom: 0;					
+					
+					&:before {
+					
+						@include pseudoBlock;
+						@include full;
+						@include borderImage(url(../arboreal.images/arboreal.blog.predicate.articleTitles.backdrop.png), 72, 144, 0, 90, stretch);
+						
+						z-index: 8;
+					
+					}
+					
+					li {
+					
+						position: relative;
+						z-index: 16;
+						
+						@include text(18px, 36px, white);
+						margin-left: 4 * $slice;
+						
+						&:first-child {
+						
+							margin-top: 0.5 * $pack;
+						
+						}
+						
+						top: 3px;
+					
+					}
+					
+					overflow: hidden;
+				
+				}
+			
+			}
+		
+		}
+	
+	}
+	
+	
+	#blogNavigation.active {
+	
+		margin-bottom: $pack;
+		
+		&:before {
+	
+			@include shadowDownBlock(4px);
+			@include fullInset(0, 0, auto, 0);
+			@include borderInset("top", rgba(255, 255, 255, .65));
+		
+		}
+		
+		&:after {
+		
+			@include shadowUpBlock(4px);
+			@include fullInset(auto, 0, 0, 0);
+			@include borderInset("bottom", rgba(255, 255, 255, .65));
+		
+		}
+	
+	}
+	
+	 
+
+
+
+//	! 
+//	!Blog: Pagination Navigation
+
+	.context article + nav {
+	
+		text-align: center;
+		@include text(20px, 36px, rgb(39, 73, 37));
+	
+		a {
+		
+			@include inlineBlock;
+			height: 4 * $slice;
+			padding: (2 * $slice) 0;
+		
+			&:first-child {
+			
+				&:before {
+				
+					content: "«";
+					@include inlineBlock;
+					padding-right: $slice;
+				
+				}
+			
+			}
+			
+			&:last-child {
+			
+				&:after {
+				
+					content: "»";
+					@include inlineBlock;
+					padding-left: $slice;
+				
+				}
+			
+			}
+		
+			+ a {
+		
+				&:before {
+				
+					@include pseudoBlock;
+					@include inlineBlock;
+					width: 4 * $slice;
+				
+				}
+
+			}
+		
+		}
+	
+	}
+
+
+
+
+
+//	! 
+//	!Blog: Single Post
+
+	.blogPost,
+	article article {
+	
+		@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.png), 36, 27, 36, 27, round);
+		
+		margin: 0px (-2 * $slice) (4 * $slice) (-2 * $slice);
+		padding: 0px $slice;
+		
+			margin-bottom: 4 * $slice - 3px;
+			padding-bottom: 3px;
+		
+		&.more {
+		
+		//	We add an additional 3 pixels below every single truncated article because of how their backdrop looks — this helps visual balance
+		
+			@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.more.png), 36, 27, 36, 27, round);
+		
+			margin-bottom: 4 * $slice - 6px;
+			padding-bottom: 6px;
+		
+		}
+		
+		
+
+		header {
+		
+			@include typeSansSerifNeo;
+		
+			@include uaDisableTextZoom;
+			position: relative;
+
+			h2 {
+			
+				@include arborealBlogArticleHeaderTitle;
+				@include width($arborealArticleWidth + 2.5 * $pack);
+				@include textDelimited;
+				
+				margin-bottom: 2 * $slice;
+				
+			}
+			
+			ul {
+			
+				@include arborealBlogArticleHeaderCategoriesAndTags;
+
+				display: block;
+				
+				li {
+				
+					display: inline;
+				
+				}
+			
+			}
+			
+			.actions {
+				
+				@include uaDisableSelection;
+				
+				@include fullInset(0, 0, auto, auto);
+				@include size(auto, 4 * $slice);
+				
+				display: table;
+				border-spacing: 0px 0px;
+				
+				li {
+				
+					display: table-cell;
+					vertical-align: top;
+					
+					a {
+
+						@include size(auto, 4 * $slice);
+					
+					}
+					
+					+ li {
+						
+						padding-left: 0px (2 * $slice);
+					
+					}
+				
+				}
+				
+				
+				
+				
+				
+				a {
+				
+					margin: 0;
+				
+					span {
+					
+						display: none;
+					
+					}
+				
+					display: block;
+				
+				}
+				
+				//arboreal.article.blogPost.header.comments.glyph
+				
+				a.comments {
+				
+					opacity: .75;
+				
+					&.zero {
+					
+						opacity: .35;
+					
+					}
+					
+					&:hover {
+					
+						opacity: .85;
+					
+					}
+				
+					padding-left: 4 * $slice;
+					background: url(../arboreal.images/arboreal.article.blogPost.header.comments.glyph.png);
+					
+					background-position: left center;
+					background-repeat: no-repeat;
+					
+					span {
+					
+						display: none;
+					
+					}
+				
+					span.count {
+					
+						@include typeSansSerifPure;
+					
+						@include inlineBlock;
+						@include textDelimited;			//	Needs “Lots”?
+						
+						min-width: 36px;
+						
+						@include text(24px, 36px);
+
+						text-align: center;
+						position: relative;
+					
+					}
+				
+				}
+				
+			}
+		
+		}
+		
+		
+		
+		
+		
+		@include typeSansSerifUniversal;
+		@include text(18px, 27px, rgb(89, 89, 89));
+		
+		p {
+		
+			@include text(18px, 27px, rgb(64, 64, 64));
+			
+			+ p {
+			
+				margin-top: 27px;
+			
+			}
+		
+		}
+		
+		> blockquote {
+		
+			position: relative;
+		
+			&:before {
+			
+				@include pseudoBlock;
+				@include fullInset(-36px, -36px, -54px, -36px);
+				@include borderImage(url(../arboreal.images/arboreal.article.blogPost.blockQuote.backdrop.png), 36, 90, 54, 36, round);
+			
+			}
+			
+			> * {
+			
+				position: relative;
+				z-index: 1;
+			
+			}
+			
+			margin: 72px 144px;
+			
+			&, > * {
+			
+				@include text(14px, 27px, black);
+			
+			}
+			
+			h1, h2 {
+			
+				margin-top: 36px;
+				@include text(18px, 27px);
+				margin-bottom: 9px;
+				
+			}
+			
+			blockquote {
+			
+				@include boxShadowInnerEngraved(rgba(0, 0, 0, .25), 0px, 0px, 3px, transparent, rgba(255, 255, 255, .25));
+				
+				background: rgba(0, 0, 0, .025);
+				
+				margin: 2 * $slice;
+				
+				padding: 2 * $slice;
+				
+				@include borderRadius(4.5px);
+				
+				cite {
+				
+					display: block;
+					text-align: right;
+					
+					&:before {
+					
+						content: "—";
+					
+					}
+				
+				}
+			
+			}
+		
+		}
+		
+		.wrapStrap {
+		
+			@include inlineBlock;
+			position: relative;
+			
+			padding: 3px;
+			
+			margin-top: 0.5 * $pack - 3px;
+			margin-right: auto;
+			margin-bottom: (0.5 * $pack - 3px);
+			margin-left: auto;
+			
+			background-color: rgb(242, 242, 242);
+			@include boxShadow(rgba(0, 0, 0, .25), 0px, 1px, 2px);
+			
+			&:before, &:after {
+			
+				@include pseudoBlock;
+				position: absolute;
+				
+				@include size(2 * $pack);
+				background: url(../arboreal.images/arboreal.blogPost.decor.cornerStrap.png) center no-repeat;
+			
+			}
+			
+			&:before {
+			
+				left: -1 * $pack;
+				top: -1 * $pack;
+			
+			}
+			
+			&:after {
+			
+				right: -1 * $pack;
+				bottom: -1 * $pack;
+			
+			}
+			
+			img {
+			
+			//	We need a block element so there is no residue whitespace below it
+			
+				display: block;
+			
+			}
+		
+		}
+		
+		img + figure,
+		.wrapStrap + figure {
+		
+			@include text(14px, 18px, rgb(64, 64, 64));
+		
+		}
+		
+		
+		
+		
+		
+		footer {
+		
+			&:before {
+			
+				@include glareSplitVertical;
+				
+				margin: 0 (-2 * $slice);
+			
+			}
+			
+			margin-top: 2 * $slice;
+			margin-bottom: -2 * $slice + -1 * $slice;	//	the second negation eats out the border 
+		
+			@include typeSansSerifNeo;
+		
+			@include uaDisableTextZoom;
+		
+			position: relative;
+			
+			min-height: 4 * $slice;
+
+			@include text(13px, 36px, rgb(128, 128, 128));
+			
+			> * {
+			
+				@include inlineBlock;
+				
+				background-position: top left;
+				background-position-y: 9px;
+				
+				background-repeat: no-repeat;
+				
+				padding-left: 3 * $slice;
+				
+				line-height: 4 * $slice;
+				min-height: 4 * $slice;
+			
+			}
+			
+			> * {
+			
+				margin-right: 2 * $slice;
+				
+				&:last-child {
+				
+					margin-right: 0px;
+				
+				}
+			
+			}
+			
+			.author {
+			
+				background-image: url(../arboreal.images/arboreal.article.blogPost.footer.author.glyph.png);
+			
+			}
+			
+			time {
+			
+				background-image: url(../arboreal.images/arboreal.article.blogPost.footer.dateTime.glyph.png);
+			
+			}
+			
+			.categories {
+			
+				background-image: url(../arboreal.images/arboreal.article.blogPost.footer.categories.glyph.png);
+			
+			}
+			
+			.tags {
+			
+				background-image: url(../arboreal.images/arboreal.article.blogPost.footer.tags.glyph.png);
+			
+			}
+			
+				li {
+				
+					@include inlineBlock;
+				
+					line-height: 2 * $slice;
+					height: 2 * $slice;
+				
+					background: rgba(0, 0, 0, .05);
+					@include borderRadius($slice);
+					@include borderInsetSolid(rgba(0, 0, 0, .1));
+					padding: 0 $slice;
+					
+					margin-right: 0.5 * $slice;
+					
+					&:last-child {
+					
+						margin-right: 0px;
+					
+					}
+				
+				}
+			
+			.shareArticle,
+			.more {
+			
+				float: right;
+				line-height: 4 * $slice;
+				height: 4 * $slice;
+			
+			}
+			
+			.shareArticle {
+			
+				
+			
+			}
+			
+			.more {
+			
+				
+			
+			}
+			
+		}
+		
+	}
+
+
+
+
+
+//	! 
+//	!Blog: Comments
+
+	.context + .comments {
+	
+		margin-top: -1.25 * $pack;
+		margin-bottom: 2 * $pack;
+	
+		@include width(100%, ($arborealWidth + (2 * $arborealSidebarSpacing)), 100%);
+		padding: 0px;
+		
+		position: relative;
+	
+		background: rgb(160, 180, 181);
+		
+		> * {
+		
+			@include width($arborealWidth);
+			margin: 0 auto;
+		
+		}
+		
+		&:before {
+	
+			@include pseudoBlock;
+			@include fullInset(0, 0, auto, 0);
+
+			@include borderInset("top", rgba(255, 255, 255, .45));
+			@include borderInset("bottom", rgba(0, 0, 0, .2));
+			
+			z-index: 1024 + 512;
+		
+		}
+		
+		&:after {
+		
+			@include pseudoBlock;
+			@include fullInset(auto, 0, 0, 0);
+			
+			@include borderInset("top", rgba(0, 0, 0, .2));
+			@include borderInset("bottom", rgba(255, 255, 255, .45));
+		
+		}
+		
+		ul {
+		
+			&:before, &:after {
+			
+				position: absolute;
+			
+			}
+				
+			&:before {
+			
+				@include pseudoBlock;
+				@include borderInset("top", rgba(255, 255, 255, .85));
+				
+				width: 100%;
+				@include shadowDownBlock(4px);
+				
+				@include fullInset(-1, 0, 0, 0);
+				
+				top: 3px;
+				
+				z-index: 64;
+				
+				position: absolute;
+			
+			}
+			
+			&:after {
+			
+				@include pseudoBlock;
+				@include size(50%, 100%);
+				
+				background-color: rgb(196, 205, 206);
+				
+				z-index: 0;
+				
+				margin-right: 2.5 * $pack;
+				
+				right: 50%;
+				top: 0%;
+				
+				@include boxShadow2(rgba(0, 0, 0, .15), 1px, 0px, 0px, rgba(0, 0, 0, .35), 0px, 3px, 3px);
+				border-right: 1px solid rgba(255, 255, 255, .20);
+			
+			}
+			
+			padding: (2 * $slice) 0;
+		
+			li {
+			
+				clear: left;
+			
+				margin-left: $arborealSidebarWidth;
+				margin-right: -2 * $slice;
+	
+				@include borderImage(url(../arboreal.images/arboreal.blogPost.comment.backdrop.png), 72, 36, 36, 54, stretch);
+								
+				@include text(16px, 27px, rgb(64, 64, 64));
+				
+				> * {
+				
+					position: relative;
+					top: -4 * $slice;
+					
+					&:last-child {
+					
+						margin-bottom: -4 * $slice;
+					
+					}
+				
+				}
+				
+				p {
+				
+					margin-bottom: 3 * $slice;
+				
+				}
+				
+				aside {
+				
+					@include uaDisableTextZoom;
+				
+					z-index: 32;
+					
+					width: $arborealSidebarWidth - 16 * $slice;
+					@include inlineBlock;
+					float: left;
+					margin-left: -1 * ($arborealSidebarWidth + $arborealSidebarSpacing - 10 * $slice);
+					
+					.avatar {
+					
+						float: left;
+						@include size(8 * $slice);
+						margin-left: -1.5 * $pack;
+						margin-top: -2 * $slice;
+						
+						@include borderRadius(4.5px);
+						@include boxShadowInner(rgba(0, 0, 0, .50), 0px, 0px, 3px);
+						background-color: rgb(139, 156, 166);
+
+						position: relative;
+						
+						overflow: visible;
+						
+						&:empty {
+						
+							@include boxShadowInner(rgba(0, 0, 0, .0), 0px, 0px, 0px);
+							background: transparent;	
+							
+							img {
+							
+								@include boxShadowInner(rgba(0, 0, 0, 0), 0px, 0px, 3px);
+							
+							}
+						
+						}
+						
+						img {
+						
+							background-color: transparent;
+							@include size(100%);
+							@include borderRadius(4.5px);
+							@include boxShadowInner(rgba(0, 0, 0, .50), 0px, 0px, 3px);
+							
+							z-index: 32;
+													
+						}
+					
+					}
+					
+					.noShadow {
+						
+						@include boxShadow(rgba(0, 0, 0, .0), 0px, 0px, 0px);
+						background-color: transparent;
+						
+						img {
+						
+							@include boxShadowInner(rgba(0, 0, 0, 0), 0px, 0px, 3px);
+						
+						}
+					
+					}
+					
+					h3 {
+					
+						@include text(24px, 27px);
+						font-weight: bold;
+						vertical-align: bottom;
+					
+					}
+					
+					a {
+							
+						@include inlineBlock;
+					
+						background: url(../arboreal.images/arboreal.blogPost.comment.glyph.authorSite.png) top right no-repeat;
+						
+						background-position-y: -2px;
+						
+						padding-right: 4 * $slice;
+					
+					}
+					
+					time {
+					
+						@include text(13px, 18px);
+					
+					}
+					
+					@include textStroke;
+					color: rgb(81, 91, 92);
+					font-weight: bold;
+					
+					text-shadow:	rgba(255, 255, 255, .65) 0px 1px 0px,
+							rgba(0, 0, 0, .15) 0px -1px 0px;
+				
+				}
+			
+			}
+		
+		}
+		
+		section.pagination {
+		
+			@include uaDisableTextZoom;
+			@include uaDisableSelection;
+		
+			background-color: $arborealBackdrop;
+		
+			&:before {
+			
+				@include pseudoBlock;
+				@include fullInset(0, 0, -18px, 0);
+
+				width: 100%;
+				@include shadowUpBlock(4px);
+				position: absolute;
+				bottom: $pack;
+				top: auto;
+				margin-top: 0;
+			
+			}
+			
+			position: absolute;
+			
+			bottom: -1 * $pack;
+
+			@include size(100%, $pack);
+			@include width(100%);
+			
+			text-align: center;
+			vertical-align: middle;
+			
+			a {
+			
+				@include link;
+				@include inlineBlock;
+				@include size(4 * $slice);
+				padding: (2 * $slice) 0;
+				@include text(24px, 36px, $arborealBlogCommentPaginationLink);
+				@include typeSansSerifPaleo;
+				
+				position: relative;
+				@include transition(.25s);
+			
+			}
+			
+			.previous, .next {
+			
+				color: transparent;
+				@include uaDisableSelection;
+			
+			}
+			
+			a, .previous, .next {	opacity: .25;	}
+			a.active, a:hover {	opacity: 1;	}
+			
+			a.active {
+			
+				z-index: 48;
+				
+				&:before {
+						
+					@include pseudoBlock;
+					
+					@include size(4 * $slice);
+					left: 50%;
+					top: -100%;
+					margin-left: 0px;
+					margin-top: -4 * $slice;
+					background: url(../arboreal.images/arboreal.blogPost.comment.pagination.active.indicator.png) center no-repeat;
+				
+				}
+			
+			}
+			
+			.newComment {
+			
+				opacity: 1;
+	
+				@include size((12 * $slice - 2), (4 * $slice - 2));
+				padding-top: 0;
+				padding-bottom: 0;
+				position: absolute;
+				left: 50%;
+				margin-left: 5 * $pack;
+				top: 2 * $slice;
+				
+				border: 1px solid rgba(0, 0, 0, .35);
+				@include gradientBackdropVertical(rgba(255, 255, 255, .3), rgba(121, 128, 133, .3));
+				
+				@include boxShadow(rgba(255, 255, 255, .3), 0px, 1px, 0px);
+				overflow: hidden;
+				
+				@include borderRadius(4.5px);
+				
+				@include uaDisableSelection;
+				
+				z-index: (1024 + 192) !important;
+				
+				span {
+				
+					display: block;
+					@include size(12 * $slice, 4 * $slice);
+					color: transparent;
+					background: url(../arboreal.images/arboreal.blogPost.comment.glyph.addComment.png);
+					
+					background-position: center;
+					background-position: center -1px;
+					background-position-y: -1px;
+					background-repeat: no-repeat;
+				
+				}
+				
+				@include transition(.25s);
+				
+				&:hover {
+				
+					@include gradientBackdropVertical(rgba(255, 255, 255, .45), rgba(121, 128, 133, .45));
+					border-color: rgba(0, 0, 0, .5);
+				
+				}
+			
+			}
+			
+			.newComment.active,
+			.newComment:active {
+			
+				z-index: 1024 + 192;
+				border-color: rgba(0, 0, 0, .65);
+				
+				@include gradientBackdropVertical(rgba(0, 0, 0, .85), rgba(64, 64, 64, .75));
+				
+				opacity: .85;
+			
+				span {
+			
+					background-image: url(../arboreal.images/arboreal.blogPost.comment.glyph.addComment.active.png);
+					
+				}
+			
+			}
+		
+		}
+		
+		
+		
+		
+		
+		section.commentForm {
+		
+			@include uaDisableTextZoom;
+		
+			z-index: 1024 + 128;
+		
+			@include transition(.25s);
+		
+			display: block;
+			position: absolute;
+			
+			@include borderImage(url(../arboreal.images/arboreal.blogPost.comment.sheet.backdrop.png), $packRaw, 2 * $packRaw, $packRaw, $packRaw, stretch);
+			
+			@include size(3 * $pack, 5.375 * $pack);
+			@include width(2.5 * $pack);
+			
+			bottom: -3 * $slice;
+			left: 50%;
+			
+			margin-left: -1 * $pack - 1.5 * $pack + 4.25 * $pack;
+			
+			form {
+			
+				@include margin(-2 * $slice + 2, -10 * $slice + 2, -2 * $slice + 2, -2 * $slice + 2);
+				position: relative;
+				
+				> * {
+				
+					display: block;
+				
+				}
+				
+				
+			//	Invalid field indication
+				
+				.input:before {
+				
+					@include pseudoBlock;
+					
+					@include size(1.5 * $pack, 7 * $slice);
+					@include fullInset(50%, 0px, 0px, -1.5 * $pack);
+					margin-top: -1 * (3.5 * $slice + 2 + $slice);
+					
+					background: url(../arboreal.images/arboreal.blogPost.comment.sheet.indicator.invalidField.png) center no-repeat;
+					
+					opacity: 0;
+					
+					@include transition(.125s);
+					@include animation(arborealTagCircularMotionAnimation, 2.5s, infinite);
+				
+				}
+				
+				.input.invalid:before {
+				
+					opacity: 1;
+
+				}
+			
+			
+			//	Geometry & faux border
+			
+				input, .input:after {
+
+					@include borderRadius(4.5px);
+
+					@include size(100%, 6 * $slice - 4);
+					
+					margin: -2px;
+					margin-bottom: 2 * $slice + 2;
+					
+					border: 2px solid rgb(166, 142, 24);
+
+					@include text(24px, 36px, rgba(0, 0, 0, .5));
+					@include textPlaceholderColor;
+					
+					text-indent: $slice;					
+					font-weight: bold;
+					
+					@include transition(.25s);
+					
+					&:after {
+					
+						@include transition(.25s);
+					
+					}
+						
+				}
+
+				input.optional, .input.optional:after {
+				
+					height: 5 * $slice - 4;
+					border-style: dashed;
+
+					@include text(18px, 27px, rgba(0, 0, 0, .5));
+				
+				}	
+				
+				.input {
+				
+					position: relative;
+					
+					&:after {
+							
+						z-index: -1;
+										
+						@include pseudoBlock;
+						@include full;
+						border-color: rgba(255, 255, 255, .35);
+						
+						margin-top: -1px;
+					
+					}
+				
+				}
+				
+				
+			//	Active Highlight	
+				
+				input:active, input:focus, button:focus {
+				
+					background-color: rgba(255, 255, 255, .125);
+					@include boxShadow(rgba(255, 255, 255, .75), 0px, 0px, 6px);
+				
+					&:after {
+					
+						opacity: 0;
+					
+					}
+				
+				}
+				
+			
+			//	Comment body
+				
+				textarea {
+					
+					@include borderRadius(4.5px);
+					
+					border: none;
+				
+					@include size(3.75 * $pack, 2 * $pack);
+					margin: -2px;
+					margin-bottom: 2 * $slice + 2;
+					
+					resize: none;
+					
+					padding: $slice;
+					
+					@include gradientBackdropVertical(rgb(217, 212, 148), rgb(230, 224, 157));
+					
+					@include boxShadow2(rgba(0, 0, 0, .2), 0px, -1px, 0px, rgba(255, 255, 255, .7), 0px, 1px, 0px);
+					
+					@include text(20px, 36px, rgba(0, 0, 0, .65));
+					@include textPlaceholderColor;
+					
+					@include uiScrollbar;
+				
+				}
+				
+				
+			//	Submit!	
+				
+				button {
+				
+					background: transparent;
+					opacity: .75;
+				
+					@include borderRadius(4.5px);
+					@include size(12 * $slice, 5 * $slice);
+					@include borderInset("", white, 2px);
+					
+					margin-left: auto;
+					margin-right: -4px;
+					
+					@include text(20px, 27px, white);
+					@include transition(.25s);
+				
+				}
+				
+			}
+				
+		}
+		
+		section.hiddenCommentForm {
+		
+			bottom: -4 * $slice;
+			opacity: 0;
+		
+		}
+	
+	}
+	
+	
+	// Backdrop	
+	
+	.context + .comments {
+	
+		&:before {
+			
+			@include full;
+			@include pseudoBlock;
+			@include transition(.25);
+			
+			position: fixed;
+			
+			background-color: rgba(0, 0, 0, .35);
+			
+			z-index: 1024 + 96;
+			
+			display: none;
+			opacity: 0;
+	
+		}
+	
+	}
+	
+	.context + .comments.backdropped {
+	
+		&:before {
+		
+			display: block;
+			opacity: 1;
+					
+		}
+	
+	}
+	
+	
+	
+	
+	

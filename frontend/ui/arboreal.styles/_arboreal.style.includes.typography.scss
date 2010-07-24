@@ -1,0 +1,248 @@
+//	arboreal.style.includes.typography.scss
+//	Evadne Wu at Iridia, 2010
+
+
+
+
+
+//	! 
+//	!Typography
+
+
+	* {
+	
+	
+		text-rendering: optimizeLegibility;
+	
+	}
+	
+	@font-face {
+	
+		font-family: "arborealTypeSansSerifUniversal";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("Lucida Grande"), local("Lucida Unicode"), local("Helvetica"), local("Arial");
+	
+	}
+	
+	@font-face {
+	
+		font-family: "arborealTypeSansSerifUniversalCJK";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("LiHei Pro");
+	
+	}
+	
+	@font-face {
+	
+		font-family: "arborealTypeSansSerifPaleo";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("Palatino Italic"), local("Palatino-Italic"), local("Palatino"), local("Georgia");
+	
+	}
+	
+	@font-face {
+	
+		font-family: "arborealTypeSansSerifPaleoCJK";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("HiraMinProN-W3"), local("Hiragino Mincho ProN W3"), local("LiSongPro"), local("LiSong Pro");
+	
+	}
+	
+	@font-face {
+	
+		font-family: "arborealTypeSansSerifPure";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("Helvetica"), local("Arial");
+	
+	}
+	
+	
+	
+	
+	
+	@font-face {
+	
+		font-family: 'typeVegurLight';
+		src: url('../arboreal.typography/vegur.l.eot');
+		src: local('☺'), url('../arboreal.typography/vegur.l.woff') format('woff'), url('../arboreal.typography/vegur.l.ttf') format('truetype'), url('../arboreal.typography/vegur.l.svg#webfontsT4L3JLw') format('svg');
+		font-weight: normal;
+		font-style: normal;
+		
+	}
+	
+	@font-face {
+	
+		font-family: 'typeVegurMedium';
+		src: url('../arboreal.typography/vegur.m.eot');
+		src: local('☺'), url('../arboreal.typography/vegur.m.woff') format('woff'), url('../arboreal.typography/vegur.m.ttf') format('truetype'), url('../arboreal.typography/vegur.m.svg#webfont3Nm12ln4') format('svg');
+		font-weight: normal;
+		font-style: normal;
+		
+	}
+	
+	@font-face {
+	
+		font-family: 'typeVegur';
+		src: url('../arboreal.typography/vegur.r.eot');
+		src: local('☺'), url('../arboreal.typography/vegur.r.woff') format('woff'), url('../arboreal.typography/vegur.r.ttf') format('truetype'), url('../arboreal.typography/vegur.r.svg#webfontwZw8xeV0') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	
+	}
+
+	@font-face {
+
+		font-family: 'typeVegur';
+		src: url('../arboreal.typography/vegur.b.eot');
+		src: local('☺'), url('../arboreal.typography/vegur.b.woff') format('woff'), url('../arboreal.typography/vegur.b.ttf') format('truetype'), url('../arboreal.typography/vegur.b.svg#webfontR2OlSzun') format('svg');
+		font-weight: bold;
+		font-style: normal;
+
+	}
+	
+	
+	
+	
+	
+	@font-face {
+	
+		font-family: "typeSansSerifNeo";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		//	Note: In “development mode” we place the local copy of Vegur after the URLs because Chrome does not play well with FontExplorer X, and a FontExplored-managed copy of Vegur referenced by local() could not show; Chrome’s faulty and buggy fall-back mechanism will kill the rest of the fallback chain and directly show glyphs from Last Resort, which is undesirable.
+		
+		//	Also, we use typeVegur instead of Vegur in order not to trigger Chrome’s suicidal fallback.
+		
+		//	http://www.google.com/support/forum/p/Chrome/thread?tid=051106cc9f772c3a&hl=en
+		
+		//	Alternatively, place the PostScript names before the fonts’ names if their PostScript names are different from their ordinary names.  This helps Firefox and Opera.
+		
+		src:	url('../arboreal.typography/vegur.r.woff') format('woff'),
+			url('../arboreal.typography/vegur.r.ttf') format('truetype'), 
+			url('../arboreal.typography/vegur.r.svg#webfontwZw8xeV0') format('svg'), 
+		//	local("Vegur"),
+			
+			local("LucidaGrande"), 
+			local("Lucida Grande"), 
+			
+			local("LucidaSansUnicode"), 
+			local("Lucida Sans Unicode"), 
+			
+			local("HelveticaNeue"), 
+			local("Helvetica Neue"), 
+			
+			local("Helvetica"), 
+			
+			local("Arial");
+	
+	}
+	
+	@font-face {
+	
+		font-family: "typeSansSerifNeoCJK";
+		
+		font-style: normal;
+		font-weight: normal;
+		
+		src: local("LiHeiPro"), local("LiHei Pro");
+	
+	}
+	
+	
+	
+	
+	
+	@mixin typeMonospaced {
+	
+		font-family: "Menlo", "Bitstream Vera Sans Mono", "Monaco", monospace;
+
+	}
+	
+	@mixin typeSerifHumanistic {
+	
+		
+	
+	}
+	
+	@mixin typeSansSerifNeo {
+	
+		font-family: "typeVegur", "typeSansSerifNeo", "typeSansSerifNeoCJK", sans-serif;
+	
+	}
+	
+	@mixin typeSansSerifUniversal {
+	
+		font-family: "arborealTypeSansSerifUniversal", "arborealTypeSansSerifUniversalCJK", sans-serif;
+	
+	}
+	
+	@mixin typeSansSerifPaleo {
+	
+		font-family: "arborealTypeSansSerifPaleo", "arborealTypeSansSerifPaleoCJK", serif;
+	
+	}
+	
+	@mixin typeSansSerifPure {
+	
+		font-family: "arborealTypeSansSerifPure", sans-serif;
+		
+	}
+	
+	
+	
+	
+	
+	i, cite, em, var, address {
+	
+		@include typeSansSerifPaleo;
+		font-style: normal;
+	
+	}
+	
+	
+	
+	
+	
+	@mixin arborealBlogArticleHeaderTitle {
+	
+		@include text(20px, 36px, rgb(39, 73, 37));
+		
+		text-shadow:	rgba(255, 255, 255, .65) 0px 1px 0px,
+				rgba(0, 0, 0, .15) 0px -1px 0px;
+			
+	}
+	
+	@mixin arborealBlogArticleHeaderDateTime {
+	
+		@include text(40px, 40px, rgb(39, 73, 37));
+		
+		font-weight: bold;
+	
+	}
+	
+	@mixin arborealBlogArticleHeaderCategoriesAndTags {
+	
+		@include text(13px, 18px, rgb(39, 73, 37));
+	
+	}
+
+
+
+

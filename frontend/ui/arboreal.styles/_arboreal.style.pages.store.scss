@@ -1,0 +1,186 @@
+//	arboreal.style.pages.store.scss
+//	Evadne Wu at Iridia, 2010
+
+
+
+
+
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Store …………………………………………………………………………………………………………………………………………………………………………………………
+
+
+
+
+
+//	! 
+//	!Store: Message
+
+	.storeMessage {
+		
+		@include uaDisableSelection;
+		@include uaDisableTextZoom;
+	
+		position: fixed;
+		
+		
+		@include width(4.5 * $pack, 4.5 * $pack, 6 * $pack);
+		@include height($arborealNavigationBarHeight);
+		
+		top: 0px;
+		right: 50%;
+		margin-right: -0.5 * $arborealWidth;
+		
+		padding: 0; 
+	
+		@include transition(.35s, ease-in-out);
+	
+	&.active {
+	
+		@include height(4 * 12 * $slice + $pack + 2 * $slice);
+	
+	}
+			
+		> div {
+		
+			&:before {
+			
+				@include pseudoBlock;
+				@include fullInset(0px);
+			
+			}
+
+			@include fullInset(auto, 0px, 0px, 0px);
+
+			@include gradientBackdropVertical(rgb(220, 202, 109), rgb(193, 173, 65));
+			@include gradientBackdropVertical(rgba(220, 202, 109, .98), rgba(193, 173, 65, .95));
+			
+			@include borderInsetSolidShadowed(rgba(255, 255, 255, .5), 1px, rgba(0, 0, 0, .5), 0px, 2px, 4px);
+		
+			margin-top: -1px;
+			padding: ($slice + 1px) $slice $slice $slice;
+			
+			&, > * {
+			
+				@include text(18px, 36px, rgb(16, 38, 0));
+			
+			}
+			
+			> * {
+			
+				@include inlineBlock;
+				
+				margin-top: -9px;
+				margin-bottom: -9px;
+				
+				text-shadow: 	0px 1px 0px rgba(255, 255, 255, .5),
+						0px -1px 0px rgba(255, 255, 255, .1);
+			
+			}
+			
+			ul {
+			
+				height: 4 * 12 * $slice + 1;	//	1px bottom engrave
+				margin: $slice 0px (2 * $slice - 1) 0px;
+				padding: $slice $slice ($slice + 1) $slice;
+				
+				overflow-y: auto;
+			
+				&, li {
+				
+					display: block;
+				
+				}
+				
+				position: relative;
+				
+				&:before {
+				
+					@include pseudoBlock;
+					
+					position: absolute;
+					@include fullInset(0px, 0px, 1px, 0px);
+					
+					background: rgb(89, 89, 89);
+					
+					@include borderRadius(4.5px);
+					
+					@include boxShadowInnerEngraved(rgba(0, 0, 0, .5), 0px, 0px, 6px, transparent, rgba(255, 255, 255, .5));
+				
+				}
+			
+			}
+			
+			span.amountPayable, a {
+			
+				@include height(36px);
+			
+			}
+			
+			span.amountPayable {
+			
+				@include text(24px, 36px, rgb(16, 38, 0));
+				font-weight: bold;
+				text-indent: 2 * $slice;
+				
+				position: relative;
+				top: 2px;			//	line-height: abnormal;
+			
+			}
+			
+			a {
+			
+				position: relative;
+			
+				float: right;
+				margin: 0px;
+				
+				padding: 0 (2 * $slice);
+				
+				color: rgb(255, 255, 255) * .2;
+				
+				@include gradientBackdropVertical(rgb(218, 200, 109), rgb(190, 170, 66));
+				
+				@include borderInsetSolidEngraved(rgba(0, 0, 0, .85), 1px, rgba(0, 0, 0, .15), rgba(255, 255, 255, .55));
+				
+				@include borderRadius(0.5 * $slice);
+				
+				margin-left: $slice;
+			
+			}
+		
+		}
+	
+	}
+
+
+
+
+
+//	! 
+//	!Store: Shelf
+
+	.storeShelf {
+	
+		margin: 0 -18px;
+		padding: 0 18px;
+	
+		background: url(../arboreal.images/arboreal.shelf.backdrop.png) top center repeat-y;
+		text-align: center;
+	
+		li {
+		
+			@include inlineBlock;
+			@include size(2 * $pack, 4 * $pack);
+			margin: 0 (0.5 * $pack);
+		
+		}
+	
+	}
+
+
+
+

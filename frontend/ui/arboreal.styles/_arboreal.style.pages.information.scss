@@ -1,0 +1,100 @@
+//	arboreal.style.pages.information.scss
+//	Evadne Wu at Iridia, 2010
+
+
+
+
+
+//	! 
+//	! 
+//	! 
+//	! 
+//	! 
+//	!Information …………………………………………………………………………………………………………………………………………………………………………
+
+
+
+
+
+//	! 
+//	!Contact: Letter Wrap
+	
+	.letterWrap {
+	
+		@include uaDisableSelection;
+	
+		margin: $slice;
+		padding: $slice;
+		
+		position: relative;
+		background-color: $arborealPanelBackdrop;
+		
+		@include borderRadius(2.25px);
+		
+		&:before {
+		
+			@include pseudoBlock;
+			z-index: -1;
+			@include full(-1 * $slice);
+			
+			background: url(../arboreal.images/arboreal.letter.backdrop.png) top left repeat;
+			background-color: white;
+			@include borderRadius(4.5px);
+			
+			@include boxShadow(rgba(0, 0, 0, .45), 0px, 2px, 4px);
+		
+		}
+		
+		form {
+		
+			margin: 0 $slice;
+
+			input, textarea {
+		
+				width: 100%;
+				
+				@include recessedGreenField;
+				margin-left: -2 * $slice;
+				
+				display: block;
+				
+				@include text(27px, (3 * $slice), #444);
+
+			}
+			
+			textarea {
+			
+				resize: vertical;
+				padding: $slice 0;
+			
+			}
+			
+			input {
+			
+				height: 5 * $slice - 2 * $slice;
+				
+			
+			}
+			
+			textarea {
+			
+				min-height: 3 * $pack - 2 * $slice;
+			
+			}
+				
+		}
+		
+		+ a.submitButton {
+		
+			width: 7 * $slice;
+			
+			margin-left: auto;
+			margin-right: -2 * $slice;
+		
+		}
+	
+	}
+
+
+
+
