@@ -318,9 +318,7 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	@-webkit-keyframes arborealCalendarActionHoverAnimation {
 	
 		0% {	background-color: rgb(153, 153, 153);	}
-		
 		50% {	background-color: rgb(96, 96, 96);	}
-		
 		100% {	background-color: rgb(153, 153, 153);	}
 	
 	}
@@ -328,13 +326,9 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	@-webkit-keyframes arborealTagCircularMotionAnimation {
 	
 		0% {	-webkit-transform: translateX(0px), translateY(0px);		}
-		
 		25% {	-webkit-transform: translateX(4.5px), translateY(2.25px);	}
-		
 		50% {	-webkit-transform: translateX(9px), translateY(0px);		}
-		
 		75% {	-webkit-transform: translateX(4.5px), translateY(-2.25px);	}
-		
 		100% {	-webkit-transform: translateX(0px), translateY(0px);		}
 	
 	}
@@ -342,13 +336,9 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	@-webkit-keyframes arborealTagCircularRotationAnimation {
 	
 		0% {	-webkit-transform: rotate(0deg);	}
-		
 		25% {	-webkit-transform: rotate(90deg);	}
-		
 		50% {	-webkit-transform: rotate(180deg);	}
-		
 		75% {	-webkit-transform: rotate(270deg);	}
-		
 		100% {	-webkit-transform: rotate(360deg);	}
 	
 	}
@@ -356,13 +346,9 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	@-webkit-keyframes arborealSlightDimLightAnimation {
 	
 		0% {	opacity: 1;	}
-		
-		25% {	opacity: .9;	}
-		
-		50% {	opacity: .75;	}
-		
+		25% {	opacity: .9;	}		
+		50% {	opacity: .75;	}		
 		75% {	opacity: .9;	}
-
 		100% {	opacity: 1;	}
 	
 	}	
@@ -644,12 +630,21 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 			//	A semi-transparent black overlay over a particular color
 			//	@color - rgb(255, 255, 255) * percentage
 			
-				height: $arborealNavigationBarHeight - (2 * $arborealNavigationBarBorderWidth);
-				border: $arborealNavigationBarBorderWidth solid ($arborealNavigationBarBackdrop - (rgb(255, 255, 255) * 0.05));
+				height: $arborealNavigationBarHeight;
+
 				background: $arborealNavigationBarBackdrop;
 				
 				@include borderRadius(4.5px);
-				@include boxShadow2(rgba(0, 0, 0, .35), 0px, -1px, 0px, rgba(255, 255, 255, .5), 0px, 1px, 0px);
+				
+				@include borderInsetSolidShadowed2(
+
+					($arborealNavigationBarBackdrop - (rgb(255, 255, 255) * 0.05)),
+					$arborealNavigationBarBorderWidth,
+					
+					rgba(0, 0, 0, .35), 0px, -1px, 0px, 
+					rgba(255, 255, 255, .5), 0px, 1px, 0px
+					
+				);
 				
 				overflow: visible;
 			
@@ -660,23 +655,20 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 					display: block;
 					float: left;
 					
-					@include text(18px, $arborealNavigationBarHeight, rgb(32, 76, 0));
+					@include text(18px, ($arborealNavigationBarHeight - 2), rgb(32, 76, 0));
 					@include size(1.5 * $pack, $arborealNavigationBarHeight);
 					
-					margin-top: -1 * $arborealNavigationBarBorderWidth;
 					text-align: center;
 					vertical-align: middle;
 					
 					&:first-child {
 					
-						margin-left: -4px;
 						@include borderRadius(4.5px, 0, 0, 4.5px);
 						
 					}
 					
 					&:last-child {
 					
-						margin-right: -4px;
 						@include borderRadius(0, 4.5px, 4.5px, 0);
 						
 					}
@@ -687,7 +679,7 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 	
 							@include glareSplitHorizontal;
 							position: absolute;
-							left: -1;
+							left: -1 * $slice;
 							height: $arborealNavigationBarHeight;
 
 						}
@@ -743,10 +735,7 @@ $monoSnippetsDirectory: "../lib.monoSnippets/";
 				
 					&:before {
 	
-						@include glareSplitHorizontalReversed;
-						position: absolute;
-						left: -1;
-						height: $arborealNavigationBarHeight;
+						@include glareSplitHorizontal(reversed);
 
 					}
 					
