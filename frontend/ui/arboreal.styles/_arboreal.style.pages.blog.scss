@@ -655,6 +655,15 @@
 				}
 				
 			}
+			
+			&:after {
+			
+				@include glareSplitVertical;
+				
+				margin: 0 (-2 * $slice);
+				margin-bottom: (2 * $slice);
+			
+			}
 		
 		}
 		
