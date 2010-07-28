@@ -892,7 +892,7 @@
 					line-height: 2 * $slice;
 					height: 2 * $slice;
 				
-					background: rgba(0, 0, 0, .05);
+					background: rgba(0, 0, 0, .03);
 					@include borderRadius($slice);
 					@include borderInsetSolid(rgba(0, 0, 0, .1));
 					padding: 0 $slice;
@@ -1075,8 +1075,6 @@
 						margin-left: -1.5 * $pack;
 						margin-top: -2 * $slice;
 						
-						@include borderRadius(4.5px);
-						@include boxShadowInner(rgba(0, 0, 0, .50), 0px, 0px, 3px);
 						background-color: rgb(139, 156, 166);
 
 						position: relative;
@@ -1093,7 +1091,22 @@
 								@include boxShadowInner(rgba(0, 0, 0, 0), 0px, 0px, 3px);
 							
 							}
+							
+							&:before {
+							
+								display: none;
+							
+							}
 						
+						}
+						
+						&:before {
+						
+							@include full;
+							@include pseudoBlock;
+							@include borderRadius(4.5px);
+							@include boxShadowInner(rgba(0, 0, 0, .50), 0px, 0px, 3px);
+												
 						}
 						
 						img {
