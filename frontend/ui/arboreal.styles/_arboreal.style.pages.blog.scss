@@ -1087,6 +1087,8 @@
 						
 						overflow: visible;
 						
+						@include borderRadius(4.5px);
+						
 						&:empty {
 						
 							@include boxShadowInner(rgba(0, 0, 0, .0), 0px, 0px, 0px);
