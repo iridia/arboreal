@@ -1509,7 +1509,6 @@
 					@include borderInset("", white, 2px);
 					
 					margin-left: auto;
-					margin-right: -4px;
 					
 					@include text(20px, 27px, white);
 					@include transition(.25s);
