@@ -161,7 +161,7 @@
 		font-style: normal;
 		font-weight: normal;
 		
-		src: local("LiHeiPro"), local("LiHei Pro");
+		src: local("HiraKakuPro-W3"), local("Hiragino Kaku Gothic ProN W3"), local("LiHeiPro"), local("LiHei Pro");
 	
 	}
 	
@@ -183,7 +183,7 @@
 	
 	@mixin typeSansSerifNeo {
 	
-		font-family: "typeVegur", "typeSansSerifNeo", "typeSansSerifNeoCJK", sans-serif;
+		font-family: "typeVegur", "typeSansSerifNeo", "typeSansSerifNeoCJK", "arborealTypeSansSerifUniversal", "arborealTypeSansSerifUniversalCJK", sans-serif;
 	
 	}
 	

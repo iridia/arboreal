@@ -528,7 +528,7 @@
 
 		header {
 		
-			@include typeSansSerifNeo;
+			@include typeSansSerifUniversal;
 			
 			position: relative;
 
@@ -671,7 +671,7 @@
 		
 		
 		
-		@include typeSansSerifUniversal;
+		@include typeSansSerifNeo;
 		@include text(18px, 27px, rgb(89, 89, 89));
 		
 		p {
