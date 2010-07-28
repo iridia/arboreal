@@ -529,15 +529,14 @@
 		header {
 		
 			@include typeSansSerifNeo;
-		
-			@include uaDisableTextZoom;
+			
 			position: relative;
 
 			h2 {
 			
 				@include arborealBlogArticleHeaderTitle;
 				@include width($arborealArticleWidth + 2.5 * $pack);
-				@include textDelimited;
+			//	@include textDelimited;
 				
 				margin-bottom: 2 * $slice;
 				
@@ -560,9 +559,10 @@
 			.actions {
 				
 				@include uaDisableSelection;
+			//	@include uaDisableTextZoom;
 				
 				@include fullInset(0, 0, auto, auto);
-				@include size(auto, 4 * $slice);
+			//	@include size(auto, 4 * $slice);
 				
 				display: table;
 				border-spacing: 0px 0px;
@@ -574,7 +574,7 @@
 					
 					a {
 
-						@include size(auto, 4 * $slice);
+					//	@include size(auto, 4 * $slice);
 					
 					}
 					
