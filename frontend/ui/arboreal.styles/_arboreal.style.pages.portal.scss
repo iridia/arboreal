@@ -233,6 +233,7 @@
 		h2 {
 		
 			@include arborealBlogArticleHeaderTitle;
+			text-shadow: none;
 			@include width($arborealArticleWidth - (4 * $slice));
 			@include textDelimited;
 			
@@ -252,7 +253,7 @@
 		
 		p {
 		
-			@include text(14px, 18px, rgb(89, 89, 89));
+			@include text(13px, 18px, rgb(89, 89, 89));
 			margin-bottom: 2 * $slice;
 		
 		}
