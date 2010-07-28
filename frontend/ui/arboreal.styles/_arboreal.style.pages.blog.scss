@@ -809,6 +809,8 @@
 		.wrapStrap + figure {
 		
 			@include text(14px, 18px, rgb(64, 64, 64));
+			margin-top: -1 * $slice;
+			margin-bottom: 1 * $slice;
 		
 		}
 		
