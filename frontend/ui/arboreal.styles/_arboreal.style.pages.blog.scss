@@ -662,6 +662,8 @@
 				
 				margin: 0 (-2 * $slice);
 				margin-bottom: (2 * $slice);
+				
+				opacity: .25;
 			
 			}
 		
@@ -676,16 +678,22 @@
 		
 		p {
 		
-			@include text(18px, 27px, rgb(64, 64, 64));
+			@include text(18px, 31.5px, rgb(64, 64, 64));
 			
 			+ p {
 			
-				margin-top: 27px;
+				margin-top: 0.5em;
 			
 			}
 		
 		}
 		
+		li + li {		margin-top: 0.5em;	}
+		footer li + li {	margin-top: 0px;	}
+		
+		ul {		margin-bottom: 1em;		}
+		footer ul {	margin-bottom: 0px;		}
+				
 		> blockquote {
 		
 			position: relative;
