@@ -366,6 +366,7 @@
 			li {
 			
 				@include size(2 * $pack, 6 * $slice);
+				margin: 0 (2 * $slice);
 				
 				@include inlineBlock;
 				
@@ -430,14 +431,20 @@
 				
 					@include glareSplitHorizontal;
 					height: 100%;
+					position: absolute;
+					top: 0;
+				
+				}
+				
+				&:before {
+				
+					left: -1 * $slice;
 				
 				}
 				
 				&:after {
 				
-					position: absolute;
-					right: 0;
-					top: 0;
+					right: -1 * $slice;
 				
 				}
 			
