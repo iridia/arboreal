@@ -21,6 +21,8 @@
 	html {
 	
 		background-color: $arborealBackdrop;
+		min-width: $arborealWidth + 2 * $arborealSidebarSpacing;
+		
 		overflow-x: hidden;
 	
 	}
@@ -31,8 +33,6 @@
 
 		background-image: url(../arboreal.images/arboreal.backdrop.whiteNoise.15.png);
 		
-		min-width: $arborealWidth + 2 * $arborealSidebarSpacing;
-		
 		> * {
 		
 			@include width($arborealWidth);
@@ -42,9 +42,13 @@
 		}
 		
 		position: absolute;
+		
+		min-width: $arborealWidth + 2 * $arborealSidebarSpacing;
 		width: 100%;
+		
 		min-height: 100%;
-			
+
+		overflow-x: hidden;
 		overflow-y: auto;
 	
 	}
@@ -587,6 +591,9 @@
 		
 		@include fullInset(auto, 0px, 0px, 0px);	
 		@include width(100%);
+		
+		overflow-x: hidden;
+		
 		padding: 0;
 	
 		background: $arborealFooterBackdrop;
