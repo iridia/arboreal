@@ -40,7 +40,7 @@
 	
 	@font-face {
 	
-		font-family: "arborealTypeSansSerifPaleo";
+		font-family: "arborealTypeSerifPaleo";
 		
 		font-style: normal;
 		font-weight: normal;
@@ -51,7 +51,7 @@
 	
 	@font-face {
 	
-		font-family: "arborealTypeSansSerifPaleoCJK";
+		font-family: "arborealTypeSerifPaleoCJK";
 		
 		font-style: normal;
 		font-weight: normal;
@@ -193,9 +193,9 @@
 	
 	}
 	
-	@mixin typeSansSerifPaleo {
+	@mixin typeSerifPaleo {
 	
-		font-family: "arborealTypeSansSerifPaleo", "arborealTypeSansSerifPaleoCJK", serif;
+		font-family: "arborealTypeSerifPaleo", "arborealTypeSerifPaleoCJK", serif;
 	
 	}
 	
@@ -211,7 +211,7 @@
 	
 	i, cite, em, var, address {
 	
-		@include typeSansSerifPaleo;
+		@include typeSerifPaleo;
 		font-style: normal;
 	
 	}

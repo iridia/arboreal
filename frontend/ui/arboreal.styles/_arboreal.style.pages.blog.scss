@@ -1237,7 +1237,7 @@
 				@include size(4 * $slice);
 				padding: (2 * $slice) 0;
 				@include text(24px, 36px, $arborealBlogCommentPaginationLink);
-				@include typeSansSerifPaleo;
+				@include typeSerifPaleo;
 				
 				position: relative;
 				@include transition(.25s);
