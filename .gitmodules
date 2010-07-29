@@ -82,3 +82,6 @@
 [submodule "frontend/ui/lib.modernizr"]
 	path = frontend/ui/lib.modernizr
 	url = git://github.com/Modernizr/Modernizr.git
+[submodule "frontend/ui/lib.explorerCanvas"]
+	path = frontend/ui/lib.explorerCanvas
+	url = git://github.com/iridia/explorerCanvas.git
