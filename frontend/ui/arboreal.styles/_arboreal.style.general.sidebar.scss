@@ -230,6 +230,17 @@
 		
 		}
 		
+		.details[irCalendarEngineBusy='false']:empty {
+		
+			&:after {
+			
+				display: block;
+				content: "No Events";
+			
+			}
+		
+		}
+		
 		.details {
 		
 			clear: left;
@@ -264,14 +275,17 @@
 				@include pseudoBlock;
 			
 				content: "Loading…";
-				@include text(16px, $pack, white);
+				@include text(16px, $pack, rgb(48, 48, 48));
+
+				text-shadow:	0px -1px 0px rgba(255, 255, 255, .125),
+						0px 1px 3px rgba(255, 255, 255, .20);
+						
 				text-align: center;
+				font-weight: bold;
 				
 				height: $pack;
 				
 				display: none;
-				
-				font-weight: bold; 
 			
 			}
 			
