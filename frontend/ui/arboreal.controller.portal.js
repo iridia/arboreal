@@ -48,7 +48,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 			mainCalendarStream: {
 			
-				"calendarID": arboreal.presets.pages.portal.calendarID,
+					"calendarID": arboreal.presets.pages.portal.calendarID,
 				
 				"methodImmediatelyExecutes": true,
 				"methodName": "fetchEvents",
@@ -436,9 +436,33 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 	
 	
+	slidesWorkers: {},
+	
 	initializeSlidesController: function () {
 	
-		mono.log("Initializing slides controller");	
+		var thisObject = this;
+	
+		this.viewsWithClass("irSlidesController").each(function (index, object) {
+		
+			var self = $(object);
+			
+			var slidesControllerPresetKey = self.attr("irSlidesController");
+			
+			mono.log("key", slidesControllerPresetKey);
+			
+			var slidesControllerPreset = arboreal.presets.pages.currentPage.irSlidesController[slidesControllerPresetKey];
+
+			if (slidesControllerPreset == undefined) {
+			
+				mono.info("Found Slides Controller preset key", slidesControllerPresetKey, "in the DOM without respective preset defined.");
+				
+				return true;
+			
+			}
+			
+			thisObject.slidesControllerWorkers[slidesControllerPresetKey] = new iridia.slidesController(slidesControllerPreset, thisObject);
+			
+		});
 	
 	},
 	
