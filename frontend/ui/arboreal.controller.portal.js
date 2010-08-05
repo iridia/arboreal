@@ -33,6 +33,8 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			calendarSubscriptionAnchor: $("aside .calendar .actions a").eq(0),
 			
 			calendarTooltip: $("aside .calendar .tooltip").eq(0),
+			
+			galleryHolder: $("ul[irSlidesController*=mainController]").eq(0)
 		
 		};
 		
@@ -71,6 +73,8 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		this.initializeCalendarEngine();
 		
 		this.initializeTwitterPanel();
+		
+		this.initializeSlidesController();
 		
 	},
 	
@@ -426,32 +430,105 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 	
 	//! 
-	//!Slides Controller Delegation
+	//!Slides Controller 
+	
+	
+	
+	
+	
+	initializeSlidesController: function () {
+	
+		mono.log("Initializing slides controller");	
+	
+	},
 	
 	
 	/* ([iridia.slidesControllerSlides, …]) */ slidesForController: function (slideController) {
 	
 		mono.log("SlidesController", slideController, "asks for slides.");
+		
+		this.pageControlController.setTotalPageCount(slideController.slides.length);
 	
 	},
 			
 	/* (void) */ slideWillAppear: function (slideController, theSlide) {
 	
+		this.pageControlController.setActivePageIndex(
+			
+			slideController.slides.indexOfObject(theSlide)
+		
+		);
+	
 	},
 	
 	/* (void) */ slideDidAppear: function (slideController, theSlide) {
+	
+		this.pageControlController.setActivePageIndex(
+			
+			slideController.slides.indexOfObject(theSlide)
+		
+		);
 	
 	},
 				
 	/* (void) */ slideWillDisappear: function (slideController, theSlide) {
 	
+		this.pageControlController.setActivePageIndex(null);
+	
 	},
 	
 	/* (void) */ slideDidDisappear: function (slideController, theSlide) {
 	
+		this.pageControlController.setActivePageIndex(
+		
+			slideController.slides.indexOfObject(theSlide)
+			
+		)
+	
 	},
 	
 	/* (Boolean) */ slidesControllerShouldShowSlide: function (slideController, theSlide) {
+	
+	//	The slides controller would ask the portal controller every time the timer ticks and it is time to advance.  Because the user might have her mouse cursor hoverred over the page control, we need to know this instead of allowing the slides controller to advance undesirably.
+	
+		if (theSlide != slideController.currentSlide)
+		if (!this.pageControlController.hoveredPageRepresentation == (
+		
+			this.pageControlController.pageRepresentations[
+
+				slideController.slides.indexOfObject(theSlide)
+			
+			]
+		
+		))
+		
+		return true;
+		
+		return false;
+	
+	},
+	
+	
+	
+	
+	
+	//! Page Control Event Handlers & Helpers
+	
+	/* (Boolean) */ pageControlShouldChangePage: function () {
+	
+		//	At this time ask the slides controller to advance to that page
+		
+		//	page control should have a “interested in this page” variable that gets set to true once the user hovers over a particular page and to false whenever the mouse exits the page dot.  this variable would get queried every time the slides controller is going to advance, and if the mouse is still within the dot the variable would be false, and if the variable is false, it clearly means that the user’s intent to view the corresponding slide has not ceased.
+		
+		//	Therefore, usually this method call — page control should change page — is going to be a firm YES.
+		
+		return true;
+	
+	},
+	
+	/* (void) */ pageControlDidChangePage: function () {
+	
+		//	Does nothing
 	
 	}
 
