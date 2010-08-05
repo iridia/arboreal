@@ -171,6 +171,10 @@
 				this.file(_("lib.irSlidesController/lib.irSlidesController.js"))
 				.provides("iridia.slidesController")
 				.requires("jQuery", "JS.Class", "JS.Interface", "JS.Delegatable", "mono");
+				
+				this.file(_("lib.irPageControlController/lib.irPageControlController.js"))
+				.provides("iridia.pageControlController")
+				.requires("jQuery", "JS.Class", "JS.Interface", "JS.Delegatable", "mono");
 			
 			
 			//	Flesler frameworks

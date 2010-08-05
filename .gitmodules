@@ -85,3 +85,6 @@
 [submodule "frontend/ui/lib.explorerCanvas"]
 	path = frontend/ui/lib.explorerCanvas
 	url = git://github.com/iridia/explorerCanvas.git
+[submodule "frontend/ui/lib.irPageControlController"]
+	path = frontend/ui/lib.irPageControlController
+	url = git://github.com/iridia/irPageControlController.git
