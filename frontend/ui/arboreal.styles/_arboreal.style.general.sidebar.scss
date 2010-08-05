@@ -246,6 +246,16 @@
 			clear: left;
 			background: $arborealPredicateBarBackdrop;
 			
+			@include boxShadowWithLiteral(
+			
+				inset 1px 0px 0px rgba(0, 0, 0, .35),
+				inset 2px 0px 2px rgba(255, 255, 255, .05),
+				
+				inset -1px 0px 0px rgba(0, 0, 0, .35),
+				inset -2px 0px 2px rgba(255, 255, 255, .05)
+			
+			); 
+			
 			margin-top: (2 * $slice);			
 			padding: $slice 0;
 
