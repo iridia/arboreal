@@ -56,13 +56,11 @@
 				margin-left: auto;
 				margin-right: auto;
 				
-				@include text(13px, 4 * $pack, white);
+				@include text(13px, 4 * $pack, rgba(255, 255, 255, .25));
 				text-align: center;
 				
 				font-weight: bold;
-				
-				opacity: .25;
-				
+								
 				z-index: 1024 + 16;
 			
 			}
@@ -321,17 +319,17 @@
 			@include link;
 		
 			height: 4 * $slice;
-			margin-bottom: -3 * $slice;
-			
 			background: url(../arboreal.images/arboreal.article.blogPosts.more.png) center right no-repeat;
 			
 			position: relative;
+			
+			margin-top: 0px;
+			margin-bottom: $slice;
 			
 			a {
 			
 				@include full;
 				margin: 0 (-2 * $slice);
-				@include borderRadius(0px, 0px, 9px, 9px);
 				
 				text-align: right;
 				@include text(16px, 36px, rgb(89, 89, 89));
@@ -352,7 +350,11 @@
 			
 			}
 			
+			&:last-child {
 			
+				margin-bottom: -4 * $slice;
+			
+			}
 		
 		}
 	
