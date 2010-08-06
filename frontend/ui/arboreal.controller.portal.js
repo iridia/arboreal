@@ -488,19 +488,42 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 			}
 			
-			thisObject.slidesControllerWorkers[slidesControllerPresetKey] = new iridia.slidesController(slidesControllerPreset, thisObject);
+			thisObject.slidesControllerWorkers[slidesControllerPresetKey] = new iridia.slidesController(slidesControllerPreset, thisObject, slidesControllerPresetKey);
 			
 		});
 	
 	},
 	
 	
-	/* ([iridia.slidesControllerSlides, …]) */ slidesForController: function (slideController) {
+	/* ([iridia.slidesControllerSlides partial, …]) */ slidesForController: function (slideController) {
 	
-		mono.log("SlidesController", slideController, "asks for slides.");
+		mono.log("SlidesController", slideController, "asks for slides under key name", slideController.contextInfo);
 		
 		this.pageControlController.setTotalPages(slideController.slides.length);
-	
+		
+		var slidesArray = [];
+		
+		//	Visit the page preset and find out slides, then create objects and arrange them in an array to return as the feedback.
+		
+		var preset = arboreal.presets.pages.currentPage.irSlidesController[slideController.contextInfo];
+		if (preset === undefined) return [];
+		
+		preset = preset && preset.images || undefined;
+		if (preset === undefined) return [];
+		
+		var thisObject = this;
+		
+		return $.map(preset, function (imageURL) {
+		
+			return {
+			
+				payloadType: "image",
+				payloadResource: imageURL
+			
+			}
+		
+		});
+			
 	},
 			
 	/* (void) */ slideWillAppear: function (slideController, theSlide) {
