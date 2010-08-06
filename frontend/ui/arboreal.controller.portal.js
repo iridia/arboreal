@@ -444,7 +444,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 			manifestObject: this.bindings.galleryPageControlHolder
 		
-		});	
+		});
 	
 	},
 	
@@ -476,8 +476,6 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 			var slidesControllerPresetKey = self.attr("irSlidesController");
 			
-			mono.log("key", slidesControllerPresetKey);
-			
 			var slidesControllerPreset = arboreal.presets.pages.currentPage.irSlidesController[slidesControllerPresetKey];
 
 			if (slidesControllerPreset == undefined) {
@@ -488,7 +486,13 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 			}
 			
-			thisObject.slidesControllerWorkers[slidesControllerPresetKey] = new iridia.slidesController(slidesControllerPreset, thisObject, slidesControllerPresetKey);
+			thisObject.slidesControllerWorkers[slidesControllerPresetKey] = new iridia.slidesController($.extend(true, {
+			
+				containerElement: self	
+			
+			}, slidesControllerPreset), thisObject, slidesControllerPresetKey);
+			
+			thisObject.slidesControllerWorkers[slidesControllerPresetKey].start();
 			
 		});
 	
@@ -498,8 +502,6 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	/* ([iridia.slidesControllerSlides partial, …]) */ slidesForController: function (slideController) {
 	
 		mono.log("SlidesController", slideController, "asks for slides under key name", slideController.contextInfo);
-		
-		this.pageControlController.setTotalPages(slideController.slides.length);
 		
 		var slidesArray = [];
 		
@@ -513,7 +515,17 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 		var thisObject = this;
 		
-		return $.map(preset, function (imageURL) {
+		window.setTimeout(function () {
+		
+			arboreal.currentPageController.pageControlController.setTotalPages(slideController.slides.length, {
+			
+				animate: true
+			
+			});
+		
+		}, 5);
+		
+		return preset.map(function (imageURL) {
 		
 			return {
 			
@@ -528,7 +540,9 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 	/* (void) */ slideWillAppear: function (slideController, theSlide) {
 	
-		this.pageControlController.setActivePageIndex(
+		this.pageControlController.setTotalPages(slideController.slides.length);
+	
+		this.pageControlController.setCurrentPageIndex(
 			
 			slideController.slides.indexOfObject(theSlide)
 		
@@ -538,7 +552,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 	/* (void) */ slideDidAppear: function (slideController, theSlide) {
 	
-		this.pageControlController.setActivePageIndex(
+		this.pageControlController.setCurrentPageIndex(
 			
 			slideController.slides.indexOfObject(theSlide)
 		
@@ -548,13 +562,13 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 				
 	/* (void) */ slideWillDisappear: function (slideController, theSlide) {
 	
-		this.pageControlController.setActivePageIndex(null);
+		this.pageControlController.setCurrentPageIndex(null);
 	
 	},
 	
 	/* (void) */ slideDidDisappear: function (slideController, theSlide) {
 	
-		this.pageControlController.setActivePageIndex(
+		this.pageControlController.setCurrentPageIndex(
 		
 			slideController.slides.indexOfObject(theSlide)
 			
@@ -567,19 +581,20 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	//	The slides controller would ask the portal controller every time the timer ticks and it is time to advance.  Because the user might have her mouse cursor hoverred over the page control, we need to know this instead of allowing the slides controller to advance undesirably.
 	
 		if (theSlide != slideController.currentSlide)
-		if (!this.pageControlController.hoveredPageRepresentation == (
-		
-			this.pageControlController.pageRepresentations[
-
-				slideController.slides.indexOfObject(theSlide)
-			
-			]
-		
-		))
-		
+		if (this.pageControlController.hoverredPageIndex != slideController.slides.indexOfObject(theSlide))
 		return true;
-		
+
 		return false;
+	
+	},
+	
+	/* ([(Number) width, (Number) height]) */ defaultSlideSize: function (slideController) {
+	
+		var theContainer = this.viewsWithClass("irSlidesController").filter("[irSlidesController*=" + slideController.contextInfo +"]").eq(0);
+		
+		if (theContainer == undefined) return [0, 0];
+	
+		return [theContainer.width(), theContainer.height()];
 	
 	},
 	

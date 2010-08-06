@@ -45,6 +45,8 @@
 		
 			background: rgba(0, 0, 0, .35);
 			
+			background-image: url(../arboreal.images/arboreal.backdrop.perforation.png);
+			
 			&:after {
 			
 				@include pseudoBlock;
@@ -56,7 +58,9 @@
 				margin-left: auto;
 				margin-right: auto;
 				
-				@include text(13px, 4 * $pack, rgba(255, 255, 255, .25));
+				@include text(13px, 4 * $pack, rgba(255, 255, 255, .75));
+				text-shadow: rgba(0, 0, 0, .75) 0px 1px 2px;
+				
 				text-align: center;
 				
 				font-weight: bold;
