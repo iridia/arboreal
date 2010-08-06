@@ -370,6 +370,7 @@
 	body > header {
 	
 		@include uaDisableSelection;
+		@include uaDisableTextZoom;
 	
 		height: 2 * $pack;
 		
@@ -397,9 +398,7 @@
 	//	The navigation bar
 	
 		nav {
-		
-			@include uaDisableTextZoom;
-		
+			
 			float: right;
 			margin-top: 9 * $slice;
 			
@@ -414,13 +413,25 @@
 				
 				@include borderRadius(4.5px);
 				
-				@include borderInsetSolidShadowed2(
-
-					($arborealNavigationBarBackdrop - (rgb(255, 255, 255) * 0.05)),
-					$arborealNavigationBarBorderWidth,
+				$finalBorderColor: ($arborealNavigationBarBackdrop - (rgb(255, 255, 255) * 0.05));
+				$pos: $arborealNavigationBarBorderWidth;
+				$neg: -1 * $arborealNavigationBarBorderWidth;
+				
+				@include boxShadowWithLiteral(
+				
+					inset rgba(0, 0, 0, .15) 0px 0px 3px,
+				
+					inset 0px $pos 0px $finalBorderColor,
+					inset 0px $neg 0px $finalBorderColor,					
+					inset $pos 0px 0px $finalBorderColor,
+					inset $neg 0px 0px $finalBorderColor,
 					
-					rgba(0, 0, 0, .35), 0px, -1px, 0px, 
-					rgba(255, 255, 255, .5), 0px, 1px, 0px
+					rgba(0, 0, 0, .35) 0px -1px 0px,
+					rgba(255, 255, 255, .45) 0px -2px 0px,
+					
+					rgba(255, 255, 255, .5) 0px 1px 0px,
+					
+					rgba(255, 255, 255, .25) 0px 6px 9px
 					
 				);
 				
@@ -439,17 +450,8 @@
 					text-align: center;
 					vertical-align: middle;
 					
-					&:first-child {
-					
-						@include borderRadius(4.5px, 0, 0, 4.5px);
-						
-					}
-					
-					&:last-child {
-					
-						@include borderRadius(0, 4.5px, 4.5px, 0);
-						
-					}
+					&:first-child {	@include borderRadius(4.5px, 0, 0, 4.5px);	}
+					&:last-child {	@include borderRadius(0, 4.5px, 4.5px, 0);	}
 					
 					+ li {
 					
@@ -461,103 +463,111 @@
 							height: $arborealNavigationBarHeight;
 
 						}
+						
+						&:hover:before {
+						
+							@include glareSplitHorizontal(reversed);
+						
+						}
 					
 					}
+					
+					
+					&.active {
+				
+						&, &:hover {
+					
+							color: rgb(16, 38, 0);
+						
+						}
+						
+						&:after {
+							
+							@include pseudoBlock;
+							@include size(2 * $slice, 4 * $slice);
+							
+							position: absolute;
+		
+							left: 50%;
+							margin-left: -1 * $slice;
+							
+							top: 100%;
+							margin-top: -2 * $slice;
+							background: url(../arboreal.images/arboreal.navigationBar.active.indicator.png) center no-repeat;
+							
+						}
+					
+					}
+					
 					
 					a {
 					
 						@include full;
 						height: $arborealNavigationBarHeight;
+						
+						&[href*='information'] {
 					
-					}
-				
-				}
-				
-
-			//	The Information section has a glyph instead of plain text
-				
-				li a[href*='information'] {
-					
-					span {	display: none;	}
-					
-					background: url(../arboreal.images/arboreal.navigationBar.information.png) center no-repeat;
-				
-					&:hover {
-					
-						background: url(../arboreal.images/arboreal.navigationBar.information.hover.png) center no-repeat;
+							span {	display: none;	}
+							
+							background: url(../arboreal.images/arboreal.navigationBar.information.png) center no-repeat;
+						
+							&:hover {
+							
+								background: url(../arboreal.images/arboreal.navigationBar.information.hover.png) center no-repeat;
+							
+							}
+							
+						}
 					
 					}
 					
-				}
+					
+					&, &.active, &.active:hover {
 				
-				li.active a[href*='information'] {
+						text-shadow:   	rgba(255, 255, 255, .4) 0px 1px 0px,
+								rgba(0, 0, 0, .15) 0px -1px 0px;
+							
+						background: none;
+						
+						&:before {
+						
+							@include glareSplitHorizontal;
+						
+						}
+										
+						a[href*='information'] {
 				
-					background: url(../arboreal.images/arboreal.navigationBar.information.active.png) center no-repeat;
-				
-				} 
-				
-				
-			//	States	
-				
-				li:hover,
-				li.hover {
-
-					background: rgba(0, 0, 0, 0.25);
-					color: white;
-					text-shadow: none;	
-				
-				}
-				
-				li + li:hover,
-				li + li.hover {
-				
-					&:before {
+							background: url(../arboreal.images/arboreal.navigationBar.information.active.png) center no-repeat;
+						
+						} 
+					
+					}
+					
+					
+					&:hover, &.hover {
 	
-						@include glareSplitHorizontal(reversed);
-
-					}
-					
-				}
-				
-				
-				
-				
-				
-				li, li.active, li.active:hover {
-				
-					text-shadow:   	rgba(255, 255, 255, .4) 0px 1px 0px,
-							rgba(0, 0, 0, .15) 0px -1px 0px;
+						background: rgba(0, 0, 0, 0.25);
+						color: white;
+						text-shadow: none;
 						
-					background: none;
-									
-					&:before {
-					
-						@include glareSplitHorizontal;
+						&:not(.active) {
+						
+							@include boxShadowWithLiteral(
+							
+								inset rgba(0, 0, 0, .25) 2px 0px 2px,
+								inset rgba(0, 0, 0, .25) -2px 0px 2px
+							
+							); 
+						
+						}
+						
+						&:active {
+						
+							background: rgba(0, 0, 0, .35);
+						
+						}
 					
 					}
-				
-				}
-				
-				li.active,
-				li.active:hover {
-				
-					color: rgb(16, 38, 0);
-					
-				}
-				
-				li.active:after {
-						
-					@include pseudoBlock;
-					@include size(2 * $slice, 4 * $slice);
-					
-					position: absolute;
-
-					left: 50%;
-					margin-left: -1 * $slice;
-					
-					top: 100%;
-					margin-top: -2 * $slice;
-					background: url(../arboreal.images/arboreal.navigationBar.active.indicator.png) center no-repeat;
 				
 				}
 			
