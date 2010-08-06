@@ -202,6 +202,7 @@
 				.requires("arboreal.controller.archetype")
 				.requires("iridia.calendarEngine")
 				.requires("iridia.slidesController")
+				.requires("iridia.pageControlController")
 				.requires("mono.dateAdditions", "mono.arrayAdditions", "mono.tidyCJK");
 				
 				this.file(_c("blog"))

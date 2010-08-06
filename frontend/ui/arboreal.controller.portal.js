@@ -34,7 +34,8 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 			calendarTooltip: $("aside .calendar .tooltip").eq(0),
 			
-			galleryHolder: $("ul[irSlidesController*=mainController]").eq(0)
+			galleryHolder: $("ul[irSlidesController*=mainGallery]").eq(0),
+			galleryPageControlHolder: $("ul[irPageControl*=mainGallery]").eq(0)
 		
 		};
 		
@@ -74,6 +75,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 		this.initializeTwitterPanel();
 		
+		this.initializePageControlController();
 		this.initializeSlidesController();
 		
 	},
@@ -430,13 +432,39 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 	
 	//! 
+	//!Page Control Controller 
+	
+	
+	
+	
+	
+	initializePageControlController: function () {
+	
+		this.pageControlController = new iridia.pageControlController({
+		
+			manifestObject: this.bindings.galleryPageControlHolder
+		
+		});	
+	
+	},
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//! 
 	//!Slides Controller 
 	
 	
 	
 	
 	
-	slidesWorkers: {},
+	slidesControllerWorkers: {},
 	
 	initializeSlidesController: function () {
 	
@@ -471,7 +499,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 		mono.log("SlidesController", slideController, "asks for slides.");
 		
-		this.pageControlController.setTotalPageCount(slideController.slides.length);
+		this.pageControlController.setTotalPages(slideController.slides.length);
 	
 	},
 			
