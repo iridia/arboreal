@@ -27,7 +27,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 			twitterStreamHolder: $("article section.twitterStream").eq(0),
 	
-			calendarDateTitle: $("aside .calendar h2:eq").eq(0),
+			calendarDateTitle: $("aside .calendar h2").eq(0),
 			calendarDateHolder: $("aside .calendar .dates").eq(0),
 			calendarDetailsHolder: $("aside .calendar .details").eq(0),
 			calendarSubscriptionAnchor: $("aside .calendar .actions a").eq(0),
