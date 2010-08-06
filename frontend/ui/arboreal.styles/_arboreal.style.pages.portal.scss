@@ -41,6 +41,34 @@
 					
 		}
 		
+		&.loading {
+		
+			background: rgba(0, 0, 0, .35);
+			
+			&:after {
+			
+				@include pseudoBlock;
+
+				content: "Loading Slideshow";
+				
+				@include size(4 * $pack);
+				margin-top: 0.5 * $pack;
+				margin-left: auto;
+				margin-right: auto;
+				
+				@include text(13px, 4 * $pack, white);
+				text-align: center;
+				
+				font-weight: bold;
+				
+				opacity: .25;
+				
+				z-index: 1024 + 16;
+			
+			}
+		
+		}
+		
 		li.default, li.current {
 		
 			z-index: 512;
@@ -224,11 +252,18 @@
 
 	.blogPosts {
 	
-		@include borderImage(url(../arboreal.images/arboreal.article.blogPosts.backdrop.png), 36, 36, 54, 36, round);
+		@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.more.png), 36, 27, 36, 27, round);
 		
 		margin: 36px -18px 0 -18px;
 		
 		padding-bottom: 18px;
+		
+		> * {
+		
+			margin-left: $slice;
+			margin-right: $slice;
+		
+		}
 	
 		h2 {
 		
@@ -273,15 +308,20 @@
 			
 			}
 			
-			
 		}
 		
 		.more {
 		
+			&:before {
+			
+				display: none;
+			
+			}
+		
 			@include link;
 		
 			height: 4 * $slice;
-			margin-bottom: -4 * $slice;
+			margin-bottom: -3 * $slice;
 			
 			background: url(../arboreal.images/arboreal.article.blogPosts.more.png) center right no-repeat;
 			
