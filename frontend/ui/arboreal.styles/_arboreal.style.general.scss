@@ -503,7 +503,10 @@
 					a {
 					
 						@include full;
+						padding: 0 $slice;
 						height: $arborealNavigationBarHeight;
+						
+						@include textDelimited;
 						
 						&[href*='information'] {
 					
