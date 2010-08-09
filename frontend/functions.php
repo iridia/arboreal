@@ -13,6 +13,12 @@
 
 
 
+function u8strlen ($string) { return strlen(utf8_decode($string)); }
+
+
+
+
+
 function arCreateStylesheetWithRelativeURL ($theURL) {
 
 	echo apply_filters(
@@ -35,6 +41,29 @@ function arCreateStylesheetWithRelativeURL ($theURL) {
 function arLinkAssociatedController ($named) {
 
 	echo "<meta name=\"irArborealAssociatedControllerName\" content=\"" . $named . "\" />";
+
+}
+
+
+
+
+
+function arGenerateExcerpt ($incomingText = "", $maximumAllowedLength = 75, $wrapperElementTagName = "p") {
+
+	$responseText = "";
+	
+	$contentInParagraphs = explode("</" . $wrapperElementTagName . ">", $incomingText);
+	
+	foreach ($contentInParagraphs as $paragraph) {
+	
+		$responseText .= strip_tags($paragraph, "<p>") . "</" . $wrapperElementTagName . ">";
+				
+		if ((u8strlen($responseText) + u8strlen($paragraph)) >= $maximumAllowedLength)
+		break;
+		
+	}
+
+	return strip_tags($responseText);
 
 }
 

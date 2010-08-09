@@ -118,26 +118,36 @@ END;
 		
 		
 		<ol class="blogPosts">
-		
+
+		<?php
+
+			global $post;
+			$recentPosts = get_posts('numberposts=2');
+
+			foreach($recentPosts as $post) {
+	
+				setup_postdata($post);
+
+		?>
 			<li>
 			
-				<h2><time datetime="2010-04-25">04/25</time>公平貿易影展第二波強檔：水資源大作戰 (Blue Gold) 週二開始放映</h2>
+				<a href="<?php the_permalink(); ?>"><h2><time datetime="<?php echo get_the_date("Y-m-d") ?>"><?php echo get_the_date("m/d"); ?></time><?php the_title(); ?></h2></a>
 				
-				<p>水資源大作戰改編自全球暢銷書，原作迄今已翻譯 16 種語言，於全球超過 47 個國家銷售，以節奏緊湊的 87 分鐘揭露水資源背後攸關人命的爭奪戰，震撼全球觀眾的心。全球每天有 5000 個人因為飲用不潔的水源而死亡，有五億的人口缺乏乾淨的水源可用，你能想像有一天，水將成為比黃金昂貴的東西嗎？</p>
+				<p><?php 
+				
+					echo arGenerateExcerpt(
+					
+						apply_filters('the_content', get_the_content()), 150, "p"
+						
+					);
+				
+				?></p>
 			
 			</li>
 			
-			<li class="more"><a href="##" title="More…"><span>More</span></a></li>
+			<li class="more"><a href="<?php the_permalink(); ?>" title="More…"><span>More</span></a></li>
 			
-			<li>
-			
-				<h2><time datetime="2010-04-22">04/22</time>2010 世界公平貿易日，邀請台灣網友臉書集聲讚</h2>
-				
-				<p>「世界公平貿易日（World Fair Trade Day）」定於每年的母親節前一天，由國際公平貿易組織（World Fair Trade Organization）串聯 110 萬名第三世界國家的生產者共同發起，連繫起生產者、農民及消費者的一個紀念日，當天全球各地都會有各式各樣的活動，不管是兩三個好友一起喝一杯公平貿易咖啡，還是一起看咖非正義，活動無論大小都是為了正義與公平而發聲。</p>
-			
-			</li>
-			
-			<li class="more"><a href="##" title="More…"><span>More</span></a></li>
+			<?php } ?>
 		
 		</ol>
 	
