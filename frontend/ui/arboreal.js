@@ -12,6 +12,8 @@
 
 	var arboreal = arboreal || {};
 	
+	arboreal.baseURI = arboreal.baseURI || "";
+	
 	arboreal.debugMode = true;
 	arboreal.presets = arboreal.presets || {};
 	
@@ -46,11 +48,11 @@
 				
 					if ((/\.js$/).exec(thePath)) {
 
-						return "ui/" + thePath + "?t=" + String(Number((new Date())));
+						return arboreal.baseURI + "ui/" + thePath + "?t=" + String(Number((new Date())));
 					
 					}
 					
-					return "ui/" + thePath;
+					return arboreal.baseURI + "ui/" + thePath;
 				
 				};
 			
@@ -58,7 +60,7 @@
 			
 			return function (thePath) {
 				
-				return "ui/" + thePath;
+				return arboreal.baseURI + "ui/" + thePath;
 				
 			};
 				
