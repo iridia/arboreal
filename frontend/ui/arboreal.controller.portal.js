@@ -49,7 +49,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 			mainCalendarStream: {
 			
-					"calendarID": arboreal.presets.pages.portal.calendarID,
+				"calendarID": arboreal.presets.pages.currentPage.irCalendarEngine.mainCalendarStream.calendarID,
 				
 				"methodImmediatelyExecutes": true,
 				"methodName": "fetchEvents",
@@ -102,7 +102,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 		
 		$.getJSON("http://api.twitter.com/1/statuses/user_timeline.json?callback=?", {
 			
-			"screen_name": arboreal.presets.pages.portal.twitterAccount,
+			"screen_name": arboreal.presets.pages.currentPage.irTwitterEngine.mainTwitterStream.twitterAccount,
 			"count": 1
 			
 		}, function (data) {

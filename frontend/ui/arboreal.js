@@ -18,13 +18,6 @@
 	arboreal.presets = arboreal.presets || {};
 	
 	arboreal.presets.pages = arboreal.presets.pages || {};
-	
-	arboreal.presets.pages.portal = {
-		
-		"calendarID": "0lgqdbsiischmeimnpu89bqudo",
-		"twitterAccount": "okogreen"
-		
-	};
 
 
 
@@ -214,7 +207,7 @@
 			
 			});
 			
-
+			
 			JS.require("arboreal.controller.archetype", function() {
 			
 				var plausiblePageClass = $("head meta[name='irArborealAssociatedControllerName']").attr("content");
