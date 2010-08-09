@@ -41,6 +41,12 @@ arboreal.controller.archetype = new JS.Class({
 
 
 
+window.$ = jQuery;
+
+
+
+
+
 $(document).ready(function() {
 
 	$("img").each(function() {
