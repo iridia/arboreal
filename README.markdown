@@ -37,7 +37,7 @@ Try `bootstrap.sh` if you’re feeling lazy.
 
 ###	`frontend/`
 
-Where the coding takes place.  Contains unprocessed front-end code and also those generated Letterpress.
+Where the coding takes place.  Contains unprocessed front-end code and also those generated Letterpress.  Files contained in this directory is directly used as a WordPress theme with Thematic (the former is a child theme of the latter).
 
 ###	`design/`
 
@@ -57,6 +57,10 @@ The image factory `pictorial.rb` post-processes bitmaps for UI snippets.  Runnin
 
 Coming soon.
 
+
+####	`externals/thematic`
+
+Contains a development copy of Thematic which provides fundamental mechanisms for the `arboreal` theme to function.
 
 ####	`externals/syncho`
 
