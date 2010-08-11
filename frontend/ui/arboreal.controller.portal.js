@@ -88,16 +88,6 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 
 	initializeTwitterPanel: function() {
 	
-		var parseURL = function (inString) {
-
-			return inString.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/, function(url) {
-
-				return url.link(url);
-
-			});
-
-		};
-
 		var thisObject = this;
 		
 		$.getJSON("http://api.twitter.com/1/statuses/user_timeline.json?callback=?", {
@@ -107,11 +97,36 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 		}, function (data) {
 		
+			var parseURL = function (inString) {
+	
+				return inString.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/, function(url) {
+	
+					return url.link(url);
+	
+				});
+	
+			};
+		
 			var tweetObject = thisObject.bindings.twitterStreamHolder.find("*[irTwitterEngineTemplate]");
 			
+			mono.log("parseURL(data[0].text)", parseURL(data[0].text));
+			
+			var tweetLiteral = parseURL(data[0].text);
+			
+			var tweetLiteralParsed = $("<span>" + tweetLiteral + "</span>");
+			
+			tweetLiteralParsed.contents().filter(function () {
+			
+				return this.nodeType == 3;
+			
+			}).each(function () {
+			
+				tweetLiteral = tweetLiteral.replace(this.nodeValue, mono.tidyCJK(this.nodeValue));
+				
+			});
+			
 			tweetObject.children("*[irTwitterEngineTemplate='tweet:text']")
-			.html(parseURL(mono.tidyCJK(data[0].text)))
-			.find("a").each(function(index, anchorElement) {
+			.html(tweetLiteral).find("a").each(function(index, anchorElement) {
 							
 				$(anchorElement).attr("target", "_blank").text($(anchorElement).text().replace(/^http:\/\//, ""));
 				
