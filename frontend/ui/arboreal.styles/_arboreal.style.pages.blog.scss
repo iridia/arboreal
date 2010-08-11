@@ -556,6 +556,8 @@
 			
 			}
 			
+
+
 			.actions {
 				
 				@include uaDisableSelection;
@@ -689,8 +691,8 @@
 		
 		}
 		
-		li + li {		margin-top: 0.5em;	}
-		footer li + li {	margin-top: 0px;	}
+		> li + li {		margin-top: 0.5em;	}
+		footer > li + li {	margin-top: 0px;	}
 		
 		ul {		margin-bottom: 1em;		}
 		footer ul {	margin-bottom: 0px;		}
@@ -853,6 +855,7 @@
 			> * {
 			
 				@include inlineBlock;
+				vertical-align: bottom;
 				
 				background-position: center left;
 				background-position-y: 9px;
@@ -863,10 +866,6 @@
 				
 				line-height: 4 * $slice;
 				min-height: 4 * $slice;
-			
-			}
-			
-			> * {
 			
 				margin-right: 2 * $slice;
 				
@@ -905,9 +904,14 @@
 				li {
 				
 					@include inlineBlock;
+					
+					vertical-align: text-bottom;
 				
 					line-height: 2 * $slice;
 					height: 2 * $slice;
+					
+					margin-top: $slice;
+					margin-bottom: $slice;
 				
 					background: rgba(0, 0, 0, .03);
 					
