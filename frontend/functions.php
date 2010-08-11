@@ -152,36 +152,32 @@ function arInjectScriptBaseURI () {
 	function childtheme_override_brandingclose () {}
 	function childtheme_override_access () {}
 	
-	add_action('wp_head', 'arInjectScriptBaseURI');
-	add_action('thematic_header', 'arHeader', 1);
-
-
-
-
-
-
-
-
-
-
-//	! 
-//	! Scripts
-
-	wp_enqueue_script(
-
-		"LABjs", 
-		get_bloginfo('template_url') . "/../arboreal/ui/lib.LABjs/LAB.src.js"
-		
-	);
+	if (!is_admin()) {
 	
-	wp_enqueue_script(
-	
-		"arboreal", 
-		get_bloginfo('template_url') . "/../arboreal/ui/arboreal.js",
-		array("LABjs")
-		
-	);
+		add_action('wp_head', 'arInjectScriptBaseURI');
+		add_action('thematic_header', 'arHeader', 1);
 
+		wp_enqueue_script(
+	
+			"LABjs", 
+			get_bloginfo('template_url') . "/../arboreal/ui/lib.LABjs/LAB.src.js"
+			
+		);
+		
+		wp_enqueue_script(
+		
+			"arboreal", 
+			get_bloginfo('template_url') . "/../arboreal/ui/arboreal.js",
+			array("LABjs")
+			
+		);
+	
+	}
+	
+	
+	
+	
+	
 ?>
 
 
