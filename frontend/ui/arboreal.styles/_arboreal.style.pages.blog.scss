@@ -538,7 +538,7 @@
 				@include width($arborealArticleWidth + 2.5 * $pack);
 			//	@include textDelimited;
 				
-				margin-bottom: 2 * $slice;
+				margin-bottom: $slice;
 				
 			}
 			
