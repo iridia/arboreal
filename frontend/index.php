@@ -1,43 +1,26 @@
 <?php
 
 	get_header();
+
 	thematic_abovecontainer();
+	thematic_abovecontent();
 
-?>
-dela
-			<?php thematic_abovecontent(); ?>
+	thematic_navigation_above();
 	
-				<?php 
-            	
-            	// create the navigation above the content
-            	thematic_navigation_above();
-				
-            	// calling the widget area 'index-top'
-            	get_sidebar('index-top');
-				
-            	// action hook for placing content above the index loop
-            	thematic_above_indexloop();
-				
-            	// action hook creating the index loop
-            	thematic_indexloop();
-				
-            	// action hook for placing content below the index loop
-            	thematic_below_indexloop();
-				
-            	// calling the widget area 'index-bottom'
-            	get_sidebar('index-bottom');
-				
-            	// create the navigation below the content
-            	thematic_navigation_below();
-            	
-            	?>
-	fp	
-			<?php thematic_belowcontent(); ?> 
+	get_sidebar('index-top');
+	
+	thematic_above_indexloop();
+	thematic_indexloop();
+	thematic_below_indexloop();
 
-<?php 
+	get_sidebar('index-bottom');
+	thematic_navigation_below();
 
+	thematic_belowcontent();
 	thematic_belowcontainer();
+
 	thematic_sidebar();
+
 	get_footer();
 
 ?>
