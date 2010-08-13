@@ -536,7 +536,6 @@
 			
 				@include arborealBlogArticleHeaderTitle;
 				@include width($arborealArticleWidth + 2.5 * $pack);
-			//	@include textDelimited;
 				
 				margin-bottom: $slice;
 				
@@ -641,7 +640,7 @@
 						@include typeSansSerifPure;
 					
 						@include inlineBlock;
-						@include textDelimited;			//	Needs “Lots”?
+						@include textDelimited;
 						
 						min-width: 36px;
 						
@@ -688,13 +687,20 @@
 				margin-top: 0.5em;
 			
 			}
+					
+			a {
+			
+				@include borderRadius(4px);
+				background-color: rgba(0, 0, 0, .01);  
+			
+			}
 		
 		}
 		
 		> li + li {		margin-top: 0.5em;	}
 		footer > li + li {	margin-top: 0px;	}
 		
-		ul {		margin-bottom: 1em;		}
+		> ul {		margin-bottom: 1em;		}
 		footer ul {	margin-bottom: 0px;		}
 				
 		> blockquote {
