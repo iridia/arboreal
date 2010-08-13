@@ -60,6 +60,7 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 		
 		this.wrapArticleImages();
 		this.hoistMoreLinks();
+		this.wrapYouTubeVideos();
 		
 	},
 	
@@ -279,8 +280,31 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 		
 		});
 	
+	},
+	
+	wrapYouTubeVideos: function () {
+		
+		$("object").children("embed").filter("[src*=youtube]").each(function () {
+		
+			var self = $(this);
+			var objectObject = $(this).closest("object");
+			
+			if (objectObject.siblings().length > 0) {
+			
+				var wrapperParagraph = $("<p></p>");
+			
+				wrapperParagraph.insertAfter(objectObject.parent());
+			
+				objectObject.detach().appendTo(wrapperParagraph);
+			
+			}
+			
+			objectObject.parent().css("textAlign", "center");
+					
+		});	
+	
 	}
-
+	
 });
 
 
