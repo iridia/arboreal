@@ -203,20 +203,24 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 		
 			var theElement = $(imageElement);
 			
-			mono.log("the element is", theElement, theElement.parent(), theElement.parent()[0]);
-			
 			if (theElement.parent()[0].tagName.match(/span/ig))
 			if (theElement.parent().hasClass("wrapStrap"))
 			return true;
+
+			if (!imageElement.complete || typeof imageElement.naturalWidth == "undefined" || imageElement.naturalWidth == 0) {
+				
+				$(imageElement).fadeOut();
+				return;
+		
+			}
 			
 			theElement.wrap($("<span>").addClass("wrapStrap"));
 			
-			mono.log("theElement.attr title", theElement.attr("title"));
-			
 			if (theElement.attr("title") != "")
 			$("<figure>").text(theElement.attr("title")).insertAfter(theElement.closest("span.wrapStrap"));
-			
+		
 		});
+
 		
 	},
 
