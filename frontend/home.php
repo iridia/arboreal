@@ -74,16 +74,16 @@ END;
 		
 		</header>
 
-		<?php the_content(); ?>
+		<?php the_content("繼續閱讀"); ?>
 		
 		<footer>
 		
-			<a class="more" href="mockup.blog.single.html">繼續閱讀</a>
-			<a class="shareArticle">分享文章</a>
+			<a class="more" href="<?php the_permalink(); ?>">永久連結</a>
+			<!-- <a class="shareArticle">分享文章</a> -->
 			
 			<span class="author"><?php the_author(); ?></span>
 			
-			<time datetime="2010-04-25"><?php echo get_the_date("Y-m-d h:m") ?></time>
+			<time datetime="<?php echo get_the_date("Y-m-d") ?>"><?php echo get_the_date("Y-m-d h:m") ?></time>
 			
 			<?php echo arListElements(get_the_category()); ?>		
 			

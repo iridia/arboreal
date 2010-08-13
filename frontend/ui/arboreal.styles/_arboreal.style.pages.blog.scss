@@ -697,6 +697,25 @@
 		
 		}
 		
+		> a.more {
+		
+			display: block;
+		
+			@include link;
+		
+			height: 4 * $slice;
+			background: url(../arboreal.images/arboreal.article.blogPosts.more.png) center right no-repeat;
+			
+			position: relative;
+			
+			text-align: right;
+			@include text(16px, 36px, rgb(89, 89, 89));
+			
+			margin: $slice;
+			padding: 0 4 * $slice;
+
+		}
+		
 		> li + li {		margin-top: 0.5em;	}
 		footer > li + li {	margin-top: 0px;	}
 		

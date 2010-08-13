@@ -267,7 +267,7 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 		
 		this.bindings.blogMoreLinks.each(function () {
 		
-			$(this).insertBefore($(this).closest(
+			$(this).addClass("more").insertBefore($(this).closest(
 			
 				thisObject.bindings.blogArticleSelectorString
 				

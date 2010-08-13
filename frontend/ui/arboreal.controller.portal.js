@@ -107,28 +107,13 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 	
 			};
 		
-			var tweetObject = thisObject.bindings.twitterStreamHolder.find("*[irTwitterEngineTemplate]");
-			
-			mono.log("parseURL(data[0].text)", parseURL(data[0].text));
-			
-			var tweetLiteral = parseURL(data[0].text);
-			
-			var tweetLiteralParsed = $("<span>" + tweetLiteral + "</span>");
-			
-			tweetLiteralParsed.contents().filter(function () {
-			
-				return this.nodeType == 3;
-			
-			}).each(function () {
-			
-				tweetLiteral = tweetLiteral.replace(this.nodeValue, mono.tidyCJK(this.nodeValue));
-				
-			});
-			
-			tweetObject.children("*[irTwitterEngineTemplate='tweet:text']")
-			.html(tweetLiteral).find("a").each(function(index, anchorElement) {
+			thisObject.bindings.twitterStreamHolder.find("*[irTwitterEngineTemplate]")
+			.children("*[irTwitterEngineTemplate='tweet:text']")
+			.html(mono.tidyCJKInTextNodes(parseURL(data[0].text))).find("a").each(function() {
 							
-				$(anchorElement).attr("target", "_blank").text($(anchorElement).text().replace(/^http:\/\//, ""));
+				$(this)
+				.attr("target", "_blank")
+				.text($(this).text().replace(/^http:\/\//, ""));
 				
 			});
 			
