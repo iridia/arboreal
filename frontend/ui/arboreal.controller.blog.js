@@ -224,6 +224,8 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 			
 			if (theElement.attr("title") != "")
 			$("<figure>").text(theElement.attr("title")).insertAfter(theElement.closest("span.wrapStrap"));
+			
+			$(this).closest("a").addClass("noop");
 		
 		});
 

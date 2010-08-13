@@ -688,10 +688,21 @@
 			
 			}
 					
-			a {
+			a:not(.noop) {
 			
 				@include borderRadius(4px);
-				background-color: rgba(0, 0, 0, .01);  
+
+				padding-right: 0.5 * $pack;
+				
+				background: url(../arboreal.images/arboreal.article.blogPost.header.share.png) center right no-repeat;
+				
+				color: black;
+				
+				&:hover {
+				
+					background-image: url(../arboreal.images/arboreal.article.blogPost.header.share.hover.png)
+				
+				}
 			
 			}
 			
