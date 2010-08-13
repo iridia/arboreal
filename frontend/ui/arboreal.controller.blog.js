@@ -40,7 +40,11 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 			blogSingleArticleSharingDestinationsWrapper: $(".context article header section.share"),
 			blogSingleArticleSharingDestinationElementSelectorString: "li",
 			
-			blogArticleImages: $(".context article article > * img")
+			blogArticleImages: $(".context article article > * img"),
+			
+			blogMoreLinks: $("a.more-link"),
+			blogArticleSelectorString: "article",
+			blogArticleFooterSelectorString: "footer"
 		
 		};
 		
@@ -55,6 +59,7 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 	//	this.initializeArticleSharingDestinations();
 		
 		this.wrapArticleImages();
+		this.hoistMoreLinks();
 		
 	},
 	
@@ -251,6 +256,28 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 		).append(commentHTML);
 		
 		commentObject.appendTo("section.comments ul").slideUp(0).slideDown(125);
+	
+	},
+	
+//	!WordPress DOM Hacks
+
+	hoistMoreLinks: function () {
+	
+		var thisObject = this;
+		
+		this.bindings.blogMoreLinks.each(function () {
+		
+			$(this).insertBefore($(this).closest(
+			
+				thisObject.bindings.blogArticleSelectorString
+				
+			).find(
+			
+				thisObject.bindings.blogArticleFooterSelectorString
+			
+			));
+		
+		});
 	
 	}
 
