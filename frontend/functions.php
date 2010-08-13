@@ -166,61 +166,6 @@ function arListElements ($categoriesOrNothing) {
 
 
 
-function arIndexLoop() {
-
-	echo "arboreal index loop";
-		
-		global $options, $blog_id;
-		
-		foreach ($options as $value) {
-		    if (get_option( $value['id'] ) === FALSE) { 
-		        $$value['id'] = $value['std']; 
-		    } else {
-		    	if (THEMATIC_MB) 
-		    	{
-		        	$$value['id'] = get_option($blog_id,  $value['id'] );
-		    	}
-		    	else
-		    	{
-		        	$$value['id'] = get_option( $value['id'] );
-		    	}
-		    }
-		}
-		
-		/* Count the number of posts so we can insert a widgetized area */ $count = 1;
-		while ( have_posts() ) : the_post();
-		 ?>
-
-				<div id="post-<?php the_ID() ?>" class="<?php thematic_post_class() ?>">
-    				<?php thematic_postheader(); ?>
-
-					<div class="entry-content">
-
-					<?php thematic_content(); ?>
-
-					<?php wp_link_pages('before=<div class="page-link">' .__('Pages:', 'thematic') . '&after=</div>') ?>
-					</div><!-- .entry-content -->
-					<?php thematic_postfooter(); ?>
-
-				</div><!-- #post -->
-
-			<?php 
-				
-				comments_template();
-		endwhile;
-		
-		echo "end index loop";
-		
-	}
-
-
-
-
-
-
-
-
-
 //	! 
 //	!Thematic Overrides
 
@@ -233,12 +178,12 @@ function arIndexLoop() {
 	function childtheme_override_access () {}
 	
 	function childtheme_override_index_loop () {}
+	function childtheme_override_single_post () {}
 	
 	if (!is_admin()) {
 	
 		add_action('wp_head', 'arInjectScriptBaseURI');
 		add_action('thematic_header', 'arHeader', 1);
-		add_action('thematic_indexloop', 'arIndexLoop');
 
 		wp_enqueue_script(
 	
