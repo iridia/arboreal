@@ -210,6 +210,13 @@
 			
 			JS.require("arboreal.controller.archetype", function() {
 			
+				if (jQuery.browser.ie) $LAB.script(
+			
+					_("lib.html5shiv/html5.js")
+				
+				);
+				
+				
 				var plausiblePageClass = $("head meta[name='irArborealAssociatedControllerName']").attr("content");
 				
 				if (!plausiblePageClass) {
