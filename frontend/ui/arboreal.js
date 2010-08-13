@@ -79,7 +79,10 @@
 		
 		).wait().script(
 			
-			_("lib.xRegExp/lib.xRegExp.unicode.base.0.5.js"),
+			_("lib.xRegExp/lib.xRegExp.unicode.base.0.5.js")
+		
+		).wait().script(
+		
 			_("lib.xRegExp/lib.xRegExp.unicode.blocks.1.0.js"),
 			_("lib.xRegExp/lib.xRegExp.unicode.categories.1.0.js"),
 			_("lib.xRegExp/lib.xRegExp.unicode.scripts.1.0.js")
