@@ -222,9 +222,39 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 			
 			theElement.wrap($("<span>").addClass("wrapStrap"));
 			
+			if (theElement.attr("title") == "") {
+			
+				var plausibleFigureContainer = theElement.closest("p").next().filter(function () {
+					
+					if ($(this).get(0).tagName.toLowerCase() != "p")
+					return false;
+					
+					if ($(this).css("textAlign") != "center")
+					return false;
+					
+					return true;
+					
+				});
+			
+				var plausibleFigureNodes = plausibleFigureContainer.contents().filter(function () {
+		
+					return this.nodeType == 3;
+				
+				});
+			
+				if (plausibleFigureNodes.length != 0) {
+			
+					theElement.attr("title", plausibleFigureNodes[0].nodeValue);
+				
+					plausibleFigureContainer.hide();
+				
+				}				
+			
+			}
+			
 			if (theElement.attr("title") != "")
 			$("<figure>").text(theElement.attr("title")).insertAfter(theElement.closest("span.wrapStrap"));
-			
+						
 			$(this).closest("a").addClass("noop");
 		
 		});
