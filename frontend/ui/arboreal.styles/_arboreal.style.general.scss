@@ -541,6 +541,8 @@
 						a[href*='information'] {
 				
 							background: url(../arboreal.images/arboreal.navigationBar.information.active.png) center no-repeat;
+							
+							@include textReplacement; 
 						
 						} 
 					
