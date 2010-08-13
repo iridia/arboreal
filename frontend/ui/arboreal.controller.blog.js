@@ -277,6 +277,8 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 				thisObject.bindings.blogArticleFooterSelectorString
 			
 			));
+			
+			$(this).closest("article").addClass("more");
 		
 		});
 	
