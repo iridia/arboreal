@@ -175,42 +175,21 @@
 			@include textStroke;
 			
 			a {
+			
+				@include textReplacement;
 
 				@include inlineBlock;
 				@include textDelimited;
 				
-				@include size(0, 4 * $slice);
-				color: transparent;
-				text-shadow: none;
-				
-				padding-right: 11 * $slice;
+				@include size(11 * $slice, 4 * $slice);
 				
 				white-space: nowrap;
-				
 				position: relative;
-				
 				vertical-align: middle;
 				
-				&:after {
+				background: url(../arboreal.images/arboreal.article.twitterStream.linkBadge.png) center no-repeat;
 				
-					position: absolute;
-					right: 0px;
-					top: -2px;
-					
-					@include pseudoBlock;
-					@include inlineBlock;
-					vertical-align: top;
-					
-					@include size(11 * $slice, 4 * $slice);
-					
-					background: url(../arboreal.images/arboreal.article.twitterStream.linkBadge.png) center no-repeat;
-					
-					color: transparent;
-					text-shadow: none;
-					
-					overflow: hidden;
-				
-				}
+				background-position-y: -2px;
 			
 			}
 		
