@@ -10,8 +10,6 @@
 		
 		echo <<< END
 		
-		window.console.log('defining arboreal presets for current page.', arboreal, arboreal.presets)
-		
 		var arboreal = arboreal || {};
 		arboreal.presets = arboreal.presets || {};
 		arboreal.presets.pages = arboreal.presets.pages || {};

@@ -180,6 +180,9 @@ function arListElements ($categoriesOrNothing) {
 	function childtheme_override_index_loop () {}
 	function childtheme_override_single_post () {}
 	
+//	Override head scripts so superfish, supersubs, hoverintent and thematic-dropdowns do not get loaded; 
+	function childtheme_override_head_scripts () {}
+	
 	if (!is_admin()) {
 	
 		add_action('wp_head', 'arInjectScriptBaseURI');

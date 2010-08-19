@@ -187,6 +187,13 @@
 				this.file(_("lib.modernizr/modernizr.js"))
 				.provides("Modernizr");
 				
+				this.file(_("lib.sizzle/sizzle.js"))
+				.provides("Sizzle");
+				
+				this.file(_("lib.eCSStender/src/eCSStender.js"))
+				.provides("eCSStender")
+				.requires("Sizzle"); 
+				
 			
 			//	Page Controllers
 			
@@ -213,13 +220,6 @@
 			
 			JS.require("arboreal.controller.archetype", function() {
 			
-				if (jQuery.browser.ie) $LAB.script(
-			
-					_("lib.html5shiv/html5.js")
-				
-				);
-				
-				
 				var plausiblePageClass = $("head meta[name='irArborealAssociatedControllerName']").attr("content");
 				
 				if (!plausiblePageClass) {
