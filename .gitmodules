@@ -88,3 +88,9 @@
 [submodule "frontend/ui/lib.irPageControlController"]
 	path = frontend/ui/lib.irPageControlController
 	url = git://github.com/iridia/irPageControlController.git
+[submodule "frontend/ui/lib.sizzle"]
+	path = frontend/ui/lib.sizzle
+	url = git://github.com/jeresig/sizzle.git
+[submodule "frontend/ui/lib.eCSStender.CSS3Selectors"]
+	path = frontend/ui/lib.eCSStender.CSS3Selectors
+	url = git://github.com/easy-designs/eCSStender.CSS3-selectors.js.git
