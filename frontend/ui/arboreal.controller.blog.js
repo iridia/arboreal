@@ -215,7 +215,8 @@ arboreal.controller.blog = new JS.Singleton(arboreal.controller.archetype, {
 
 			if (!imageElement.complete || typeof imageElement.naturalWidth == "undefined" || imageElement.naturalWidth == 0) {
 				
-				$(imageElement).fadeOut();
+				$(imageElement).hide();
+				$(imageElement).closest("a").hide()
 				return;
 		
 			}
