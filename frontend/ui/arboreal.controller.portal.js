@@ -70,13 +70,13 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 
 	initializePage: function () {
 	
-		this.initializeCalendarPanel();
-		this.initializeCalendarEngine();
+		if (!$.browser.msie) this.initializeCalendarPanel();
+		if (!$.browser.msie) this.initializeCalendarEngine();
 		
-		this.initializeTwitterPanel();
+		if (!$.browser.msie) this.initializeTwitterPanel();
 		
-		this.initializePageControlController();
-		this.initializeSlidesController();
+		if (!$.browser.msie) this.initializePageControlController();
+		if (!$.browser.msie) this.initializeSlidesController();
 		
 	},
 	

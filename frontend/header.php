@@ -12,8 +12,18 @@
 	thematic_show_description();
 	thematic_show_robots();
 	thematic_canonical_url();
+
+	if (strlen(strstr($_SERVER['HTTP_USER_AGENT'], "MSIE")) > 0) {	?>
+
+		<script src="<?php bloginfo('template_url'); ?>/../arboreal/ui/lib.html5shiv/html5.js"></script>
+
+<?php		arCreateTransformedStylesheetWithRelativeURL("arboreal.style.css");
+
+	} else {
+
+		arCreateStylesheetWithRelativeURL("ui/arboreal.styles/arboreal.style.css");
 	
-?>
+	} ?>
 
 	<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/../arboreal/ui/arboreal.images/arboreal.favicon.png" />
 
@@ -26,7 +36,7 @@
 	
 <?php
 
-	arCreateStylesheetWithRelativeURL("ui/arboreal.styles/arboreal.style.css");
+	
 
 	thematic_show_rss();
 	thematic_show_commentsrss();

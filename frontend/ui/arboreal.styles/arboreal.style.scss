@@ -3,7 +3,8 @@
 
 @import "../lib.monoSnippets/lib.monoSnippets.reset";
 
-$monoSnippetsDirectory: "../lib.monoSnippets/";
+$monoSnippetsDirectory: "ui/lib.monoSnippets/";
+$externalPIEPath: "ui/lib.PIE/build/PIE.htc";
 @import "../lib.monoSnippets/lib.monoSnippets";
 
 @import "arboreal.style.includes.typography";

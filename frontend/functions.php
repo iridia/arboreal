@@ -41,6 +41,25 @@ function arCreateStylesheetWithRelativeURL ($theURL) {
 
 
 
+function arCreateTransformedStylesheetWithRelativeURL ($theURL) {
+
+	echo apply_filters(
+	
+		'thematic_create_stylesheet', 
+		
+		"\t <link rel=\"stylesheet\" type=\"text/css\" href=\""
+		. get_bloginfo('stylesheet_directory') . '/ui/arboreal.styles/hack.migrate.php?root=' . get_bloginfo('stylesheet_directory') . '&file=' . $theURL
+		. "\" />"
+		. "\n\n"
+	
+	);
+
+}
+
+
+
+
+
 function arLinkAssociatedController ($named) {
 
 	echo "<meta name=\"irArborealAssociatedControllerName\" content=\"" . $named . "\" />";

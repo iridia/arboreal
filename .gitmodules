@@ -48,7 +48,7 @@
 	url = git://github.com/monoceroi/monoString.git
 [submodule "frontend/ui/lib.PIE"]
 	path = frontend/ui/lib.PIE
-	url = git://github.com/lojjic/PIE.git
+	url = git://github.com/monoceroi/PIE.git
 [submodule "frontend/ui/lib.flesler"]
 	path = frontend/ui/lib.flesler
 	url = git://github.com/monoceroi/flesler-plugins.git
