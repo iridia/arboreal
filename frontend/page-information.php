@@ -91,7 +91,7 @@ END;
 	
 	<article>
 	
-		<div class="genericWrapping" style="width:100%; padding:0px; margin-top: 0px; margin-bottom:0px;">
+		<div class="genericWrapping" style="width:100%; padding:0px; margin-top:-1px; margin-bottom:-1px;">
 		
 			<iframe width="546" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="margin:3px;" src="http://maps.google.com.tw/maps?client=safari&amp;oe=UTF-8&amp;ie=UTF8&amp;q=%E7%94%9F%E6%85%8B%E7%B6%A0+%E5%9C%B0%E5%9D%80&amp;fb=1&amp;gl=tw&amp;hq=%E7%94%9F%E6%85%8B%E7%B6%A0&amp;hnear=Taipei+City&amp;cid=0,0,6673294263950695861&amp;brcurrent=3,0x3442a99bd1adbcc7:0xc5ab69bb7491162a,0,0x3442ac6b61dbbd9d:0xc0c243da98cba64b&amp;ll=25.0397,121.524219&amp;spn=0.006804,0.00912&amp;z=16&amp;iwloc=A&amp;output=embed&amp;iwloc=near"></iframe>
 			

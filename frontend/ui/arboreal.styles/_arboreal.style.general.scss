@@ -834,3 +834,55 @@
 	
 	
 	
+	.genericWrapping {
+	
+		@include inlineBlock;
+		position: relative;
+		
+		padding: 3px;
+		
+		margin-top: 0.5 * $pack - 3px - 1px;
+		margin-right: -1px;
+		margin-bottom: (0.5 * $pack - 3px) - 1px;
+		margin-left: -1px;
+		
+		border: 1px solid rgba(0, 0, 0, .1);
+		background-color: rgb(242, 242, 242);
+		@include boxShadowWithLiteral(
+
+			inset rgba(255, 255, 255, .6) 0px 1px 0px,
+			inset rgba(255, 255, 255, .6) 0px -1px 0px,
+			inset rgba(255, 255, 255, .6) 1px 0px 0px,
+			inset rgba(255, 255, 255, .6) -1px 0px 0px,
+			rgba(0, 0, 0, .35) 0px 1px 2px
+		
+		);
+		
+		@include borderRadius(4px); 
+					
+		img {
+		
+			display: block;
+		
+		}
+		
+		iframe {
+		
+			background-clip: border;
+			@include borderRadius(2px); 
+			@include boxShadowWithLiteral(
+			
+				inset rgba(0, 0, 0, .25) 0px 1px 2px
+			
+			); 
+			
+			border: 1px solid rgba(0, 0, 0, .25);
+		
+		}
+	
+	}
+	
+	
+	
+	
+	
