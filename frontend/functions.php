@@ -60,6 +60,7 @@ function arRegisterPostTypes () {
 	foreach (array(
 	
 		array("report", "媒體報導"),
+		array("vendor", "經銷商"),
 		
 	) as $typeObject) {
 
