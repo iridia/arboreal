@@ -107,7 +107,7 @@ END;
 		
 			<span irTwitterEngineTemplate="tweet:text"></span>
 			
-			<a title="more" irTwitterEngineTemplate="tweet:link" href="##"><span>Show Twit</span></a>
+			<a title="more" irTwitterEngineTemplate="tweet:link" href="##"><span>&nbsp;</span></a>
 			
 		</div></section>
 		

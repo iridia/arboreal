@@ -94,7 +94,8 @@
 			
 			//	jQuery and associates
 			
-				this.file(_("lib.jQuery/dist/jquery.js"))
+				//	instead of this.file(_("lib.jQuery/dist/jquery.js"))
+				this.file("http://code.jquery.com/jquery-1.5.2.min.js")
 				.provides("jQuery");
 				
 				this.file(_("lib.jQuery.jStorage/jstorage.min.js"))
