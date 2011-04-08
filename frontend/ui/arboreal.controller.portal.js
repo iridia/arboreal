@@ -97,6 +97,8 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 		}, function (data) {
 		
+			console.log(data);
+		
 			var parseURL = function (inString) {
 	
 				return inString.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/, function(url) {
@@ -106,9 +108,10 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 				});
 	
 			};
+			
+			var template = thisObject.bindings.twitterStreamHolder.find("*[irTwitterEngineTemplate]");
 		
-			thisObject.bindings.twitterStreamHolder.find("*[irTwitterEngineTemplate]")
-			.children("*[irTwitterEngineTemplate='tweet:text']")
+			template.children("*[irTwitterEngineTemplate='tweet:text']")
 			.html(mono.tidyCJKInTextNodes(parseURL(data[0].text))).find("a").each(function() {
 							
 				$(this)
@@ -116,6 +119,12 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 				.text($(this).text().replace(/^http:\/\//, ""));
 				
 			});
+			
+			template.children("a[irTwitterEngineTemplate='tweet:link']").each(function () {
+			
+				$(this).attr("href", "http://twitter.com/okogreen/status/" + data[0].id_str);
+			
+			})
 			
 		});
 		
@@ -291,7 +300,7 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 			
 				thisObject.calendarPanelItemForDay(eventObject.startDate).addClass("closed");
 
-				return true;
+			//	return true;
 			
 			}
 			
@@ -373,7 +382,11 @@ arboreal.controller.portal = new JS.Singleton(arboreal.controller.archetype, {
 				].join("");
 				
 				
-				return fromTime.format("#{YEAR, 2}-#{MONTH, 2}-#{DAY, 2} #{HOURS, 2}:#{MINUTES, 2}");
+				return fromTime.format(
+				
+					"#{YEAR, 2}/#{MONTH, 2}/#{DAY, 2}" + (!eventObject.takesAllDay ? " #{HOURS, 2}:#{MINUTES, 2}" : "")
+				
+				);
 				
 			})(eventObject.startDate)));
 			

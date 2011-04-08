@@ -8,8 +8,8 @@
 //	! 
 //	!Positioning
 
-	$arborealWidth: 13 * $pack;
-	$arborealSidebarWidth: 4 * $pack;
+	$arborealWidth: 11 * $pack;
+	$arborealSidebarWidth: 204px;
 	$arborealSidebarSpacing: 4 * $slice;
 	
 	$arborealSideSpacing: .25 * $pack;
@@ -17,7 +17,7 @@
 	$arborealNavigationBarBorderWidth: 2px;
 	$arborealNavigationBarHeight: 6 * $slice;
 	
-	$arborealCalendarItemWidth: 4 * $slice;
+	$arborealCalendarItemWidth: 24px;
 	
 	$arborealArticleWidth: $arborealWidth - $arborealSidebarWidth - $arborealSidebarSpacing;
 

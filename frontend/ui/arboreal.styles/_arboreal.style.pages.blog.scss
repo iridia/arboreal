@@ -380,7 +380,7 @@
 					
 						@include pseudoBlock;
 						@include full;
-						@include borderImage(url(../arboreal.images/arboreal.blog.predicate.articleTitles.backdrop.png), 72, 144, 0, 90, stretch);
+						@include borderImage("../arboreal.images/arboreal.blog.predicate.articleTitles.backdrop.png", 72, 144, 0, 90, stretch);
 						
 						z-index: 8;
 					
@@ -505,7 +505,7 @@
 	.blogPost,
 	article article {
 	
-		@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.png), 36, 27, 36, 27, round);
+		@include borderImage("../arboreal.images/arboreal.article.blogPost.backdrop.png", 36, 27, 36, 27, round);
 		
 		margin: 0px (-2 * $slice) (4 * $slice) (-2 * $slice);
 		padding: 0px $slice;
@@ -517,7 +517,7 @@
 		
 		//	We add an additional 3 pixels below every single truncated article because of how their backdrop looks — this helps visual balance
 		
-			@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.more.png), 36, 27, 36, 27, round);
+			@include borderImage("../arboreal.images/arboreal.article.blogPost.backdrop.more.png", 36, 27, 36, 27, round);
 		
 			margin-bottom: 4 * $slice - 6px;
 			padding-bottom: 6px;
@@ -623,7 +623,7 @@
 					
 					}
 				
-					padding-left: 4 * $slice;
+					padding-left: 24px;
 					background: url(../arboreal.images/arboreal.article.blogPost.header.comments.glyph.png);
 					
 					background-position: left center;
@@ -644,13 +644,15 @@
 						
 						min-width: 36px;
 						
-						@include text(24px, 36px);
+						@include text(16px, 36px);
 
 						text-align: center;
 						position: relative;
 						
 						vertical-align: bottom;
-						baseline-shift: 4px;
+						baseline-shift: 0px;
+						
+						top: 1px;
 					
 					}
 				
@@ -680,11 +682,11 @@
 		
 		p {
 		
-			@include text(18px, 31.5px, rgb(64, 64, 64));
+			@include text(14px, 26px, rgb(64, 64, 64));
 				
 			+ p {
 			
-				margin-top: 0.5em;
+				margin-top: 1em;
 			
 			}
 					
@@ -697,6 +699,9 @@
 				background: url(../arboreal.images/arboreal.article.blogPost.header.share.png) center right no-repeat;
 				
 				color: black;
+				
+				padding-top: 2px;
+				margin-top: -2px;
 				
 				&:hover {
 				
@@ -756,7 +761,7 @@
 			
 				@include pseudoBlock;
 				@include fullInset(-36px, -36px, -54px, -36px);
-				@include borderImage(url(../arboreal.images/arboreal.article.blogPost.blockQuote.backdrop.png), 36, 90, 54, 36, round);
+				@include borderImage("../arboreal.images/arboreal.article.blogPost.blockQuote.backdrop.png", 36, 90, 54, 36, round);
 			
 			}
 			
@@ -882,15 +887,7 @@
 		
 		footer {
 		
-			&:before {
-			
-				@include glareSplitVertical;
-				
-				margin: 0 (-2 * $slice);
-			
-			}
-			
-			margin-top: 2 * $slice;
+			margin-top: 3.5 * $slice;
 			margin-bottom: -2 * $slice + -1 * $slice;	//	the second negation eats out the border 
 		
 			@include typeSansSerifNeo;
@@ -964,11 +961,11 @@
 					margin-top: $slice;
 					margin-bottom: $slice;
 				
-					background: rgba(0, 0, 0, .03);
+					background: rgb(245, 245, 245);
 					
 					&:hover {
 					
-						background: rgba(0, 0, 0, .07);
+						background: rgb(220, 220, 220);
 					
 					}
 					
@@ -1113,7 +1110,7 @@
 				margin-left: $arborealSidebarWidth;
 				margin-right: -2 * $slice;
 	
-				@include borderImage(url(../arboreal.images/arboreal.blogPost.comment.backdrop.png), 72, 36, 36, 54, stretch);
+				@include borderImage("../arboreal.images/arboreal.blogPost.comment.backdrop.png", 72, 36, 36, 54, stretch);
 								
 				@include text(16px, 27px, rgb(64, 64, 64));
 				
@@ -1419,7 +1416,7 @@
 			display: block;
 			position: absolute;
 			
-			@include borderImage(url(../arboreal.images/arboreal.blogPost.comment.sheet.backdrop.png), $packRaw, 2 * $packRaw, $packRaw, $packRaw, stretch);
+			@include borderImage("../arboreal.images/arboreal.blogPost.comment.sheet.backdrop.png", $packRaw, 2 * $packRaw, $packRaw, $packRaw, stretch);
 			
 			@include size(3 * $pack, 5.375 * $pack);
 			@include width(2.5 * $pack);
@@ -1640,6 +1637,125 @@
 			display: block;
 			opacity: 1;
 					
+		}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	#comments-list {
+	
+		ol {
+		
+			li {
+			
+				margin-bottom: 36px;
+				margin-left: 144px;
+				
+				> * {
+				
+				//	float: right;
+				//	width: 720px;
+				
+				}
+				
+				.comment-author {
+				
+					float: left;
+					width: 128px;
+					margin-left: -144px;
+					
+					text-align: right;
+					
+					span {
+					
+						margin-top: 9px;
+					
+						display: block;
+						
+						@include text(13px, 16px, rgb(32, 32, 32)); 
+					
+					}
+				
+				}
+			
+				.comment-author .avatar {
+				
+					@include borderRadius(4px);
+					@include boxShadowWithLiteral(
+					
+						rgba(0, 0, 0, .25) 0px 1px 2px
+						
+					);  
+				
+				}
+				
+				.comment-meta, .comment-reply-link {
+				
+					@include text(11px, 14px);
+					font-weight: bold; 
+				
+				}
+				
+				.comment-meta {
+					
+					margin-bottom: 9px;
+				
+				}
+				
+				.comment-reply-link {
+				
+					margin-top: 9px;
+				
+				}
+				
+				.comment-content {
+				
+					@include text(13px, 18px, rgb(64, 64, 64));
+					
+				//	width: 540px;
+				//	float: right;
+				
+				}
+				
+				clear: both;
+			
+			}
+			
+			+ * {
+			
+				clear: both;
+				
+			}
+		
+		}
+	
+	}
+	
+	#comments #respond {
+	
+		h3 {
+		
+			display: none;
+		
+		}
+	
+	}
+	
+	#comments-list,
+	#trackbacks-list {
+	
+		h3 {
+		
+			display: none;
+		
 		}
 	
 	}

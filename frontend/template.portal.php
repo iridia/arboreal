@@ -49,7 +49,7 @@ END;
 			
 				"mainCalendarStream" => array(
 				
-					"calendarID" => "0lgqdbsiischmeimnpu89bqudo"
+					"calendarID" => "iridia.tw_4ricig5f23dl5ols3jji2b3nq0@group.calendar.google.com"
 				
 				)
 			
@@ -103,20 +103,16 @@ END;
 	
 	<article>
 	
-		<section irTwitterEngine="mainTwitterStream" class="twitterStream"><div irTwitterEngineTemplate="true">
+		<section style="float:right; width: 128px;" irTwitterEngine="mainTwitterStream" class="twitterStream"><div irTwitterEngineTemplate="true">
 		
-			<span irTwitterEngineTemplate="tweet:text">好片推薦：到生態綠部落格參加「親愛的醫生」電影特映會贈票活動第一波：<a href="http://www.okogreen.com.tw/blog/?p=355" target="_blank">http://www.okogreen.com.tw/blog/?p=355</a></span>
+			<span irTwitterEngineTemplate="tweet:text"></span>
 			
 			<a title="more" irTwitterEngineTemplate="tweet:link" href="##"><span>Show Twit</span></a>
 			
 		</div></section>
 		
+		<section style="float:left; width: 268px; margin-top: -9px;">
 		
-		
-		
-		
-		<ol class="blogPosts">
-
 		<?php
 
 			global $post;
@@ -127,27 +123,23 @@ END;
 				setup_postdata($post);
 
 		?>
-			<li>
-			
-				<a href="<?php the_permalink(); ?>"><h2><time datetime="<?php echo get_the_date("Y-m-d") ?>"><?php echo get_the_date("m/d"); ?></time><?php the_title(); ?></h2></a>
-				
-				<p><?php 
-				
-					echo arGenerateExcerpt(
-					
-						apply_filters('the_content', get_the_content()), 150, "p"
-						
-					);
-				
-				?></p>
-			
-			</li>
-			
-			<li class="more"><a href="<?php the_permalink(); ?>" title="More…"><span>More</span></a></li>
-			
-			<?php } ?>
+
+			<article class="blogPosts" style="margin-top:0px; margin-bottom:0px; padding-bottom:0px;">
+
 		
-		</ol>
+				<h2><a href="<?php the_permalink(); ?>" style="display:block;"><time datetime="<?php echo get_the_date("Y-m-d") ?>"><?php echo get_the_date("m/d"); ?></time><?php the_title(); ?></a></h2>
+				
+				<p style="margin-bottom:0px;"><?php 
+				
+					echo arGenerateExcerpt(apply_filters('the_content', get_the_content()), 150, "p");
+				
+				?> <a href="<?php the_permalink(); ?>" class="noop" style="text-decoration:underline;" title="More…"><span>More &raquo; </span></a></p>
+			
+			</article>		
+				
+		<?php } ?>
+
+		</section>
 	
 	</article>
 	
@@ -182,25 +174,61 @@ END;
 			
 			<ul class="actions">
 			
-				<li><a target="_blank">Subscribe</a></li>
+				<li><a target="_blank">訂閱行事曆</a></li>
 			
 			</ul>
 		
 		</section>
 		
+<?php
+
+			
+		$latestReport = get_posts(array(
+
+			"post_status" => "publish",
+			"post_type" => "report",		
+			"numberposts" => 1
+		
+		));
+		
+	//	$latestReport
+
+		if (count($latestReport) > 0) {
+		
+			$inPost = $latestReport[0];
+
+?>
+		
 		<section class="mediaOutlets tealBox">
 		
-			<header>
+			<header><a style="display:block" href="<?php echo get_permalink($inPost->ID); ?>">
 			
-				<h2>情侶檔　推動公平貿易認證</h2>
-				<time datetime="">2008.05.10 自由時報 A3 焦點新聞</time>
+				<h2><?php echo $inPost->post_title; ?></h2>
+				
+				<?php 
+				
+					$inReportDate = irCustomFieldValue("arCustomField-reportDate", $inPost->ID);
+					$inReportMediaOutlet = irCustomFieldValue("arCustomField-mediaOutlet", $inPost->ID);
+					
+					if (!empty($inReportDate)) {
+				
+					?><time datetime="<?php echo $inReportDate; ?>"><?php echo str_replace("-", "/", $inReportDate) . " $inReportMediaOutlet"; ?></time><?php
+				
+					}
+				
+				?>
 			
-			</header>
-			
-			<p>記者謝文華／台北報導</p>
-			<p>如果你選擇購買貼有「小黑人標籤」的咖啡豆，就可以讓拉丁美洲、南美洲等第三世界國家的小農，一天的薪資從一塊美金漲到兩塊美金！今天是「世界公平貿易日」，國際公平貿易協會特別選在每年五月的第二個星期六推廣公平貿易理念，支持全球小農⋯⋯</p>
+			</a></header>
+
+			<p><?php echo irPostExcerpt($inPost, 120); ?></p>
 		
 		</section>
+		
+<?php
+
+		}
+
+?>
 		
 	</aside>
 	

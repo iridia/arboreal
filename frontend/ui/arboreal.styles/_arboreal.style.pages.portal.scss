@@ -30,14 +30,14 @@
 		padding: 18px !important;
 		position: relative;
 		margin-top: 2 * $slice;
-		margin-bottom: 6 * $slice;
+	//	margin-bottom: 6 * $slice;
 		
 		&:before {
 		
 			@include full;
 			@include pseudoBlock;
 			z-index: 1024;
-			@include borderImage(url(../arboreal.images/arboreal.gallery.cover.png), 54, 54, 54, 90, round);
+			@include borderImage("../arboreal.images/arboreal.gallery.cover.png", 54, 54, 54, 90, round);
 					
 		}
 		
@@ -80,6 +80,7 @@
 		> li {
 		
 			@include full;
+			overflow-x: hidden;			
 			background: black;
 			
 			a {
@@ -154,11 +155,11 @@
 		@include uaDisableTextZoom;
 		@include typeSansSerifUniversal;
 		
-		@include borderImage(url(../arboreal.images/arboreal.article.twitterStream.backdrop.png), 36, 108, 36, 36, round);
+		@include borderImage("../arboreal.images/arboreal.article.twitterStream.backdrop.png", 36, 108, 36, 36, round);
 		
 		margin: -2 * $slice;
 		
-		@include text(20px, 36px, rgb(52, 62, 64));
+		@include text(14px, 18px, rgb(52, 62, 64));
 		
 		div {
 		
@@ -168,13 +169,28 @@
 		
 		span {
 		
+			&:empty {
+			
+				&:before {
+				
+					@include pseudoBlock; 
+					width: 100%;
+					content: "Loading…";
+					text-align: center;
+					color: gray;
+				
+				}
+				
+			
+			}
+		
 			text-shadow: 	rgba(255, 255, 255, .2) 0px 1px 0px,
 					rgba(0, 0, 0, .05) 0px -1px 0px,
 					rgba(0, 0, 0, .05) 0px 0px 4.5px;
 					
 			@include textStroke;
 			
-			a {
+			a.replaced {
 			
 				@include textReplacement;
 
@@ -195,21 +211,54 @@
 		
 		}
 		
-		a[title*='more'] {
+		a {
 		
-			@include inlineBlock;
-			@include size(36px, 36px);
-			vertical-align: top;
-		
-			background: url(../arboreal.images/arboreal.article.twitterStream.information.png) center no-repeat;
-		
-			span {
-		
-				display: none;
+			&:before {
+			
+				content: " ";
 			
 			}
 			
-			display: none;
+		//	force wrapping
+		//	http://perishablepress.com/press/2010/06/01/wrapping-content/
+		
+			white-space: pre;           /* CSS 2.0 */
+			white-space: pre-wrap;      /* CSS 2.1 */
+			white-space: pre-line;      /* CSS 3.0 */
+			white-space: -pre-wrap;     /* Opera 4-6 */
+			white-space: -o-pre-wrap;   /* Opera 7 */
+			white-space: -moz-pre-wrap; /* Mozilla */
+			white-space: -hp-pre-wrap;  /* HP Printers */
+			word-wrap: break-word;      /* IE 5+ */
+		
+		}
+		
+		a[title*='more'] {
+		
+			display: block;
+			@include size(236px, 45px);
+			vertical-align: top;
+			
+			height: 0px;
+			
+			overflow: visible;
+		
+			span {
+			
+				margin-left: -18px;
+				display: block;
+				height: 54px;
+				line-height: 54px;
+				text-align: center;
+				padding-top: 27px;
+				display: block;
+				background: url(../arboreal.images/arboreal.article.twitterStream.banner.png) left bottom no-repeat;
+				
+				color: transparent; 
+			
+			}
+			
+		//	display: none;
 		
 		}
 		
@@ -233,7 +282,7 @@
 
 	.blogPosts {
 	
-		@include borderImage(url(../arboreal.images/arboreal.article.blogPost.backdrop.more.png), 36, 27, 36, 27, round);
+		@include borderImage("../arboreal.images/arboreal.article.blogPost.backdrop.more.png", 36, 27, 36, 27, round);
 		
 		margin: 36px -18px 0 -18px;
 		
@@ -250,18 +299,22 @@
 		
 			@include arborealBlogArticleHeaderTitle;
 			text-shadow: none;
-			@include width($arborealArticleWidth - (4 * $slice));
-			@include textDelimited;
+			@include text(16px, 20px, rgb(39, 73, 37));
+		//	@include width($arborealArticleWidth - (4 * $slice));
+		//	@include textDelimited;
 			
-			line-height: 4 * $slice;
+		//	line-height: 4 * $slice;
+			margin-bottom: $slice;
 			
 			time {
 			
-				@include inlineBlock;
 				padding-right: 0.5em;
 				
 				font-weight: bold;
 				text-align: left;
+				
+				font-size: 12px;
+				margin-bottom: 0px;
 			
 			}
 				

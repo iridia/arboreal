@@ -14,7 +14,7 @@
 	thematic_canonical_url();
 
 	if (strlen(strstr($_SERVER['HTTP_USER_AGENT'], "MSIE")) > 0) {	?>
-
+	
 		<script src="<?php bloginfo('template_url'); ?>/../arboreal/ui/lib.html5shiv/html5.js"></script>
 
 <?php		arCreateTransformedStylesheetWithRelativeURL("arboreal.style.css");

@@ -80,6 +80,14 @@ END;
 	
 	</article>	
 	
+<?php
+
+		thematic_belowpost();	        				
+		
+		thematic_comments_template();
+
+?>
+	
 </article></section>
 
 
@@ -88,7 +96,7 @@ END;
 
 <?php
 	        
-		thematic_belowpost();	        
+		
 	        thematic_belowcontent();
 		thematic_belowcontainer();	
 

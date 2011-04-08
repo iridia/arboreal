@@ -42,7 +42,7 @@
 		@include uaDisableTextZoom;
 		
 		padding: 0 (2 * $slice);
-		@include borderImage(url(../arboreal.images/arboreal.calendar.portal.backdrop.png), 54, 36, 54, 36, stretch);
+		@include borderImage("../arboreal.images/arboreal.calendar.portal.backdrop.png", 54, 36, 54, 36, stretch);
 		margin: -36px -36px -54px -36px;
 		background-color: transparent;
 		
@@ -62,7 +62,7 @@
 				@include size(4 * $slice);
 				
 				top: 4 * $slice;
-				left: 0;
+				left: -4px;
 				
 				background: url(../arboreal.images/arboreal.calendar.sunday.png) center no-repeat;
 				background-color: $arborealPanelBackdrop;
@@ -91,7 +91,7 @@
 			display: block;
 			float: left;
 			@include size(1 * $arborealCalendarItemWidth, 1 * $arborealCalendarItemWidth);
-			@include text(16px, 36px);
+			@include text(12px, 24px);
 			
 			text-align: center;
 			font-weight: light;
@@ -140,13 +140,14 @@
 			
 			position: relative;
 		
-			&:before {
+			/*
+&:before {
 			
 				@include pseudoBlock;
 			
 				position: absolute;
 			
-				@include borderImage(url(../arboreal.images/arboreal.calendar.portal.tooltip.backdrop.png), 18, 36, 18, 18, stretch);
+				@include borderImage("../arboreal.images/arboreal.calendar.portal.tooltip.backdrop.png", 18, 36, 18, 18, stretch);
 				
 				padding-left: 18px;
 				
@@ -173,6 +174,7 @@
 				visibility: hidden;
 				
 			}
+*/
 			
 			&:hover {
 			
@@ -303,7 +305,12 @@
 				border-bottom: 1px solid transparent;
 				
 				padding: ($slice - 1) (2 * $slice);
-				color: white;
+				
+				&, & a {
+				
+					color: white;
+				
+				}
 				
 				&:first-child {
 				
@@ -359,9 +366,7 @@
 				
 				color: inherit;
 				
-				@include text(16px, 18px);
-				
-				opacity: .75;
+				@include text(12px, 16px);
 			
 			}
 			
@@ -369,7 +374,7 @@
 			
 				@include inlineBlock;
 								
-				@include text(18px, 27px);
+				@include text(14px, 18px);
 				@include textStroke;
 							
 			}
@@ -394,7 +399,7 @@
 				
 				&, a {
 				
-					@include text(18px, 45px);
+					@include text(14px, 54px);
 				
 				}
 				
@@ -403,8 +408,9 @@
 					@include link;
 				
 					@include full(3px);
-					
 					padding: 0 $slice 0 (4 * $slice);
+					
+					line-height: 48px;
 										
 					background-position: left center;
 					background-position-x: $slice;
@@ -447,26 +453,28 @@
 				
 				}
 				
-				&:before, &:after {
-				
-					@include glareSplitHorizontal;
-					height: 100%;
-					position: absolute;
-					top: 0;
-				
-				}
-				
-				&:before {
-				
-					left: -1 * $slice;
-				
-				}
-				
-				&:after {
-				
-					right: -1 * $slice;
-				
-				}
+				/*
+					&:before, &:after {
+					
+						@include glareSplitHorizontal;
+						height: 100%;
+						position: absolute;
+						top: 0;
+					
+					}
+					
+					&:before {
+					
+						left: -1 * $slice;
+					
+					}
+					
+					&:after {
+					
+						right: -1 * $slice;
+					
+					}
+				*/
 			
 			}
 		
@@ -483,7 +491,7 @@
 
 	.tealBox {
 	
-		@include borderImage(url(../arboreal.images/arboreal.aside.tealBox.backdrop.png), 36, 36, 36, 108, stretch);
+		@include borderImage("../arboreal.images/arboreal.aside.tealBox.backdrop.png", 36, 36, 36, 108, stretch);
 		
 		margin: -2 * $slice;
 		
@@ -510,24 +518,24 @@
 			margin-right: -4 * $slice;
 			margin-top: -4 * $slice;	
 			
-			@include borderImage(url(../arboreal.images/arboreal.aside.tealBox.header.backdrop.png), 36, 36, 36, 108, stretch);
+			@include borderImage("../arboreal.images/arboreal.aside.tealBox.header.backdrop.png", 36, 36, 36, 108, stretch);
 			
 			h2 {
 			
-				margin-top: -1 * $slice;
+			//	margin-top: -1 * $slice;
 			
-				@include text(20px, 36px, rgb(44, 68, 87));
+				@include text(14px, 18px, rgb(44, 68, 87));
 				text-shadow:	0px 1px 0px rgba(255, 255, 255, .65),
 						0px -1px 0px rgba(0, 0, 0, .15);
 						
 				@include textDelimited;
-				margin-bottom: -1 * $slice;
+			//	margin-bottom: -1 * $slice;
 			
 			}
 			
 			time {
 				
-				@include text(13px, 27px, rgb(64, 64, 64));
+				@include text(11px, 18px, rgb(64, 64, 64));
 				
 				margin-bottom: -1 * $slice;
 			
@@ -535,7 +543,7 @@
 		
 		}
 		
-		@include text(13px, 18px);
+		@include text(11px, 16px);
 		
 	}
 
