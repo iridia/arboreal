@@ -6,58 +6,57 @@
 	
 		arLinkAssociatedController("portal");
 		
-		echo "<script type=\"text/javascript\">";
+	?>
+	
+			<script type="text/javascript">
 		
-		echo <<< END
-		
-		var arboreal = arboreal || {};
-		arboreal.presets = arboreal.presets || {};
-		arboreal.presets.pages = arboreal.presets.pages || {};
-		
-END;
-		
-		echo "arboreal.presets.pages.currentPage = " . json_encode(array(
-		
-			"irSlidesController" => array(
+				var arboreal = arboreal || {};
+				arboreal.presets = arboreal.presets || {};
+				arboreal.presets.pages = arboreal.presets.pages || {};
+				arboreal.presets.pages.currentPage = <?php echo json_encode(array(
 			
-				"mainGallery" => array(
+				"irSlidesController" => array(
 				
-					"interval" => 5,
+					"mainGallery" => array(
 					
-					"images" => array(
-					
-						get_bloginfo('template_url') . "/../arboreal/placebo/placebo.portal.roulette.01.png",
-						get_bloginfo('template_url') . "/../arboreal/placebo/placebo.portal.roulette.02.png"
+						"interval" => 5,
 						
+						"images" => array(
+						
+							get_bloginfo('template_url') . "/../arboreal/placebo/placebo.portal.roulette.01.png",
+							get_bloginfo('template_url') . "/../arboreal/placebo/placebo.portal.roulette.02.png"
+							
+						)
+					
+					)
+				
+				),
+				
+				"irTwitterEngine" => array(
+				
+					"mainTwitterStream" => array(
+					
+						"twitterAccount" => "okogreen"
+					
+					)
+				
+				),
+				
+				"irCalendarEngine" => array(
+				
+					"mainCalendarStream" => array(
+					
+						"calendarID" => "iridia.tw_4ricig5f23dl5ols3jji2b3nq0@group.calendar.google.com"
+					
 					)
 				
 				)
 			
-			),
+			)); ?>
 			
-			"irTwitterEngine" => array(
-			
-				"mainTwitterStream" => array(
-				
-					"twitterAccount" => "okogreen"
-				
-				)
-			
-			),
-			
-			"irCalendarEngine" => array(
-			
-				"mainCalendarStream" => array(
-				
-					"calendarID" => "iridia.tw_4ricig5f23dl5ols3jji2b3nq0@group.calendar.google.com"
-				
-				)
-			
-			)
-		
-		));
-				
-		echo "</script>";
+			</script>
+	
+	<?php
 	
 	}
 	

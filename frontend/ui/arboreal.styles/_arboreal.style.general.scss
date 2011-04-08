@@ -813,3 +813,24 @@
 	
 	
 	
+	#wpadminbar {
+		
+		left: 0px;
+		right: 0px;
+		
+		@include borderRadius(0px, 0px, 4px, 4px); 
+		border: 1px solid rgb(64, 64, 64);
+		border-top: none;
+		@include boxShadowWithLiteral(
+		
+		//	rgba(255, 255, 255, .85) 0px 1px 1px,
+			rgba(0, 0, 0, .25) 0px 2px 2px
+		
+		); 
+		
+	}
+	
+	
+	
+	
+	
