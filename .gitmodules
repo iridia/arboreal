@@ -40,9 +40,6 @@
 [submodule "frontend/ui/lib.monoArray"]
 	path = frontend/ui/lib.monoArray
 	url = git://github.com/monoceroi/monoArray
-[submodule "externals/thematic"]
-	path = externals/thematic
-	url = git://github.com/iridia/thematic.git
 [submodule "frontend/ui/lib.monoString"]
 	path = frontend/ui/lib.monoString
 	url = git://github.com/monoceroi/monoString.git
