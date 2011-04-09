@@ -60,11 +60,20 @@ function arRegisterPostTypes () {
 	foreach (array(
 	
 		array("report", "媒體報導"),
-		array("vendor", "經銷商"),
+		array("vendor", "經銷商", array(
+		
+			"hierarchical" => true
+		
+		)),
+		array("salepoint", "銷售點", array(
+		
+			"hierarchical" => true
+		
+		)),
 		
 	) as $typeObject) {
 
-		register_post_type($typeObject[0], array(
+		register_post_type($typeObject[0], array_merge(($typeObject[2] ? $typeObject[2] : array()), array(
 		
 			"labels" => array(
 			
@@ -90,11 +99,58 @@ function arRegisterPostTypes () {
 			'rewrite' => array( 'slug' => $typeObject[0], 'with_front' => true ),
 			'taxonomies' => array("post_tag")
 		
-		));
+		)));
 	
 	}
 
 }
+
+//	Note, create vendor and salepoint, wire the latter to the former; one vendor might own multiple salepoints
+//	http://janina.tumblr.com/post/3588081423/post-parent-different-type
+
+function arRemoveDefaultMetaBoxForSalepoint () {
+
+	remove_meta_box('pageparentdiv', 'salepoint', 'normal');
+
+}
+
+function arCreateCustomMetaBoxForSalepoint () {
+
+	add_meta_box('salepoint-parent', '經銷商', 'arCreateCustomMetaBoxForSalepointCallback', 'salepoint', 'side', 'high');
+
+}
+
+function arCreateCustomMetaBoxForSalepointCallback () {
+
+	global $post;
+
+	$post_type_object = get_post_type_object($post->post_type);
+
+  if (!$post_type_object->hierarchical)
+  return;
+  
+  $pages = wp_dropdown_pages(array(
+  
+		"post_type" => "vendor",
+		'depth' => 0,
+		'selected' => $post->post_parent, 
+		'name' => 'parent_id', 
+		'show_option_none' => "沒有經銷商",
+		'sort_column'=> 'menu_order, post_title', 
+		'echo' => 0
+  	
+  ));
+  
+  if (empty($pages))
+  return;
+  
+  echo $pages;
+
+}
+
+add_action('admin_menu', "arRemoveDefaultMetaBoxForSalepoint");
+add_action('add_meta_boxes', "arCreateCustomMetaBoxForSalepoint");
+
 
 
 
