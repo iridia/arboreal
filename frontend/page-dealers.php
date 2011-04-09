@@ -17,6 +17,41 @@
 	
 	thematic_abovepost();
 	
+	
+	
+	
+	
+	function arVendorInfo ($aPost) { ?>
+						
+		<tr><td style="clear: both;" class="arborealVendorEntry">
+		
+		<div class="image" style="float:left;">&nbsp;<?php echo get_the_post_thumbnail($aPost->ID, array(100, 50)); ?>&nbsp;</div>
+		<h2><?php echo $aPost->post_title; ?></h2>
+		
+		<p class="annotations">
+	
+		<?php
+		
+			$custom = get_post_custom($aPost->ID); 
+			
+			$vendorAddress = $custom['vendor-address'][0];
+			
+			if ($vendorAddress) {
+			
+				?><address><?php echo $vendorAddress; ?></address><?php
+			
+			}
+		
+		?>
+		
+		</p>
+		
+		</td></tr>
+		
+	<?php
+	
+	}
+						
 ?>
 
 
@@ -32,13 +67,20 @@
 	
 	<article>
 	
-		<table class="arborealSingleEtched">
+		<table class="arborealSingleEtched arborealVendorList">
 		
-		<tr><td>Test</td></tr>
-		<tr><td>Test</td></tr>
-		<tr><td>Test</td></tr>
-		<tr><td>Test</td></tr>
-		<tr><td>Test</td></tr>
+			<?php
+						
+					$queryAllDealers = new WP_Query(array(
+						
+						"post_type" => "vendor"
+					
+					));
+					
+					foreach ($queryAllDealers->posts as $vendorPost)
+					arVendorInfo($vendorPost);
+			
+			?>
 		
 		</table>
 	
